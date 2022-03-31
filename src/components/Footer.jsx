@@ -68,34 +68,28 @@ const Footer = () => {
     <Container>
       <Left>
         <Logo> E-Commerce</Logo>
-        <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
-        </Desc>
+        <Desc>copyright © all rights reserved</Desc>
         <SocialContainer>
           <SocialIcon></SocialIcon>
         </SocialContainer>
       </Left>
       <Center>
-        <Title>Useful Links</Title>
+        <Title>MENU</Title>
         <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Cart</ListItem>
-          <ListItem>Man Fashion</ListItem>
-          <ListItem>Woman Fashion</ListItem>
-          <ListItem>Accessories</ListItem>
-          <ListItem>My Account</ListItem>
-          <ListItem>Order Tracking</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Terms</ListItem>
+          <ListItem>LOGIN</ListItem>
+          <ListItem>REGISTER</ListItem>
+          <ListItem>HOME</ListItem>
+          <ListItem>CART</ListItem>
+          <ListItem>MY PAGE</ListItem>
+          <ListItem>ORDER</ListItem>
+          <ListItem>WISH</ListItem>
         </List>
       </Center>
       <Right>
         <Title>Contact</Title>
-        <ContactItem>622 Dixie Path , South Tobinchester 98336</ContactItem>
-        <ContactItem>+1 234 56 78</ContactItem>
-        <ContactItem>contact@lama.dev</ContactItem>
+        <ContactItem>충청남도 천안시 서북구 쌍용15길</ContactItem>
+        <ContactItem>1599-9999</ContactItem>
+        <ContactItem>amh6281@naver.com</ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
     </Container>
