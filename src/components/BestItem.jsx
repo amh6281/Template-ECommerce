@@ -5,7 +5,7 @@ import Product from "./Product";
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -43,14 +43,11 @@ const Slide = styled.div`
   background-color: #${(props) => props.bg};
 `;
 
-const Title = styled.h1`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 100px;
+const Image = styled.img`
+  height: 80%;
 `;
 
-const Products = () => {
+const BestItem = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
@@ -62,25 +59,22 @@ const Products = () => {
   };
 
   return (
-    <div>
-      <Title>Best Item</Title>
-      <Container>
-        <Arrow direction="left" onClick={() => handleClick("left")}>
-          왼
-        </Arrow>
-        <Wrapper slideIndex={slideIndex}>
-          {popularProducts.map((item) => (
-            <Slide bg={item.bg} key={item.id}>
-              <Product item={item} key={item.id} />
-            </Slide>
-          ))}
-        </Wrapper>
-        <Arrow direction="right" onClick={() => handleClick("right")}>
-          오
-        </Arrow>
-      </Container>
-    </div>
+    <Container>
+      <Arrow direction="left" onClick={() => handleClick("left")}>
+        왼
+      </Arrow>
+      <Wrapper slideIndex={slideIndex}>
+        {popularProducts.map((item) => (
+          <Slide bg={item.bg} key={item.id}>
+            <Product item={item} key={item.id} />
+          </Slide>
+        ))}
+      </Wrapper>
+      <Arrow direction="right" onClick={() => handleClick("right")}>
+        오
+      </Arrow>
+    </Container>
   );
 };
 
-export default Products;
+export default BestItem;
