@@ -61,7 +61,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
+          <Language>KR</Language>
           <SearchContainer>
             <Input />
           </SearchContainer>
@@ -72,7 +72,7 @@ const Navbar = () => {
         <Right>
           <MenuItem>REGISTER</MenuItem>
           <MenuItem>SIGN IN</MenuItem>
-          <MenuItem></MenuItem>
+          <MenuItem>장바구니</MenuItem>
         </Right>
       </Wrapper>
     </Container>
