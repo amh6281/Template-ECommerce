@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 30px;
-  background-color: teal;
-  color: white;
+  height: 50px;
+  background-color: #eef115;
+  color: black;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 const Announcement = () => {
-  return <Container>super Deal/1 Free Shipping on Orders Over $50</Container>;
+  return <Container>카카오톡 채널 추가 시 2,000원 할인쿠폰 지급!</Container>;
 };
 
 export default Announcement;

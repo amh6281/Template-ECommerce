@@ -6,8 +6,8 @@ import Navbar from "../components/Navbar";
 const Home = () => {
   return (
     <div>
-      <Announcement />
       <Navbar />
+      <Announcement />
       <Slider />
     </div>
   );
