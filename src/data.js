@@ -42,3 +42,38 @@ export const categories = [
     cat: "accessory",
   },
 ];
+
+export const popularProducts = [
+  {
+    id: 1,
+    img: "https://user-images.githubusercontent.com/83646986/160977533-77ec421e-38fc-4cb2-8874-30ffd034e94c.png",
+  },
+  {
+    id: 2,
+    img: "https://user-images.githubusercontent.com/83646986/160977544-a1de75e3-7221-4d84-aaee-46efcefaa8e6.png",
+  },
+  {
+    id: 3,
+    img: "https://user-images.githubusercontent.com/83646986/160977546-92b2c425-2aff-4c16-9b20-341d8b41afc3.png",
+  },
+  {
+    id: 4,
+    img: "https://user-images.githubusercontent.com/83646986/160977547-8f8c1ac1-8974-4c60-adc3-963d0362d169.png",
+  },
+  {
+    id: 5,
+    img: "https://user-images.githubusercontent.com/83646986/160977549-35bbf0d7-852c-4375-ae7b-0b250f01d2b9.png",
+  },
+  {
+    id: 6,
+    img: "https://user-images.githubusercontent.com/83646986/160977550-0a51ef90-47ec-4fdf-96a2-cfde7f065d49.png",
+  },
+  {
+    id: 7,
+    img: "https://user-images.githubusercontent.com/83646986/160977553-153d5373-5dcf-45c7-8762-c9009d96130f.png",
+  },
+  {
+    id: 8,
+    img: "https://user-images.githubusercontent.com/83646986/160977555-bd6189b5-c4e4-4fd4-988c-24de822309c1.png",
+  },
+];
