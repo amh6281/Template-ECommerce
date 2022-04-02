@@ -40,7 +40,6 @@ const Wrapper = styled.div`
 const Slide = styled.div`
   display: flex;
   align-items: center;
-  background-color: #${(props) => props.bg};
 `;
 
 const Title = styled.h1`
@@ -70,7 +69,7 @@ const Products = () => {
         </Arrow>
         <Wrapper slideIndex={slideIndex}>
           {popularProducts.map((item) => (
-            <Slide bg={item.bg} key={item.id}>
+            <Slide key={item.id}>
               <Product item={item} key={item.id} />
             </Slide>
           ))}

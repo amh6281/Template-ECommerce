@@ -77,3 +77,65 @@ export const popularProducts = [
     img: "https://user-images.githubusercontent.com/83646986/160977555-bd6189b5-c4e4-4fd4-988c-24de822309c1.png",
   },
 ];
+
+export const newProducts = [
+  {
+    id: 1,
+    img: "https://user-images.githubusercontent.com/83646986/161369228-b54dd34f-7cbb-4063-926e-114a0284b63e.png",
+  },
+  {
+    id: 2,
+    img: "https://user-images.githubusercontent.com/83646986/161369372-d0b962aa-d7f2-4876-ab96-939d2d7ad541.png",
+  },
+  {
+    id: 3,
+    img: "https://user-images.githubusercontent.com/83646986/161369383-a7a18d0a-53a7-4d3b-af4a-33d8c67d8eb7.png",
+  },
+  {
+    id: 4,
+    img: "https://user-images.githubusercontent.com/83646986/161369726-8221be2c-1575-46a2-b9e7-f93eea8dfe60.png",
+  },
+  {
+    id: 5,
+    img: "https://user-images.githubusercontent.com/83646986/161369449-8eda4fb1-9ff1-4c2e-8444-0f587dcc619d.png",
+  },
+  {
+    id: 6,
+    img: "https://user-images.githubusercontent.com/83646986/161369738-a41fa79d-a6e4-478d-8d79-7c955758559e.png",
+  },
+  {
+    id: 7,
+    img: "https://user-images.githubusercontent.com/83646986/160977553-153d5373-5dcf-45c7-8762-c9009d96130f.png",
+  },
+  {
+    id: 8,
+    img: "https://user-images.githubusercontent.com/83646986/160977555-bd6189b5-c4e4-4fd4-988c-24de822309c1.png",
+  },
+];
+
+export const business = [
+  {
+    id: 1,
+    img: "https://user-images.githubusercontent.com/83646986/161370875-0ee1faae-4803-4d15-a828-b21859697be5.jpg",
+    title: "무드등 쇼핑몰",
+    cat: "lamp",
+  },
+  {
+    id: 2,
+    img: "https://user-images.githubusercontent.com/83646986/161371110-8bc94bdd-ebb6-4bf8-93b0-bb0f68bc2968.jpg",
+    title: "애견 쇼핑몰",
+    cat: "pet",
+  },
+  {
+    id: 3,
+    img: "https://user-images.githubusercontent.com/83646986/161370924-e72b9d92-e05c-46b7-8fa6-e43708a6f9b0.jpg",
+    title: "의류 쇼핑몰",
+    cat: "clothes",
+  },
+  {
+    id: 4,
+    img: "https://user-images.githubusercontent.com/83646986/161370996-45abf33a-958d-4e41-a332-0cba470e47ae.jpg",
+    title: "가전 쇼핑몰",
+    cat: "life",
+  },
+];
