@@ -4,9 +4,9 @@ import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
-import Products from "../components/Products";
 import NewProducts from "../components/NewProducts";
 import Businesses from "../components/Businesses";
+import BestItems from "../components/BestItems";
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
       <Announcement />
       <Slider />
       <Categories />
-      <Products />
+      <BestItems />
       <NewProducts />
       <Businesses />
       <Footer />
