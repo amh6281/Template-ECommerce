@@ -56,7 +56,7 @@ const Register = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
+        <Title>회원가입</Title>
         <Form>
           <Input placeholder="name" />
           <Input placeholder="last name" />
@@ -65,10 +65,9 @@ const Register = () => {
           <Input placeholder="password" />
           <Input placeholder="confirm password" />
           <Agreement>
-            계정을 생성함으로써 개인정보 취급방침에 따라 개인정보 취급에
-            동의합니다.
+            계정을 생성함으로써 개인정보 취급방침에 따라 개인정보 취급 동의
           </Agreement>
-          <Button>CREATE</Button>
+          <Button>가입하기</Button>
         </Form>
       </Wrapper>
     </Container>

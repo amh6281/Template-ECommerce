@@ -63,9 +63,9 @@ const Login = () => {
         <Form>
           <Input placeholder="username" />
           <Input placeholder="password" />
-          <Button>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+          <Button>로그인</Button>
+          <Link>비밀번호 찾기</Link>
+          <Link>회원가입</Link>
         </Form>
       </Wrapper>
     </Container>

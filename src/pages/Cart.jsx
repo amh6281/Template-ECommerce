@@ -108,7 +108,7 @@ const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-  height: 50vh;
+  height: 61vh;
 `;
 
 const SummaryTitle = styled.h1`
@@ -145,6 +145,7 @@ const Cart = () => {
           <TopButton>CONTINUE SHOPPING</TopButton>
           <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
+        <Hr />
         <Bottom>
           <Info>
             <Product>
@@ -218,6 +219,8 @@ const Cart = () => {
                 <ProductPrice>₩ 228,000</ProductPrice>
               </PriceDetail>
             </Product>
+
+            <Hr />
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>

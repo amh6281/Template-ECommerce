@@ -16,7 +16,6 @@ const Home = () => {
       <Announcement />
       <NavCategory />
       <Slider />
-      <Categories />
       <BestItems />
       <NewProducts />
       <Businesses />
