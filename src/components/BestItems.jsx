@@ -11,6 +11,12 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
+const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 2px;
+`;
+
 const Arrow = styled.div`
   width: 50px;
   height: 50px;
@@ -44,9 +50,8 @@ const Slide = styled.div`
 
 const Title = styled.h1`
   display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 100px;
+  padding-left: 20px;
 `;
 
 const BestItems = () => {
@@ -62,7 +67,8 @@ const BestItems = () => {
 
   return (
     <div>
-      <Title>Best Item</Title>
+      <Title>BEST</Title>
+      <Hr />
       <Container>
         <Arrow direction="left" onClick={() => handleClick("left")}>
           왼

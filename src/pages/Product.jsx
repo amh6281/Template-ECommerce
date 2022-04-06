@@ -117,7 +117,7 @@ const Product = () => {
           <Image src="https://user-images.githubusercontent.com/83646986/160977533-77ec421e-38fc-4cb2-8874-30ffd034e94c.png" />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
+          <Title>회색 맨투맨</Title>
           <Desc>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
@@ -125,7 +125,7 @@ const Product = () => {
             tristique tortor pretium ut. Curabitur elit justo, consequat id
             condimentum ac, volutpat ornare.
           </Desc>
-          <Price> $ 20</Price>
+          <Price> ₩ 39,000</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
@@ -146,7 +146,7 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Amount>1</Amount>
+              +<Amount>1</Amount>-
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>
