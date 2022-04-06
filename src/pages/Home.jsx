@@ -7,12 +7,14 @@ import Footer from "../components/Footer";
 import Products from "../components/Products";
 import NewProducts from "../components/NewProducts";
 import Businesses from "../components/Businesses";
+import NavCategory from "../components/NavCategory";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
       <Announcement />
+      <NavCategory />
       <Slider />
       <Categories />
       <Products />
