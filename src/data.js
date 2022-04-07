@@ -46,19 +46,19 @@ export const categories = [
 export const popularProducts = [
   {
     id: 1,
-    img: "https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png",
+    img: "https://user-images.githubusercontent.com/83646986/160977533-77ec421e-38fc-4cb2-8874-30ffd034e94c.png",
   },
   {
     id: 2,
-    img: "https://user-images.githubusercontent.com/83646986/161936590-fc1146fa-adb2-476a-aa0f-d95dceee53b5.png",
+    img: "https://user-images.githubusercontent.com/83646986/160977544-a1de75e3-7221-4d84-aaee-46efcefaa8e6.png",
   },
   {
     id: 3,
-    img: "https://user-images.githubusercontent.com/83646986/161936851-ec8cd4df-aed9-4fc6-89af-0bf3efe0ee18.png",
+    img: "https://user-images.githubusercontent.com/83646986/160977546-92b2c425-2aff-4c16-9b20-341d8b41afc3.png",
   },
   {
     id: 4,
-    img: "https://user-images.githubusercontent.com/83646986/161937012-90d5bb06-b0d1-44bc-8c31-ca7303c0a733.png",
+    img: "https://user-images.githubusercontent.com/83646986/160977547-8f8c1ac1-8974-4c60-adc3-963d0362d169.png",
   },
   {
     id: 5,
@@ -137,5 +137,64 @@ export const business = [
     img: "https://user-images.githubusercontent.com/83646986/161370996-45abf33a-958d-4e41-a332-0cba470e47ae.jpg",
     title: "가전 쇼핑몰",
     cat: "life",
+  },
+];
+
+export const detailProducts = [
+  {
+    id: 1,
+    img: "https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png",
+    title: "블랙 맨투맨",
+    price: "39,000",
+    size: "S~XXL",
+  },
+  {
+    id: 2,
+    img: "https://user-images.githubusercontent.com/83646986/161936590-fc1146fa-adb2-476a-aa0f-d95dceee53b5.png",
+    title: "블루 맨투맨",
+    price: "39,000",
+    size: "S~XXL",
+  },
+  {
+    id: 3,
+    img: "https://user-images.githubusercontent.com/83646986/161936851-ec8cd4df-aed9-4fc6-89af-0bf3efe0ee18.png",
+    title: "스프라이트 블랙 맨투맨",
+    price: "39,000",
+    size: "S~XXL",
+  },
+  {
+    id: 4,
+    img: "https://user-images.githubusercontent.com/83646986/161937012-90d5bb06-b0d1-44bc-8c31-ca7303c0a733.png",
+    title: "잠옷",
+    price: "39,000",
+    size: "S~XXL",
+  },
+  {
+    id: 5,
+    img: "https://user-images.githubusercontent.com/83646986/161937012-90d5bb06-b0d1-44bc-8c31-ca7303c0a733.png",
+    title: "잠옷",
+    price: "39,000",
+    size: "S~XXL",
+  },
+  {
+    id: 6,
+    img: "https://user-images.githubusercontent.com/83646986/161936851-ec8cd4df-aed9-4fc6-89af-0bf3efe0ee18.png",
+    title: "스프라이트 블랙 맨투맨",
+    price: "39,000",
+    size: "S~XXL",
+  },
+  {
+    id: 7,
+    img: "https://user-images.githubusercontent.com/83646986/161936590-fc1146fa-adb2-476a-aa0f-d95dceee53b5.png",
+    title: "블루 맨투맨",
+    price: "39,000",
+    size: "S~XXL",
+  },
+  {
+    id: 8,
+    img: "https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png",
+    title: "검정색 맨투맨",
+    price: "39,000",
+    size: "S~XXL",
   },
 ];

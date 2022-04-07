@@ -21,7 +21,7 @@ const Container = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 280px;
-  height: 350px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,6 +42,7 @@ const Circle = styled.div`
 const Image = styled.img`
   height: 100%;
   z-index: 2;
+  object-fit: contain;
 `;
 
 const Icon = styled.div`
@@ -60,17 +61,43 @@ const Icon = styled.div`
   }
 `;
 
+const Title = styled.h5`
+  display: flex;
+  align-items: center;
+  padding-left: 3px;
+`;
+
+const Size = styled.h6`
+  display: flex;
+  align-items: center;
+  padding-left: 4px;
+  padding-bottom: 30px;
+`;
+
+const Price = styled.h5`
+  display: flex;
+  align-items: center;
+  padding-left: 3px;
+  padding-bottom: 50px;
+`;
+
 const Product = ({ item }) => {
   return (
-    <Container>
-      <Circle />
-      <Image src={item.img} />
-      <Info>
-        <Icon>icon1</Icon>
-        <Icon>icon2</Icon>
-        <Icon>icon3</Icon>
-      </Info>
-    </Container>
+    <div style={{ alignItems: "center" }}>
+      <Container>
+        <Circle />
+        <Image src={item.img} />
+        <Info>
+          <Icon>icon1</Icon>
+          <Icon>icon2</Icon>
+          <Icon>icon3</Icon>
+        </Info>
+      </Container>
+      <Title>{item.title}</Title>
+      <Size>{item.size}</Size>
+      <Price>{item.price}원</Price>
+      <br />
+    </div>
   );
 };
 
