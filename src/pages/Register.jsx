@@ -50,6 +50,8 @@ const Button = styled.button`
   background-color: teal;
   color: white;
   cursor: pointer;
+  flex: 1;
+  margin: 20px 10px 0px 0px;
 `;
 
 const Register = () => {
@@ -67,7 +69,8 @@ const Register = () => {
           <Agreement>
             계정을 생성함으로써 개인정보 취급방침에 따라 개인정보 취급 동의
           </Agreement>
-          <Button>가입하기</Button>
+          <Button>일반 회원가입</Button>
+          <Button>사업자 회원가입</Button>
         </Form>
       </Wrapper>
     </Container>

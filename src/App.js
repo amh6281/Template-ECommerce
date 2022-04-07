@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Product from "./pages/Product";
 
 function App() {
-  return <ProductList />;
+  return <Register />;
 }
 
 export default App;

@@ -8,73 +8,51 @@ import Products from "../components/Products";
 
 const Container = styled.div``;
 
-const Title = styled.h1`
-  margin: 20px;
+const Left = styled.h2`
+  flex: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
 `;
 
-const FilterContainer = styled.div`
+const Right = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+const MenuItem = styled.div`
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 25px;
+`;
+
+const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 2px;
+`;
+
+const Wrapper = styled.div`
+  padding: 5px 20px;
   display: flex;
   justify-content: space-between;
 `;
-
-const Filter = styled.div`
-  margin: 20px;
-`;
-
-const FilterText = styled.span`
-  font-size: 20px;
-  font-weight: 600;
-  margin-right: 20px;
-`;
-
-const Select = styled.select`
-  padding: 10px;
-  margin-right: 20px;
-`;
-
-const Option = styled.option``;
 
 const ProductList = () => {
   return (
     <Container>
       <Navbar />
       <Announcement />
-      <Title>의류</Title>
-      <FilterContainer>
-        <Filter>
-          <FilterText>Filter Products:</FilterText>
-          <Select>
-            <Option disabled selected>
-              Color
-            </Option>
-            <Option>White</Option>
-            <Option>Black</Option>
-            <Option>Red</Option>
-            <Option>Blue</Option>
-            <Option>Yellow</Option>
-            <Option>Gray</Option>
-          </Select>
-          <Select>
-            <Option disabled selected>
-              Size
-            </Option>
-            <Option>XS</Option>
-            <Option>S</Option>
-            <Option>M</Option>
-            <Option>L</Option>
-            <Option>XL</Option>
-            <Option>XXL</Option>
-          </Select>
-        </Filter>
-        <Filter>
-          <FilterText>Filter Products:</FilterText>
-          <Select>
-            <Option selected>Newest</Option>
-            <Option selected>Price(asc)</Option>
-            <Option selected>Price(desc)</Option>
-          </Select>
-        </Filter>
-      </FilterContainer>
+      <Wrapper>
+        <Left>의류</Left>
+        <Right>
+          <MenuItem>New</MenuItem>
+          <MenuItem>Highprice</MenuItem>
+          <MenuItem>Lowprice</MenuItem>
+          <MenuItem>Best</MenuItem>
+        </Right>
+      </Wrapper>
       <Products />
       <NewProducts />
       <Footer />
