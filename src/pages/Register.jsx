@@ -40,7 +40,8 @@ const Input = styled.input`
 
 const Agreement = styled.span`
   font-size: 12px;
-  margin: 20px 0px;
+  margin: 20px 14px;
+  padding-top: 15px;
 `;
 
 const Button = styled.button`

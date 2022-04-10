@@ -15,8 +15,8 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 90vh;
+  width: 80%;
+  height: 80vh;
   object-fit: cover;
 `;
 
@@ -114,10 +114,10 @@ const Product = () => {
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://user-images.githubusercontent.com/83646986/160977533-77ec421e-38fc-4cb2-8874-30ffd034e94c.png" />
+          <Image src="https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png" />
         </ImgContainer>
         <InfoContainer>
-          <Title>회색 맨투맨</Title>
+          <Title>맨투맨</Title>
           <Desc>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
