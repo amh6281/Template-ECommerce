@@ -54,7 +54,6 @@ const ProductList = () => {
         </Right>
       </Wrapper>
       <Products />
-      <NewProducts />
       <Footer />
     </Container>
   );

@@ -40,7 +40,8 @@ const Input = styled.input`
 
 const Agreement = styled.span`
   font-size: 12px;
-  margin: 20px 0px;
+  margin: 20px 14px;
+  padding-top: 15px;
 `;
 
 const Button = styled.button`
@@ -50,6 +51,8 @@ const Button = styled.button`
   background-color: teal;
   color: white;
   cursor: pointer;
+  flex: 1;
+  margin: 20px 10px 0px 0px;
 `;
 
 const BusinessRegister = () => {
@@ -59,12 +62,11 @@ const BusinessRegister = () => {
         <Title>회원가입</Title>
         <Form>
           <Input placeholder="name" />
-          <Input placeholder="last name" />
+          <Input placeholder="business number" />
           <Input placeholder="username" />
           <Input placeholder="email" />
           <Input placeholder="password" />
           <Input placeholder="confirm password" />
-          <Input placeholder="business number" />
           <Agreement>
             계정을 생성함으로써 개인정보 취급방침에 따라 개인정보 취급 동의
           </Agreement>
