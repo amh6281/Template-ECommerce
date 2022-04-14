@@ -5,9 +5,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Product from "./pages/Product";
 import BusinessRegister from "./pages/BusinessRegister";
+import BuildingShop from "./pages/BuildingShop";
 
 function App() {
-  return <Login />;
+  return <BuildingShop />;
 }
 
 export default App;
