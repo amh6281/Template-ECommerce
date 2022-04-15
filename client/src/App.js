@@ -8,7 +8,7 @@ import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
 
 function App() {
-  return <BuildingShop />;
+  return <ProductList />;
 }
 
 export default App;

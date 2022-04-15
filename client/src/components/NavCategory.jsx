@@ -24,13 +24,15 @@ const NavCategory = () => {
         <MenuItem>화장품/미용</MenuItem>
         <MenuItem>식품</MenuItem>
         <MenuItem>출산/유아동</MenuItem>
-        <MenuItem>반려동물 용품</MenuItem>
-        <MenuItem>생활/주방용품</MenuItem>
+        <MenuItem>반려동물</MenuItem>
+        <MenuItem>생활/주방</MenuItem>
         <MenuItem>가전</MenuItem>
         <MenuItem>디지털</MenuItem>
         <MenuItem>컴퓨터</MenuItem>
         <MenuItem>스포츠/레저</MenuItem>
-        <MenuItem>건강/의료용품</MenuItem>
+        <MenuItem>건강/의료</MenuItem>
+        <MenuItem>자동차/공구</MenuItem>
+        <MenuItem>취미/문구/악기</MenuItem>
         <MenuItem>도서</MenuItem>
       </Wrapper>
     </Container>
