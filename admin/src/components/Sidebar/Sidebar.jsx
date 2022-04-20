@@ -1,4 +1,6 @@
 import "./sidebar.css";
+import { StyledEngineProvider } from "@mui/styled-engine";
+import { Report } from "@material-ui/icons";
 
 const Sidebar = () => {
   return (
@@ -7,7 +9,10 @@ const Sidebar = () => {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem active">Home</li>
+            <li className="sidebarListItem active">
+              <Report />
+              Home
+            </li>
             <li className="sidebarListItem">Analytics</li>
             <li className="sidebarListItem">Sales</li>
           </ul>
