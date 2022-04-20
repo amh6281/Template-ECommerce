@@ -7,7 +7,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://user-images.githubusercontent.com/83646986/164176314-5133beb3-99d2-4177-81f7-d9345133fccd.jpg")
       center;
   background-size: cover;
   display: flex;
@@ -23,7 +23,10 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Form = styled.form`
@@ -46,11 +49,27 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
 `;
 
 const Image = styled.img`
   width: 50%;
   cursor: pointer;
+`;
+
+const InputName = styled.h1`
+  font-size: 20px;
+  padding-top: 10px;
+  margin-top: 10px;
+`;
+
+const BtnWrapper = styled.div`
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 const BuildingShop = () => {
@@ -61,16 +80,27 @@ const BuildingShop = () => {
       <Wrapper>
         <Title>쇼핑몰 구축</Title>
         <Form>
+          <InputName>Logo</InputName>
           <Input type="file" />
-          <Input placeholder="Logo" />
           <Input placeholder="쇼핑몰 이름" />
+          <Input placeholder="쇼핑몰 소개글" />
           <Input placeholder="카테고리" />
-          <Input placeholder="대표 이미지" />
-          <Image
-            src="https://user-images.githubusercontent.com/83646986/161936590-fc1146fa-adb2-476a-aa0f-d95dceee53b5.png"
-            onClick={ShowImg}
-          />
-          <Button>생성</Button>
+          <Input placeholder="E-mail" />
+          <Input placeholder="주소" />
+          <Input placeholder="고객센터 번호" />
+          <BtnWrapper>
+            <Button style={{ borderRadius: "5px", backgroundColor: "Brown" }}>
+              Design 1
+            </Button>
+            <Button style={{ borderRadius: "5px", backgroundColor: "Brown" }}>
+              Design 2
+            </Button>
+          </BtnWrapper>
+          <BtnWrapper>
+            <Button style={{ borderRadius: "5px", backgroundColor: "#432A2A" }}>
+              생성
+            </Button>
+          </BtnWrapper>
         </Form>
       </Wrapper>
     </Container>
