@@ -6,14 +6,13 @@ import Footer from "../components/Footer";
 import NewProducts from "../components/NewProducts";
 import Businesses from "../components/Businesses";
 import BestItems from "../components/BestItems";
-import NavCategory from "../components/NavCategory";
+import CategoryNav from "../components/CategoryNav/CategoryNav";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
       <Announcement />
-      <NavCategory />
       <Slider />
       <BestItems />
       <NewProducts />
