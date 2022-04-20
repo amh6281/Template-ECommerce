@@ -1,6 +1,7 @@
 import "./widgetSm.css";
+import { Visibility } from "@material-ui/icons";
 
-const WidgetSm = () => {
+export default function WidgetSm() {
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
@@ -15,7 +16,10 @@ const WidgetSm = () => {
             <span className="widgetSmUsername">Anna Keller</span>
             <span className="widgetSmUserTitle">Software Engineer</span>
           </div>
-          <button className="widgetSmButton">Display</button>
+          <button className="widgetSmButton">
+            <Visibility className="widgetSmIcon" />
+            Display
+          </button>
         </li>
         <li className="widgetSmListItem">
           <img
@@ -27,7 +31,10 @@ const WidgetSm = () => {
             <span className="widgetSmUsername">Anna Keller</span>
             <span className="widgetSmUserTitle">Software Engineer</span>
           </div>
-          <button className="widgetSmButton">Display</button>
+          <button className="widgetSmButton">
+            <Visibility className="widgetSmIcon" />
+            Display
+          </button>
         </li>
         <li className="widgetSmListItem">
           <img
@@ -39,7 +46,10 @@ const WidgetSm = () => {
             <span className="widgetSmUsername">Anna Keller</span>
             <span className="widgetSmUserTitle">Software Engineer</span>
           </div>
-          <button className="widgetSmButton">Display</button>
+          <button className="widgetSmButton">
+            <Visibility className="widgetSmIcon" />
+            Display
+          </button>
         </li>
         <li className="widgetSmListItem">
           <img
@@ -51,7 +61,10 @@ const WidgetSm = () => {
             <span className="widgetSmUsername">Anna Keller</span>
             <span className="widgetSmUserTitle">Software Engineer</span>
           </div>
-          <button className="widgetSmButton">Display</button>
+          <button className="widgetSmButton">
+            <Visibility className="widgetSmIcon" />
+            Display
+          </button>
         </li>
         <li className="widgetSmListItem">
           <img
@@ -63,11 +76,12 @@ const WidgetSm = () => {
             <span className="widgetSmUsername">Anna Keller</span>
             <span className="widgetSmUserTitle">Software Engineer</span>
           </div>
-          <button className="widgetSmButton">Display</button>
+          <button className="widgetSmButton">
+            <Visibility className="widgetSmIcon" />
+            Display
+          </button>
         </li>
       </ul>
     </div>
   );
-};
-
-export default WidgetSm;
+}
