@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { newProducts } from "../data";
 import NewProduct from "./NewProduct";
+import BestItem from "./BestItem";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
   width: 100%;
@@ -72,7 +74,7 @@ const NewProducts = () => {
       <Hr />
       <Container>
         <Arrow direction="left" onClick={() => handleClick("left")}>
-          왼
+          <ArrowLeftOutlined />
         </Arrow>
         <Wrapper slideIndex={slideIndex}>
           {newProducts.map((item) => (
@@ -82,7 +84,7 @@ const NewProducts = () => {
           ))}
         </Wrapper>
         <Arrow direction="right" onClick={() => handleClick("right")}>
-          오
+          <ArrowRightOutlined />
         </Arrow>
       </Container>
     </div>

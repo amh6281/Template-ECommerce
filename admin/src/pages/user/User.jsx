@@ -27,32 +27,32 @@ export default function User() {
               className="userShowImg"
             />
             <div className="userShowTopTitle">
-              <span className="userShowUsername">Anna Becker</span>
-              <span className="userShowUserTitle">Software Engineer</span>
+              <span className="userShowUsername">길 태욱</span>
+              <span className="userShowUserTitle">학생</span>
             </div>
           </div>
           <div className="userShowBottom">
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99</span>
+              <span className="userShowInfoTitle">gtw8406</span>
             </div>
             <div className="userShowInfo">
               <CalendarToday className="userShowIcon" />
-              <span className="userShowInfoTitle">10.12.1999</span>
+              <span className="userShowInfoTitle">03.22.1998</span>
             </div>
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
               <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">+1 123 456 67</span>
+              <span className="userShowInfoTitle">010-8406-1566</span>
             </div>
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99@gmail.com</span>
+              <span className="userShowInfoTitle">xodnr1566@naver.com</span>
             </div>
             <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">New York | USA</span>
+              <span className="userShowInfoTitle">천안 | 대한민국</span>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function User() {
                 <label>Username</label>
                 <input
                   type="text"
-                  placeholder="annabeck99"
+                  placeholder="gtw8406"
                   className="userUpdateInput"
                 />
               </div>
@@ -72,7 +72,7 @@ export default function User() {
                 <label>Full Name</label>
                 <input
                   type="text"
-                  placeholder="Anna Becker"
+                  placeholder="길 태욱"
                   className="userUpdateInput"
                 />
               </div>
@@ -80,7 +80,7 @@ export default function User() {
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder="annabeck99@gmail.com"
+                  placeholder="xodnr1566@naver.com"
                   className="userUpdateInput"
                 />
               </div>
@@ -88,7 +88,7 @@ export default function User() {
                 <label>Phone</label>
                 <input
                   type="text"
-                  placeholder="+1 123 456 67"
+                  placeholder="010-8406-1566"
                   className="userUpdateInput"
                 />
               </div>
@@ -96,7 +96,7 @@ export default function User() {
                 <label>Address</label>
                 <input
                   type="text"
-                  placeholder="New York | USA"
+                  placeholder="천안 | 대한민국"
                   className="userUpdateInput"
                 />
               </div>

@@ -67,93 +67,93 @@ export const productData = [
 export const userRows = [
   {
     id: 1,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 2,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 3,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 4,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 5,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 6,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 7,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 8,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 9,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
   {
     id: 10,
-    username: "Jon Snow",
+    username: "길 태욱",
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
+    email: "xodnr1566@naver.com",
     status: "active",
-    transaction: "$120.00",
+    transaction: "120,000 원",
   },
 ];
 
@@ -164,7 +164,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 2,
@@ -172,7 +172,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 3,
@@ -180,7 +180,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 4,
@@ -188,7 +188,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 5,
@@ -196,7 +196,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 6,
@@ -204,7 +204,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 7,
@@ -212,7 +212,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 8,
@@ -220,7 +220,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 9,
@@ -228,7 +228,7 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
   {
     id: 10,
@@ -236,6 +236,6 @@ export const productRows = [
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
     status: "active",
-    price: "$120.00",
+    price: "120,000 원",
   },
 ];
