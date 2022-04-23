@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { Add, Remove } from "@material-ui/icons";
 
 const Container = styled.div``;
 
@@ -166,7 +167,9 @@ const Cart = () => {
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
-                  +<ProductAmount>2</ProductAmount>-
+                  <Add />
+                  <ProductAmount>2</ProductAmount>
+                  <Remove />
                 </ProductAmountContainer>
                 <ProductPrice>₩ 68,000</ProductPrice>
               </PriceDetail>
@@ -190,7 +193,9 @@ const Cart = () => {
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
-                  +<ProductAmount>2</ProductAmount>-
+                  <Add />
+                  <ProductAmount>2</ProductAmount>
+                  <Remove />
                 </ProductAmountContainer>
                 <ProductPrice>₩ 44,000</ProductPrice>
               </PriceDetail>
@@ -214,7 +219,9 @@ const Cart = () => {
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
-                  +<ProductAmount>2</ProductAmount>-
+                  <Add />
+                  <ProductAmount>2</ProductAmount>
+                  <Remove />
                 </ProductAmountContainer>
                 <ProductPrice>₩ 228,000</ProductPrice>
               </PriceDetail>

@@ -1,3 +1,4 @@
+import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -146,7 +147,9 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              +<Amount>1</Amount>-
+              <Remove />
+              <Amount>1</Amount>
+              <Add />
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>

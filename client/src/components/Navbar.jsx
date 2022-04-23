@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import CategoryNav from "./CategoryNav/CategoryNav";
 
 const Container = styled.div`
   height: 60px;
@@ -61,10 +62,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>KR</Language>
-          <SearchContainer>
-            <Input />
-          </SearchContainer>
+          <CategoryNav />
         </Left>
         <Center>
           <Logo>E-Commerce</Logo>

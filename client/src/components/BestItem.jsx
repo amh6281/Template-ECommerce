@@ -1,4 +1,9 @@
-import React from "react";
+import {
+  FavoriteBorderOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@material-ui/icons";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Info = styled.div`
@@ -67,9 +72,15 @@ const BestItem = ({ item }) => {
       <Circle />
       <Image src={item.img} />
       <Info>
-        <Icon>icon1</Icon>
-        <Icon>icon2</Icon>
-        <Icon>icon3</Icon>
+        <Icon>
+          <ShoppingCartOutlined />
+        </Icon>
+        <Icon>
+          <SearchOutlined />
+        </Icon>
+        <Icon>
+          <FavoriteBorderOutlined />
+        </Icon>
       </Info>
     </Container>
   );

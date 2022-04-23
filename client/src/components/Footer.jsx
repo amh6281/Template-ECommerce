@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Facebook, Instagram, Pinterest, Twitter } from "@material-ui/icons";
 
 const Container = styled.div`
   display: flex;
@@ -70,7 +71,18 @@ const Footer = () => {
         <Logo> E-Commerce</Logo>
         <Desc>copyright © all rights reserved</Desc>
         <SocialContainer>
-          <SocialIcon></SocialIcon>
+          <SocialIcon color="3B5999">
+            <Facebook />
+          </SocialIcon>
+          <SocialIcon color="E4405F">
+            <Instagram />
+          </SocialIcon>
+          <SocialIcon color="55ACEE">
+            <Twitter />
+          </SocialIcon>
+          <SocialIcon color="E60023">
+            <Pinterest />
+          </SocialIcon>
         </SocialContainer>
       </Left>
       <Center>
