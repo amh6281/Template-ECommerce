@@ -6,7 +6,7 @@ export default function WidgetLg() {
   };
   return (
     <div className="widgetLg">
-      <h3 className="widgetLgTitle">Latest transactions</h3>
+      <h3 className="widgetLgTitle">최근 거래내역</h3>
       <table className="widgetLgTable">
         <tr className="widgetLgTr">
           <th className="widgetLgTh">Customer</th>
@@ -17,11 +17,11 @@ export default function WidgetLg() {
         <tr className="widgetLgTr">
           <td className="widgetLgUser">
             <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              src="https://user-images.githubusercontent.com/83646986/156501089-92b5bf79-321b-4868-a8e9-314fa164ff4e.png"
               alt=""
               className="widgetLgImg"
             />
-            <span className="widgetLgName">Susan Carol</span>
+            <span className="widgetLgName">안명회</span>
           </td>
           <td className="widgetLgDate">2022-04-19</td>
           <td className="widgetLgAmount">122,000</td>
@@ -32,11 +32,11 @@ export default function WidgetLg() {
         <tr className="widgetLgTr">
           <td className="widgetLgUser">
             <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              src="https://user-images.githubusercontent.com/83646986/156501089-92b5bf79-321b-4868-a8e9-314fa164ff4e.png"
               alt=""
               className="widgetLgImg"
             />
-            <span className="widgetLgName">Susan Carol</span>
+            <span className="widgetLgName">안명회</span>
           </td>
           <td className="widgetLgDate">2022-04-19</td>
           <td className="widgetLgAmount">122,000</td>
@@ -47,31 +47,16 @@ export default function WidgetLg() {
         <tr className="widgetLgTr">
           <td className="widgetLgUser">
             <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              src="https://user-images.githubusercontent.com/83646986/156501089-92b5bf79-321b-4868-a8e9-314fa164ff4e.png"
               alt=""
               className="widgetLgImg"
             />
-            <span className="widgetLgName">Susan Carol</span>
+            <span className="widgetLgName">안명회</span>
           </td>
           <td className="widgetLgDate">2022-04-19</td>
           <td className="widgetLgAmount">122,000</td>
           <td className="widgetLgStatus">
             <Button type="Pending" />
-          </td>
-        </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2022-04-19</td>
-          <td className="widgetLgAmount">122,000</td>
-          <td className="widgetLgStatus">
-            <Button type="Approved" />
           </td>
         </tr>
       </table>

@@ -9,7 +9,12 @@ const Home = () => {
   return (
     <div className="home">
       <Featuredinfo />
-      <Chart data={userData} title="User Analytics" grid />
+      <Chart
+        data={userData}
+        title="사용자 통계 분석"
+        dataKey="Active User"
+        grid
+      />
       <div className="homeWidgets">
         <WidgetSm />
         <WidgetLg />
