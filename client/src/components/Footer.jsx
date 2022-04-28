@@ -1,30 +1,43 @@
+import {
+  Facebook,
+  Instagram,
+  MailOutline,
+  Phone,
+  Room,
+  Twitter,
+} from "@material-ui/icons";
+import React from "react";
 import styled from "styled-components";
-import { Facebook, Instagram, Pinterest, Twitter } from "@material-ui/icons";
 
 const Container = styled.div`
   display: flex;
 `;
+
 const Left = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 20px;
 `;
-const Logo = styled.h1``;
 
+const Logo = styled.h1``;
 const Desc = styled.p`
   margin: 20px 0px;
 `;
-const SocialContainer = styled.div``;
+
+const SocialContainer = styled.div`
+  display: flex;
+`;
 
 const SocialIcon = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   color: white;
+  background-color: #${(props) => props.color};
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-right: 20px;
 `;
 
@@ -47,6 +60,9 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   width: 50%;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
 `;
 
 const Right = styled.div`
@@ -58,6 +74,8 @@ const ContactItem = styled.div`
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  font-size: 13px;
+  font-weight: 600;
 `;
 
 const Payment = styled.img`
@@ -68,7 +86,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo> E-Commerce</Logo>
+        <Logo>STYLE GO!</Logo>
         <Desc>copyright © all rights reserved</Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
@@ -79,9 +97,6 @@ const Footer = () => {
           </SocialIcon>
           <SocialIcon color="55ACEE">
             <Twitter />
-          </SocialIcon>
-          <SocialIcon color="E60023">
-            <Pinterest />
           </SocialIcon>
         </SocialContainer>
       </Left>
@@ -99,9 +114,18 @@ const Footer = () => {
       </Center>
       <Right>
         <Title>Contact</Title>
-        <ContactItem>충청남도 천안시 서북구 쌍용15길</ContactItem>
-        <ContactItem>1599-9999</ContactItem>
-        <ContactItem>amh6281@naver.com</ContactItem>
+        <ContactItem>
+          <Room style={{ marginRight: "10px" }} />
+          충청남도 천안시 서북구 쌍용15길
+        </ContactItem>
+        <ContactItem>
+          <Phone style={{ marginRight: "10px" }} />
+          1599-9999
+        </ContactItem>
+        <ContactItem>
+          <MailOutline style={{ marginRight: "10px" }} />
+          amh6281@naver.com
+        </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
     </Container>
