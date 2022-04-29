@@ -1,4 +1,10 @@
+import React, { useState } from "react";
 import styled from "styled-components";
+import Announcement from "../components/Announcement";
+import Slider from "../components/Slider";
+import Home from "./Home";
+import ProductList from "./ProductList";
+import Cart from "./Cart";
 
 const Container = styled.div`
   width: 100vw;
@@ -13,6 +19,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+const Container2 = styled.div`
+  width: 100vw;
+  height: 100vh;
 `;
 
 const Wrapper = styled.div`
@@ -53,11 +64,6 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const Image = styled.img`
-  width: 50%;
-  cursor: pointer;
-`;
-
 const InputName = styled.h1`
   font-size: 20px;
   padding-top: 10px;
@@ -72,38 +78,77 @@ const BtnWrapper = styled.div`
   justify-content: space-around;
 `;
 
+const XButton = styled.button`
+  border: none;
+  padding: 15px 20px;
+  color: black;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+`;
+
 const BuildingShop = () => {
-  const ShowImg = () => {};
+  const [click, setClick] = useState(false);
+  const [click2, setClick2] = useState(false);
+
+  const onClick = (e) => {
+    e.preventDefault();
+    setClick(!click);
+  };
+
+  const onClick2 = (e) => {
+    e.preventDefault();
+    setClick2(!click2);
+  };
 
   return (
-    <Container>
-      <Wrapper>
-        <Title>쇼핑몰 구축</Title>
-        <Form>
-          <InputName>Logo</InputName>
-          <Input type="file" />
-          <Input placeholder="쇼핑몰 이름" />
-          <Input placeholder="쇼핑몰 소개글" />
-          <Input placeholder="카테고리" />
-          <Input placeholder="E-mail" />
-          <Input placeholder="주소" />
-          <Input placeholder="고객센터 번호" />
-          <BtnWrapper>
-            <Button style={{ borderRadius: "5px", backgroundColor: "Brown" }}>
-              Design 1
-            </Button>
-            <Button style={{ borderRadius: "5px", backgroundColor: "Brown" }}>
-              Design 2
-            </Button>
-          </BtnWrapper>
-          <BtnWrapper>
-            <Button style={{ borderRadius: "5px", backgroundColor: "#432A2A" }}>
-              생성
-            </Button>
-          </BtnWrapper>
-        </Form>
-      </Wrapper>
-    </Container>
+    <Container2>
+      {click ? (
+        <div>
+          <Button onClick={onClick}>X</Button>
+          <ProductList />
+        </div>
+      ) : click2 ? (
+        <Cart />
+      ) : (
+        <Container>
+          <Wrapper>
+            <Title>쇼핑몰 구축</Title>
+            <Form>
+              <InputName>Logo</InputName>
+              <Input type="file" />
+              <Input placeholder="쇼핑몰 이름" />
+              <Input placeholder="쇼핑몰 소개글" />
+              <Input placeholder="카테고리" />
+              <Input placeholder="E-mail" />
+              <Input placeholder="주소" />
+              <Input placeholder="고객센터 번호" />
+              <BtnWrapper>
+                <Button
+                  onClick={onClick}
+                  style={{ borderRadius: "5px", backgroundColor: "Brown" }}
+                >
+                  Design1
+                </Button>
+                <Button
+                  onClick={onClick2}
+                  style={{ borderRadius: "5px", backgroundColor: "Brown" }}
+                >
+                  Design 2
+                </Button>
+              </BtnWrapper>
+              <BtnWrapper>
+                <Button
+                  style={{ borderRadius: "5px", backgroundColor: "#432A2A" }}
+                >
+                  생성
+                </Button>
+              </BtnWrapper>
+            </Form>
+          </Wrapper>
+        </Container>
+      )}
+    </Container2>
   );
 };
 
