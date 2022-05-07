@@ -6,9 +6,10 @@ import Register from "./pages/Register";
 import Product from "./pages/Product";
 import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
+import Tmp1Home from "./Template1/Tmp1Home";
 
 function App() {
-  return <BuildingShop />;
+  return <Tmp1Home />;
 }
 
 export default App;
