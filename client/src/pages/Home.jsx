@@ -7,10 +7,11 @@ import NewProducts from "../components/NewProducts";
 import Businesses from "../components/Businesses";
 import BestItems from "../components/BestItems";
 import CategoryNav from "../components/CategoryNav/CategoryNav";
-
+import NewBtn from "../components/NewBtn";
 const Home = () => {
   return (
     <div>
+      <NewBtn />
       <Navbar />
       <Announcement />
       <Slider />
