@@ -22,6 +22,30 @@ export const sliderItems = [
   },
 ];
 
+export const sliderItems2 = [
+  {
+    id: 1,
+    img: "https://user-images.githubusercontent.com/100011359/167241176-5eeef9ba-a5a3-4e9a-be8f-0dc2b1ed6455.png",
+    title: "여름 폭탄 세일!!",
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    bg: "f5fafd",
+  },
+  {
+    id: 2,
+    img: "https://user-images.githubusercontent.com/100011359/167241284-bd75ed3d-2cc7-4562-911f-8e3406aeee6a.png",
+    title: "여름 한정 컬렉션",
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    bg: "fcf1ed",
+  },
+  {
+    id: 3,
+    img: "https://user-images.githubusercontent.com/100011359/167241381-7fa34689-e8b7-4b61-91c8-46045704d5ec.png",
+    title: "여름 핫 아이템 모음",
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    bg: "fbf0f4",
+  },
+];
+
 export const categories = [
   {
     id: 1,
@@ -37,8 +61,14 @@ export const categories = [
   },
   {
     id: 3,
-    img: "https://images.unsplash.com/photo-1622434641406-a158123450f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHdhdGNofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    title: "WATCH",
+    img: "https://user-images.githubusercontent.com/100011359/167242937-fbc4e759-356f-4ba4-a581-26ef57619b2f.png",
+    title: "Pants",
+    cat: "accessory",
+  },
+  {
+    id: 4,
+    img: "https://user-images.githubusercontent.com/100011359/167243017-f2131ba8-63aa-4cc9-a18c-0de14efb4373.png",
+    title: "Shoes",
     cat: "accessory",
   },
 ];

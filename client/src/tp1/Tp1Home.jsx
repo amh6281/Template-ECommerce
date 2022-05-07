@@ -7,14 +7,12 @@ import NewProducts from "./NewProducts";
 import Footer from "./Footer";
 import Categories from "./Categories";
 import SimpleProducts from "./SimpleProducts";
-import Asd from "./Asd";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
       <Announcement />
-      <Asd />
       <Slider />
       <Categories />
       <BestItems />
