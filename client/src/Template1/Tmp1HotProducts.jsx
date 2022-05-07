@@ -23,7 +23,7 @@ const Hr = styled.hr`
   background-color: #eee;
   border: none;
   height: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 `;
 
 const Tmp1HotProducts = () => {

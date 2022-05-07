@@ -54,8 +54,10 @@ const Title = styled.h1`
   font-size: 19px;
 `;
 const Hr = styled.hr`
-  opacity: 0.4;
-  margin-bottom: 10px;
+  background-color: #eee;
+  border: none;
+  height: 2px;
+  margin-bottom: 3px;
 `;
 
 const Tmp1Categories = () => {

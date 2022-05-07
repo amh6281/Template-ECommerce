@@ -62,13 +62,19 @@ export const categories = [
   {
     id: 3,
     img: "https://user-images.githubusercontent.com/100011359/167242937-fbc4e759-356f-4ba4-a581-26ef57619b2f.png",
-    title: "PANTS",
-    cat: "accessory",
+    title: "PANTS STYLE!",
+    cat: "pants",
   },
   {
     id: 4,
     img: "https://user-images.githubusercontent.com/100011359/167243017-f2131ba8-63aa-4cc9-a18c-0de14efb4373.png",
-    title: "SHOES",
+    title: "SHOES STYLE!",
+    cat: "shoes",
+  },
+  {
+    id: 5,
+    img: "https://images.unsplash.com/photo-1622434641406-a158123450f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHdhdGNofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    title: "WATCH STYLE!",
     cat: "accessory",
   },
 ];
