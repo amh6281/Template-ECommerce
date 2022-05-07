@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Slider from "../components/Slider";
-import Home from "./Home";
+import Tp1Home from "../tp1/Tp1Home";
 import ProductList from "./ProductList";
 import Cart from "./Cart";
+import Navbar from "../tp1/Navbar";
 
 const Container = styled.div`
   width: 100vw;
@@ -105,11 +106,15 @@ const BuildingShop = () => {
     <Container2>
       {click ? (
         <div>
-          <Button onClick={onClick}>X</Button>
-          <ProductList />
+          <Navbar>
+            <Button onClick={onClick}>X</Button>
+          </Navbar>
         </div>
       ) : click2 ? (
-        <Cart />
+        <div>
+          <Button onClick={onClick2}>X</Button>
+          <Cart />
+        </div>
       ) : (
         <Container>
           <Wrapper>
