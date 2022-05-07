@@ -9,7 +9,7 @@ import BuildingShop from "./pages/BuildingShop";
 import Tp1Home from "./tp1/Tp1Home";
 
 function App() {
-  return <Tp1Home />;
+  return <BusinessRegister />;
 }
 
 export default App;

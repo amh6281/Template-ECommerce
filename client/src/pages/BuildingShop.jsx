@@ -25,6 +25,7 @@ const Container = styled.div`
 const Container2 = styled.div`
   width: 100vw;
   height: 100vh;
+  overflow-y: scroll;
 `;
 
 const Wrapper = styled.div`
@@ -106,9 +107,9 @@ const BuildingShop = () => {
     <Container2>
       {click ? (
         <div>
-          <Navbar>
-            <Button onClick={onClick}>X</Button>
-          </Navbar>
+          <XButton onClick={onClick}>X</XButton>
+
+          <ProductList />
         </div>
       ) : click2 ? (
         <div>
