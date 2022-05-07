@@ -5,7 +5,6 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
@@ -27,29 +26,21 @@ const Container = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 280px;
-  height: 350px;
+  height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5f5f5;
   position: relative;
   &:hover ${Info} {
     opacity: 1;
   }
 `;
 
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
-
 const Image = styled.img`
-  width: 200px;
-  height: 75%;
+  width: 280px;
+  height: 100%;
   z-index: 2;
+  object-fit: contain;
 `;
 
 const Icon = styled.div`
@@ -67,15 +58,31 @@ const Icon = styled.div`
     transform: scale(1.1);
   }
 `;
-const Wrapper = styled.div`
-  margin-left: 120px;
+
+const Title = styled.h5`
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
 `;
 
-const NewProduct = ({ item }) => {
+const Size = styled.h6`
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  padding-bottom: 30px;
+`;
+
+const Price = styled.h5`
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  padding-bottom: 50px;
+`;
+
+const Tmp1BestProduct = ({ item }) => {
   return (
-    <Wrapper>
+    <div style={{ alignItems: "center" }}>
       <Container>
-        <Circle />
         <Image src={item.img} />
         <Info>
           <Icon>
@@ -89,8 +96,12 @@ const NewProduct = ({ item }) => {
           </Icon>
         </Info>
       </Container>
-    </Wrapper>
+      <Title>{item.title}</Title>
+      <Size>{item.size}</Size>
+      <Price>{item.price}원</Price>
+      <br />
+    </div>
   );
 };
 
-export default NewProduct;
+export default Tmp1BestProduct;

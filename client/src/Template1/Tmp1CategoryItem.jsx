@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -40,7 +39,7 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const Business = ({ item }) => {
+const Tmp1CategoryItem = ({ item }) => {
   return (
     <Container>
       <Image src={item.img} />
@@ -52,4 +51,4 @@ const Business = ({ item }) => {
   );
 };
 
-export default Business;
+export default Tmp1CategoryItem;

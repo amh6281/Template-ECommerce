@@ -3,7 +3,6 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Info = styled.div`
@@ -66,7 +65,7 @@ const Icon = styled.div`
   }
 `;
 
-const BestItem = ({ item }) => {
+const BestProduct = ({ item }) => {
   return (
     <Container>
       <Circle />
@@ -86,4 +85,4 @@ const BestItem = ({ item }) => {
   );
 };
 
-export default BestItem;
+export default BestProduct;

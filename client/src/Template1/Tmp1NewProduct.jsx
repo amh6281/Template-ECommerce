@@ -1,10 +1,10 @@
+import React from "react";
+import styled from "styled-components";
 import {
   FavoriteBorderOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 
 const Info = styled.div`
   opacity: 0;
@@ -21,53 +21,26 @@ const Info = styled.div`
   transition: all 0.5s ease;
   cursor: pointer;
 `;
-const Title = styled.h5`
-  display: flex;
-  align-items: center;
-  padding-left: 15px;
-`;
-
-const Size = styled.h6`
-  display: flex;
-  align-items: center;
-  padding-left: 16px;
-  padding-bottom: 30px;
-`;
-
-const Price = styled.h5`
-  display: flex;
-  align-items: center;
-  padding-left: 14px;
-  padding-bottom: 50px;
-`;
 
 const Container = styled.div`
   flex: 1;
-  margin-left: 13px;
+  margin: 5px;
   min-width: 280px;
-  height: 400px;
+  height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5fbfd;
   position: relative;
   &:hover ${Info} {
     opacity: 1;
   }
 `;
 
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
-
 const Image = styled.img`
   width: 280px;
-  height: 300px;
+  height: 100%;
   z-index: 2;
+  object-fit: contain;
 `;
 
 const Icon = styled.div`
@@ -86,11 +59,30 @@ const Icon = styled.div`
   }
 `;
 
-const BestItem = ({ item }) => {
+const Title = styled.h5`
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+`;
+
+const Size = styled.h6`
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  padding-bottom: 30px;
+`;
+
+const Price = styled.h5`
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  padding-bottom: 50px;
+`;
+
+const Tmp1NewProduct = ({ item }) => {
   return (
     <div style={{ alignItems: "center" }}>
       <Container>
-        <Circle />
         <Image src={item.img} />
         <Info>
           <Icon>
@@ -107,8 +99,9 @@ const BestItem = ({ item }) => {
       <Title>{item.title}</Title>
       <Size>{item.size}</Size>
       <Price>{item.price}원</Price>
+      <br />
     </div>
   );
 };
 
-export default BestItem;
+export default Tmp1NewProduct;

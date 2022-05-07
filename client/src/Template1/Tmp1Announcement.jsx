@@ -11,8 +11,8 @@ const Container = styled.div`
   font-weight: 600;
 `;
 
-const Announcement = () => {
+const Tmp1Announcement = () => {
   return <Container>카카오톡 채널 추가 시 2,000원 할인쿠폰 지급!</Container>;
 };
 
-export default Announcement;
+export default Tmp1Announcement;

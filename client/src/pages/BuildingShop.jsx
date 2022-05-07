@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Slider from "../components/Slider";
-import Tp1Home from "../tp1/Tp1Home";
+import Tp1Home from "../Template1/Tmp1Home";
 import ProductList from "./ProductList";
 import Cart from "./Cart";
-import Navbar from "../tp1/Navbar";
+import Navbar from "../Template1/Tmp1Navbar";
 
 const Container = styled.div`
   width: 100vw;
