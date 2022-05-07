@@ -8,7 +8,7 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  min-width: 470px;
   height: 100%;
   object-fit: cover;
 `;

@@ -62,13 +62,13 @@ export const categories = [
   {
     id: 3,
     img: "https://user-images.githubusercontent.com/100011359/167242937-fbc4e759-356f-4ba4-a581-26ef57619b2f.png",
-    title: "Pants",
+    title: "PANTS",
     cat: "accessory",
   },
   {
     id: 4,
     img: "https://user-images.githubusercontent.com/100011359/167243017-f2131ba8-63aa-4cc9-a18c-0de14efb4373.png",
-    title: "Shoes",
+    title: "SHOES",
     cat: "accessory",
   },
 ];

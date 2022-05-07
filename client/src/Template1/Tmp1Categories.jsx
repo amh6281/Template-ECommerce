@@ -46,8 +46,16 @@ const Slide = styled.div`
 
 const Title = styled.h1`
   display: flex;
-  margin-top: 100px;
-  padding-left: 20px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+`;
+const Hr = styled.hr`
+  opacity: 0.4;
+  margin-bottom: 10px;
 `;
 
 const Tmp1Categories = () => {
@@ -63,7 +71,8 @@ const Tmp1Categories = () => {
 
   return (
     <div>
-      <Title>카테고리</Title>
+      <Title>CATEGORY</Title>
+      <Hr />
       <Container>
         <Arrow direction="left" onClick={() => handleClick("left")}>
           <ArrowLeftOutlined />
