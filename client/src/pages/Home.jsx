@@ -4,8 +4,7 @@ import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NewProducts from "../components/NewProducts";
-import Businesses from "../components/Businesses";
-import BestItems from "../components/BestItems";
+import BestProducts from "../components/BestProducts";
 import CategoryNav from "../components/CategoryNav/CategoryNav";
 import NewBtn from "../components/NewBtn";
 const Home = () => {
@@ -15,9 +14,8 @@ const Home = () => {
       <Navbar />
       <Announcement />
       <Slider />
-      <BestItems />
+      <BestProducts />
       <NewProducts />
-      <Businesses />
       <Footer />
     </div>
   );

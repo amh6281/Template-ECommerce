@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { newProducts } from "../data";
 import NewProduct from "./NewProduct";
-import BestItem from "./BestItem";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
@@ -11,12 +10,6 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-`;
-
-const Hr = styled.hr`
-  background-color: #eee;
-  border: none;
-  height: 2px;
 `;
 
 const Arrow = styled.div`
@@ -53,8 +46,19 @@ const Slide = styled.div`
 
 const Title = styled.h1`
   display: flex;
-  margin-top: 100px;
-  padding-left: 20px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+`;
+
+const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 2px;
+  margin-bottom: 10px;
 `;
 
 const NewProducts = () => {
@@ -70,7 +74,7 @@ const NewProducts = () => {
 
   return (
     <div>
-      <Title>NEW</Title>
+      <Title>NEW ITEM</Title>
       <Hr />
       <Container>
         <Arrow direction="left" onClick={() => handleClick("left")}>

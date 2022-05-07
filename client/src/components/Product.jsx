@@ -5,7 +5,6 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
@@ -35,14 +34,6 @@ const Container = styled.div`
   &:hover ${Info} {
     opacity: 1;
   }
-`;
-
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
 `;
 
 const Image = styled.img`
@@ -91,7 +82,6 @@ const Product = ({ item }) => {
   return (
     <div style={{ alignItems: "center" }}>
       <Container>
-        <Circle />
         <Image src={item.img} />
         <Info>
           <Icon>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { categories } from "../data";
-import CategoryItem from "./CategoryItem";
+import { bestProducts } from "../data";
+import BestProduct from "./BestProduct";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
@@ -10,7 +10,13 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-  margin-top: 20px;
+`;
+
+const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 2px;
+  margin-bottom: 10px;
 `;
 
 const Arrow = styled.div`
@@ -46,11 +52,15 @@ const Slide = styled.div`
 
 const Title = styled.h1`
   display: flex;
-  margin-top: 100px;
-  padding-left: 20px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
 `;
 
-const Categories = () => {
+const BestProducts = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
@@ -63,15 +73,16 @@ const Categories = () => {
 
   return (
     <div>
-      <Title>카테고리</Title>
+      <Title>BEST ITEM</Title>
+      <Hr />
       <Container>
         <Arrow direction="left" onClick={() => handleClick("left")}>
           <ArrowLeftOutlined />
         </Arrow>
         <Wrapper slideIndex={slideIndex}>
-          {categories.map((item) => (
+          {bestProducts.map((item) => (
             <Slide key={item.id}>
-              <CategoryItem item={item} key={item.id} />
+              <BestProduct item={item} key={item.id} />
             </Slide>
           ))}
         </Wrapper>
@@ -83,4 +94,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default BestProducts;

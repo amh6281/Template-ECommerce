@@ -77,7 +77,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Slider = () => {
+const Tmp1Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
@@ -114,4 +114,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Tmp1Slider;

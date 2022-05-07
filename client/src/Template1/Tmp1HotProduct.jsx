@@ -5,7 +5,6 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
@@ -27,7 +26,7 @@ const Container = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 280px;
-  height: 400px;
+  height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,14 +34,6 @@ const Container = styled.div`
   &:hover ${Info} {
     opacity: 1;
   }
-`;
-
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
 `;
 
 const Image = styled.img`
@@ -71,28 +62,27 @@ const Icon = styled.div`
 const Title = styled.h5`
   display: flex;
   align-items: center;
-  padding-left: 3px;
+  padding-left: 5px;
 `;
 
 const Size = styled.h6`
   display: flex;
   align-items: center;
-  padding-left: 4px;
+  padding-left: 7px;
   padding-bottom: 30px;
 `;
 
 const Price = styled.h5`
   display: flex;
   align-items: center;
-  padding-left: 3px;
+  padding-left: 7px;
   padding-bottom: 50px;
 `;
 
-const SimpleProduct = ({ item }) => {
+const Tmp1HotProduct = ({ item }) => {
   return (
     <div style={{ alignItems: "center" }}>
       <Container>
-        <Circle />
         <Image src={item.img} />
         <Info>
           <Icon>
@@ -114,4 +104,4 @@ const SimpleProduct = ({ item }) => {
   );
 };
 
-export default SimpleProduct;
+export default Tmp1HotProduct;

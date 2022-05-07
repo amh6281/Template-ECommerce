@@ -43,7 +43,7 @@ export const categories = [
   },
 ];
 
-export const popularProducts = [
+export const bestProducts = [
   {
     id: 1,
     img: "https://user-images.githubusercontent.com/83646986/160977533-77ec421e-38fc-4cb2-8874-30ffd034e94c.png",
@@ -114,6 +114,20 @@ export const popularProducts = [
     price: "39,000",
     size: "S~XXL",
   },
+  {
+    id: 11,
+    img: "https://user-images.githubusercontent.com/83646986/160977555-bd6189b5-c4e4-4fd4-988c-24de822309c1.png",
+    title: "칵퉤",
+    price: "39,000",
+    size: "S~XXL",
+  },
+  {
+    id: 12,
+    img: "https://user-images.githubusercontent.com/83646986/160977555-bd6189b5-c4e4-4fd4-988c-24de822309c1.png",
+    title: "칵퉤",
+    price: "39,000",
+    size: "S~XXL",
+  },
 ];
 
 export const newProducts = [
@@ -151,34 +165,7 @@ export const newProducts = [
   },
 ];
 
-export const business = [
-  {
-    id: 1,
-    img: "https://user-images.githubusercontent.com/83646986/161370875-0ee1faae-4803-4d15-a828-b21859697be5.jpg",
-    title: "무드등 쇼핑몰",
-    cat: "lamp",
-  },
-  {
-    id: 2,
-    img: "https://user-images.githubusercontent.com/83646986/161371110-8bc94bdd-ebb6-4bf8-93b0-bb0f68bc2968.jpg",
-    title: "애견 쇼핑몰",
-    cat: "pet",
-  },
-  {
-    id: 3,
-    img: "https://user-images.githubusercontent.com/83646986/161370924-e72b9d92-e05c-46b7-8fa6-e43708a6f9b0.jpg",
-    title: "의류 쇼핑몰",
-    cat: "clothes",
-  },
-  {
-    id: 4,
-    img: "https://user-images.githubusercontent.com/83646986/161370996-45abf33a-958d-4e41-a332-0cba470e47ae.jpg",
-    title: "가전 쇼핑몰",
-    cat: "life",
-  },
-];
-
-export const detailProducts = [
+export const hotProducts = [
   {
     id: 1,
     img: "https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png",
@@ -188,65 +175,80 @@ export const detailProducts = [
   },
   {
     id: 2,
-    img: "https://user-images.githubusercontent.com/83646986/161936590-fc1146fa-adb2-476a-aa0f-d95dceee53b5.png",
-    title: "블루 맨투맨",
-    price: "39,000",
-    size: "S~XXL",
+    img: "https://user-images.githubusercontent.com/83646986/167240691-dd0ea5fd-9afb-4f18-9689-86e8d78b4ad2.jpg",
+    title: "레옹 프린팅 세미 오버핏 반필티",
+    price: "15,200",
+    size: "FREE",
   },
   {
     id: 3,
-    img: "https://user-images.githubusercontent.com/83646986/161936851-ec8cd4df-aed9-4fc6-89af-0bf3efe0ee18.png",
-    title: "스프라이트 블랙 맨투맨",
-    price: "39,000",
+    img: "https://user-images.githubusercontent.com/83646986/161936590-fc1146fa-adb2-476a-aa0f-d95dceee53b5.png",
+    title: "블루 맨투맨",
+    price: "31,900",
     size: "S~XXL",
   },
   {
     id: 4,
-    img: "https://user-images.githubusercontent.com/83646986/161937012-90d5bb06-b0d1-44bc-8c31-ca7303c0a733.png",
-    title: "잠옷",
-    price: "39,000",
+    img: "https://user-images.githubusercontent.com/83646986/161936851-ec8cd4df-aed9-4fc6-89af-0bf3efe0ee18.png",
+    title: "스프라이트 블랙 맨투맨",
+    price: "20,900",
     size: "S~XXL",
   },
   {
     id: 5,
     img: "https://user-images.githubusercontent.com/83646986/161937012-90d5bb06-b0d1-44bc-8c31-ca7303c0a733.png",
     title: "잠옷",
-    price: "39,000",
+    price: "29,800",
     size: "S~XXL",
   },
   {
     id: 6,
-    img: "https://user-images.githubusercontent.com/83646986/161936851-ec8cd4df-aed9-4fc6-89af-0bf3efe0ee18.png",
-    title: "스프라이트 블랙 맨투맨",
-    price: "39,000",
+    img: "https://user-images.githubusercontent.com/83646986/167241048-7e7ecbac-f559-4c54-ae66-57be9144fd40.jpg",
+    title: "휘튼 캐쥬얼 베어 반팔티",
+    price: "19,900",
     size: "S~XXL",
   },
   {
     id: 7,
-    img: "https://user-images.githubusercontent.com/83646986/161936590-fc1146fa-adb2-476a-aa0f-d95dceee53b5.png",
-    title: "블루 맨투맨",
-    price: "39,000",
+    img: "https://user-images.githubusercontent.com/83646986/167241045-03e6d054-9274-486d-b13b-c6f600d949c5.jpg",
+    title: "베즈 데미지 컷팅진",
+    price: "45,700",
     size: "S~XXL",
   },
   {
     id: 8,
-    img: "https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png",
-    title: "검정색 맨투맨",
-    price: "39,000",
+    img: "https://user-images.githubusercontent.com/83646986/167241047-aa200f59-f63c-4c6a-a0b2-c0d9ad16ba2f.jpg",
+    title: "로스트플 탄탄 반팔티진",
+    price: "21,900",
     size: "S~XXL",
   },
   {
     id: 9,
-    img: "https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png",
-    title: "검정색 맨투맨",
-    price: "39,000",
+    img: "https://user-images.githubusercontent.com/83646986/167240693-b76b18e7-6124-4d81-99f0-6167f09829d0.jpg",
+    title: "조거 팬츠",
+    price: "26,900",
     size: "S~XXL",
   },
   {
     id: 10,
-    img: "https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png",
-    title: "검정색 맨투맨",
-    price: "39,000",
+    img: "https://user-images.githubusercontent.com/83646986/167240692-a3869088-7aad-4733-8a33-a5c32bbb370a.jpg",
+    title: "페브릭 V넥 반팔티",
+    price: "22,900",
+    size: "S~XXL",
+  },
+
+  {
+    id: 11,
+    img: "https://user-images.githubusercontent.com/83646986/167240687-164b3ddc-d8f6-457d-8ec9-839e410b0676.jpg",
+    title: "스티치 크롭 데님 자켓",
+    price: "88,900",
+    size: "S~XXL",
+  },
+  {
+    id: 12,
+    img: "https://user-images.githubusercontent.com/83646986/167240569-87e8066d-72e2-46d2-98ae-bbda40620ddb.jpg",
+    title: "시그니처 프리미엄 세미 와이드 슬랙스",
+    price: "48,900",
     size: "S~XXL",
   },
 ];
