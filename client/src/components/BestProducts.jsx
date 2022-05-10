@@ -5,7 +5,8 @@ import BestProduct from "./BestProduct";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
-  width: 100%;
+  width: 75%;
+  margin: 0 auto;
   height: 100%;
   display: flex;
   position: relative;
@@ -42,7 +43,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   transition: all 1.5s ease;
-  transform: translateX(${(props) => props.slideIndex * -100}vw);
+  transform: translateX(${(props) => props.slideIndex * -75}vw);
 `;
 
 const Slide = styled.div`

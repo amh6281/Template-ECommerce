@@ -10,7 +10,6 @@ import NewBtn from "../components/NewBtn";
 const Home = () => {
   return (
     <div>
-      <NewBtn />
       <Navbar />
       <Announcement />
       <Slider />

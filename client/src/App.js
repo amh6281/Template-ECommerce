@@ -9,7 +9,7 @@ import BuildingShop from "./pages/BuildingShop";
 import Tmp1Home from "./Template1/Tmp1Home";
 
 function App() {
-  return <Tmp1Home />;
+  return <Home />;
 }
 
 export default App;
