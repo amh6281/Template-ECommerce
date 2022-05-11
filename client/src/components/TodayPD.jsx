@@ -4,6 +4,14 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import styled from "styled-components";
+import { makeStyles } from "@material-ui/core/styles";
+import { sizing } from "@mui/system";
+
+const useStyles = makeStyles({
+  Card: {
+    backgroundSize: "cover",
+  },
+});
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -25,7 +33,15 @@ const Title = styled.h1`
 `;
 
 const Container = styled.div`
-  margin-left: 200px;
+  width: 50%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
 `;
 
 const Hr = styled.hr`
@@ -36,6 +52,8 @@ const Hr = styled.hr`
 `;
 
 export default function QuiltedImageList() {
+  const classses = useStyles();
+
   return (
     <div>
       <Title>오늘의 발견</Title>
@@ -52,6 +70,7 @@ export default function QuiltedImageList() {
               key={item.img}
               cols={item.cols || 1}
               rows={item.rows || 1}
+              className={classses.Card}
             >
               <img
                 {...srcset(item.img, 121, item.rows, item.cols)}
