@@ -7,13 +7,15 @@ import NewProducts from "../components/NewProducts";
 import BestProducts from "../components/BestProducts";
 import CategoryNav from "../components/CategoryNav/CategoryNav";
 import NewBtn from "../components/NewBtn";
+import TodayPD from "../components/TodayPD";
+
 const Home = () => {
   return (
     <div>
-      <NewBtn />
       <Navbar />
       <Announcement />
       <Slider />
+      <TodayPD />
       <BestProducts />
       <NewProducts />
       <Footer />
