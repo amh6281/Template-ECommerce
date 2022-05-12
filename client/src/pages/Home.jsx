@@ -8,7 +8,7 @@ import BestProducts from "../components/BestProducts";
 import CategoryNav from "../components/CategoryNav/CategoryNav";
 import NewBtn from "../components/NewBtn";
 import TodayPD from "../components/TodayPD";
-import TodayDiscoverys from "../components/TodayDiscoverys";
+import Img from "../components/Img";
 
 const Home = () => {
   return (
