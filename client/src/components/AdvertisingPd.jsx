@@ -15,11 +15,26 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
 `;
 
 const Info = styled.div`
-  width: 10%;
+  width: 13%;
+  flex-direction: column;
+  margin-top: 10px;
+`;
+
+const Info2 = styled.div`
+  width: 30%;
+  max-height: 789px;
+`;
+
+const Info3 = styled.div`
+  display: flex;
+  border-bottom: 2px solid #eee;
+`;
+
+const Info4 = styled.div`
+  width: 60%;
 `;
 
 const Title = styled.h1`
@@ -32,7 +47,6 @@ const Hr = styled.hr`
   background-color: #ff6347;
   border: none;
   height: 3px;
-  margin-bottom: 10px;
 `;
 
 const TitleImg = styled.img`
@@ -75,28 +89,32 @@ const AdvertisingPd = () => {
       <Wrapper>
         <Title type="small">HOT! TREND</Title>
         <Title>
-          카테고리별 <span style={{ color: "	#1E90FF	" }}>추천 광고상품</span>
+          카테고리별{" "}
+          <span style={{ color: "   #1E90FF   " }}>추천 광고상품</span>
         </Title>
         <Hr />
-
-        <Info>
-          <TitleImg src="https://image7.coupangcdn.com/image/coupang/main/categoryBest/best_title_health.png" />
-          <h5 style={{ fontWeight: 500 }}>바로가기</h5>
-          <HotKeyword>
-            <KeywordTitle>HOT키워드</KeywordTitle>
-            <Keyword>#멀티비타민</Keyword>
-            <Keyword>#타트체리</Keyword>
-            <Keyword>#비타민D</Keyword>
-            <Keyword>#보스웰리아</Keyword>
-          </HotKeyword>
-          <Slider {...settings}>
-            <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-            <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-            <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-            <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-            <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-          </Slider>
-        </Info>
+        <Info3>
+          <Info>
+            <TitleImg src="https://image7.coupangcdn.com/image/coupang/main/categoryBest/best_title_health.png" />
+            <h5 style={{ fontWeight: 500 }}>바로가기</h5>
+            <HotKeyword>
+              <KeywordTitle>HOT키워드</KeywordTitle>
+              <Keyword>#멀티비타민</Keyword>
+              <Keyword>#타트체리</Keyword>
+              <Keyword>#비타민D</Keyword>
+              <Keyword>#보스웰리아</Keyword>
+            </HotKeyword>
+          </Info>
+          <Info2>
+            <Slider {...settings}>
+              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
+              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
+              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
+              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
+              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
+            </Slider>
+          </Info2>
+        </Info3>
       </Wrapper>
     </Container>
   );

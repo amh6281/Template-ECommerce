@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import DisCoverey from "./TodayDiscovery";
+import TodayDisCoverey from "./TodayDiscovery";
 import { itemData } from "../data";
 import { itemData2 } from "../data";
 
@@ -50,14 +50,14 @@ const TodayDiscoverys = () => {
           <BImage>
             {itemData.map((item) => (
               <Wrapper key={item.id}>
-                <DisCoverey item={item} key={item.id} />
+                <TodayDisCoverey item={item} key={item.id} />
               </Wrapper>
             ))}
           </BImage>
           <Image>
             {itemData2.map((item) => (
               <Wrapper key={item.id}>
-                <DisCoverey item={item} key={item.id} />
+                <TodayDisCoverey item={item} key={item.id} />
               </Wrapper>
             ))}
           </Image>

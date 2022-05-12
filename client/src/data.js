@@ -310,3 +310,38 @@ export const itemData2 = [
     title: "라면",
   },
 ];
+
+export const AdvertisingItem1 = [
+  {
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2019/05/20/15/3/7670e66e-b8e3-4ac4-94d1-9e8765fa7ecb.jpg",
+    title: "비엔나 소세지",
+  },
+  {
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2019/05/20/15/3/7670e66e-b8e3-4ac4-94d1-9e8765fa7ecb.jpg",
+    title: "이라이프",
+  },
+  {
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2019/05/20/15/3/7670e66e-b8e3-4ac4-94d1-9e8765fa7ecb.jpg",
+    title: "이라이프",
+  },
+];
+
+export const AdvertisingItem2 = [
+  {
+    img: "https://static.coupangcdn.com/wa/cmg_paperboy/image/1652156146468/C2_03.jpg",
+    title: "휴지",
+  },
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/x/image/displayitem/displayitem_914ce4a5-08fd-4ec4-92ab-98e3dfaf5d53.jpg",
+    title: "접이식 헤어드라이어",
+  },
+  {
+    img: "https://static.coupangcdn.com/ka/cmg_paperboy/image/1652156168218/C2_05.jpg",
+    title: "브랜드위크 SALE",
+  },
+
+  {
+    img: "https://static.coupangcdn.com/ea/cmg_paperboy/image/1652155779824/C2_08.jpg",
+    title: "라면",
+  },
+];
