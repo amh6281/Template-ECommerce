@@ -51,6 +51,7 @@ const Keyword = styled.h5`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #d22e60;
 `;
 
 const AdvertisingPd = () => {
