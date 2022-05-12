@@ -9,7 +9,8 @@ import { sizing } from "@mui/system";
 
 const useStyles = makeStyles({
   Card: {
-    backgroundSize: "cover",
+    maxwidth: "100%",
+    backgroundColor: "red",
   },
 });
 
@@ -64,13 +65,13 @@ export default function QuiltedImageList() {
           variant="quilted"
           cols={4}
           rowHeight={121}
+          className={classses.Card}
         >
           {itemData.map((item) => (
             <ImageListItem
               key={item.img}
               cols={item.cols || 1}
               rows={item.rows || 1}
-              className={classses.Card}
             >
               <img
                 {...srcset(item.img, 121, item.rows, item.cols)}

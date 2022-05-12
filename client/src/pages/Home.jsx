@@ -8,6 +8,7 @@ import BestProducts from "../components/BestProducts";
 import CategoryNav from "../components/CategoryNav/CategoryNav";
 import NewBtn from "../components/NewBtn";
 import TodayPD from "../components/TodayPD";
+import TodayDiscoverys from "../components/TodayDiscoverys";
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
       <Navbar />
       <Announcement />
       <Slider />
-      <TodayPD />
+      <TodayDiscoverys />
       <BestProducts />
       <NewProducts />
       <Footer />

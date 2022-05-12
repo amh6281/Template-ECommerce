@@ -7,6 +7,7 @@ import Product from "./pages/Product";
 import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
 import Tmp1Home from "./Template1/Tmp1Home";
+import Img from "./components/Img";
 
 function App() {
   return <Home />;
