@@ -5,11 +5,12 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
-import { sizing } from "@mui/system";
 
 const useStyles = makeStyles({
   Card: {
     backgroundSize: "cover",
+    maxWidth: "100%",
+    height: "auto",
   },
 });
 
@@ -70,7 +71,6 @@ export default function QuiltedImageList() {
               key={item.img}
               cols={item.cols || 1}
               rows={item.rows || 1}
-              className={classses.Card}
             >
               <img
                 {...srcset(item.img, 121, item.rows, item.cols)}
