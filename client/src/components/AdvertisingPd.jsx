@@ -115,10 +115,10 @@ const AdvertisingPd = () => {
           <Info2>
             <Slider {...settings}>
               <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
+              <img src="https://static.coupangcdn.com/na/cmg_paperboy/image/1651822493243/C3_PC%2841%29.jpg" />
+              <img src="https://static.coupangcdn.com/na/cmg_paperboy/image/1651800242729/C3_PC%2819%29.jpg" />
+              <img src="https://static.coupangcdn.com/ra/cmg_paperboy/image/1652166823337/C3_PC%2849%29.jpg" />
+              <img src="https://static.coupangcdn.com/ca/cmg_paperboy/image/1651210827242/C3_PC.jpg" />
             </Slider>
           </Info2>
           <Info4>
