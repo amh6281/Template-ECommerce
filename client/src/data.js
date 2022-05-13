@@ -311,37 +311,38 @@ export const itemData2 = [
   },
 ];
 
-export const AdvertisingItem1 = [
+export const advertisingItem1 = [
   {
-    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2019/05/20/15/3/7670e66e-b8e3-4ac4-94d1-9e8765fa7ecb.jpg",
-    title: "비엔나 소세지",
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/10396458877608342-e4c845a0-997a-405c-986d-c657d6f6f467.jpg",
+    title: "퍼펙토 프리미엄 초유 단백질 분말 스틱, 3q, 60개",
+    price: "28,660",
   },
   {
-    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2019/05/20/15/3/7670e66e-b8e3-4ac4-94d1-9e8765fa7ecb.jpg",
-    title: "이라이프",
+    img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/4856719527146195-033a9091-26e7-4d15-a250-132c1f4c3563.jpg",
+    title: "비비랩 더 콜라겐 파우더S, 2q, 50개",
+    price: "34,900",
   },
   {
-    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2019/05/20/15/3/7670e66e-b8e3-4ac4-94d1-9e8765fa7ecb.jpg",
-    title: "이라이프",
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/3667346702707568-afeed46d-a5b7-4564-8aec-de1c75ba8107.jpg",
+    title: "크린식이섬유 프리바이오틱스 영양제, 10q, 30포",
+    price: "44,000",
   },
 ];
 
-export const AdvertisingItem2 = [
+export const advertisingItem2 = [
   {
-    img: "https://static.coupangcdn.com/wa/cmg_paperboy/image/1652156146468/C2_03.jpg",
-    title: "휴지",
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/gmxjvpan/89e28aacc7a04a438c5b4f8adc013822.jpg",
+    title: "비타민마을 아르기닌 8000, 8q, 60개",
+    price: "21,500",
   },
   {
-    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/x/image/displayitem/displayitem_914ce4a5-08fd-4ec4-92ab-98e3dfaf5d53.jpg",
-    title: "접이식 헤어드라이어",
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/4b8d/34bd3915a6d06707effb925e3025a8917c90858a6959b34a767240f49a34.jpg",
+    title: "레모나 생유산균 20 C, 2g, 300개",
+    price: "39,900",
   },
   {
-    img: "https://static.coupangcdn.com/ka/cmg_paperboy/image/1652156168218/C2_05.jpg",
-    title: "브랜드위크 SALE",
-  },
-
-  {
-    img: "https://static.coupangcdn.com/ea/cmg_paperboy/image/1652155779824/C2_08.jpg",
-    title: "라면",
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2021/01/21/19/5/650574f1-4a8d-404f-9d9f-26fcd3a28b8b.jpg",
+    title: "스윗밸런스 멕시칸 치킨 샐러드, 210g, 2개",
+    price: "8,800",
   },
 ];

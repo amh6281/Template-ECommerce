@@ -28,22 +28,31 @@ const Hr = styled.hr`
   border: none;
   height: 2px;
   margin-bottom: 10px;
+  margin-left: 475px;
+  margin-right: 475px;
 `;
 
 const Title = styled.h1`
   display: flex;
   margin-top: 50px;
   margin-bottom: 15px;
-  margin-left: 10px;
+  margin-left: 475px;
+  font-size: 24px;
+  font-family: sans-serif;
+  text-align: center;
   align-items: center;
-  justify-content: center;
-  font-size: 19px;
 `;
 
 const TodayDiscoverys = () => {
   return (
     <div>
-      <Title> 오늘의 발견</Title>
+      <Title>
+        오늘의 발견
+        <span style={{ fontSize: "18px", marginLeft: "5px" }}>
+          {" "}
+          | 오늘의 가장 HOT한 상품
+        </span>
+      </Title>
       <Hr />
       <Container>
         <ImgContainer>

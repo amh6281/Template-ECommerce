@@ -3,13 +3,15 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AdvertisingList from "./Advertising/AdvertisingList";
 
 const Container = styled.div`
-  width: 75%;
+  width: 55%;
   margin: 0 auto;
   height: 100%;
   position: relative;
   overflow: hidden;
+  margin-top: 60px;
 `;
 
 const Wrapper = styled.div`
@@ -17,15 +19,18 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
+const TitleWrapper = styled.div`
+  margin-bottom: 12px;
+`;
+
 const Info = styled.div`
-  width: 13%;
+  width: 15%;
   flex-direction: column;
   margin-top: 10px;
 `;
 
 const Info2 = styled.div`
   width: 30%;
-  max-height: 789px;
 `;
 
 const Info3 = styled.div`
@@ -34,30 +39,32 @@ const Info3 = styled.div`
 `;
 
 const Info4 = styled.div`
-  width: 60%;
+  width: 55%;
 `;
 
 const Title = styled.h1`
   font-weight: 600;
-  font-size: ${(props) => props.type === "small" && "26px"};
+  font-size: ${(props) => props.type === "small" && "18px"};
   color: #696969;
 `;
 
 const Hr = styled.hr`
   background-color: #ff6347;
   border: none;
-  height: 3px;
+  height: 2px;
 `;
 
 const TitleImg = styled.img`
   width: 114px;
+  margin: 15px;
 `;
 
 const HotKeyword = styled.div``;
 
 const KeywordTitle = styled.h3`
-  margin-top: 400px; //바로가기랑 HOT키워드 사이 간격
+  margin-top: 230px; //바로가기랑 HOT키워드 사이 간격
   margin-bottom: 10px;
+  font-size: 16px;
 `;
 
 const Keyword = styled.h5`
@@ -69,11 +76,11 @@ const Keyword = styled.h5`
   align-items: center;
   justify-content: center;
   color: #d22e60;
+  font-size: 12px;
 `;
 
 const AdvertisingPd = () => {
   const settings = {
-    dots: true,
     arrows: true,
     infinite: true,
     speed: 500,
@@ -87,16 +94,16 @@ const AdvertisingPd = () => {
   return (
     <Container>
       <Wrapper>
-        <Title type="small">HOT! TREND</Title>
-        <Title>
-          카테고리별{" "}
-          <span style={{ color: "   #1E90FF   " }}>추천 광고상품</span>
-        </Title>
+        <TitleWrapper>
+          <Title type="small">HOT! TREND</Title>
+          <Title style={{ fontSize: "24px" }}>
+            카테고리별 <span style={{ color: "#1E90FF" }}>추천 광고상품</span>
+          </Title>
+        </TitleWrapper>
         <Hr />
         <Info3>
           <Info>
             <TitleImg src="https://image7.coupangcdn.com/image/coupang/main/categoryBest/best_title_health.png" />
-            <h5 style={{ fontWeight: 500 }}>바로가기</h5>
             <HotKeyword>
               <KeywordTitle>HOT키워드</KeywordTitle>
               <Keyword>#멀티비타민</Keyword>
@@ -114,6 +121,9 @@ const AdvertisingPd = () => {
               <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
             </Slider>
           </Info2>
+          <Info4>
+            <AdvertisingList />
+          </Info4>
         </Info3>
       </Wrapper>
     </Container>
