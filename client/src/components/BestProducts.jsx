@@ -5,7 +5,7 @@ import BestProduct from "./BestProduct";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
-  width: 75%;
+  width: 50%;
   margin: 0 auto;
   height: 100%;
   display: flex;
@@ -18,6 +18,8 @@ const Hr = styled.hr`
   border: none;
   height: 2px;
   margin-bottom: 10px;
+  margin-left: 480px;
+  margin-right: 488px;
 `;
 
 const Arrow = styled.div`
@@ -43,7 +45,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   transition: all 1.5s ease;
-  transform: translateX(${(props) => props.slideIndex * -77}vw);
+  transform: translateX(${(props) => props.slideIndex * -49}vw);
 `;
 
 const Slide = styled.div`
@@ -55,10 +57,11 @@ const Title = styled.h1`
   display: flex;
   margin-top: 50px;
   margin-bottom: 15px;
-  margin-left: 10px;
+  margin-left: 480px;
+  font-size: 24px;
+  font-family: sans-serif;
+  text-align: center;
   align-items: center;
-  justify-content: center;
-  font-size: 19px;
 `;
 
 const BestProducts = () => {
@@ -68,7 +71,7 @@ const BestProducts = () => {
     if (direction === "left") {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 1);
     } else {
-      setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0);
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
 

@@ -73,28 +73,28 @@ export const categories = [
 export const bestProducts = [
   {
     id: 1,
-    img: "https://user-images.githubusercontent.com/83646986/160977533-77ec421e-38fc-4cb2-8874-30ffd034e94c.png",
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
     title: "회색 맨투맨",
     price: "39,000",
     size: "S~XXL",
   },
   {
     id: 2,
-    img: "https://user-images.githubusercontent.com/83646986/160977544-a1de75e3-7221-4d84-aaee-46efcefaa8e6.png",
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
     title: "베이지 맨투맨",
     price: "39,000",
     size: "S~XXL",
   },
   {
     id: 3,
-    img: "https://user-images.githubusercontent.com/83646986/160977546-92b2c425-2aff-4c16-9b20-341d8b41afc3.png",
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
     title: "베이지 후드",
     price: "39,000",
     size: "S~XXL",
   },
   {
     id: 4,
-    img: "https://user-images.githubusercontent.com/83646986/160977547-8f8c1ac1-8974-4c60-adc3-963d0362d169.png",
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
     title: "검정 자켓",
     price: "39,000",
     size: "S~XXL",
