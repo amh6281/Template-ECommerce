@@ -35,7 +35,6 @@ const Info2 = styled.div`
 
 const Info3 = styled.div`
   display: flex;
-  border-bottom: 2px solid #eee;
 `;
 
 const Info4 = styled.div`

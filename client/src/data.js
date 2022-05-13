@@ -80,7 +80,7 @@ export const bestProducts = [
   },
   {
     id: 2,
-    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/xwhmz6cx/17af94764d7b41a988691798a23c5fe6.jpg",
     title: "베이지 맨투맨",
     price: "39,000",
     size: "S~XXL",
@@ -154,6 +154,57 @@ export const bestProducts = [
     title: "칵퉤",
     price: "39,000",
     size: "S~XXL",
+  },
+];
+
+export const suggestionProducts = [
+  {
+    id: 1,
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
+    title: "슈가로로 스파클링 사과음료, 24개, 350ml",
+    price: "21,750",
+  },
+  {
+    id: 2,
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/xwhmz6cx/17af94764d7b41a988691798a23c5fe6.jpg",
+    title: "슈가로로 스파클링 레몬사이다, , 24개, 350ml",
+    price: "21,750",
+  },
+  {
+    id: 3,
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/8882757122807110-4db16bb6-1510-4e58-9472-3c7300804093.jpg",
+    title: "뉴트리디데이 칼슘 마그네슘 아연 비타민D",
+    price: "24,900",
+  },
+  {
+    id: 4,
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/zzybeaqx/88d903bdb1374cff8488d30099490077.jpg",
+    title: "원에이엠 스파클링 파인애플 탄산수",
+    price: "24,340",
+  },
+  {
+    id: 5,
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/1237026721716-184ada16-8a73-43e2-9a0a-34593fd0986a.jpg",
+    title: "그라펜 남성용 핸섬 커버 스틱 3.5g",
+    price: "14,320",
+  },
+  {
+    id: 6,
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/250122630615964-dd223d0e-7240-4c16-97c2-d9333652c87d.jpg",
+    title: "달리프 클로렐라 베러 루트 헤어 토닉",
+    price: "17,100",
+  },
+  {
+    id: 7,
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/625831518136316-9e3c2f59-4308-4925-9ab7-785ad59b1f9f.jpg",
+    title: "다슈 맨즈 듀얼 트릭 스틱 3.4g",
+    price: "14,400",
+  },
+  {
+    id: 8,
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/961c/d78dd1e74dc287ff9e1d6aea02ad27f2b99cac158a8dee92dbc7e195ce26.png",
+    title: "마켓프라이데이 콤소다 자두그린티 10개입 6박스",
+    price: "58,800",
   },
 ];
 
