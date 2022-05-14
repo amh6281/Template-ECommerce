@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { suggestionProducts } from "../data";
+import { advertisingItem2 } from "../data";
 import ShopSuggestion from "./ShopSuggestion";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
@@ -48,6 +49,13 @@ const Wrapper = styled.div`
   transform: translateX(${(props) => props.slideIndex * -49}vw);
 `;
 
+const Wrapper2 = styled.div`
+  height: 100%;
+  display: flex;
+  transition: all 1.5s ease;
+  transform: translateX(${(props) => props.slideIndex2 * -49}vw);
+`;
+
 const Slide = styled.div`
   display: flex;
   align-items: center;
@@ -75,6 +83,16 @@ const ShopSuggestions = () => {
     }
   };
 
+  const [slideIndex2, setSlideIndex2] = useState(0);
+
+  const handleClick2 = (direction) => {
+    if (direction === "left2") {
+      setSlideIndex2(slideIndex2 > 0 ? slideIndex2 - 1 : 1);
+    } else {
+      setSlideIndex2(slideIndex2 < 2 ? slideIndex2 + 1 : 0);
+    }
+  };
+
   return (
     <div>
       <Title>🛍️ 오늘의 쇼핑 제안</Title>
@@ -91,6 +109,23 @@ const ShopSuggestions = () => {
           ))}
         </Wrapper>
         <Arrow direction="right" onClick={() => handleClick("right")}>
+          <ArrowRightOutlined />
+        </Arrow>
+      </Container>
+      <Title>🛍️ 명회바붐</Title>
+      <Hr />
+      <Container>
+        <Arrow direction="left" onClick={() => handleClick2("left2")}>
+          <ArrowLeftOutlined />
+        </Arrow>
+        <Wrapper2 slideIndex2={slideIndex2}>
+          {advertisingItem2.map((item) => (
+            <Slide key={item.id}>
+              <ShopSuggestion item={item} key={item.id} />
+            </Slide>
+          ))}
+        </Wrapper2>
+        <Arrow direction="right" onClick={() => handleClick2("right")}>
           <ArrowRightOutlined />
         </Arrow>
       </Container>
