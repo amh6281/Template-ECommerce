@@ -6,6 +6,7 @@ import TodayDiscoverys from "../components/TodayDiscoverys";
 import Banner from "../components/Banner";
 import AdvertisingPd from "../components/AdvertisingPd";
 import ShopSuggestions from "../components/ShopSuggestions";
+import AdvertisingPd2 from "../components/Advertising2/AdvertisingPd2";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Banner />
       <TodayDiscoverys />
       <AdvertisingPd />
+      <AdvertisingPd2 />
       <ShopSuggestions />
       <Footer />
     </div>

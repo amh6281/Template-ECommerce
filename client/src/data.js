@@ -459,3 +459,40 @@ export const advertisingItem2 = [
     price: "8,800",
   },
 ];
+
+// advertising 컴포넌트2 (나중에 Map으로 바꿔야됨)
+export const advertisingItem3 = [
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/375444287216621-379d3817-c495-4ae3-9ff2-46939d373019.jpg",
+    title: "에이플비 글루타치온 히알루론산 미백 크림, 70ml, 2개",
+    price: "44,800",
+  },
+  {
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/3010346664433158-127f6b45-7c8d-456b-af2e-13ee6b20d2b8.jpg",
+    title: "미프 비타맥스 남성용 올인원 로션 본품 200ml + 리필",
+    price: "27,400",
+  },
+  {
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2016/04/19/14/6/2f81eeed-b468-4b74-b2f5-b014386d9095.jpg",
+    title: "나인포인트 페로몬향수 리미티드 P&B 실버 2개, 50ml",
+    price: "24,500",
+  },
+];
+
+export const advertisingItem4 = [
+  {
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/2m2hiuka/235ceea763bb49f085a5e987042f83ac.jpg",
+    title: "스킨빌더스 브이 - 콜라겐크림 50ml, 1개",
+    price: "27,800",
+  },
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2017/11/06/18/2/1fb99195-8e81-4889-bd18-924b488a7ceb.jpg",
+    title: "에스엔피 아이스베어 시카 마스크, 10개입, 1개",
+    price: "11,400",
+  },
+  {
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/450467979710578-1356f9e4-2e62-4e30-bda6-aab3e3b61640.jpg",
+    title: "탐니크 바르는향수 고체향수 승무원향수 솔리드퍼퓸 맨,",
+    price: "24,560",
+  },
+];
