@@ -157,56 +157,118 @@ export const bestProducts = [
   },
 ];
 
-export const suggestionProducts = [
-  {
-    id: 1,
-    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
-    title: "슈가로로 스파클링 사과음료, 24개, 350ml",
-    price: "21,750",
-  },
-  {
-    id: 2,
-    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/xwhmz6cx/17af94764d7b41a988691798a23c5fe6.jpg",
-    title: "슈가로로 스파클링 레몬사이다, , 24개, 350ml",
-    price: "21,750",
-  },
-  {
-    id: 3,
-    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/8882757122807110-4db16bb6-1510-4e58-9472-3c7300804093.jpg",
-    title: "뉴트리디데이 칼슘 마그네슘 아연 비타민D",
-    price: "24,900",
-  },
-  {
-    id: 4,
-    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/zzybeaqx/88d903bdb1374cff8488d30099490077.jpg",
-    title: "원에이엠 스파클링 파인애플 탄산수",
-    price: "24,340",
-  },
-  {
-    id: 5,
-    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/1237026721716-184ada16-8a73-43e2-9a0a-34593fd0986a.jpg",
-    title: "그라펜 남성용 핸섬 커버 스틱 3.5g",
-    price: "14,320",
-  },
-  {
-    id: 6,
-    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/250122630615964-dd223d0e-7240-4c16-97c2-d9333652c87d.jpg",
-    title: "달리프 클로렐라 베러 루트 헤어 토닉",
-    price: "17,100",
-  },
-  {
-    id: 7,
-    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/625831518136316-9e3c2f59-4308-4925-9ab7-785ad59b1f9f.jpg",
-    title: "다슈 맨즈 듀얼 트릭 스틱 3.4g",
-    price: "14,400",
-  },
-  {
-    id: 8,
-    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/961c/d78dd1e74dc287ff9e1d6aea02ad27f2b99cac158a8dee92dbc7e195ce26.png",
-    title: "마켓프라이데이 콤소다 자두그린티 10개입 6박스",
-    price: "58,800",
-  },
-];
+export const suggestionProducts = {
+  options: [
+    {
+      id: 1,
+      title: "🛍️ 오늘의 쇼핑 제안",
+      actions: [
+        {
+          id: 1,
+          img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
+          title: "슈가로로 스파클링 사과음료, 24개, 350ml",
+          price: "21,750",
+        },
+        {
+          id: 2,
+          img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/xwhmz6cx/17af94764d7b41a988691798a23c5fe6.jpg",
+          title: "슈가로로 스파클링 레몬사이다, , 24개, 350ml",
+          price: "21,750",
+        },
+        {
+          id: 3,
+          img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/8882757122807110-4db16bb6-1510-4e58-9472-3c7300804093.jpg",
+          title: "뉴트리디데이 칼슘 마그네슘 아연 비타민D",
+          price: "24,900",
+        },
+        {
+          id: 4,
+          img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/zzybeaqx/88d903bdb1374cff8488d30099490077.jpg",
+          title: "원에이엠 스파클링 파인애플 탄산수",
+          price: "24,340",
+        },
+        {
+          id: 5,
+          img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/1237026721716-184ada16-8a73-43e2-9a0a-34593fd0986a.jpg",
+          title: "그라펜 남성용 핸섬 커버 스틱 3.5g",
+          price: "14,320",
+        },
+        {
+          id: 6,
+          img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/250122630615964-dd223d0e-7240-4c16-97c2-d9333652c87d.jpg",
+          title: "달리프 클로렐라 베러 루트 헤어 토닉",
+          price: "17,100",
+        },
+        {
+          id: 7,
+          img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/625831518136316-9e3c2f59-4308-4925-9ab7-785ad59b1f9f.jpg",
+          title: "다슈 맨즈 듀얼 트릭 스틱 3.4g",
+          price: "14,400",
+        },
+        {
+          id: 8,
+          img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/961c/d78dd1e74dc287ff9e1d6aea02ad27f2b99cac158a8dee92dbc7e195ce26.png",
+          title: "마켓프라이데이 콤소다 자두그린티 10개입 6박스",
+          price: "58,800",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "🛒 오늘의 판매자 특가",
+      actions: [
+        {
+          id: 1,
+          img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/nmdmzb8r/c5d60ec247d6474fac941de3ea507794.jpg",
+          title: "아이리버 7.1채널 USB 게이밍 헤드셋, 혼합색상, IGH-A60",
+          price: "49,000",
+        },
+        {
+          id: 2,
+          img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/1052364656482694-6cb76163-720b-4820-9dc6-efe69dd6d022.jpg",
+          title: "트리트룸 시그니처 대용량 트리트먼트 화이트머스크향",
+          price: "15,440",
+        },
+        {
+          id: 3,
+          img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/956495176240684-17283c13-a23c-49a0-9796-760bf00683e0.jpg",
+          title: "닥터방기원 맥주 효모 탈모증상 완화 샴푸",
+          price: "22,780",
+        },
+        {
+          id: 4,
+          img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/502755019701598-25b19509-9d18-4834-ae95-b85887273617.png",
+          title: "트리트룸 시그니처 대용량 트리트먼트 프룻시트러스향",
+          price: "18,700",
+        },
+        {
+          id: 5,
+          img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/1960/9509c246f567cb2d5903158e11d3a442bea0d1ae16b23c622e98af890c15.jpg",
+          title: "나이키 NSW CLUB 맨투맨",
+          price: "39,800",
+        },
+        {
+          id: 6,
+          img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/604962294495500-124db843-a583-4b64-9d5d-facde88becba.jpg",
+          title: "닥터방기원 댄드러프 비듬케어 탈모샴푸",
+          price: "24,600",
+        },
+        {
+          id: 7,
+          img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/2020/04/24/8/0/781c66ea-a332-47f1-9ad2-3b10ec8461d0.jpg",
+          title: "컨퓸 아르간 트리트먼트 헤어 오일 120ml + 25ml",
+          price: "13,880",
+        },
+        {
+          id: 8,
+          img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/13121022253358517-1fbed32f-c553-49fc-837c-090ec37e4344.jpg",
+          title: "다슈 데일리 패스트 스칼프 탈모샴푸",
+          price: "24,800",
+        },
+      ],
+    },
+  ],
+};
 
 export const newProducts = [
   {

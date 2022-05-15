@@ -77,23 +77,27 @@ const ShopSuggestions = () => {
 
   return (
     <div>
-      <Title>🛍️ 오늘의 쇼핑 제안</Title>
-      <Hr />
-      <Container>
-        <Arrow direction="left" onClick={() => handleClick("left")}>
-          <ArrowLeftOutlined />
-        </Arrow>
-        <Wrapper slideIndex={slideIndex}>
-          {suggestionProducts.map((item) => (
-            <Slide key={item.id}>
-              <ShopSuggestion item={item} key={item.id} />
-            </Slide>
-          ))}
-        </Wrapper>
-        <Arrow direction="right" onClick={() => handleClick("right")}>
-          <ArrowRightOutlined />
-        </Arrow>
-      </Container>
+      {suggestionProducts.options.map((item) => (
+        <div>
+          <Title> {item.title}</Title>
+          <Hr />
+          <Container>
+            <Arrow direction="left" onClick={() => handleClick("left")}>
+              <ArrowLeftOutlined />
+            </Arrow>
+            <Wrapper slideIndex={slideIndex}>
+              {item.actions.map((item) => (
+                <Slide key={item.id}>
+                  <ShopSuggestion item={item} key={item.id} />
+                </Slide>
+              ))}
+            </Wrapper>
+            <Arrow direction="right" onClick={() => handleClick("right")}>
+              <ArrowRightOutlined />
+            </Arrow>
+          </Container>
+        </div>
+      ))}
     </div>
   );
 };
