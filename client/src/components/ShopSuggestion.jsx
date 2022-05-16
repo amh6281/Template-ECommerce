@@ -25,7 +25,7 @@ const Price = styled.h1`
   margin-left: 10px;
 `;
 
-const BestProduct = ({ item }) => {
+const ShopSuggestion = ({ item }) => {
   return (
     <div>
       <Container>
@@ -37,4 +37,4 @@ const BestProduct = ({ item }) => {
   );
 };
 
-export default BestProduct;
+export default ShopSuggestion;

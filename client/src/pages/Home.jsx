@@ -1,23 +1,23 @@
 import React from "react";
-import Slider from "../components/Slider";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import NewProducts from "../components/NewProducts";
-import BestProducts from "../components/BestProducts";
-import CategoryNav from "../components/CategoryNav/CategoryNav";
-import NewBtn from "../components/NewBtn";
-import TodayPD from "../components/TodayPD";
+import TodayDiscoverys from "../components/TodayDiscoverys";
+import Banner from "../components/Banner";
+import AdvertisingPd from "../components/AdvertisingPd";
+import ShopSuggestions from "../components/ShopSuggestions";
+import AdvertisingPd2 from "../components/Advertising2/AdvertisingPd2";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
       <Announcement />
-      <Slider />
-      <TodayPD />
-      <BestProducts />
-      <NewProducts />
+      <Banner />
+      <TodayDiscoverys />
+      <AdvertisingPd />
+      <AdvertisingPd2 />
+      <ShopSuggestions />
       <Footer />
     </div>
   );

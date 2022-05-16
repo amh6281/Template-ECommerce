@@ -1,23 +1,18 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  flex: 1;
-  margin: 5px;
-  width: 225px;
-  height: 350px;
-  align-items: center;
-  justify-content: center;
+  max-width: 100%;
+  padding: 0px;
 `;
 
 const Image = styled.img`
-  height: 65%;
+  object-fit: cover;
 `;
 
 const Title = styled.h1`
   font-size: 12px;
   font-weight: initial;
   margin-left: 10px;
-  display: flex;
 `;
 
 const Price = styled.h1`
@@ -25,7 +20,7 @@ const Price = styled.h1`
   margin-left: 10px;
 `;
 
-const BestProduct = ({ item }) => {
+const AdvertisingItem2 = ({ item }) => {
   return (
     <div>
       <Container>
@@ -37,4 +32,4 @@ const BestProduct = ({ item }) => {
   );
 };
 
-export default BestProduct;
+export default AdvertisingItem2;

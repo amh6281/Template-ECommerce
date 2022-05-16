@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { bestProducts } from "../data";
-import BestProduct from "./BestProduct";
+import { suggestionProducts } from "../data";
+import ShopSuggestion from "./ShopSuggestion";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
@@ -32,7 +32,7 @@ const Arrow = styled.div`
   justify-content: center;
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 115px;
   left: ${(props) => props.direction === "left" && "10px"};
   right: ${(props) => props.direction === "right" && "10px"};
   margin: auto;
@@ -64,7 +64,7 @@ const Title = styled.h1`
   align-items: center;
 `;
 
-const BestProducts = () => {
+const ShopSuggestions = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
@@ -77,25 +77,29 @@ const BestProducts = () => {
 
   return (
     <div>
-      <Title>🛍️ 오늘의 쇼핑 제안</Title>
-      <Hr />
-      <Container>
-        <Arrow direction="left" onClick={() => handleClick("left")}>
-          <ArrowLeftOutlined />
-        </Arrow>
-        <Wrapper slideIndex={slideIndex}>
-          {bestProducts.map((item) => (
-            <Slide key={item.id}>
-              <BestProduct item={item} key={item.id} />
-            </Slide>
-          ))}
-        </Wrapper>
-        <Arrow direction="right" onClick={() => handleClick("right")}>
-          <ArrowRightOutlined />
-        </Arrow>
-      </Container>
+      {suggestionProducts.options.map((item) => (
+        <div>
+          <Title> {item.title}</Title>
+          <Hr />
+          <Container>
+            <Arrow direction="left" onClick={() => handleClick("left")}>
+              <ArrowLeftOutlined />
+            </Arrow>
+            <Wrapper slideIndex={slideIndex}>
+              {item.actions.map((item) => (
+                <Slide key={item.id}>
+                  <ShopSuggestion item={item} key={item.id} />
+                </Slide>
+              ))}
+            </Wrapper>
+            <Arrow direction="right" onClick={() => handleClick("right")}>
+              <ArrowRightOutlined />
+            </Arrow>
+          </Container>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default BestProducts;
+export default ShopSuggestions;

@@ -73,28 +73,28 @@ export const categories = [
 export const bestProducts = [
   {
     id: 1,
-    img: "https://user-images.githubusercontent.com/83646986/160977533-77ec421e-38fc-4cb2-8874-30ffd034e94c.png",
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
     title: "회색 맨투맨",
     price: "39,000",
     size: "S~XXL",
   },
   {
     id: 2,
-    img: "https://user-images.githubusercontent.com/83646986/160977544-a1de75e3-7221-4d84-aaee-46efcefaa8e6.png",
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/xwhmz6cx/17af94764d7b41a988691798a23c5fe6.jpg",
     title: "베이지 맨투맨",
     price: "39,000",
     size: "S~XXL",
   },
   {
     id: 3,
-    img: "https://user-images.githubusercontent.com/83646986/160977546-92b2c425-2aff-4c16-9b20-341d8b41afc3.png",
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
     title: "베이지 후드",
     price: "39,000",
     size: "S~XXL",
   },
   {
     id: 4,
-    img: "https://user-images.githubusercontent.com/83646986/160977547-8f8c1ac1-8974-4c60-adc3-963d0362d169.png",
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
     title: "검정 자켓",
     price: "39,000",
     size: "S~XXL",
@@ -156,6 +156,119 @@ export const bestProducts = [
     size: "S~XXL",
   },
 ];
+
+export const suggestionProducts = {
+  options: [
+    {
+      id: 1,
+      title: "🛍️ 오늘의 쇼핑 제안",
+      actions: [
+        {
+          id: 1,
+          img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/6750197922267346-20d0afbd-bf71-4edb-9b28-9ea2af65582e.jpg",
+          title: "슈가로로 스파클링 사과음료, 24개, 350ml",
+          price: "21,750",
+        },
+        {
+          id: 2,
+          img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/xwhmz6cx/17af94764d7b41a988691798a23c5fe6.jpg",
+          title: "슈가로로 스파클링 레몬사이다, , 24개, 350ml",
+          price: "21,750",
+        },
+        {
+          id: 3,
+          img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/8882757122807110-4db16bb6-1510-4e58-9472-3c7300804093.jpg",
+          title: "뉴트리디데이 칼슘 마그네슘 아연 비타민D",
+          price: "24,900",
+        },
+        {
+          id: 4,
+          img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/zzybeaqx/88d903bdb1374cff8488d30099490077.jpg",
+          title: "원에이엠 스파클링 파인애플 탄산수",
+          price: "24,340",
+        },
+        {
+          id: 5,
+          img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/1237026721716-184ada16-8a73-43e2-9a0a-34593fd0986a.jpg",
+          title: "그라펜 남성용 핸섬 커버 스틱 3.5g",
+          price: "14,320",
+        },
+        {
+          id: 6,
+          img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/250122630615964-dd223d0e-7240-4c16-97c2-d9333652c87d.jpg",
+          title: "달리프 클로렐라 베러 루트 헤어 토닉",
+          price: "17,100",
+        },
+        {
+          id: 7,
+          img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/625831518136316-9e3c2f59-4308-4925-9ab7-785ad59b1f9f.jpg",
+          title: "다슈 맨즈 듀얼 트릭 스틱 3.4g",
+          price: "14,400",
+        },
+        {
+          id: 8,
+          img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/961c/d78dd1e74dc287ff9e1d6aea02ad27f2b99cac158a8dee92dbc7e195ce26.png",
+          title: "마켓프라이데이 콤소다 자두그린티 10개입 6박스",
+          price: "58,800",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "🛒 오늘의 판매자 특가",
+      actions: [
+        {
+          id: 1,
+          img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/292x292ex/image/rs_quotation_api/nmdmzb8r/c5d60ec247d6474fac941de3ea507794.jpg",
+          title: "아이리버 7.1채널 USB 게이밍 헤드셋, 혼합색상, IGH-A60",
+          price: "49,000",
+        },
+        {
+          id: 2,
+          img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/1052364656482694-6cb76163-720b-4820-9dc6-efe69dd6d022.jpg",
+          title: "트리트룸 시그니처 대용량 트리트먼트 화이트머스크향",
+          price: "15,440",
+        },
+        {
+          id: 3,
+          img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/956495176240684-17283c13-a23c-49a0-9796-760bf00683e0.jpg",
+          title: "닥터방기원 맥주 효모 탈모증상 완화 샴푸",
+          price: "22,780",
+        },
+        {
+          id: 4,
+          img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/502755019701598-25b19509-9d18-4834-ae95-b85887273617.png",
+          title: "트리트룸 시그니처 대용량 트리트먼트 프룻시트러스향",
+          price: "18,700",
+        },
+        {
+          id: 5,
+          img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/1960/9509c246f567cb2d5903158e11d3a442bea0d1ae16b23c622e98af890c15.jpg",
+          title: "나이키 NSW CLUB 맨투맨",
+          price: "39,800",
+        },
+        {
+          id: 6,
+          img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/604962294495500-124db843-a583-4b64-9d5d-facde88becba.jpg",
+          title: "닥터방기원 댄드러프 비듬케어 탈모샴푸",
+          price: "24,600",
+        },
+        {
+          id: 7,
+          img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/2020/04/24/8/0/781c66ea-a332-47f1-9ad2-3b10ec8461d0.jpg",
+          title: "컨퓸 아르간 트리트먼트 헤어 오일 120ml + 25ml",
+          price: "13,880",
+        },
+        {
+          id: 8,
+          img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/292x292ex/image/retail/images/13121022253358517-1fbed32f-c553-49fc-837c-090ec37e4344.jpg",
+          title: "다슈 데일리 패스트 스칼프 탈모샴푸",
+          price: "24,800",
+        },
+      ],
+    },
+  ],
+};
 
 export const newProducts = [
   {
@@ -277,5 +390,109 @@ export const hotProducts = [
     title: "시그니처 프리미엄 세미 와이드 슬랙스",
     price: "48,900",
     size: "S~XXL",
+  },
+];
+
+export const itemData = [
+  {
+    img: "https://static.coupangcdn.com/xa/cmg_paperboy/image/1652155730521/C2_01.jpg",
+    title: "비엔나 소세지",
+  },
+  {
+    img: "https://static.coupangcdn.com/ea/cmg_paperboy/image/1652155812428/C2_02.jpg",
+    title: "이라이프",
+  },
+];
+
+export const itemData2 = [
+  {
+    img: "https://static.coupangcdn.com/wa/cmg_paperboy/image/1652156146468/C2_03.jpg",
+    title: "휴지",
+  },
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/x/image/displayitem/displayitem_914ce4a5-08fd-4ec4-92ab-98e3dfaf5d53.jpg",
+    title: "접이식 헤어드라이어",
+  },
+  {
+    img: "https://static.coupangcdn.com/ka/cmg_paperboy/image/1652156168218/C2_05.jpg",
+    title: "브랜드위크 SALE",
+  },
+
+  {
+    img: "https://static.coupangcdn.com/ea/cmg_paperboy/image/1652155779824/C2_08.jpg",
+    title: "라면",
+  },
+];
+
+export const advertisingItem1 = [
+  {
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/10396458877608342-e4c845a0-997a-405c-986d-c657d6f6f467.jpg",
+    title: "퍼펙토 프리미엄 초유 단백질 분말 스틱, 3q, 60개",
+    price: "28,660",
+  },
+  {
+    img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/4856719527146195-033a9091-26e7-4d15-a250-132c1f4c3563.jpg",
+    title: "비비랩 더 콜라겐 파우더S, 2q, 50개",
+    price: "34,900",
+  },
+  {
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/3667346702707568-afeed46d-a5b7-4564-8aec-de1c75ba8107.jpg",
+    title: "크린식이섬유 프리바이오틱스 영양제, 10q, 30포",
+    price: "44,000",
+  },
+];
+
+export const advertisingItem2 = [
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/gmxjvpan/89e28aacc7a04a438c5b4f8adc013822.jpg",
+    title: "비타민마을 아르기닌 8000, 8q, 60개",
+    price: "21,500",
+  },
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/4b8d/34bd3915a6d06707effb925e3025a8917c90858a6959b34a767240f49a34.jpg",
+    title: "레모나 생유산균 20 C, 2g, 300개",
+    price: "39,900",
+  },
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2021/01/21/19/5/650574f1-4a8d-404f-9d9f-26fcd3a28b8b.jpg",
+    title: "스윗밸런스 멕시칸 치킨 샐러드, 210g, 2개",
+    price: "8,800",
+  },
+];
+
+// advertising 컴포넌트2 (나중에 Map으로 바꿔야됨)
+export const advertisingItem3 = [
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/375444287216621-379d3817-c495-4ae3-9ff2-46939d373019.jpg",
+    title: "에이플비 글루타치온 히알루론산 미백 크림, 70ml, 2개",
+    price: "44,800",
+  },
+  {
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/3010346664433158-127f6b45-7c8d-456b-af2e-13ee6b20d2b8.jpg",
+    title: "미프 비타맥스 남성용 올인원 로션 본품 200ml + 리필",
+    price: "27,400",
+  },
+  {
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2016/04/19/14/6/2f81eeed-b468-4b74-b2f5-b014386d9095.jpg",
+    title: "나인포인트 페로몬향수 리미티드 P&B 실버 2개, 50ml",
+    price: "24,500",
+  },
+];
+
+export const advertisingItem4 = [
+  {
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/2m2hiuka/235ceea763bb49f085a5e987042f83ac.jpg",
+    title: "스킨빌더스 브이 - 콜라겐크림 50ml, 1개",
+    price: "27,800",
+  },
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2017/11/06/18/2/1fb99195-8e81-4889-bd18-924b488a7ceb.jpg",
+    title: "에스엔피 아이스베어 시카 마스크, 10개입, 1개",
+    price: "11,400",
+  },
+  {
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/450467979710578-1356f9e4-2e62-4e30-bda6-aab3e3b61640.jpg",
+    title: "탐니크 바르는향수 고체향수 승무원향수 솔리드퍼퓸 맨,",
+    price: "24,560",
   },
 ];
