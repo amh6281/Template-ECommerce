@@ -47,7 +47,7 @@ const TodayDiscoverys = () => {
   return (
     <div>
       <Title>
-        오늘의 발견
+        🔭 오늘의 발견
         <span style={{ fontSize: "18px", marginLeft: "5px" }}>
           {" "}
           | 오늘의 가장 HOT한 상품

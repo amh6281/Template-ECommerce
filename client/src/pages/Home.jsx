@@ -7,6 +7,7 @@ import Banner from "../components/Banner";
 import AdvertisingPd from "../components/AdvertisingPd";
 import ShopSuggestions from "../components/ShopSuggestions";
 import AdvertisingPd2 from "../components/Advertising2/AdvertisingPd2";
+import NewBusinessIcon from "../components/NewBusinessIcon";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Navbar />
       <Announcement />
       <Banner />
+      <NewBusinessIcon />
       <TodayDiscoverys />
       <AdvertisingPd />
       <AdvertisingPd2 />
