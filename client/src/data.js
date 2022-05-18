@@ -492,7 +492,120 @@ export const advertisingItem4 = [
   },
   {
     img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/450467979710578-1356f9e4-2e62-4e30-bda6-aab3e3b61640.jpg",
-    title: "탐니크 바르는향수 고체향수 승무원향수 솔리드퍼퓸 맨,",
+    title: "탐니크 바르는향수 고체향수 승무원향수 솔리드퍼퓸 맨",
     price: "24,560",
+  },
+];
+
+// advertising 컴포넌트3 (나중에 Map으로 바꿔야됨)
+export const advertisingItem5 = [
+  {
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/446252669010523-7c4714cd-90da-470e-a659-4f465772001a.jpg",
+    title: "홀리데이즈 잔티센600, 30정, 4개",
+    price: "62,910",
+  },
+  {
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/cd4fld7h/a1ddd690cefa40719820f36fa3d05a52.jpg",
+    title: "바른제품연구소 유기농 새싹 보리분말 80q 2병",
+    price: "21,000",
+  },
+  {
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/2d2d/314415cfb8dade992271c5b0a8dec17512f43d6cb7cbbdbb6f771820b570.jpg",
+    title: "청정원 안주야 논현동 포차스타일 직화무뼈닭발 160q X 4개",
+    price: "17,910",
+  },
+];
+
+export const advertisingItem6 = [
+  {
+    img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/0a4c/8d4c70d3312cea1ccd82b2602439b7c3fa01517c414780965cea81c361fd.jpg",
+    title: "비비고 된장찌개, 460g, 6개",
+    price: "16,560",
+  },
+  {
+    img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/93414568626531-1c20d921-38ab-44c3-96b1-975f6c05a0f6.jpg",
+    title: "청정원 카레여왕 구운마늘&양파, 108q, 1개",
+    price: "2,450",
+  },
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/1133071972510406-78c69e84-02b4-4cc1-9aae-af8cfced3a67.jpg",
+    title: "백설 중력밀가루, 2.5kg, 1개",
+    price: "2,900",
+  },
+];
+
+// advertising 컴포넌트4 (나중에 Map으로 바꿔야됨)
+export const advertisingItem7 = [
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/vgp6f0t9/6ea131f17e8a4761ba741783db7fff21.jpg",
+    title:
+      "HP 데스크탑 VICTUS 15L TG02-0043KR (라이젠7-5700G WIN11 Home 16GB 512GB RTX3060Ti)",
+    price: "1,649,000",
+  },
+  {
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/e912/ff772789a663a63982955ba03e273611574382ba3b72ce4911a574bfb561.jpg",
+    title: "알펜 에어 서큘레이터 ALF-1578CB",
+    price: "45,000",
+  },
+  {
+    img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/e236/709799b50ba702041037a1c40a4679053f66130c88df3d45aedba142be92.jpg",
+    title: "라떼판다 7인치 IPS 디스플레이",
+    price: "19,500",
+  },
+];
+
+export const advertisingItem8 = [
+  {
+    img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/zhb4gm6r/73894dd0d57a427bbeadfaf7cfca762e.jpg",
+    title: "베어스어스 20W CTO 8핀 레전드 엘보우 케이블",
+    price: "12,900",
+  },
+  {
+    img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2017/04/11/12/5/e1ce432c-774a-4203-ac03-fc3d43165854.jpg",
+    title: "테팔 클래식 건식다리미 FS2920KO, 블랙",
+    price: "20,160",
+  },
+  {
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2020/07/24/10/9/58623d60-3c43-41d7-af77-73b861a38412.jpg",
+    title: "쿠쿠 전기보온 에그밥솥 6인용, CR-0675FW",
+    price: "61,200",
+  },
+];
+
+// advertising 컴포넌트5 (나중에 Map으로 바꿔야됨)
+export const advertisingItem9 = [
+  {
+    img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/5f3f/0716e283992b1b03faebae329b7cc8b631bd515cf95439e0f0059c7f55bd.jpg",
+    title:
+      "남성 여름 MTB 라이딩 자전거 7부 반바지 싸이클 사이클 통기성 패드 사이클 팬츠 쫄바지 산악",
+    price: "36,900",
+  },
+  {
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/oho6ab6u/2f43e2a3291c4460bb152253bd7e3830.JPG",
+    title: "테이키 자전거 방수커버 L, 블랙, 1개",
+    price: "25,500",
+  },
+  {
+    img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/cbe0/b6d736b7f47722f703be5a043863a8abb1d2cca3e47706d10a9b94715587.jpg",
+    title: "나이키 남성용 RV6 NN 쿠셔닝 런닝화 운동화",
+    price: "79,800",
+  },
+];
+
+export const advertisingItem10 = [
+  {
+    img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/142520259675465-dba770ed-fe46-4c0f-9bed-d1efaced3e8a.jpg",
+    title: "발렌시아골프 남성용 냉감 터틀넥 베이스레이어 티셔츠",
+    price: "17,900",
+  },
+  {
+    img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/03/14/4222442773/a50f4d55-06b6-40e3-855b-cfdfb6c97ac1.jpg",
+    title: "Apple 애플워치3, 실버 알루미늄 케이스, 화이트 스포츠",
+    price: "268,690",
+  },
+  {
+    img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/e00d/b4945bd4868956d016d82ccec7125d5f3ad36b057d88396557c6ae16d9e0.jpg",
+    title: "아디다스 어깨 로고 스쿼드라21 저지 반팔티셔츠",
+    price: "25,800",
   },
 ];
