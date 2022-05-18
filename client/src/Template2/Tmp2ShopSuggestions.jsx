@@ -5,7 +5,7 @@ import Tmp2ShopSuggestion from "./Tmp2ShopSuggestion";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
-  width: 50%;
+  width: 49%;
   margin: 0 auto;
   height: 100%;
   display: flex;
