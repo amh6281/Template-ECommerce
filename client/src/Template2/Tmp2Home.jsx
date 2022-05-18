@@ -11,8 +11,8 @@ const Home = () => {
     <div>
       <Tmp2Navbar />
       <Tmp2Announcement />
-      <Tmp2Slider />
       <Tmp2Category />
+      <Tmp2Slider />
       <Tmp2ShopSuggestions />
       <Tmp2Footer />
     </div>

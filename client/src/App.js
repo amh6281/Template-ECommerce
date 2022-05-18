@@ -11,7 +11,7 @@ import Tmp2Home from "./Template2/Tmp2Home";
 import Tmp2Category from "./Template2/Tmp2Category";
 
 function App() {
-  return <BuildingShop />;
+  return <Tmp2Home />;
 }
 
 export default App;
