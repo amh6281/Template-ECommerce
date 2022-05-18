@@ -7,9 +7,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import Tmp1Home from "../Template1/Tmp1Home";
+import Tmp2Home from "./Tmp2Home";
 
-export default function Tmp1NewBtn() {
+export default function Tmp2Preview() {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -24,8 +24,13 @@ export default function Tmp1NewBtn() {
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
-        Degin1
+      <Button
+        variant="contained"
+        color="warning"
+        size="large"
+        onClick={handleClickOpen}
+      >
+        Degin2
       </Button>
       <Dialog
         fullScreen={fullScreen}
@@ -37,11 +42,11 @@ export default function Tmp1NewBtn() {
       >
         <DialogContent>
           <DialogContentText>
-            <Tmp1Home />
+            <Tmp2Home />
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus color="warning" onClick={handleClose}>
             돌아가기
           </Button>
         </DialogActions>
