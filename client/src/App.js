@@ -8,10 +8,9 @@ import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
 import Tmp1Home from "./Template1/Tmp1Home";
 import Tmp2Home from "./Template2/Tmp2Home";
-import Tmp2Category from "./Template2/Tmp2Category";
 
 function App() {
-  return <BuildingShop />;
+  return <Tmp2Home />;
 }
 
 export default App;
