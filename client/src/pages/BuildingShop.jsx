@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import Tmp1NewBtn from "../Template1/Tmp1NewBtn";
+import Tmp1Preview from "../Template1/Tmp1Preview";
+import Tmp2Preview from "../Template2/Tmp2Preview";
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -86,10 +87,8 @@ const BuildingShop = () => {
           <Input placeholder="주소" />
           <Input placeholder="고객센터 번호" />
           <BtnWrapper>
-            <Tmp1NewBtn />
-            <Button style={{ borderRadius: "5px", backgroundColor: "Brown" }}>
-              Design 2
-            </Button>
+            <Tmp1Preview />
+            <Tmp2Preview />
           </BtnWrapper>
           <BtnWrapper>
             <Button style={{ borderRadius: "5px", backgroundColor: "#432A2A" }}>

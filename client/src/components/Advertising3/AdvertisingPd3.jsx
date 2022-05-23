@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AdvertisingList from "./Advertising/AdvertisingList";
+import AdvertisingList3 from "./AdvertisingList3";
 
 const Container = styled.div`
   width: 55%;
@@ -48,7 +48,7 @@ const Title = styled.h1`
 `;
 
 const Hr = styled.hr`
-  background-color: #ff6347;
+  background-color: #ffa500;
   border: none;
   height: 2px;
 `;
@@ -74,11 +74,11 @@ const Keyword = styled.h5`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #d22e60;
+  color: #ffa500;
   font-size: 12px;
 `;
 
-const AdvertisingPd = () => {
+const AdvertisingPd3 = () => {
   const settings = {
     arrows: true,
     infinite: true,
@@ -93,35 +93,28 @@ const AdvertisingPd = () => {
   return (
     <Container>
       <Wrapper>
-        <TitleWrapper>
-          <Title type="small">HOT! TREND</Title>
-          <Title style={{ fontSize: "24px" }}>
-            카테고리별 <span style={{ color: "#1E90FF" }}>추천 광고상품</span>
-          </Title>
-        </TitleWrapper>
         <Hr />
         <Info3>
           <Info>
-            <TitleImg src="https://image7.coupangcdn.com/image/coupang/main/categoryBest/best_title_health.png" />
+            <TitleImg src="https://image10.coupangcdn.com/image/coupang/main/categoryBest/best_title_food.png" />
             <HotKeyword>
               <KeywordTitle>HOT키워드</KeywordTitle>
-              <Keyword>#멀티비타민</Keyword>
+              <Keyword>#저탄고지</Keyword>
+              <Keyword>#비타민</Keyword>
+              <Keyword>#다이어트</Keyword>
               <Keyword>#타트체리</Keyword>
-              <Keyword>#비타민D</Keyword>
-              <Keyword>#보스웰리아</Keyword>
             </HotKeyword>
           </Info>
           <Info2>
             <Slider {...settings}>
-              <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1652144557336/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg" />
-              <img src="https://static.coupangcdn.com/na/cmg_paperboy/image/1651822493243/C3_PC%2841%29.jpg" />
-              <img src="https://static.coupangcdn.com/na/cmg_paperboy/image/1651800242729/C3_PC%2819%29.jpg" />
-              <img src="https://static.coupangcdn.com/ra/cmg_paperboy/image/1652166823337/C3_PC%2849%29.jpg" />
-              <img src="https://static.coupangcdn.com/ca/cmg_paperboy/image/1651210827242/C3_PC.jpg" />
+              <img src="https://static.coupangcdn.com/va/cmg_paperboy/image/1652666811245/C3_PC1.jpg" />
+              <img src="https://static.coupangcdn.com/ea/cmg_paperboy/image/1652664402640/C3_PC-%EB%B3%B5%EC%82%AC%EB%B3%B8%2833%29.jpg" />
+              <img src="https://static.coupangcdn.com/da/cmg_paperboy/image/1652666987299/C3_PC%2834%29.jpg" />
+              <img src="https://static.coupangcdn.com/ga/cmg_paperboy/image/1652666585186/C3_PC%2867%29.jpg" />
             </Slider>
           </Info2>
           <Info4>
-            <AdvertisingList />
+            <AdvertisingList3 />
           </Info4>
         </Info3>
       </Wrapper>
@@ -129,4 +122,4 @@ const AdvertisingPd = () => {
   );
 };
 
-export default AdvertisingPd;
+export default AdvertisingPd3;

@@ -7,9 +7,10 @@ import Product from "./pages/Product";
 import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
 import Tmp1Home from "./Template1/Tmp1Home";
+import Tmp2Home from "./Template2/Tmp2Home";
 
 function App() {
-  return <Home />;
+  return <Tmp2Home />;
 }
 
 export default App;

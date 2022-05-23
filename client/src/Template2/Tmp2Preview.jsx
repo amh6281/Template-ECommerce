@@ -7,9 +7,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import Home from "../pages/Home";
+import Tmp2Home from "./Tmp2Home";
 
-export default function ResponsiveDialog() {
+export default function Tmp2Preview() {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -24,8 +24,13 @@ export default function ResponsiveDialog() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open responsive dialog
+      <Button
+        variant="contained"
+        color="warning"
+        size="large"
+        onClick={handleClickOpen}
+      >
+        Degin2
       </Button>
       <Dialog
         fullScreen={fullScreen}
@@ -35,20 +40,14 @@ export default function ResponsiveDialog() {
         fullWidth={true}
         maxWidth={"xl"}
       >
-        <DialogTitle id="responsive-dialog-title">
-          {"Use Google's location service?"}
-        </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            <Home />
+            <Tmp2Home />
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Disagree
-          </Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
+          <Button autoFocus color="warning" onClick={handleClose}>
+            돌아가기
           </Button>
         </DialogActions>
       </Dialog>
