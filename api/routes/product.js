@@ -60,7 +60,7 @@ router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   try {
-    let product;
+    let products;
 
     if (qNew) {
       products = await Product.find().sort({ createdAt: -1 }).limit(5);
