@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
   {
-    username: { type: String, unique: true },
+    username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    businessnumber: { type: Number, unique: true },
+    businessnumber: { type: Number, index: true, sparse: true, unique: true },
     isEntrepreneur: {
       type: Boolean,
       default: function () {
