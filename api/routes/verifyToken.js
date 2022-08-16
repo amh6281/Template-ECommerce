@@ -34,8 +34,19 @@ const verifyTokenAndAdmin = (req, res, next) => {
   });
 };
 
+const verifyTokenAndEntrepreneur = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.isEntrepreneur) {
+      next();
+    } else {
+      res.status(403).json("허용되지 않았습니다.");
+    }
+  });
+};
+
 module.exports = {
   verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
+  verifyTokenAndEntrepreneur,
 };
