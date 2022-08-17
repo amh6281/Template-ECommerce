@@ -50,35 +50,48 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-//GET PRODUCT
+//GET SHOP
 router.get("/find/:id", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
-    res.status(200).json(product);
+    const shop = await Shop.findById(req.params.id);
+    res.status(200).json(shop);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-//GET ALL PRODUCTS
+//GET ALL SHOPS
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   try {
-    let products;
+    let shops;
 
     if (qNew) {
-      products = await Product.find().sort({ createdAt: -1 }).limit(5);
+      shops = await Shop.find().sort({ createdAt: -1 }).limit(5);
     } else if (qCategory) {
-      products = await Product.find({
-        categories: {
+      shops = await Shop.find({
+        category: {
           $in: [qCategory],
         },
       });
     } else {
-      products = await Product.find();
+      shops = await Shop.find();
     }
-    res.status(200).json(products);
+    res.status(200).json(shops);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//SEARCH
+router.get("/search", async (req, res) => {
+  const query = req.query.q;
+  try {
+    const shops = await Shop.find({
+      shopname: { $regex: query, $options: "i" },
+    }).limit(40);
+    res.status(200).json(shops);
   } catch (err) {
     res.status(500).json(err);
   }
