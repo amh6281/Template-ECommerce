@@ -5,10 +5,18 @@ const UserSchema = new mongoose.Schema(
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    isAdmin: {
+    businessnumber: { type: Number, index: true, sparse: true, unique: true },
+    isEntrepreneur: {
       type: Boolean,
-      default: false,
+      default: function () {
+        if (this.businessnumber) {
+          return true;
+        } else {
+          return false;
+        }
+      },
     },
+    isAdmin: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

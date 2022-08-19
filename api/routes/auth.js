@@ -3,9 +3,10 @@ const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
-//REGISTER
+//USER REGISTER
 router.post("/register", async (req, res) => {
   const newUser = new User({
+    businessnumber: req.body.businessnumber,
     username: req.body.username,
     email: req.body.email,
     password: CryptoJS.AES.encrypt(
@@ -13,7 +14,6 @@ router.post("/register", async (req, res) => {
       process.env.PASS_SEC
     ).toString(),
   });
-
   try {
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
@@ -40,6 +40,7 @@ router.post("/login", async (req, res) => {
       {
         id: user._id,
         isAdmin: user.isAdmin,
+        isEntrepreneur: user.isEntrepreneur,
       },
       process.env.JWT_SEC,
       { expiresIn: "3d" }
