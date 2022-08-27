@@ -8,8 +8,8 @@ import Product from "./pages/Product";
 import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
 import Pay from "./pages/Pay";
-import Shop1 from "./pages/Shop1";
-import Shop2 from "./pages/Shop2";
+import Tmp1 from "./pages/Tmp1";
+import Tmp2 from "./pages/Tmp2";
 
 function App() {
   const user = true;
@@ -25,8 +25,8 @@ function App() {
           path="/register"
           element={user ? <Navigate to="/" /> : <Register />}
         />
-        <Route path="/shop1" element={<Shop1 />} />
-        <Route path="/shop2" element={<Shop2 />} />
+        <Route path="/shop1" element={<Tmp1 />} />
+        <Route path="/shop2" element={<Tmp2 />} />
       </Routes>
     </BrowserRouter>
   );

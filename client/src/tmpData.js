@@ -1,4 +1,4 @@
-//Shop1에서 사용되는 배너 Slider
+//Tmp1에서 사용되는 배너 Slider
 export const sliderItems = [
   {
     id: 1,
@@ -23,7 +23,7 @@ export const sliderItems = [
   },
 ];
 
-// Shop1에서 사용되는 카테고리
+// Tmp1에서 사용되는 카테고리
 export const categories = [
   {
     id: 1,
@@ -57,8 +57,8 @@ export const categories = [
   },
 ];
 
-//Shop1에서 사용되는 Products
-export const Shop1ProductsList = [
+//Tmp1에서 사용되는 Products
+export const Tmp1ProductsList = [
   {
     id: 1,
     img: "https://user-images.githubusercontent.com/83646986/161935955-44cded7b-9283-4fcf-956a-c817bd505d07.png",
@@ -145,8 +145,8 @@ export const Shop1ProductsList = [
   },
 ];
 
-// Shop2에서 사용되는 Products
-export const Shop2ProductsList = {
+// Tmp2에서 사용되는 Products
+export const Tmp2ProductsList = {
   options: [
     {
       id: 1,

@@ -1,12 +1,12 @@
 import React from "react";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
-import Slider from "../components/AtShop1/Shop1Slider";
-import Categories from "../components/AtShop1/SliderCategories";
-import Shop1Products from "../components/AtShop1/Shop1Products";
+import Tmp1Slider from "../components/Tmp1/Tmp1Slider";
+import Categories from "../components/Tmp1/SliderCategories";
+import Tmp1Products from "../components/Tmp1/Tmp1Products";
 import Footer from "../components/Footer";
 
-const Shop1 = () => {
+const Tmp1 = () => {
   const titles = ["Best Item", "Hot Item", "New Item"];
 
   return (
@@ -14,14 +14,14 @@ const Shop1 = () => {
       <Navbar />
       {/* Shop1에서는 카테고리 빼기*/}
       <Announcement />
-      <Slider />
+      <Tmp1Slider />
       <Categories />
       {titles.map((title) => (
-        <Shop1Products title={title} />
+        <Tmp1Products title={title} />
       ))}
       <Footer />
     </div>
   );
 };
 
-export default Shop1;
+export default Tmp1;

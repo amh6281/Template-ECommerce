@@ -1,9 +1,9 @@
 import React from "react";
 import Announcement from "../components/Announcement";
-import DropCategory from "../components/AtShop2/DropCategory";
+import DropCategory from "../components/Tmp2/DropCategory";
 import Navbar from "../components/Navbar";
-import Shop2Slider from "../components/AtShop2/Shop2Slider";
-import Shop2Products from "../components/AtShop2/Shop2Products";
+import Tmp2Slider from "../components/Tmp2/Tmp2Slider";
+import Tmp2Products from "../components/Tmp2/Tmp2Products";
 import Footer from "../components/Footer";
 
 const Shop2 = () => {
@@ -12,8 +12,8 @@ const Shop2 = () => {
       <Navbar />
       <Announcement />
       <DropCategory />
-      <Shop2Slider />
-      <Shop2Products />
+      <Tmp2Slider />
+      <Tmp2Products />
       <Footer />
     </div>
   );

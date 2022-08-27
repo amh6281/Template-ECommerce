@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Shop1ProductsList } from "../../tmpData";
-import Shop1Product from "./Shop1Product";
+import { Tmp1ProductsList } from "../../tmpData";
+import Tmp1Product from "./Tmp1Product";
 
 const Container = styled.div`
   display: flex;
@@ -25,18 +25,18 @@ const Hr = styled.hr`
   margin-bottom: 3px;
 `;
 
-const Shop1Products = ({ title }) => {
+const Tmp1Products = ({ title }) => {
   return (
     <div>
       <Title> {title} </Title>
       <Hr />
       <Container>
-        {Shop1ProductsList.map((item) => (
-          <Shop1Product item={item} key={item.id} />
+        {Tmp1ProductsList.map((item) => (
+          <Tmp1Product item={item} key={item.id} />
         ))}
       </Container>
     </div>
   );
 };
 
-export default Shop1Products;
+export default Tmp1Products;

@@ -25,7 +25,7 @@ const Price = styled.h1`
   margin-left: 10px;
 `;
 
-const Shop2Product = ({ item }) => {
+const Tmp2Product = ({ item }) => {
   return (
     <div>
       <Container>
@@ -37,4 +37,4 @@ const Shop2Product = ({ item }) => {
   );
 };
 
-export default Shop2Product;
+export default Tmp2Product;

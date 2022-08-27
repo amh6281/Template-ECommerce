@@ -79,7 +79,7 @@ const Price = styled.h5`
   padding-bottom: 50px;
 `;
 
-const Shop1Product = ({ item }) => {
+const Tmp1Product = ({ item }) => {
   return (
     <div style={{ alignItems: "center" }}>
       <Container>
@@ -104,4 +104,4 @@ const Shop1Product = ({ item }) => {
   );
 };
 
-export default Shop1Product;
+export default Tmp1Product;
