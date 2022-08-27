@@ -1,18 +1,3 @@
-export const sliderItems = [
-  {
-    id: 1,
-    img: "https://static.coupangcdn.com/ma/cmg_paperboy/image/1652162630962/220511_C1_%EB%B7%B0%ED%8B%B0%ED%96%A5%EC%88%98%ED%94%84%EB%A1%9C%EB%AA%A8%EC%85%98%28PLP%29_A_SMD-17330_PC.jpg",
-  },
-  {
-    id: 2,
-    img: "https://static.coupangcdn.com/ta/cmg_paperboy/image/1652100089087/%5BPC%5DC1.jpg",
-  },
-  {
-    id: 3,
-    img: "https://static.coupangcdn.com/ta/cmg_paperboy/image/1652154290819/C1_PC1.jpg",
-  },
-];
-
 export const sliderItems2 = [
   {
     id: 1,
