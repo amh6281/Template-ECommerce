@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { sliderItems } from "../data";
+import { sliderItems } from "../../tmpData";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
@@ -77,7 +77,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Slider = () => {
+const Shop1Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
@@ -114,4 +114,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Shop1Slider;

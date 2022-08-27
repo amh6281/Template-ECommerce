@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import Tmp1Preview from "../Template1/Tmp1Preview";
-import Tmp2Preview from "../Template2/Tmp2Preview";
+import Shop1Preview from "../components/AtShop1/Shop1Preview";
+import Shop2Preview from "../components/AtShop2/Shop2Preview";
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -87,8 +88,8 @@ const BuildingShop = () => {
           <Input placeholder="주소" />
           <Input placeholder="고객센터 번호" />
           <BtnWrapper>
-            <Tmp1Preview />
-            <Tmp2Preview />
+            <Shop1Preview />
+            <Shop2Preview />
           </BtnWrapper>
           <BtnWrapper>
             <Button style={{ borderRadius: "5px", backgroundColor: "#432A2A" }}>

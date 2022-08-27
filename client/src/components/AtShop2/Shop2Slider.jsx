@@ -8,7 +8,7 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const Tmp2Slider = () => {
+const Shop2Slider = () => {
   const settings = {
     dots: true,
     arrows: true,
@@ -30,4 +30,4 @@ const Tmp2Slider = () => {
   );
 };
 
-export default Tmp2Slider;
+export default Shop2Slider;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Category.css";
 
-export default function Tmp2Category() {
+export default function DropCategory() {
   return (
     <div>
       <div class="wrapper">

@@ -7,9 +7,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import Tmp1Home from "./Tmp1Home";
+import Shop2 from "../../pages/Shop2";
 
-export default function Tmp1Preview() {
+export default function Shop2Preview() {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -30,7 +30,7 @@ export default function Tmp1Preview() {
         size="large"
         onClick={handleClickOpen}
       >
-        Degin1
+        Degin2
       </Button>
       <Dialog
         fullScreen={fullScreen}
@@ -42,7 +42,7 @@ export default function Tmp1Preview() {
       >
         <DialogContent>
           <DialogContentText>
-            <Tmp1Home />
+            <Shop2 />
           </DialogContentText>
         </DialogContent>
         <DialogActions>

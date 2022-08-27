@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { tmp2SuggestionProducts } from "../data";
-import Tmp2ShopSuggestion from "./Tmp2ShopSuggestion";
+import { Shop2ProductsList } from "../../tmpData";
+import Shop2Product from "./Shop2Product";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
@@ -68,7 +68,7 @@ const Title = styled.h1`
   align-items: center;
 `;
 
-const Tmp2ShopSuggestions = () => {
+const Shop2Products = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
@@ -81,7 +81,7 @@ const Tmp2ShopSuggestions = () => {
 
   return (
     <div>
-      {tmp2SuggestionProducts.options.map((item) => (
+      {Shop2ProductsList.options.map((item) => (
         <div>
           <Title> {item.title}</Title>
           <Hr />
@@ -92,7 +92,7 @@ const Tmp2ShopSuggestions = () => {
             <Wrapper slideIndex={slideIndex}>
               {item.actions.map((item) => (
                 <Slide key={item.id}>
-                  <Tmp2ShopSuggestion item={item} key={item.id} />
+                  <Shop2Product item={item} key={item.id} />
                 </Slide>
               ))}
             </Wrapper>
@@ -106,4 +106,4 @@ const Tmp2ShopSuggestions = () => {
   );
 };
 
-export default Tmp2ShopSuggestions;
+export default Shop2Products;

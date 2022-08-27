@@ -1,25 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { bestProducts } from "../data";
-import BestProduct from "./BestProduct";
+import { categories } from "../../tmpData";
+import SliderCategoryItem from "./SliderCategoryItem";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
   height: 100%;
   display: flex;
   position: relative;
   overflow: hidden;
-`;
-
-const Hr = styled.hr`
-  background-color: #eee;
-  border: none;
-  height: 2px;
-  margin-bottom: 10px;
-  margin-left: 480px;
-  margin-right: 488px;
+  margin-top: 20px;
 `;
 
 const Arrow = styled.div`
@@ -45,7 +36,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   transition: all 1.5s ease;
-  transform: translateX(${(props) => props.slideIndex * -49}vw);
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 
 const Slide = styled.div`
@@ -57,36 +48,41 @@ const Title = styled.h1`
   display: flex;
   margin-top: 50px;
   margin-bottom: 15px;
-  margin-left: 480px;
-  font-size: 24px;
-  font-family: sans-serif;
-  text-align: center;
+  margin-left: 10px;
   align-items: center;
+  justify-content: center;
+  font-size: 19px;
+`;
+const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 2px;
+  margin-bottom: 3px;
 `;
 
-const BestProducts = () => {
+const SliderCategories = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
     if (direction === "left") {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 1);
     } else {
-      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0);
     }
   };
 
   return (
     <div>
-      <Title>🛍️ 오늘의 쇼핑 제안</Title>
+      <Title>CATEGORY</Title>
       <Hr />
       <Container>
         <Arrow direction="left" onClick={() => handleClick("left")}>
           <ArrowLeftOutlined />
         </Arrow>
         <Wrapper slideIndex={slideIndex}>
-          {bestProducts.map((item) => (
+          {categories.map((item) => (
             <Slide key={item.id}>
-              <BestProduct item={item} key={item.id} />
+              <SliderCategoryItem item={item} key={item.id} />
             </Slide>
           ))}
         </Wrapper>
@@ -98,4 +94,4 @@ const BestProducts = () => {
   );
 };
 
-export default BestProducts;
+export default SliderCategories;
