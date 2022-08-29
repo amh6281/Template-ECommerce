@@ -11,7 +11,9 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Products = () => {
+const Products = ({ cat, filters, sort }) => {
+  console.log(cat, filters, sort);
+
   return (
     <Container>
       {ProductsList.map((item) => (

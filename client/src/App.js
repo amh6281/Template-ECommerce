@@ -13,6 +13,7 @@ import Tmp2 from "./pages/Tmp2";
 
 function App() {
   const user = true;
+  // user가 true일 경우에 로그인, 회원가입 페이지가 홈으로 돌아감.
   return (
     <BrowserRouter>
       <Routes>
