@@ -51,6 +51,7 @@ const ProductList = () => {
     <Container>
       <Navbar />
       <Announcement />
+      {/*영어 카테고리로*/}
       <Title>{cat}</Title>
       <FilterContainer>
         <Filter>

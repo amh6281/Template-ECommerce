@@ -415,3 +415,37 @@ export const advertisingItem10 = [
     price: "25,800",
   },
 ];
+
+//shop 페이지의 shopList
+export const shopList = [
+  {
+    img: "https://user-images.githubusercontent.com/83646986/187137507-4ba194d2-8f6c-4fc7-9c36-c541b9f5a0b5.png",
+    name: "StyleGo!",
+    desc: "남성 의류 쇼핑몰",
+  },
+  {
+    img: "https://user-images.githubusercontent.com/83646986/187138337-f7bc7574-4a52-4d88-bd9f-681a5d08c375.png",
+    name: "WomenShop",
+    desc: "여성 의류 쇼핑몰",
+  },
+  {
+    img: "https://user-images.githubusercontent.com/83646986/187138342-ba9cc2b4-5cc5-4f34-9622-26cc4839f386.png",
+    name: "H&B",
+    desc: "헬스/뷰티 쇼핑몰",
+  },
+  {
+    img: "https://user-images.githubusercontent.com/83646986/187138344-6250ec67-5db5-4d47-b4c7-26b2d015cb34.png",
+    name: "PetShop",
+    desc: "애견 쇼핑몰",
+  },
+  {
+    img: "https://user-images.githubusercontent.com/83646986/187138345-84caf46d-6092-47b3-9859-205e2808ec33.png",
+    name: "DCRTRM",
+    desc: "인테리어 쇼핑몰",
+  },
+  {
+    img: "https://user-images.githubusercontent.com/83646986/187138348-0276deec-233e-4944-a41b-29406bd3a9c2.png",
+    name: "FruitShop!",
+    desc: "과일 전문 쇼핑몰",
+  },
+];
