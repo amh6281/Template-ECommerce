@@ -10,24 +10,31 @@ export const menuItems = [
             submenu: [
               {
                 title: "상의",
+                cat: "mtop",
               },
               {
                 title: "하의",
+                cat: "mpants",
               },
               {
                 title: "아우터",
+                cat: "mouter",
               },
               {
                 title: "수트/셋업",
+                cat: "msuit",
               },
               {
                 title: "운동복",
+                cat: "msports",
               },
               {
                 title: "수영복/비치웨어",
+                cat: "mswimsuit",
               },
               {
                 title: "테마의류",
+                cat: "mtheme",
               },
             ],
           },

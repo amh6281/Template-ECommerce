@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import Tmp1Preview from "../Template1/Tmp1Preview";
-import Tmp2Preview from "../Template2/Tmp2Preview";
+import Tmp1Preview from "../components/Tmp1/Tmp1Preview";
+import Tmp2Preview from "../components/Tmp2/Tmp2Preview";
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
