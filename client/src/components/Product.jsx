@@ -63,13 +63,14 @@ const Title = styled.h5`
   display: flex;
   align-items: center;
   padding-left: 3px;
+  margin-bottom: 10px;
 `;
 
 const Size = styled.h6`
   display: flex;
   align-items: center;
   padding-left: 4px;
-  padding-bottom: 30px;
+  margin-bottom: 10px;
 `;
 
 const Price = styled.h5`
@@ -77,6 +78,20 @@ const Price = styled.h5`
   align-items: center;
   padding-left: 3px;
   padding-bottom: 50px;
+`;
+
+const Colors = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ColorItem = styled.div`
+  display: flex;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  margin: 0px 5px;
 `;
 
 const Product = ({ item }) => {
@@ -100,6 +115,11 @@ const Product = ({ item }) => {
       </Container>
       <Title>{item.title}</Title>
       <Size>{item.size}</Size>
+      <Colors>
+        {item.color?.map((c) => (
+          <ColorItem color={c} />
+        ))}
+      </Colors>
       <Price>{item.price}원</Price>
       <br />
     </div>

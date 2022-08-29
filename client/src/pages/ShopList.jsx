@@ -5,8 +5,8 @@ import Banner from "../components/Banner";
 import Shops from "../components/Shops";
 import Footer from "../components/Footer";
 
-const Shop = () => {
-  const titles = ["New Shop", "Best Item", "Hot Shop"];
+const ShopList = () => {
+  const titles = ["New Shop", "Best Shop", "Hot Shop"];
   return (
     <div>
       <Navbar />
@@ -20,4 +20,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default ShopList;

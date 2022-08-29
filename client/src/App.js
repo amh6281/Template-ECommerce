@@ -10,7 +10,7 @@ import BuildingShop from "./pages/BuildingShop";
 import Pay from "./pages/Pay";
 import Tmp1 from "./pages/Tmp1";
 import Tmp2 from "./pages/Tmp2";
-import Shop from "./pages/Shop";
+import ShopList from "./pages/ShopList";
 
 function App() {
   const user = true;
@@ -27,7 +27,7 @@ function App() {
           path="/register"
           element={user ? <Navigate to="/" /> : <Register />}
         />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop" element={<ShopList />} />
         <Route path="/shop1" element={<Tmp1 />} />
         <Route path="/shop2" element={<Tmp2 />} />
       </Routes>
