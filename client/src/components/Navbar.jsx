@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CategoryNav from "./CategoryNav/CategoryNav";
 
@@ -65,7 +66,9 @@ const Navbar = () => {
           <CategoryNav />
         </Left>
         <Center>
-          <Logo>E-Commerce</Logo>
+          <Link to="/" style={{ color: "inherit" }}>
+            <Logo>E-Commerce</Logo>
+          </Link>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
