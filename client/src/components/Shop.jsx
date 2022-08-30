@@ -23,6 +23,13 @@ const Info = styled.div`
 `;
 
 const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Wrapper = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 280px;
@@ -75,26 +82,28 @@ const Desc = styled.h5`
   justify-content: center;
 `;
 
-const Shop = ({ item }) => {
+const Shop = ({ shop }) => {
   return (
     <div style={{ alignItems: "center" }}>
       <Container>
-        <Image src={item.img} />
-        <Info>
-          <Icon>
-            <ShoppingCartOutlined />
-          </Icon>
-          <Icon>
-            <SearchOutlined />
-          </Icon>
-          <Icon>
-            <FavoriteBorderOutlined />
-          </Icon>
-        </Info>
+        <Wrapper>
+          <Image src={shop.logo} />
+          <Info>
+            <Icon>
+              <ShoppingCartOutlined />
+            </Icon>
+            <Icon>
+              <SearchOutlined />
+            </Icon>
+            <Icon>
+              <FavoriteBorderOutlined />
+            </Icon>
+          </Info>
+        </Wrapper>
+        <Name>{shop.shopname}</Name>
+        <Desc>{shop.desc}</Desc>
+        <br />
       </Container>
-      <Name>{item.name}</Name>
-      <Desc>{item.desc}</Desc>
-      <br />
     </div>
   );
 };
