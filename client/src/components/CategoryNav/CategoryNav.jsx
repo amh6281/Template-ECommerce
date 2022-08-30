@@ -4,16 +4,19 @@ import MenuItems from "./MenuItems";
 import "./navbar.css";
 
 const CategoryNav = () => {
-  return (
-    <nav>
-      <ul className="menus">
-        {menuItems.map((menu, index) => {
-          const depthLevel = 0;
-          return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
-        })}
-      </ul>
-    </nav>
-  );
+  if (window.location.pathname === "/")
+    return (
+      <nav>
+        <ul className="menus">
+          {menuItems.map((menu, index) => {
+            const depthLevel = 0;
+            return (
+              <MenuItems items={menu} key={index} depthLevel={depthLevel} />
+            );
+          })}
+        </ul>
+      </nav>
+    );
 };
 
 export default CategoryNav;
