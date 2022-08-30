@@ -4,6 +4,7 @@ import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Add, Remove } from "@material-ui/icons";
+import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 
@@ -135,6 +136,8 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
+
   return (
     <Container>
       <Navbar />
@@ -149,103 +152,60 @@ const Cart = () => {
         <Hr />
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetail>
-                <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
-                <Details>
-                  <ProductName>
-                    <b>상품명 : </b>신발
-                  </ProductName>
-                  <ProductId>
-                    <b>ID : </b>12314153
-                  </ProductId>
-                  <ProductSize>
-                    <b>Size : </b>270
-                  </ProductSize>
-                  <ProductColor color="black" />
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>₩ 68,000</ProductPrice>
-              </PriceDetail>
-            </Product>
-            <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://user-images.githubusercontent.com/83646986/160977555-bd6189b5-c4e4-4fd4-988c-24de822309c1.png" />
-                <Details>
-                  <ProductName>
-                    <b>상품명 : </b>회색 가디건
-                  </ProductName>
-                  <ProductId>
-                    <b>ID : </b>12314153
-                  </ProductId>
-                  <ProductSize>
-                    <b>Size : </b>100
-                  </ProductSize>
-                  <ProductColor color="gray" />
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>₩ 44,000</ProductPrice>
-              </PriceDetail>
-            </Product>
-            <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://user-images.githubusercontent.com/83646986/160977550-0a51ef90-47ec-4fdf-96a2-cfde7f065d49.png" />
-                <Details>
-                  <ProductName>
-                    <b>상품명 : </b>시계
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b>12314153
-                  </ProductId>
-                  <ProductSize>
-                    <b>Size:</b>44
-                  </ProductSize>
-                  <ProductColor color="gold" />
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>₩ 228,000</ProductPrice>
-              </PriceDetail>
-            </Product>
-
-            <Hr />
+            {cart.products.map((product) => (
+              <Product>
+                <ProductDetail>
+                  <Image src={product.img} />
+                  <Details>
+                    <ProductName>
+                      <b>상품명 : </b>
+                      {product.title}
+                    </ProductName>
+                    <ProductName>
+                      <b>쇼핑몰 : </b>
+                      {product.shopId}
+                    </ProductName>
+                    <ProductId>
+                      <b>ID:</b>
+                      {product._id}
+                    </ProductId>
+                    <ProductSize>
+                      <b>Size:</b>
+                      {product.size}
+                    </ProductSize>
+                    <ProductColor color={product.color} />
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <Add />
+                    <ProductAmount>{product.quantity}</ProductAmount>
+                    <Remove />
+                  </ProductAmountContainer>
+                  <ProductPrice>
+                    ₩ {product.price * product.quantity}
+                  </ProductPrice>
+                </PriceDetail>
+              </Product>
+            ))}
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>총 상품 금액</SummaryItemText>
-              <SummaryItemPrice>340,000</SummaryItemPrice>
+              <SummaryItemPrice>₩ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>배송비</SummaryItemText>
-              <SummaryItemPrice>+ 3,500</SummaryItemPrice>
+              <SummaryItemPrice>₩ + 3,500</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>총할인금액</SummaryItemText>
-              <SummaryItemPrice>- 3,500</SummaryItemPrice>
+              <SummaryItemPrice>₩ - 3,500</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>결제 예정 금액</SummaryItemText>
-              <SummaryItemPrice>340,000</SummaryItemPrice>
+              <SummaryItemPrice>{cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
           </Summary>
