@@ -20,7 +20,7 @@ const ShopList = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Navbar />
       <Announcement />
       <Banner />
@@ -28,7 +28,7 @@ const ShopList = () => {
         <Shop key={shop._id} shop={shop} />
       ))}
       <Footer />
-    </div>
+    </>
   );
 };
 
