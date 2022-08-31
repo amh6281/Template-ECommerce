@@ -27,7 +27,7 @@ function App() {
           path="/register"
           element={user ? <Navigate to="/" /> : <Register />}
         />
-        <Route path="/shop" element={<ShopList />} />
+        <Route path="/shops" element={<ShopList />} />
         <Route path="/shop1" element={<Tmp1 />} />
         <Route path="/shop2" element={<Tmp2 />} />
       </Routes>

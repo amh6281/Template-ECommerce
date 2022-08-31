@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { shopList } from "../data";
-import Shop from "./Shop";
 
 const Container = styled.div`
   display: flex;
@@ -27,17 +26,7 @@ const Hr = styled.hr`
 `;
 
 const Shops = ({ title }) => {
-  return (
-    <div>
-      <Title> {title} </Title>
-      <Hr />
-      <Container>
-        {shopList.map((item) => (
-          <Shop item={item} key={item.id} />
-        ))}
-      </Container>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Shops;
