@@ -86,7 +86,7 @@ const Navbar = () => {
         <Right>
           <Link to="/register" style={{ color: "inherit" }}>
             {currentUser ? (
-              <MenuItem>{currentUser.name}</MenuItem>
+              <MenuItem>{currentUser.username}</MenuItem>
             ) : (
               <MenuItem>REGISTER</MenuItem>
             )}
@@ -100,9 +100,15 @@ const Navbar = () => {
           </Link>
           <Link to="/cart" style={{ color: "inherit" }}>
             <MenuItem>
-              <Badge badgeContent={quantity} color="primary">
-                <ShoppingCartOutlined />
-              </Badge>
+              {currentUser ? (
+                <Badge badgeContent={quantity} color="primary">
+                  <ShoppingCartOutlined />
+                </Badge>
+              ) : (
+                <Badge badgeContent={0} color="primary">
+                  <ShoppingCartOutlined />
+                </Badge>
+              )}
             </MenuItem>
           </Link>
         </Right>
