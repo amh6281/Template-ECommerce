@@ -8,12 +8,13 @@ import Product from "./pages/Product";
 import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
 import Pay from "./pages/Pay";
-import Tmp1 from "./pages/Tmp1";
 import Tmp2 from "./pages/Tmp2";
 import ShopList from "./pages/ShopList";
+import Tmp1 from "./pages/Tmp1";
+import { useSelector } from "react-redux";
 
 function App() {
-  const user = true;
+  const user = useSelector((state) => state.user.currentUser);
   // user가 true일 경우에 로그인, 회원가입 페이지가 홈으로 돌아감.
   return (
     <BrowserRouter>
@@ -28,8 +29,9 @@ function App() {
           element={user ? <Navigate to="/" /> : <Register />}
         />
         <Route path="/shops" element={<ShopList />} />
-        <Route path="/shop1" element={<Tmp1 />} />
-        <Route path="/shop2" element={<Tmp2 />} />
+        <Route path="/shop">
+          <Route path=":id" element={<Tmp2 />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

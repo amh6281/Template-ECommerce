@@ -6,7 +6,7 @@ import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { addProduct } from "../redux/cartRedux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { publicRequest } from "../requestMethods";
 
 const Container = styled.div``;
@@ -120,6 +120,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -179,7 +180,13 @@ const Product = () => {
               <Amount>{quantity}</Amount>
               <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button onClick={handleClick}>ADD TO CART</Button>
+            {currentUser ? (
+              <Button onClick={handleClick}>ADD TO CART</Button>
+            ) : (
+              <Button onClick={() => alert("로그인이 필요합니다.")}>
+                ADD TO CART
+              </Button>
+            )}
           </AddContainer>
         </InfoContainer>
       </Wrapper>

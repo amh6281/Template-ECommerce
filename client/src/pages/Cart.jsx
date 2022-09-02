@@ -137,6 +137,7 @@ const Button = styled.button`
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const { currentUser } = useSelector((state) => state.user);
 
   return (
     <Container>
@@ -152,62 +153,87 @@ const Cart = () => {
         <Hr />
         <Bottom>
           <Info>
-            {cart.products.map((product) => (
-              <Product>
-                <ProductDetail>
-                  <Image src={product.img} />
-                  <Details>
-                    <ProductName>
-                      <b>상품명 : </b>
-                      {product.title}
-                    </ProductName>
-                    <ProductName>
-                      <b>쇼핑몰 : </b>
-                      {product.shopId}
-                    </ProductName>
-                    <ProductId>
-                      <b>ID:</b>
-                      {product._id}
-                    </ProductId>
-                    <ProductSize>
-                      <b>Size:</b>
-                      {product.size}
-                    </ProductSize>
-                    <ProductColor color={product.color} />
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove />
-                  </ProductAmountContainer>
-                  <ProductPrice>
-                    ₩ {product.price * product.quantity}
-                  </ProductPrice>
-                </PriceDetail>
-              </Product>
-            ))}
+            {currentUser
+              ? cart.products.map((product) => (
+                  <Product>
+                    <ProductDetail>
+                      <Image src={product.img} />
+                      <Details>
+                        <ProductName>
+                          <b>상품명 : </b>
+                          {product.title}
+                        </ProductName>
+                        <ProductName>
+                          <b>쇼핑몰 : </b>
+                          {product.shopId}
+                        </ProductName>
+                        <ProductId>
+                          <b>ID:</b>
+                          {product._id}
+                        </ProductId>
+                        <ProductSize>
+                          <b>Size:</b>
+                          {product.size}
+                        </ProductSize>
+                        <ProductColor color={product.color} />
+                      </Details>
+                    </ProductDetail>
+                    <PriceDetail>
+                      <ProductAmountContainer>
+                        <Add />
+                        <ProductAmount>{product.quantity}</ProductAmount>
+                        <Remove />
+                      </ProductAmountContainer>
+                      <ProductPrice>
+                        ₩ {product.price * product.quantity}
+                      </ProductPrice>
+                    </PriceDetail>
+                  </Product>
+                ))
+              : ""}
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem>
-              <SummaryItemText>총 상품 금액</SummaryItemText>
-              <SummaryItemPrice>₩ {cart.total}</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>배송비</SummaryItemText>
-              <SummaryItemPrice>₩ + 3,500</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>총할인금액</SummaryItemText>
-              <SummaryItemPrice>₩ - 3,500</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem type="total">
-              <SummaryItemText>결제 예정 금액</SummaryItemText>
-              <SummaryItemPrice>{cart.total}</SummaryItemPrice>
-            </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            {currentUser ? (
+              <>
+                {" "}
+                <SummaryItem>
+                  <SummaryItemText>총 상품 금액</SummaryItemText>
+                  <SummaryItemPrice>₩ {cart.total}</SummaryItemPrice>
+                </SummaryItem>
+                <SummaryItem>
+                  <SummaryItemText>배송비</SummaryItemText>
+                  <SummaryItemPrice>₩ + 3,500</SummaryItemPrice>
+                </SummaryItem>
+                <SummaryItem>
+                  <SummaryItemText>총할인금액</SummaryItemText>
+                  <SummaryItemPrice>₩ - 3,500</SummaryItemPrice>
+                </SummaryItem>
+                <SummaryItem type="total">
+                  <SummaryItemText>결제 예정 금액</SummaryItemText>
+                  <SummaryItemPrice>{cart.total}</SummaryItemPrice>
+                </SummaryItem>{" "}
+              </>
+            ) : (
+              <>
+                <SummaryItem>
+                  <SummaryItemText>총 상품 금액</SummaryItemText>
+                  <SummaryItemPrice>₩ 0</SummaryItemPrice>
+                </SummaryItem>
+                <SummaryItem>
+                  <SummaryItemText>배송비</SummaryItemText>
+                  <SummaryItemPrice>₩ + 0</SummaryItemPrice>
+                </SummaryItem>
+                <SummaryItem>
+                  <SummaryItemText>총할인금액</SummaryItemText>
+                  <SummaryItemPrice>₩ 0</SummaryItemPrice>
+                </SummaryItem>
+                <SummaryItem type="total">
+                  <SummaryItemText>결제 예정 금액</SummaryItemText>
+                  <SummaryItemPrice>0</SummaryItemPrice>
+                </SummaryItem>{" "}
+              </>
+            )}
           </Summary>
         </Bottom>
       </Wrapper>

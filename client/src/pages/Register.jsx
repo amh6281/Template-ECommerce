@@ -1,4 +1,10 @@
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { register } from "../redux/aipCalls";
 
 const Container = styled.div`
   width: 100vw;
@@ -56,21 +62,51 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  const [inputs, setInputs] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    register(dispatch, { ...inputs });
+    alert("회원가입이 완료되었습니다.");
+    navigate("/");
+  };
+
+  console.log(inputs);
   return (
     <Container>
       <Wrapper>
         <Title>회원가입</Title>
         <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
+          <Input
+            type="text"
+            placeholder="username"
+            name="username"
+            onChange={handleChange}
+          />
+          <Input
+            type="text"
+            placeholder="email"
+            name="email"
+            onChange={handleChange}
+          />
+          <Input
+            type="text"
+            placeholder="password"
+            name="password"
+            onChange={handleChange}
+          />
           <Agreement>
             계정을 생성함으로써 개인정보 취급방침에 따라 개인정보 취급 동의
           </Agreement>
-          <Button>일반 회원가입</Button>
+          <Button onClick={handleClick}>일반 회원가입</Button>
           <Button>사업자 회원가입</Button>
         </Form>
       </Wrapper>

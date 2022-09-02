@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import CategoryNav from "./CategoryNav/CategoryNav";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/userRedux";
 
 const Container = styled.div`
   height: 60px;
@@ -63,6 +64,13 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+  };
 
   return (
     <Container>
@@ -76,13 +84,31 @@ const Navbar = () => {
           </Link>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <Link to="/cart">
+          <Link to="/register" style={{ color: "inherit" }}>
+            {currentUser ? (
+              <MenuItem>{currentUser.username}</MenuItem>
+            ) : (
+              <MenuItem>REGISTER</MenuItem>
+            )}
+          </Link>
+          <Link to="/login" style={{ color: "inherit" }}>
+            {currentUser ? (
+              <MenuItem onClick={handleClick}>LOGOUT</MenuItem>
+            ) : (
+              <MenuItem>SIGN IN</MenuItem>
+            )}
+          </Link>
+          <Link to="/cart" style={{ color: "inherit" }}>
             <MenuItem>
-              <Badge badgeContent={quantity} color="primary">
-                <ShoppingCartOutlined />
-              </Badge>
+              {currentUser ? (
+                <Badge badgeContent={quantity} color="primary">
+                  <ShoppingCartOutlined />
+                </Badge>
+              ) : (
+                <Badge badgeContent={0} color="primary">
+                  <ShoppingCartOutlined />
+                </Badge>
+              )}
             </MenuItem>
           </Link>
         </Right>
