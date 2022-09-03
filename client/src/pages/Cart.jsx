@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Add, Remove } from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteProducts } from "../redux/aipCalls";
+import { deleteProduct, emptyCart } from "../redux/cartRedux";
 
 const Container = styled.div``;
 
@@ -136,8 +138,22 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
+
+  const handleDelete = useCallback((product) => {
+    dispatch(
+      deleteProduct({
+        id: product._id,
+        total: product.price * product.quantity,
+      })
+    );
+  }, []);
+
+  const handleReset = () => {
+    dispatch(emptyCart());
+  };
 
   return (
     <Container>
@@ -155,7 +171,7 @@ const Cart = () => {
           <Info>
             {currentUser
               ? cart.products.map((product) => (
-                  <Product>
+                  <Product key={product._id}>
                     <ProductDetail>
                       <Image src={product.img} />
                       <Details>
@@ -188,6 +204,7 @@ const Cart = () => {
                         ₩ {product.price * product.quantity}
                       </ProductPrice>
                     </PriceDetail>
+                    <button onClick={() => handleDelete(product)}>X</button>
                   </Product>
                 ))
               : ""}
@@ -234,6 +251,7 @@ const Cart = () => {
                 </SummaryItem>{" "}
               </>
             )}
+            <button onClick={() => handleReset()}>장바구니 초기화</button>
           </Summary>
         </Bottom>
       </Wrapper>
