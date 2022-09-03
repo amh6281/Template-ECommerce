@@ -98,7 +98,7 @@ const Navbar = () => {
               <MenuItem>SIGN IN</MenuItem>
             )}
           </Link>
-          <Link to="/cart" style={{ color: "inherit" }}>
+          <Link to={`/cart/${currentUser?._id}`} style={{ color: "inherit" }}>
             <MenuItem>
               {currentUser ? (
                 <Badge badgeContent={quantity} color="primary">
