@@ -32,6 +32,7 @@ function App() {
         <Route path="/shop">
           <Route path=":id" element={<Tmp2 />} />
         </Route>
+        <Route path="/buildingshop" element={<BuildingShop />} />
       </Routes>
     </BrowserRouter>
   );

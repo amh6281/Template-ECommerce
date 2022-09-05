@@ -79,7 +79,6 @@ const Register = () => {
     navigate("/");
   };
 
-  console.log(inputs);
   return (
     <Container>
       <Wrapper>
@@ -101,6 +100,12 @@ const Register = () => {
             type="text"
             placeholder="password"
             name="password"
+            onChange={handleChange}
+          />
+          <Input
+            type="number"
+            placeholder="business-number"
+            name="businessnumber"
             onChange={handleChange}
           />
           <Agreement>
