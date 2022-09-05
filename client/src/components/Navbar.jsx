@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ShoppingCartOutlined } from "@material-ui/icons";
+import { AddShoppingCart, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import CategoryNav from "./CategoryNav/CategoryNav";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userRedux";
+import { useState } from "react";
+import Build from "./Build.jsx";
 
 const Container = styled.div`
   height: 60px;
@@ -63,6 +65,7 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   const quantity = useSelector((state) => state.cart.quantity);
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -73,47 +76,55 @@ const Navbar = () => {
   };
 
   return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <CategoryNav />
-        </Left>
-        <Center>
-          <Link to="/" style={{ color: "inherit" }}>
-            <Logo>E-Commerce</Logo>
-          </Link>
-        </Center>
-        <Right>
-          <Link to="/register" style={{ color: "inherit" }}>
-            {currentUser ? (
-              <MenuItem>{currentUser.username}</MenuItem>
+    <>
+      <Container>
+        <Wrapper>
+          <Left>
+            <CategoryNav />
+          </Left>
+          <Center>
+            <Link to="/" style={{ color: "inherit" }}>
+              <Logo>E-Commerce</Logo>
+            </Link>
+          </Center>
+          <Right>
+            {currentUser?.isEntrepreneur ? (
+              <AddShoppingCart onClick={() => setOpen(true)} />
             ) : (
-              <MenuItem>REGISTER</MenuItem>
+              ""
             )}
-          </Link>
-          <Link to="/login" style={{ color: "inherit" }}>
-            {currentUser ? (
-              <MenuItem onClick={handleClick}>LOGOUT</MenuItem>
-            ) : (
-              <MenuItem>SIGN IN</MenuItem>
-            )}
-          </Link>
-          <Link to="/cart" style={{ color: "inherit" }}>
-            <MenuItem>
+            <Link to="/register" style={{ color: "inherit" }}>
               {currentUser ? (
-                <Badge badgeContent={quantity} color="primary">
-                  <ShoppingCartOutlined />
-                </Badge>
+                <MenuItem>{currentUser.username}</MenuItem>
               ) : (
-                <Badge badgeContent={0} color="primary">
-                  <ShoppingCartOutlined />
-                </Badge>
+                <MenuItem>REGISTER</MenuItem>
               )}
-            </MenuItem>
-          </Link>
-        </Right>
-      </Wrapper>
-    </Container>
+            </Link>
+            <Link to="/login" style={{ color: "inherit" }}>
+              {currentUser ? (
+                <MenuItem onClick={handleClick}>LOGOUT</MenuItem>
+              ) : (
+                <MenuItem>SIGN IN</MenuItem>
+              )}
+            </Link>
+            <Link to={`/cart/${currentUser?._id}`} style={{ color: "inherit" }}>
+              <MenuItem>
+                {currentUser ? (
+                  <Badge badgeContent={quantity} color="primary">
+                    <ShoppingCartOutlined />
+                  </Badge>
+                ) : (
+                  <Badge badgeContent={0} color="primary">
+                    <ShoppingCartOutlined />
+                  </Badge>
+                )}
+              </MenuItem>
+            </Link>
+          </Right>
+        </Wrapper>
+      </Container>
+      {open && <Build setOpen={setOpen} />}
+    </>
   );
 };
 
