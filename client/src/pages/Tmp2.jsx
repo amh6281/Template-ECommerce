@@ -6,7 +6,7 @@ import Tmp2Slider from "../components/Tmp2/Tmp2Slider";
 import Tmp2Products from "../components/Tmp2/Tmp2Products";
 import Footer from "../components/Footer";
 
-const Shop2 = () => {
+const Tmp2 = () => {
   return (
     <div>
       <Navbar />
@@ -19,4 +19,4 @@ const Shop2 = () => {
   );
 };
 
-export default Shop2;
+export default Tmp2;
