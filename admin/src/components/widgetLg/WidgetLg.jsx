@@ -26,13 +26,13 @@ export default function WidgetLg() {
       <h3 className="widgetLgTitle">최근 거래내역</h3>
       <table className="widgetLgTable">
         <tr className="widgetLgTr">
-          <th className="widgetLgTh">Customer</th>
-          <th className="widgetLgTh">Date</th>
-          <th className="widgetLgTh">Amount</th>
-          <th className="widgetLgTh">Status</th>
+          <th className="widgetLgTh">고객ID</th>
+          <th className="widgetLgTh">주문날짜</th>
+          <th className="widgetLgTh">주문금액</th>
+          <th className="widgetLgTh">주문상태</th>
         </tr>
         {orders.map((order) => (
-          <tr className="widgetLgTr">
+          <tr className="widgetLgTr" key={order._id}>
             <td className="widgetLgUser">
               <span className="widgetLgName">{order.userId}</span>
             </td>
