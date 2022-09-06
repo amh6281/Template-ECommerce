@@ -9,6 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
 import { fetchStart, fetchSuccess } from "../redux/shopRedux";
+import Tmp2Slider from "../components/Tmp2/Tmp2Slider";
+import DropCategory from "../components/Tmp2/DropCategory";
+import Tmp2Products from "../components/Tmp2/Tmp2Products";
 
 const Shop = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -33,9 +36,19 @@ const Shop = () => {
     <div>
       <Navbar />
       <Announcement />
-      <Tmp1Slider />
-      <SliderCategories />
-      <Tmp1Products shopId={shop.currentShop._id} />
+      {shop.currentShop.design === 1 ? (
+        <>
+          <Tmp1Slider />
+          <SliderCategories />
+          <Tmp1Products shopId={shop.currentShop._id} />
+        </>
+      ) : (
+        <>
+          <DropCategory />
+          <Tmp2Slider />
+          <Tmp2Products />
+        </>
+      )}
       <Footer />
     </div>
   );
