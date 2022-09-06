@@ -8,10 +8,9 @@ import Product from "./pages/Product";
 import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
 import Pay from "./pages/Pay";
-import Tmp2 from "./pages/Tmp2";
 import ShopList from "./pages/ShopList";
-import Tmp1 from "./pages/Tmp1";
 import { useSelector } from "react-redux";
+import Shop from "./pages/Shop";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -30,7 +29,7 @@ function App() {
         />
         <Route path="/shops" element={<ShopList />} />
         <Route path="/shop">
-          <Route path=":id" element={<Tmp2 />} />
+          <Route path=":id" element={<Shop />} />
         </Route>
         <Route path="/buildingshop" element={<BuildingShop />} />
       </Routes>

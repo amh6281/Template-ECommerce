@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { publicRequest } from "../../requestMethods";
 import { Tmp1ProductsList } from "../../tmpData";
 import Tmp1Product from "./Tmp1Product";
 
@@ -25,14 +27,28 @@ const Hr = styled.hr`
   margin-bottom: 3px;
 `;
 
-const Tmp1Products = ({ title }) => {
+const Tmp1Products = ({ shopId }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await publicRequest.get(`/products/${shopId}`);
+        setProducts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchProducts();
+  }, [shopId]);
+
   return (
     <div>
-      <Title> {title} </Title>
+      <Title>Best Item</Title>
       <Hr />
       <Container>
-        {Tmp1ProductsList.map((item) => (
-          <Tmp1Product item={item} key={item.id} />
+        {products.map((product) => (
+          <Tmp1Product product={product} key={product.id} />
         ))}
       </Container>
     </div>

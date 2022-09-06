@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AddShoppingCart, ShoppingCartOutlined } from "@material-ui/icons";
@@ -6,7 +6,6 @@ import { Badge } from "@material-ui/core";
 import CategoryNav from "./CategoryNav/CategoryNav";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userRedux";
-import { useState } from "react";
 import Build from "./Build.jsx";
 
 const Container = styled.div`
@@ -68,6 +67,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const quantity = useSelector((state) => state.cart.quantity);
   const { currentUser } = useSelector((state) => state.user);
+  const shop = useSelector((state) => state.shop);
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
@@ -84,7 +84,7 @@ const Navbar = () => {
           </Left>
           <Center>
             <Link to="/" style={{ color: "inherit" }}>
-              <Logo>E-Commerce</Logo>
+              <Logo>{shop.currentShop.shopname}</Logo>
             </Link>
           </Center>
           <Right>

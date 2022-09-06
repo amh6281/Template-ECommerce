@@ -5,6 +5,7 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
@@ -79,26 +80,28 @@ const Price = styled.h5`
   padding-bottom: 50px;
 `;
 
-const Tmp1Product = ({ item }) => {
+const Tmp1Product = ({ product }) => {
   return (
     <div style={{ alignItems: "center" }}>
       <Container>
-        <Image src={item.img} />
+        <Image src={product.img} />
         <Info>
           <Icon>
             <ShoppingCartOutlined />
           </Icon>
           <Icon>
-            <SearchOutlined />
+            <Link to={`/product/${product._id}`} style={{ color: "inherit" }}>
+              <SearchOutlined />
+            </Link>
           </Icon>
           <Icon>
             <FavoriteBorderOutlined />
           </Icon>
         </Info>
       </Container>
-      <Title>{item.title}</Title>
-      <Size>{item.size}</Size>
-      <Price>{item.price}원</Price>
+      <Title>{product.title}</Title>
+      <Size>{product.size}</Size>
+      <Price>{product.price}원</Price>
       <br />
     </div>
   );
