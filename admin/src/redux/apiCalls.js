@@ -1,8 +1,9 @@
-import { publicRequest } from "../requestMethods";
+import { useSelector } from "react-redux";
+import { publicRequest, userRequest } from "../requestMethods";
 import {
-  getProductFailure,
-  getProductStart,
-  getProductSuccess,
+  deleteProductFailure,
+  deleteProductStart,
+  deleteProductSuccess,
 } from "./productRedux";
 import { loginFailure, loginStart, loginSuccess } from "./userRedux";
 
@@ -13,5 +14,15 @@ export const login = async (dispatch, user) => {
     dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFailure());
+  }
+};
+
+export const deleteProduct = async (id, dispatch) => {
+  dispatch(deleteProductStart());
+  try {
+    // const res = await userRequest.delete(`/products/${id}`); DB반영X
+    dispatch(deleteProductSuccess(id));
+  } catch (err) {
+    dispatch(deleteProductFailure());
   }
 };

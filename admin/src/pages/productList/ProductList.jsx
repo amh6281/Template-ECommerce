@@ -1,37 +1,34 @@
 import "./productList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { userRequest } from "../../requestMethods";
+import { deleteProduct } from "../../redux/apiCalls";
+import { getProducts } from "../../redux/productRedux";
 
 export default function ProductList() {
   const { currentUser } = useSelector((state) => state.user);
-  const [data, setData] = useState(productRows);
-  const id = currentUser._id;
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.products);
 
   useEffect(() => {
-    const getProducts = async () => {
+    const getProduct = async () => {
       try {
-        const res = await userRequest.get("/products/" + id);
-        setProducts(res.data);
-      } catch (err) {
-        console.log(err);
-      }
+        const res = await userRequest.get(`/products/${currentUser._id}`);
+        dispatch(getProducts(res.data));
+      } catch (err) {}
     };
-    getProducts();
-  }, [id]);
+    getProduct();
+  }, []);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteProduct(id, dispatch);
   };
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 100 },
+    { field: "_id", headerName: "ID", width: 220 },
     {
       field: "product",
       headerName: "Product",
@@ -40,17 +37,12 @@ export default function ProductList() {
         return (
           <div className="productListItem">
             <img className="productListImg" src={params.row.img} alt="" />
-            {params.row.name}
+            {params.row.title}
           </div>
         );
       },
     },
-    { field: "stock", headerName: "Stock", width: 200 },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
+    { field: "inStock", headerName: "Stock", width: 200 },
     {
       field: "price",
       headerName: "Price",
@@ -68,7 +60,7 @@ export default function ProductList() {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
