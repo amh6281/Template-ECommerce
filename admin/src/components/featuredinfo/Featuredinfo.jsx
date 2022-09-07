@@ -6,22 +6,22 @@ import { useSelector } from "react-redux";
 
 export default function Featuredinfo() {
   const [income, setIncome] = useState([]);
-  const [shop, setShop] = useState({});
   const [perc, setPerc] = useState(0);
   const { currentUser } = useSelector((state) => state.user);
+  const id = currentUser._id;
 
   useEffect(() => {
     const getIncome = async () => {
       try {
-        const res = await userRequest.get(`/orders/income/${currentUser?._id}`);
+        const res = await userRequest.get("/orders/income/" + id);
         setIncome(res.data);
-        setPerc(((res.data[1]?.total * 100) / res.data[0]?.total) * 100);
+        setPerc((res.data[1]?.total * 100) / res.data[0]?.total - 100);
       } catch (err) {
         console.log(err);
       }
     };
     getIncome();
-  }, []);
+  }, [id]);
 
   return (
     <div className="featured">

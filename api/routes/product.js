@@ -61,9 +61,9 @@ router.get("/find/:id", async (req, res) => {
 });
 
 //GET PRODUCTS
-router.get("/:shopId", async (req, res) => {
+router.get("/:userId", async (req, res) => {
   try {
-    const products = await Product.find({ shopId: req.params.shopId });
+    const products = await Product.find({ userId: req.params.userId });
     res.status(200).json(products);
   } catch (err) {
     res.status(500).json(err);
