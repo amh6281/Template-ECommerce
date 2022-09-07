@@ -63,16 +63,16 @@ router.get("/find/:id", async (req, res) => {
 //GET ALL SHOPS
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
-  const qCategory = req.query.category;
+  const qUserId = req.query.userId;
   try {
     let shops;
 
     if (qNew) {
       shops = await Shop.find().sort({ createdAt: -1 }).limit(5);
-    } else if (qCategory) {
+    } else if (qUserId) {
       shops = await Shop.find({
-        category: {
-          $in: [qCategory],
+        userId: {
+          $in: [qUserId],
         },
       });
     } else {

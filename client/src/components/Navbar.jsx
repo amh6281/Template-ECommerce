@@ -84,7 +84,7 @@ const Navbar = () => {
           </Left>
           <Center>
             <Link to="/" style={{ color: "inherit" }}>
-              <Logo>{shop.currentShop.shopname}</Logo>
+              <Logo>{shop.currentShop?.shopname}</Logo>
             </Link>
           </Center>
           <Right>
