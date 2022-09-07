@@ -10,11 +10,10 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
+import { useSelector } from "react-redux";
 
 function App() {
-  const entrepreneur = JSON.parse(
-    JSON.parse(localStorage.getItem("persist:root")).user
-  ).currentUser.isEntrepreneur;
+  const user = useSelector((state) => state.user.currentUser);
 
   return (
     <Router>
@@ -22,7 +21,7 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        {entrepreneur && (
+        {user.isEntrepreneur && (
           <>
             <Topbar />
             <div className="container">

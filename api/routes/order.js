@@ -48,7 +48,7 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //GET USER ORDERS
-router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
+router.get("/find/:userId", verifyTokenAndEntrepreneur, async (req, res) => {
   try {
     const orders = await Order.find({ userId: req.params.userId });
     res.status(200).json(orders);
@@ -105,7 +105,7 @@ router.get("/income/:id", verifyTokenAndEntrepreneur, async (req, res) => {
       {
         $match: {
           createdAt: { $gte: previousMonth },
-          shopId: req.params.id,
+          userId: req.params.id,
         },
       },
       {

@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../../requestMethods";
 import { format } from "timeago.js";
 import "./widgetLg.css";
+import { useSelector } from "react-redux";
 
 export default function WidgetLg() {
   const [orders, setOrders] = useState([]);
+  const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const res = await userRequest.get("orders");
+        const res = await userRequest.get(`orders/find/${currentUser._id}`);
         setOrders(res.data);
       } catch (err) {
         console.log(err);

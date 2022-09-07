@@ -11,23 +11,11 @@ export default function Featuredinfo() {
   const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
-    const getShop = async () => {
-      try {
-        const res = await userRequest.get(`/shops?userId="${currentUser._id}"`);
-        setShop(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getShop();
-  }, []);
-
-  useEffect(() => {
     const getIncome = async () => {
       try {
-        const res = await userRequest.get(`/orders/income/${shop[0]?._id}`);
+        const res = await userRequest.get(`/orders/income/${currentUser?._id}`);
         setIncome(res.data);
-        setPerc((res.data[1]?.total * 100) / res.data[0]?.total - 100);
+        setPerc(((res.data[1]?.total * 100) / res.data[0]?.total) * 100);
       } catch (err) {
         console.log(err);
       }
