@@ -36,7 +36,7 @@ const Shop = () => {
     <div>
       <Navbar />
       <Announcement />
-      {shop.currentShop.design === 1 ? (
+      {shop.currentShop?.design === 1 ? (
         <>
           <Tmp1Slider />
           <SliderCategories />
