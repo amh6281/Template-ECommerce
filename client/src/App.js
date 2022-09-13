@@ -10,6 +10,7 @@ import BuildingShop from "./pages/BuildingShop";
 import Pay from "./pages/Pay";
 import ShopList from "./pages/ShopList";
 import { useSelector } from "react-redux";
+import Shop from "./pages/Shop";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
