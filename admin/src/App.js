@@ -13,7 +13,9 @@ import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 
 function App() {
-  const user = useSelector((state) => state.user.currentUser);
+  const isEntrepreneur = JSON.parse(
+    JSON.parse(localStorage.getItem("persist:root"))?.user
+  )?.currentUser?.isEntrepreneur;
 
   return (
     <Router>
@@ -21,7 +23,7 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        {user.isEntrepreneur && (
+        {isEntrepreneur && (
           <>
             <Topbar />
             <div className="container">
