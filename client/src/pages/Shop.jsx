@@ -46,7 +46,7 @@ const Shop = () => {
         <>
           <DropCategory />
           <Tmp2Slider />
-          <Tmp2Products />
+          <Tmp2Products shopId={shop.currentShop._id} />
         </>
       )}
       <Footer />

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { publicRequest } from "../../requestMethods";
-import { Tmp1ProductsList } from "../../tmpData";
 import Tmp1Product from "./Tmp1Product";
 
 const Container = styled.div`
@@ -33,7 +32,7 @@ const Tmp1Products = ({ shopId }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await publicRequest.get(`/products/${shopId}`);
+        const res = await publicRequest.get(`/products/?shopId=${shopId}`);
         setProducts(res.data);
       } catch (err) {
         console.log(err);
