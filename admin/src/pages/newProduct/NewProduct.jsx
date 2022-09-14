@@ -9,7 +9,6 @@ import {
 import app from "../../firebase";
 import { addProduct } from "../../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSuccess } from "../../redux/shopRedux";
 import { publicRequest } from "../../requestMethods";
 
 export default function NewProduct() {
@@ -17,6 +16,8 @@ export default function NewProduct() {
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
   const [shop, setShop] = useState({});
+  const [color, setColor] = useState([]);
+  const [size, setSize] = useState([]);
 
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
@@ -27,7 +28,6 @@ export default function NewProduct() {
       try {
         const res = await publicRequest.get("/shops/" + userId);
         setShop(res.data);
-        console.log(shop[0]._id);
       } catch {}
     };
     getShop();
@@ -41,6 +41,14 @@ export default function NewProduct() {
 
   const handleCat = (e) => {
     setCat(e.target.value.split(","));
+  };
+
+  const handleColor = (e) => {
+    setColor(e.target.value.split(","));
+  };
+
+  const handleSize = (e) => {
+    setSize(e.target.value.split(","));
   };
 
   const handleClick = (e) => {
@@ -84,8 +92,9 @@ export default function NewProduct() {
             img: downloadURL,
             categories: cat,
             shopId: shop[0]._id,
+            color: color,
+            size: size,
           };
-          console.log(product);
           addProduct(product, dispatch);
         });
       }
@@ -97,7 +106,7 @@ export default function NewProduct() {
       <h1 className="addProductTitle">New Product</h1>
       <form className="addProductForm">
         <div className="addProductItem">
-          <label>Image</label>
+          <label>Image (266x325)</label>
           <input
             type="file"
             id="file"
@@ -120,6 +129,22 @@ export default function NewProduct() {
             type="text"
             placeholder="description..."
             onChange={handleChange}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Color</label>
+          <input
+            type="text"
+            placeholder="red,black,yellow"
+            onChange={handleColor}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Size</label>
+          <input
+            type="text"
+            placeholder="50ml,100ml or S,XL"
+            onChange={handleSize}
           />
         </div>
         <div className="addProductItem">

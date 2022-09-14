@@ -70,7 +70,21 @@ const Size = styled.h6`
   display: flex;
   align-items: center;
   padding-left: 7px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
+`;
+
+const Colors = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ColorItem = styled.div`
+  display: flex;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  margin: 0px 5px;
 `;
 
 const Price = styled.h5`
@@ -101,6 +115,11 @@ const Tmp1Product = ({ product }) => {
       </Container>
       <Title>{product.title}</Title>
       <Size>{product.size}</Size>
+      <Colors>
+        {product.color?.map((c) => (
+          <ColorItem color={c} />
+        ))}
+      </Colors>
       <Price>{product.price}원</Price>
       <br />
     </div>
