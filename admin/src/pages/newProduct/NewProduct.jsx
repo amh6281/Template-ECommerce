@@ -37,6 +37,7 @@ export default function NewProduct() {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
+    console.log(inputs);
   };
 
   const handleCat = (e) => {

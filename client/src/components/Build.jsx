@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Tmp1Preview from "./Tmp1/Tmp1Preview";
 import Tmp2Preview from "./Tmp2/Tmp2Preview";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../firebase";
+import { useNavigate } from "react-router-dom";
+import { userRequest } from "../requestMethods";
+import { categories } from "../data";
 
 const Container = styled.div`
   width: 100%;
@@ -70,22 +80,108 @@ const Button = styled.button`
   color: #606060;
 `;
 
+const Label = styled.label`
+  font-size: 12px;
+`;
+
 const Build = ({ setOpen }) => {
+  const [logo, setLogo] = useState(undefined);
+  const [imgPerc, setImgPerc] = useState(0);
+  const [inputs, setInputs] = useState({});
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  const uploadFile = (file, urlType) => {
+    const storage = getStorage(app);
+    const fileName = new Date().getTime() + file.name;
+    const storageRef = ref(storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        if (urlType === "logo") {
+          setImgPerc(progress);
+        }
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+          default:
+            break;
+        }
+      },
+      (error) => {},
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setInputs((prev) => {
+            return { ...prev, [urlType]: downloadURL };
+          });
+        });
+      }
+    );
+  };
+
+  useEffect(() => {
+    logo && uploadFile(logo, "logo");
+  }, [logo]);
+
+  const handleBuild = async (e) => {
+    e.preventDefault();
+    const res = await userRequest.post("/shops", { ...inputs });
+    setOpen(false);
+    res.status === 200 && navigate(`/shop/${res.data._id}`);
+  };
+
   return (
     <Container>
       <Wrapper>
         <Close onClick={() => setOpen(false)}>X</Close>
         <Title>쇼핑몰 구축하기</Title>
-        <Input type="text" placeholder="쇼핑몰 이름" />
-        <Input type="file" accept="image/*" />
-        <Desc placeholder="쇼핑몰 설명" />
-        <Input type="text" placeholder="카테고리" />
-        <Input type="number" placeholder="디자인 선택" />
+        <Input
+          type="text"
+          placeholder="쇼핑몰 이름"
+          name="shopname"
+          onChange={handleChange}
+        />
+        <Label>쇼핑몰 ICON</Label>
+        {imgPerc > 0 ? (
+          "업로딩:" + imgPerc + "%"
+        ) : (
+          <Input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setLogo(e.target.files[0])}
+          />
+        )}
+        <Desc placeholder="쇼핑몰 설명" name="desc" onChange={handleChange} />
+        <Label>카테고리 선택</Label>
+        <select name="category" onChange={handleChange}>
+          {categories.map((item) => (
+            <option value={item.value}>{item.cat}</option>
+          ))}
+        </select>
+        <Label>디자인 선택</Label>
+        <select name="design" onChange={handleChange}>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
         <Tmp>
           <Tmp1Preview />
           <Tmp2Preview />
         </Tmp>
-        <Button>생성</Button>
+        <Button onClick={handleBuild}>생성</Button>
       </Wrapper>
     </Container>
   );
