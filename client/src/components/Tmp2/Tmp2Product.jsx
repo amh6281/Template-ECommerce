@@ -25,13 +25,13 @@ const Price = styled.h1`
   margin-left: 10px;
 `;
 
-const Tmp2Product = ({ item }) => {
+const Tmp2Product = ({ product }) => {
   return (
     <div>
       <Container>
-        <Image src={item.img} />
-        <Title>{item.title}</Title>
-        <Price>{item.price}원</Price>
+        <Image src={product.img} />
+        <Title>{product.title}</Title>
+        <Price>{product.price}원</Price>
       </Container>
     </div>
   );

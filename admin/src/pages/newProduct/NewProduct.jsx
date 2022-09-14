@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./newProduct.css";
 import {
   getStorage,
@@ -8,22 +8,48 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import { addProduct } from "../../redux/apiCalls";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { publicRequest } from "../../requestMethods";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
+  const [shop, setShop] = useState({});
+  const [color, setColor] = useState([]);
+  const [size, setSize] = useState([]);
+
   const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
+  const userId = currentUser._id;
+
+  useEffect(() => {
+    const getShop = async () => {
+      try {
+        const res = await publicRequest.get("/shops/" + userId);
+        setShop(res.data);
+      } catch {}
+    };
+    getShop();
+  }, [userId]);
 
   const handleChange = (e) => {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
+    console.log(inputs);
   };
 
   const handleCat = (e) => {
     setCat(e.target.value.split(","));
+  };
+
+  const handleColor = (e) => {
+    setColor(e.target.value.split(","));
+  };
+
+  const handleSize = (e) => {
+    setSize(e.target.value.split(","));
   };
 
   const handleClick = (e) => {
@@ -62,7 +88,14 @@ export default function NewProduct() {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const product = { ...inputs, img: downloadURL, categories: cat };
+          const product = {
+            ...inputs,
+            img: downloadURL,
+            categories: cat,
+            shopId: shop[0]._id,
+            color: color,
+            size: size,
+          };
           addProduct(product, dispatch);
         });
       }
@@ -74,7 +107,7 @@ export default function NewProduct() {
       <h1 className="addProductTitle">New Product</h1>
       <form className="addProductForm">
         <div className="addProductItem">
-          <label>Image</label>
+          <label>Image (266x325)</label>
           <input
             type="file"
             id="file"
@@ -97,6 +130,22 @@ export default function NewProduct() {
             type="text"
             placeholder="description..."
             onChange={handleChange}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Color</label>
+          <input
+            type="text"
+            placeholder="red,black,yellow"
+            onChange={handleColor}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Size</label>
+          <input
+            type="text"
+            placeholder="50ml,100ml or S,XL"
+            onChange={handleSize}
           />
         </div>
         <div className="addProductItem">

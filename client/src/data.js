@@ -449,3 +449,70 @@ export const shopList = [
     desc: "과일 전문 쇼핑몰",
   },
 ];
+
+export const categories = [
+  {
+    cat: "남성패션",
+    value: 1,
+  },
+  {
+    cat: "여성패션",
+    value: 2,
+  },
+  {
+    cat: "가구/인테리어",
+    value: 3,
+  },
+  {
+    cat: "화장품/미용",
+    value: 4,
+  },
+  {
+    cat: "식품",
+    value: 5,
+  },
+  {
+    cat: "출산/유아동",
+    value: 6,
+  },
+  {
+    cat: "반려동물용품",
+    value: 7,
+  },
+  {
+    cat: "생활/주방용품",
+    value: 8,
+  },
+  {
+    cat: "가전",
+    value: 9,
+  },
+  {
+    cat: "디지털",
+    value: 10,
+  },
+  {
+    cat: "컴퓨터",
+    value: 11,
+  },
+  {
+    cat: "스포츠/레저",
+    value: 12,
+  },
+  {
+    cat: "건강/의료용품",
+    value: 13,
+  },
+  {
+    cat: "자동차/공구",
+    value: 14,
+  },
+  {
+    cat: "취미/문구/악세",
+    value: 15,
+  },
+  {
+    cat: "도서",
+    value: 16,
+  },
+];

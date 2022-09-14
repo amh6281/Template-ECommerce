@@ -1,8 +1,9 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
+import axios from "axios";
 
 const Container = styled.div`
   overflow: hidden;
@@ -28,6 +29,20 @@ const Title = styled.h1`
 `;
 
 const NewBusinessIcon = () => {
+  const [shopIcons, setShopIcons] = useState([]);
+
+  useEffect(() => {
+    try {
+      const fetchShopIcons = async () => {
+        const res = await axios.get("http://localhost:5000/api/shops");
+        setShopIcons(res.data);
+      };
+      fetchShopIcons();
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
   const settings = {
     dots: true,
     arrows: true,
@@ -39,17 +54,15 @@ const NewBusinessIcon = () => {
     autoplaySpeed: 2000,
     pauseOnHover: true,
   };
+
   return (
     <Container>
       <Title>🏬 신규 쇼핑몰</Title>
       <Hr />
       <Slider {...settings}>
-        <img src="https://user-images.githubusercontent.com/83646986/168792726-a4bd05d6-f268-4af2-adfb-dd7ecb68f38f.png" />
-        <img src="https://user-images.githubusercontent.com/83646986/168792752-1a02cc9b-0d3c-4cd2-9278-5e351be006b9.png" />
-        <img src="https://user-images.githubusercontent.com/83646986/168792774-65c306ff-938b-4feb-aa45-dcbbabd711c8.png" />
-        <img src="https://user-images.githubusercontent.com/83646986/168792798-0edea2d7-0dc5-4f0f-b8eb-6f4eb7490837.png" />
-        <img src="https://user-images.githubusercontent.com/83646986/168794738-41df9365-99dd-4db6-8f17-36a770ebaf04.png" />
-        <img src="https://user-images.githubusercontent.com/83646986/168794815-f9923f50-7cf2-47c7-bafb-410fd292ff2f.png" />
+        {shopIcons.map((shopIcon) => (
+          <img key={shopIcon._id} src={shopIcon.logo} />
+        ))}
       </Slider>
     </Container>
   );

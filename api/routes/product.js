@@ -74,6 +74,8 @@ router.get("/:userId", async (req, res) => {
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
+  //shopId로 가져오기
+  const qShopId = req.query.shopId;
   try {
     let products;
 
@@ -83,6 +85,12 @@ router.get("/", async (req, res) => {
       products = await Product.find({
         categories: {
           $in: [qCategory],
+        },
+      });
+    } else if (qShopId) {
+      products = await Product.find({
+        shopId: {
+          $in: [qShopId],
         },
       });
     } else {

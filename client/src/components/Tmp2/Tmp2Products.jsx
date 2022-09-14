@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Tmp2ProductsList } from "../../tmpData";
 import Tmp2Product from "./Tmp2Product";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
+import { publicRequest } from "../../requestMethods";
 
 const Container = styled.div`
   width: 49%;
@@ -68,8 +69,21 @@ const Title = styled.h1`
   align-items: center;
 `;
 
-const Tmp2Products = () => {
+const Tmp2Products = ({ shopId }) => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await publicRequest.get(`/products/?shopId=${shopId}`);
+        setProducts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchProducts();
+  }, [shopId]);
 
   const handleClick = (direction) => {
     if (direction === "left") {
@@ -81,27 +95,23 @@ const Tmp2Products = () => {
 
   return (
     <div>
-      {Tmp2ProductsList.options.map((item) => (
-        <div>
-          <Title> {item.title}</Title>
-          <Hr />
-          <Container>
-            <Arrow direction="left" onClick={() => handleClick("left")}>
-              <ArrowLeftOutlined />
-            </Arrow>
-            <Wrapper slideIndex={slideIndex}>
-              {item.actions.map((item) => (
-                <Slide key={item.id}>
-                  <Tmp2Product item={item} key={item.id} />
-                </Slide>
-              ))}
-            </Wrapper>
-            <Arrow direction="right" onClick={() => handleClick("right")}>
-              <ArrowRightOutlined />
-            </Arrow>
-          </Container>
-        </div>
-      ))}
+      <Title>Best Item</Title>
+      <Hr />
+      <Container>
+        <Arrow direction="left" onClick={() => handleClick("left")}>
+          <ArrowLeftOutlined />
+        </Arrow>
+        <Wrapper slideIndex={slideIndex}>
+          {products.map((product) => (
+            <Slide key={product.id}>
+              <Tmp2Product product={product} key={product.id} />
+            </Slide>
+          ))}
+        </Wrapper>
+        <Arrow direction="right" onClick={() => handleClick("right")}>
+          <ArrowRightOutlined />
+        </Arrow>
+      </Container>
     </div>
   );
 };
