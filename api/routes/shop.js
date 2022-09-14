@@ -60,6 +60,16 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 
+//GET SHOP BY USERID
+router.get("/:userId", async (req, res) => {
+  try {
+    const shop = await Shop.find({ userId: req.params.userId });
+    res.status(200).json(shop);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //GET ALL SHOPS
 router.get("/", async (req, res) => {
   const qNew = req.query.new;

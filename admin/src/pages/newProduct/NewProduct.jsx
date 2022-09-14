@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./newProduct.css";
 import {
   getStorage,
@@ -8,13 +8,30 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import { addProduct } from "../../redux/apiCalls";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSuccess } from "../../redux/shopRedux";
+import { publicRequest } from "../../requestMethods";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
+  const [shop, setShop] = useState({});
+
   const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
+  const userId = currentUser._id;
+
+  useEffect(() => {
+    const getShop = async () => {
+      try {
+        const res = await publicRequest.get("/shops/" + userId);
+        setShop(res.data);
+        console.log(shop[0]._id);
+      } catch {}
+    };
+    getShop();
+  }, [userId]);
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -62,7 +79,13 @@ export default function NewProduct() {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const product = { ...inputs, img: downloadURL, categories: cat };
+          const product = {
+            ...inputs,
+            img: downloadURL,
+            categories: cat,
+            shopId: shop[0]._id,
+          };
+          console.log(product);
           addProduct(product, dispatch);
         });
       }

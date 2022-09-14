@@ -40,13 +40,13 @@ const Shop = () => {
         <>
           <Tmp1Slider />
           <SliderCategories />
-          <Tmp1Products shopId={shop.currentShop._id} />
+          <Tmp1Products shopId={shop.currentShop?._id} />
         </>
       ) : (
         <>
           <DropCategory />
           <Tmp2Slider />
-          <Tmp2Products shopId={shop.currentShop._id} />
+          <Tmp2Products shopId={shop.currentShop?._id} />
         </>
       )}
       <Footer />
