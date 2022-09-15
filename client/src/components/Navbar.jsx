@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AddShoppingCart, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
-import CategoryNav from "./CategoryNav/CategoryNav";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userRedux";
 import Build from "./Build.jsx";
+import Menu from "./Menu";
 
 const Container = styled.div`
   height: 60px;
@@ -79,9 +79,6 @@ const Navbar = () => {
     <>
       <Container>
         <Wrapper>
-          <Left>
-            <CategoryNav />
-          </Left>
           <Center>
             <Link to="/" style={{ color: "inherit" }}>
               <Logo>{shop.currentShop?.shopname}</Logo>

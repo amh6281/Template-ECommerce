@@ -12,6 +12,7 @@ import app from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { userRequest } from "../requestMethods";
 import { categories } from "../data";
+import { HighlightOffOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
   width: 100%;
@@ -147,7 +148,9 @@ const Build = ({ setOpen }) => {
   return (
     <Container>
       <Wrapper>
-        <Close onClick={() => setOpen(false)}>X</Close>
+        <Close onClick={() => setOpen(false)}>
+          <HighlightOffOutlined />
+        </Close>
         <Title>쇼핑몰 구축하기</Title>
         <Input
           type="text"
