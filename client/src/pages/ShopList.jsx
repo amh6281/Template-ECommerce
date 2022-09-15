@@ -5,6 +5,14 @@ import Banner from "../components/Banner";
 import Shop from "../components/Shop";
 import Footer from "../components/Footer";
 import axios from "axios";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`;
 
 const ShopList = () => {
   const [shops, setShops] = useState([]);
@@ -24,9 +32,11 @@ const ShopList = () => {
       <Navbar />
       <Announcement />
       <Banner />
-      {shops?.map((shop) => (
-        <Shop key={shop._id} shop={shop} />
-      ))}
+      <Container>
+        {shops?.map((shop) => (
+          <Shop key={shop._id} shop={shop} />
+        ))}
+      </Container>
       <Footer />
     </>
   );

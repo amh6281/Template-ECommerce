@@ -88,6 +88,9 @@ const Navbar = () => {
             </Link>
           </Center>
           <Right>
+            <Link to="/shops" style={{ color: "inherit" }}>
+              <MenuItem>쇼핑몰 바로가기</MenuItem>
+            </Link>
             {currentUser?.isEntrepreneur ? (
               <AddShoppingCart onClick={() => setOpen(true)} />
             ) : (

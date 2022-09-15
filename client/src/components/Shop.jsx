@@ -24,13 +24,6 @@ const Info = styled.div`
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Wrapper = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 280px;
@@ -68,6 +61,7 @@ const Icon = styled.div`
 `;
 
 const Name = styled.h3`
+  width: 280px;
   display: flex;
   align-items: center;
   padding-left: 5px;
@@ -76,6 +70,7 @@ const Name = styled.h3`
 `;
 
 const Desc = styled.h5`
+  width: 280px;
   display: flex;
   align-items: center;
   padding-left: 7px;
@@ -85,28 +80,23 @@ const Desc = styled.h5`
 
 const Shop = ({ shop }) => {
   return (
-    <div style={{ alignItems: "center" }}>
+    <div key={shop._id}>
       <Container>
-        <Wrapper>
-          <Image src={shop.logo} />
-          <Info>
-            <Icon>
-              <ShoppingCartOutlined />
-            </Icon>
-            <Icon>
-              <Link to={`/shop/${shop._id}`} style={{ color: "inherit" }}>
-                <SearchOutlined />
-              </Link>
-            </Icon>
-            <Icon>
-              <FavoriteBorderOutlined />
-            </Icon>
-          </Info>
-        </Wrapper>
-        <Name>{shop.shopname}</Name>
-        <Desc>{shop.desc}</Desc>
-        <br />
+        <Image src={shop.logo} />
+        <Info>
+          <Icon>
+            <Link to={`/shop/${shop._id}`} style={{ color: "inherit" }}>
+              <SearchOutlined />
+            </Link>
+          </Icon>
+          <Icon>
+            <FavoriteBorderOutlined />
+          </Icon>
+        </Info>
       </Container>
+      <Name>{shop.shopname}</Name>
+      <Desc>{shop.desc}</Desc>
+      <br />
     </div>
   );
 };

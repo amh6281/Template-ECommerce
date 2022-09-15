@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   overflow: hidden;
@@ -55,13 +56,19 @@ const NewBusinessIcon = () => {
     pauseOnHover: true,
   };
 
+  const Image = styled.img`
+    height: 160px;
+    z-index: 2;
+    object-fit: contain;
+  `;
+
   return (
     <Container>
       <Title>🏬 신규 쇼핑몰</Title>
       <Hr />
       <Slider {...settings}>
-        {shopIcons.map((shopIcon) => (
-          <img key={shopIcon._id} src={shopIcon.logo} />
+        {shopIcons.map((shop) => (
+          <Image src={shop.logo} />
         ))}
       </Slider>
     </Container>

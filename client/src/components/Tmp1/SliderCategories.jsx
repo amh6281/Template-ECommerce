@@ -5,12 +5,13 @@ import SliderCategoryItem from "./SliderCategoryItem";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 const Container = styled.div`
-  width: 100%;
+  width: 99%;
   height: 100%;
   display: flex;
   position: relative;
   overflow: hidden;
   margin-top: 20px;
+  margin-left: 11px;
 `;
 
 const Arrow = styled.div`
@@ -36,7 +37,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   transition: all 1.5s ease;
-  transform: translateX(${(props) => props.slideIndex * -100}vw);
+  transform: translateX(${(props) => props.slideIndex * -98}vw);
 `;
 
 const Slide = styled.div`
