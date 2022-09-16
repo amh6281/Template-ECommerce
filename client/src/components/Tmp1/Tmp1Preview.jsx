@@ -6,16 +6,13 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import Tmp1 from "../../pages/Tmp1";
-import Navbar from "../Navbar";
-import Announcement from "../Announcement";
-import Tmp1Slider from "./Tmp1Slider";
-import SliderCategories from "./SliderCategories";
-import Tmp1Products from "./Tmp1Products";
 import Footer from "../Footer";
+import SliderCats from "./UsingPreview/SliderCats";
+import Tmp1Pdts from "./UsingPreview/Tmp1Pdts";
+import Slider from "./UsingPreview/Slider";
+import Tmp1Nav from "./UsingPreview/Tmp1Nav";
 
 export default function Tmp1Preview() {
-  const titles = ["Best Item", "Hot Item", "New Item"];
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -48,14 +45,10 @@ export default function Tmp1Preview() {
       >
         <DialogContent>
           <DialogContentText>
-            <Navbar />
-            {/* Shop1에서는 카테고리 빼기*/}
-            <Announcement />
-            <Tmp1Slider />
-            <SliderCategories />
-            {titles.map((title) => (
-              <Tmp1Products title={title} />
-            ))}
+            <Tmp1Nav />
+            <Slider />
+            <SliderCats />
+            <Tmp1Pdts />
             <Footer />
           </DialogContentText>
         </DialogContent>

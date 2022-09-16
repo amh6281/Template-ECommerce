@@ -4,16 +4,13 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import Tmp2 from "../../pages/Tmp2";
-import Navbar from "../Navbar";
-import Announcement from "../Announcement";
-import DropCategory from "./DropCategory";
-import Tmp2Slider from "./Tmp2Slider";
-import Tmp2Products from "./Tmp2Products";
 import Footer from "../Footer";
+import DropCat from "./UsingPreview/Dropcat";
+import Slider2 from "./UsingPreview/Slider2";
+import Tmp2Pdts from "./UsingPreview/Tmp2Pdts";
+import Tmp1Nav from "../Tmp1/UsingPreview/Tmp1Nav";
 
 export default function Tmp2Preview() {
   const [open, setOpen] = React.useState(false);
@@ -48,11 +45,10 @@ export default function Tmp2Preview() {
       >
         <DialogContent>
           <DialogContentText>
-            <Navbar />
-            <Announcement />
-            <DropCategory />
-            <Tmp2Slider />
-            <Tmp2Products />
+            <Tmp1Nav />
+            <DropCat />
+            <Slider2 />
+            <Tmp2Pdts />
             <Footer />
           </DialogContentText>
         </DialogContent>

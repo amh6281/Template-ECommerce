@@ -4,8 +4,6 @@ import styled from "styled-components";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import Build from "./Build.jsx";
-import Menu from "./Menu";
 
 const Container = styled.div`
   height: 106px;
@@ -69,18 +67,13 @@ const MenuItem = styled.div`
   left: 50px;
 `;
 
-const MidNav = () => {
-  const [open, setOpen] = useState(false);
-  const [catOpen, setCatOpen] = useState(false);
-  const quantity = useSelector((state) => state.cart.quantity);
-  const { currentUser } = useSelector((state) => state.user);
-
+const Tmp1Nav = () => {
   return (
     <>
       <Container>
         <Wrapper>
           <Left>
-            <Image src="https://user-images.githubusercontent.com/83646986/190376063-17549320-72a4-472b-a0d9-516073fcfca3.png" />
+            <Image src=" https://via.placeholder.com/300x100" />
           </Left>
           <Center>
             <SearchContainer>
@@ -89,33 +82,20 @@ const MidNav = () => {
             </SearchContainer>
           </Center>
           <Right>
-            <Link to={`/cart/${currentUser?._id}`} style={{ color: "inherit" }}>
-              <MenuItem>
-                {currentUser ? (
-                  <>
-                    <Badge badgeContent={quantity} color="primary">
-                      <ShoppingCartOutlined style={{ fontSize: 50 }} />
-                    </Badge>
-                  </>
-                ) : (
-                  <Badge badgeContent={0} color="primary">
-                    <ShoppingCartOutlined />
-                  </Badge>
-                )}
-              </MenuItem>
-            </Link>
+            <MenuItem>
+              <Badge badgeContent={0} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </MenuItem>
             <Image
               src="https://user-images.githubusercontent.com/83646986/190380972-555dab6d-f3b1-4d24-a386-e9dfc4bd620b.png"
               style={{ width: "50px", height: "50px", cursor: "pointer" }}
-              onClick={(e) => setCatOpen((prev) => (prev ? false : true))}
             />
           </Right>
         </Wrapper>
       </Container>
-      {open && <Build setOpen={setOpen} />}
-      {catOpen && <Menu setOpen={setCatOpen} />}
     </>
   );
 };
 
-export default MidNav;
+export default Tmp1Nav;

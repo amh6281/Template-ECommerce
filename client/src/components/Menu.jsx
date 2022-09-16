@@ -54,10 +54,12 @@ const Menu = () => {
   return (
     <Container>
       <Wrapper>
-        <Item>
-          <HomeIcon />
-          전체카테고리
-        </Item>
+        <Link to="/shops" style={{ color: "inherit" }}>
+          <Item>
+            <HomeIcon />
+            전체카테고리
+          </Item>
+        </Link>
         <Item>
           <Man2OutlinedIcon />
           남성패션

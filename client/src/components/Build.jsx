@@ -151,7 +151,7 @@ const Build = ({ setOpen }) => {
         <Close onClick={() => setOpen(false)}>
           <HighlightOffOutlined />
         </Close>
-        <Title>쇼핑몰 구축하기</Title>
+        <Title>입점하기</Title>
         <Input
           type="text"
           placeholder="쇼핑몰 이름"
