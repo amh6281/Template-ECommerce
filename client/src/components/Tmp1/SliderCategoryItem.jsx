@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  min-width: 458px;
+  min-width: 467px;
   height: 100%;
   object-fit: cover;
 `;

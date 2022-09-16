@@ -60,70 +60,102 @@ const Menu = () => {
             전체카테고리
           </Item>
         </Link>
-        <Item>
-          <Man2OutlinedIcon />
-          남성패션
-        </Item>
-        <Item>
-          <Woman2OutlinedIcon />
-          여성패션
-        </Item>
-        <Item>
-          <BedOutlinedIcon />
-          가구/인테리어
-        </Item>
-        <Item>
-          <ContentCutOutlinedIcon />
-          화장품/미용
-        </Item>
-        <Item>
-          <RestaurantMenuOutlinedIcon />
-          식품
-        </Item>
-        <Item>
-          <ChildFriendlyOutlinedIcon />
-          출산/유아동
-        </Item>
-        <Item>
-          <PetsOutlinedIcon />
-          반려동물용품
-        </Item>
-        <Item>
-          <BlenderOutlinedIcon />
-          생활/주방용품
-        </Item>
-        <Item>
-          <KitchenOutlinedIcon />
-          가전
-        </Item>
-        <Item>
-          <CameraAltOutlinedIcon />
-          디지털
-        </Item>
-        <Item>
-          <ComputerOutlinedIcon />
-          컴퓨터
-        </Item>
-        <Item>
-          <PedalBikeOutlinedIcon />
-          스포츠/레저
-        </Item>
-        <Item>
-          <MedicalServicesOutlinedIcon />
-          건강/의료용품
-        </Item>
-        <Item>
-          <DirectionsCarFilledOutlinedIcon />
-          자동차/공구
-        </Item>
-        <Item>
-          <SportsEsportsOutlinedIcon />
-          취미/문구/악세
-        </Item>
-        <Item>
-          <AutoStoriesOutlinedIcon />
-          도서
-        </Item>
+        <Link to={`/shops/${1}`} style={{ color: "inherit" }}>
+          <Item>
+            <Man2OutlinedIcon />
+            남성패션
+          </Item>
+        </Link>
+        <Link to={`/shops/${2}`} style={{ color: "inherit" }}>
+          <Item>
+            <Woman2OutlinedIcon />
+            여성패션
+          </Item>
+        </Link>
+        <Link to={`/shops/${3}`} style={{ color: "inherit" }}>
+          <Item>
+            <BedOutlinedIcon />
+            가구/인테리어
+          </Item>
+        </Link>
+        <Link to={`/shops/${4}`} style={{ color: "inherit" }}>
+          <Item>
+            <ContentCutOutlinedIcon />
+            화장품/미용
+          </Item>
+        </Link>
+        <Link to={`/shops/${5}`} style={{ color: "inherit" }}>
+          <Item>
+            <RestaurantMenuOutlinedIcon />
+            식품
+          </Item>
+        </Link>
+        <Link to={`/shops/${6}`} style={{ color: "inherit" }}>
+          <Item>
+            <ChildFriendlyOutlinedIcon />
+            출산/유아동
+          </Item>
+        </Link>
+        <Link to={`/shops/${7}`} style={{ color: "inherit" }}>
+          <Item>
+            <PetsOutlinedIcon />
+            반려동물용품
+          </Item>
+        </Link>
+        <Link to={`/shops/${8}`} style={{ color: "inherit" }}>
+          <Item>
+            <BlenderOutlinedIcon />
+            생활/주방용품
+          </Item>
+        </Link>
+        <Link to={`/shops/${9}`} style={{ color: "inherit" }}>
+          <Item>
+            <KitchenOutlinedIcon />
+            가전
+          </Item>
+        </Link>
+        <Link to={`/shops/${10}`} style={{ color: "inherit" }}>
+          <Item>
+            <CameraAltOutlinedIcon />
+            디지털
+          </Item>
+        </Link>
+        <Link to={`/shops/${11}`} style={{ color: "inherit" }}>
+          <Item>
+            <ComputerOutlinedIcon />
+            컴퓨터
+          </Item>
+        </Link>
+        <Link to={`/shops/${12}`} style={{ color: "inherit" }}>
+          <Item>
+            <PedalBikeOutlinedIcon />
+            스포츠/레저
+          </Item>
+        </Link>
+        <Link to={`/shops/${13}`} style={{ color: "inherit" }}>
+          <Item>
+            <MedicalServicesOutlinedIcon />
+            건강/의료용품
+          </Item>
+        </Link>
+        <Link to={`/shops/${14}`} style={{ color: "inherit" }}>
+          <Item>
+            <DirectionsCarFilledOutlinedIcon />
+            자동차/공구
+          </Item>
+        </Link>
+        <Link to={`/shops/${15}`} style={{ color: "inherit" }}>
+          <Item>
+            <SportsEsportsOutlinedIcon />
+            취미/문구/악세
+          </Item>
+        </Link>
+        <Link to={`/shops/${16}`} style={{ color: "inherit" }}>
+          <Item>
+            <AutoStoriesOutlinedIcon />
+            도서
+          </Item>
+        </Link>
       </Wrapper>
     </Container>
   );

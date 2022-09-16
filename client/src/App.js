@@ -19,6 +19,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductList />} />
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart/:id" element={<Cart />} />
@@ -28,6 +29,7 @@ function App() {
           element={user ? <Navigate to="/" /> : <Register />}
         />
         <Route path="/shops" element={<ShopList />} />
+        <Route path="/shops/:category" element={<ShopList />} />
         <Route path="/shop">
           <Route path=":id" element={<Shop />} />
         </Route>
