@@ -63,6 +63,7 @@ const TopNav = () => {
                   ? setOpen(true)
                   : alert("사업자가 아닙니다.")
               }
+              style={{ fontWeight: 500 }}
             >
               입점하기
             </MenuItem>
