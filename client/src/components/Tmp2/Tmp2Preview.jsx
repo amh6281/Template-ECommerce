@@ -33,7 +33,7 @@ export default function Tmp2Preview() {
         size="large"
         onClick={handleClickOpen}
       >
-        Degin2
+        Design2
       </Button>
       <Dialog
         fullScreen={fullScreen}

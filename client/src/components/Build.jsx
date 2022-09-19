@@ -29,7 +29,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 600px;
-  height: 600px;
+  height: 800px;
   background-color: #ffffffe4;
   color: black;
   padding: 20px;
@@ -89,13 +89,18 @@ const Build = ({ setOpen }) => {
   const [logo, setLogo] = useState(undefined);
   const [imgPerc, setImgPerc] = useState(0);
   const [inputs, setInputs] = useState({});
+  const [banner, setBanner] = useState([]);
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInputs((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
     });
+    console.log(inputs);
   };
 
   const uploadFile = (file, urlType) => {
@@ -127,9 +132,10 @@ const Build = ({ setOpen }) => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setInputs((prev) => {
-            return { ...prev, [urlType]: downloadURL };
+            return { ...prev, [urlType]: downloadURL, bannerImg: banner };
           });
         });
+        console.log(inputs);
       }
     );
   };
@@ -169,6 +175,12 @@ const Build = ({ setOpen }) => {
           />
         )}
         <Desc placeholder="쇼핑몰 설명" name="desc" onChange={handleChange} />
+        <Label>배너 이미지</Label>
+        <Input
+          type="text"
+          placeholder="img1,img2"
+          onChange={(e) => setBanner(e.target.value.split(","))}
+        />
         <Label>카테고리 선택</Label>
         <select name="category" onChange={handleChange}>
           {categories.map((item) => (

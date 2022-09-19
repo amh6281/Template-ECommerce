@@ -33,7 +33,7 @@ export default function Tmp1Preview() {
         size="large"
         onClick={handleClickOpen}
       >
-        Degin1
+        Design1
       </Button>
       <Dialog
         fullScreen={fullScreen}
