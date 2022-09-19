@@ -6,6 +6,12 @@ const ShopSchema = new mongoose.Schema(
     shopname: { type: String, required: true, unique: true },
     desc: { type: String, required: true },
     bannerImg: { type: Array },
+    categoryItem: [
+      {
+        catImg: { type: Array },
+        catValue: { type: Array },
+      },
+    ],
     category: { type: Number, required: true, default: 1 },
     logo: { type: String, required: true },
     design: { type: Number, required: true, default: 1 },

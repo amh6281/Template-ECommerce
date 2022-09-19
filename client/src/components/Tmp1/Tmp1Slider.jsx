@@ -54,7 +54,6 @@ const Tmp1Slider = () => {
       setSlideIndex(slideIndex < banner.length - 1 ? slideIndex + 1 : 0);
     }
   };
-  console.log(sliderItems);
 
   return (
     <Container>

@@ -43,10 +43,10 @@ const Button = styled.button`
 const SliderCategoryItem = ({ item }) => {
   return (
     <Container>
-      <Link to={`/products/${item.cat}`}>
-        <Image src={item.img} />
+      <Link to={`/products/${item[1]}`}>
+        <Image src={item[0]} />
         <Info>
-          <Title>{item.title}</Title>
+          <Title>{item[1]}</Title>
           <Button>SHOP NOW</Button>
         </Info>
       </Link>

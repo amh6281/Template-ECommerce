@@ -29,7 +29,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 600px;
-  height: 700px;
+  height: 800px;
   background-color: #ffffffe4;
   color: black;
   padding: 20px;
@@ -90,6 +90,19 @@ const Build = ({ setOpen }) => {
   const [imgPerc, setImgPerc] = useState(0);
   const [inputs, setInputs] = useState({});
   const [banner, setBanner] = useState([]);
+  const [catImg, setCatImg] = useState([]);
+  const [catItem, setCatItem] = useState([]);
+  const [cat, setCat] = useState([]);
+
+  const handleCat = (e) => {
+    setCat((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+  console.log(cat);
 
   const navigate = useNavigate();
 
@@ -100,7 +113,6 @@ const Build = ({ setOpen }) => {
         [e.target.name]: e.target.value,
       };
     });
-    console.log(inputs);
   };
 
   const uploadFile = (file, urlType) => {
@@ -132,13 +144,20 @@ const Build = ({ setOpen }) => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setInputs((prev) => {
-            return { ...prev, [urlType]: downloadURL, bannerImg: banner };
+            return {
+              ...prev,
+              [urlType]: downloadURL,
+              bannerImg: banner,
+              categoryItem: cat,
+              // categoryImg: catImg,
+              // categoryItem: catItem,
+            };
           });
         });
-        console.log(inputs);
       }
     );
   };
+  console.log(inputs);
 
   useEffect(() => {
     logo && uploadFile(logo, "logo");
@@ -170,6 +189,29 @@ const Build = ({ setOpen }) => {
           name="desc"
           onChange={handleChange}
         />
+        {/* <Input
+          type="text"
+          placeholder="카테고리 src"
+          onChange={(e) => setCatImg(e.target.value.split(","))}
+        />
+        <Input
+          type="text"
+          placeholder="카테고리"
+          onChange={(e) => setCatItem(e.target.value.split(","))}
+        /> */}
+        <Input
+          type="text"
+          name="catImg"
+          placeholder="카테고리 src"
+          onChange={handleCat}
+        />
+        <Input
+          type="text"
+          name="catValue"
+          placeholder="카테고리"
+          onChange={handleCat}
+        />
+
         <Label>배너 이미지</Label>
         <Input
           type="text"
