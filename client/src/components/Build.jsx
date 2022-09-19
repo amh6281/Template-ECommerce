@@ -29,7 +29,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 600px;
-  height: 800px;
+  height: 700px;
   background-color: #ffffffe4;
   color: black;
   padding: 20px;
@@ -164,6 +164,18 @@ const Build = ({ setOpen }) => {
           name="shopname"
           onChange={handleChange}
         />
+        <Desc
+          type="text"
+          placeholder="쇼핑몰 설명"
+          name="desc"
+          onChange={handleChange}
+        />
+        <Label>배너 이미지</Label>
+        <Input
+          type="text"
+          placeholder="img1,img2"
+          onChange={(e) => setBanner(e.target.value.split(","))}
+        />
         <Label>쇼핑몰 ICON</Label>
         {imgPerc > 0 ? (
           "업로딩:" + imgPerc + "%"
@@ -174,13 +186,6 @@ const Build = ({ setOpen }) => {
             onChange={(e) => setLogo(e.target.files[0])}
           />
         )}
-        <Desc placeholder="쇼핑몰 설명" name="desc" onChange={handleChange} />
-        <Label>배너 이미지</Label>
-        <Input
-          type="text"
-          placeholder="img1,img2"
-          onChange={(e) => setBanner(e.target.value.split(","))}
-        />
         <Label>카테고리 선택</Label>
         <select name="category" onChange={handleChange}>
           {categories.map((item) => (
