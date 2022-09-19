@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { categories } from "../../tmpData";
-import SliderCategoryItem from "./SliderCategoryItem";
+import { categories } from "../../../tmpData";
+import SliderCat from "./SliderCat";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { useSelector } from "react-redux";
 
 const Container = styled.div`
   width: 99%;
@@ -38,7 +37,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   transition: all 1.5s ease;
-  transform: translateX(${(props) => props.slideIndex * -98.5}vw);
+  transform: translateX(${(props) => props.slideIndex * -76}vw);
 `;
 
 const Slide = styled.div`
@@ -62,18 +61,8 @@ const Hr = styled.hr`
   margin-bottom: 3px;
 `;
 
-const SliderCategories = () => {
+const SliderCats = () => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const shop = useSelector((state) => state.shop);
-  const categoryItem = shop.currentShop.categoryItem;
-
-  let Arr1 = categoryItem[0].catImg;
-  let Arr2 = categoryItem[0].catValue;
-  let Arr3 = [];
-  for (let i = 0; i < Arr1.length; i++) {
-    const temp = [Arr1[i], Arr2[i]];
-    Arr3.push(temp);
-  }
 
   const handleClick = (direction) => {
     if (direction === "left") {
@@ -92,9 +81,9 @@ const SliderCategories = () => {
           <ArrowLeftOutlined />
         </Arrow>
         <Wrapper slideIndex={slideIndex}>
-          {Arr3?.map((item) => (
+          {categories.map((item) => (
             <Slide key={item.id}>
-              <SliderCategoryItem item={item} key={item.id} />
+              <SliderCat item={item} key={item.id} />
             </Slide>
           ))}
         </Wrapper>
@@ -106,4 +95,4 @@ const SliderCategories = () => {
   );
 };
 
-export default SliderCategories;
+export default SliderCats;

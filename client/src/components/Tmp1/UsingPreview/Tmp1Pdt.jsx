@@ -5,7 +5,6 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
@@ -60,45 +59,49 @@ const Icon = styled.div`
   }
 `;
 
-const Name = styled.h3`
-  width: 280px;
+const Title = styled.h5`
   display: flex;
   align-items: center;
   padding-left: 5px;
-  justify-content: center;
-  margin-bottom: 10px;
 `;
 
-const Desc = styled.h5`
-  width: 280px;
+const Size = styled.h6`
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  padding-bottom: 30px;
+`;
+
+const Price = styled.h5`
   display: flex;
   align-items: center;
   padding-left: 7px;
   padding-bottom: 50px;
-  justify-content: center;
 `;
 
-const Shop = ({ shop }) => {
+const Tmp1Pdt = ({ item }) => {
   return (
-    <div key={shop._id}>
+    <div style={{ alignItems: "center" }}>
       <Container>
-        <Image src={shop.logo} />
+        <Image src={item.img} />
         <Info>
           <Icon>
-            <Link to={`/shop/${shop._id}`} style={{ color: "inherit" }}>
-              <SearchOutlined />
-            </Link>
+            <ShoppingCartOutlined />
+          </Icon>
+          <Icon>
+            <SearchOutlined />
           </Icon>
           <Icon>
             <FavoriteBorderOutlined />
           </Icon>
         </Info>
       </Container>
-      <Name>{shop.shopname}</Name>
-      <Desc>{shop.desc}</Desc>
+      <Title>{item.title}</Title>
+      <Size>{item.size}</Size>
+      <Price>{item.price}원</Price>
       <br />
     </div>
   );
 };
 
-export default Shop;
+export default Tmp1Pdt;

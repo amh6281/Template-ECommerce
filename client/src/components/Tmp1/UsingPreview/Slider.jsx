@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { sliderItems } from "../../tmpData";
+import { sliderItems } from "./tmp1Data";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { useSelector } from "react-redux";
 
 const Container = styled.div`
   width: 100%;
@@ -21,7 +20,7 @@ const Arrow = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -35px;
+  top: 0;
   bottom: 0;
   left: ${(props) => props.direction === "left" && "10px"};
   right: ${(props) => props.direction === "right" && "10px"};
@@ -40,18 +39,14 @@ const Wrapper = styled.div`
 const Image = styled.img`
   height: 92%;
 `;
-
-const Tmp1Slider = () => {
-  const shop = useSelector((state) => state.shop);
-  const banner = shop.currentShop.bannerImg;
-
+const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : banner.length - 1);
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : sliderItems.length - 1);
     } else {
-      setSlideIndex(slideIndex < banner.length - 1 ? slideIndex + 1 : 0);
+      setSlideIndex(slideIndex < sliderItems.length - 1 ? slideIndex + 1 : 0);
     }
   };
 
@@ -61,8 +56,8 @@ const Tmp1Slider = () => {
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
-        {banner.map((item) => (
-          <Image src={item} />
+        {sliderItems.map((item) => (
+          <Image src={item.img} />
         ))}
       </Wrapper>
       <Arrow direction="right" onClick={() => handleClick("right")}>
@@ -72,4 +67,4 @@ const Tmp1Slider = () => {
   );
 };
 
-export default Tmp1Slider;
+export default Slider;

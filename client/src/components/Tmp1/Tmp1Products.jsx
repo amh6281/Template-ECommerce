@@ -43,7 +43,7 @@ const Tmp1Products = ({ shopId }) => {
 
   return (
     <div>
-      <Title>Best Item</Title>
+      <Title>전체상품</Title>
       <Hr />
       <Container>
         {products.map((product) => (

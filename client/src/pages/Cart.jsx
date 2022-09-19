@@ -7,6 +7,8 @@ import { Add, Remove } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProducts } from "../redux/aipCalls";
 import { deleteProduct, emptyCart } from "../redux/cartRedux";
+import TopNav from "../components/TopNav";
+import MidNav from "../components/MidNav";
 
 const Container = styled.div``;
 
@@ -157,8 +159,8 @@ const Cart = () => {
 
   return (
     <Container>
-      <Navbar />
-      <Announcement />
+      <TopNav />
+      <MidNav />
       <Wrapper>
         <Title>장바구니</Title>
         <Hr />

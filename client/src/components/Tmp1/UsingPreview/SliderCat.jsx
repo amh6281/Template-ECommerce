@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  min-width: 467px;
+  min-width: 481px;
   height: 100%;
   object-fit: cover;
 `;
@@ -40,18 +40,16 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const SliderCategoryItem = ({ item }) => {
+const SliderCat = ({ item }) => {
   return (
     <Container>
-      <Link to={`/products/${item[1]}`}>
-        <Image src={item[0]} />
-        <Info>
-          <Title>{item[1]}</Title>
-          <Button>SHOP NOW</Button>
-        </Info>
-      </Link>
+      <Image src={item.img} />
+      <Info>
+        <Title>{item.title}</Title>
+        <Button>SHOP NOW</Button>
+      </Info>
     </Container>
   );
 };
 
-export default SliderCategoryItem;
+export default SliderCat;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { shopList } from "../data";
+import { Tmp1ProductsList } from "../../../tmpData";
+import Tmp1Pdt from "./Tmp1Pdt";
 
 const Container = styled.div`
   display: flex;
@@ -7,7 +8,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
 const Title = styled.h1`
   display: flex;
   margin-top: 110px;
@@ -25,8 +25,18 @@ const Hr = styled.hr`
   margin-bottom: 3px;
 `;
 
-const Shops = ({ title }) => {
-  return <div></div>;
+const Tmp1Pdts = () => {
+  return (
+    <div>
+      <Title>전체상품</Title>
+      <Hr />
+      <Container>
+        {Tmp1ProductsList.map((item) => (
+          <Tmp1Pdt item={item} key={item.id} />
+        ))}
+      </Container>
+    </div>
+  );
 };
 
-export default Shops;
+export default Tmp1Pdts;
