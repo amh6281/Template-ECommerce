@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Build from "./Build.jsx";
 import Menu from "./Menu";
+import { emptyShop } from "../redux/shopRedux.js";
 
 const Container = styled.div`
   height: 106px;
@@ -69,18 +70,36 @@ const MenuItem = styled.div`
   left: 50px;
 `;
 
+const Logo = styled.h1`
+  font-weight: 600;
+`;
+
 const MidNav = () => {
   const [open, setOpen] = useState(false);
   const [catOpen, setCatOpen] = useState(false);
+
   const quantity = useSelector((state) => state.cart.quantity);
   const { currentUser } = useSelector((state) => state.user);
+  const shop = useSelector((state) => state.shop);
+
+  const path = useLocation().pathname.split("/")[1];
+
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    dispatch(emptyShop());
+  };
 
   return (
     <>
       <Container>
         <Wrapper>
           <Left>
-            <Image src="https://user-images.githubusercontent.com/83646986/190376063-17549320-72a4-472b-a0d9-516073fcfca3.png" />
+            {shop.currentShop && path !== "shops" ? (
+              <Logo>{shop.currentShop?.shopname}</Logo>
+            ) : (
+              <Image src="https://user-images.githubusercontent.com/83646986/190376063-17549320-72a4-472b-a0d9-516073fcfca3.png" />
+            )}
           </Left>
           <Center>
             <SearchContainer>
@@ -94,7 +113,10 @@ const MidNav = () => {
                 {currentUser ? (
                   <>
                     <Badge badgeContent={quantity} color="primary">
-                      <ShoppingCartOutlined style={{ fontSize: 50 }} />
+                      <ShoppingCartOutlined
+                        style={{ fontSize: 50 }}
+                        onClick={handleClick}
+                      />
                     </Badge>
                   </>
                 ) : (

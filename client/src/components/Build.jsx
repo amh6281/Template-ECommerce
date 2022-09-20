@@ -189,16 +189,6 @@ const Build = ({ setOpen }) => {
           name="desc"
           onChange={handleChange}
         />
-        {/* <Input
-          type="text"
-          placeholder="카테고리 src"
-          onChange={(e) => setCatImg(e.target.value.split(","))}
-        />
-        <Input
-          type="text"
-          placeholder="카테고리"
-          onChange={(e) => setCatItem(e.target.value.split(","))}
-        /> */}
         <Input
           type="text"
           name="catImg"

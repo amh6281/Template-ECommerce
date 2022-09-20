@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { emptyShop } from "../redux/shopRedux";
 
 const Container = styled.div`
   background: #f0f0f0;
@@ -39,13 +41,21 @@ const MenuItem = styled.div`
 `;
 
 const CatNav = ({ cat }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    dispatch(emptyShop());
+  };
+
   return (
     <>
       <Container>
         <Wrapper>
           <Left>
             <Link to="/">
-              <MenuItem style={{ fontWeight: 500 }}>홈</MenuItem>
+              <MenuItem style={{ fontWeight: 500 }} onClick={handleClick}>
+                홈
+              </MenuItem>
             </Link>
             <div style={{ fontSize: "12px" }}>{">"}</div>
             <MenuItem style={{ fontWeight: 500 }}> {cat}</MenuItem>

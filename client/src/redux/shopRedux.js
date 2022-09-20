@@ -21,9 +21,15 @@ export const shopSlice = createSlice({
       state.loading = false;
       state.error = true;
     },
+    emptyShop: (state) => {
+      state.currentShop = null;
+      state.loading = false;
+      state.error = false;
+    },
   },
 });
 
-export const { fetchStart, fetchSuccess, fetchFailure } = shopSlice.actions;
+export const { fetchStart, fetchSuccess, fetchFailure, emptyShop } =
+  shopSlice.actions;
 
 export default shopSlice.reducer;
