@@ -3,12 +3,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   overflow: hidden;
 `;
 
 const Tmp2Slider = () => {
+  const shop = useSelector((state) => state.shop);
+  const banner = shop.currentShop?.bannerImg;
+
   const settings = {
     dots: true,
     arrows: true,
@@ -24,7 +28,9 @@ const Tmp2Slider = () => {
   return (
     <Container>
       <Slider {...settings}>
-        <img src="https://thumbnail6.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_fb5cf3b4-b547-48af-b33a-1e6edfb1cc78.jpg" />
+        {banner?.map((item) => (
+          <img src={item} />
+        ))}
       </Slider>
     </Container>
   );

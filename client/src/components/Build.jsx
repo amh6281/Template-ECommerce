@@ -90,15 +90,13 @@ const Build = ({ setOpen }) => {
   const [imgPerc, setImgPerc] = useState(0);
   const [inputs, setInputs] = useState({});
   const [banner, setBanner] = useState([]);
-  const [catImg, setCatImg] = useState([]);
-  const [catItem, setCatItem] = useState([]);
   const [cat, setCat] = useState([]);
 
   const handleCat = (e) => {
     setCat((prev) => {
       return {
         ...prev,
-        [e.target.name]: e.target.value,
+        [e.target.name.split(",")]: e.target.value.split(","),
       };
     });
   };
@@ -149,8 +147,6 @@ const Build = ({ setOpen }) => {
               [urlType]: downloadURL,
               bannerImg: banner,
               categoryItem: cat,
-              // categoryImg: catImg,
-              // categoryItem: catItem,
             };
           });
         });
@@ -192,7 +188,7 @@ const Build = ({ setOpen }) => {
         <Input
           type="text"
           name="catImg"
-          placeholder="카테고리 src"
+          placeholder="카테고리 src(DESIGN1일경우만)"
           onChange={handleCat}
         />
         <Input

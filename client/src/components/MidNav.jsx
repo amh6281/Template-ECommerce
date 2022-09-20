@@ -82,10 +82,10 @@ const MidNav = () => {
   const shop = useSelector((state) => state.shop);
 
   const path = useLocation().pathname.split("/")[1];
-  const main = window.location.path;
+  const main = useLocation().pathname;
 
   const dispatch = useDispatch();
-
+  console.log(useLocation().pathname);
   return (
     <>
       <Container>

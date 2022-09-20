@@ -62,11 +62,11 @@ const Title = styled.h1`
   display: flex;
   margin-top: 50px;
   margin-bottom: 15px;
-  margin-left: 480px;
   font-size: 24px;
   font-family: sans-serif;
   text-align: center;
   align-items: center;
+  justify-content: center;
 `;
 
 const Tmp2Products = ({ shopId }) => {
@@ -95,7 +95,7 @@ const Tmp2Products = ({ shopId }) => {
 
   return (
     <div>
-      <Title>Best Item</Title>
+      <Title>전체상품</Title>
       <Hr />
       <Container>
         <Arrow direction="left" onClick={() => handleClick("left")}>
