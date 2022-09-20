@@ -2,12 +2,13 @@ import { Add, Remove } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch, useSelector } from "react-redux";
 import { publicRequest } from "../requestMethods";
+import TopNav from "../components/TopNav";
+import MidNav from "../components/MidNav";
+import CatNav from "../components/CatNav";
 
 const Container = styled.div``;
 
@@ -148,8 +149,9 @@ const Product = () => {
 
   return (
     <Container>
-      <Navbar />
-      <Announcement />
+      <TopNav />
+      <MidNav />
+      <CatNav />
       <Wrapper>
         <ImgContainer>
           <Image src={product.img} />

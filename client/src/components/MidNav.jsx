@@ -6,7 +6,6 @@ import { Badge } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import Build from "./Build.jsx";
 import Menu from "./Menu";
-import { emptyShop } from "../redux/shopRedux.js";
 
 const Container = styled.div`
   height: 106px;
@@ -83,19 +82,16 @@ const MidNav = () => {
   const shop = useSelector((state) => state.shop);
 
   const path = useLocation().pathname.split("/")[1];
+  const main = window.location.path;
 
   const dispatch = useDispatch();
-
-  const handleClick = (e) => {
-    dispatch(emptyShop());
-  };
 
   return (
     <>
       <Container>
         <Wrapper>
           <Left>
-            {shop.currentShop && path !== "shops" ? (
+            {shop.currentShop && path !== "shops" && main !== "/" ? (
               <Logo>{shop.currentShop?.shopname}</Logo>
             ) : (
               <Image src="https://user-images.githubusercontent.com/83646986/190376063-17549320-72a4-472b-a0d9-516073fcfca3.png" />
@@ -113,10 +109,7 @@ const MidNav = () => {
                 {currentUser ? (
                   <>
                     <Badge badgeContent={quantity} color="primary">
-                      <ShoppingCartOutlined
-                        style={{ fontSize: 50 }}
-                        onClick={handleClick}
-                      />
+                      <ShoppingCartOutlined style={{ fontSize: 50 }} />
                     </Badge>
                   </>
                 ) : (

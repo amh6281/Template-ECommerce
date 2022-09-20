@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { emptyShop } from "../redux/shopRedux";
 
@@ -41,11 +41,13 @@ const MenuItem = styled.div`
 `;
 
 const CatNav = ({ cat }) => {
+  const shop = useSelector((state) => state.shop);
   const dispatch = useDispatch();
-
+  const path = useLocation().pathname.split("/")[1];
   const handleClick = (e) => {
     dispatch(emptyShop());
   };
+  console.log(path);
 
   return (
     <>
@@ -58,7 +60,17 @@ const CatNav = ({ cat }) => {
               </MenuItem>
             </Link>
             <div style={{ fontSize: "12px" }}>{">"}</div>
-            <MenuItem style={{ fontWeight: 500 }}> {cat}</MenuItem>
+            {shop.currentShop && path !== ("shops" && "cart") ? (
+              <Link to={`/shop/${shop.currentShop._id}`}>
+                <MenuItem style={{ fontWeight: 500 }}>
+                  {shop.currentShop.shopname}
+                </MenuItem>
+              </Link>
+            ) : path === "cart" ? (
+              <MenuItem style={{ fontWeight: 500 }}>장바구니</MenuItem>
+            ) : (
+              <MenuItem style={{ fontWeight: 500 }}>{cat}</MenuItem>
+            )}
           </Left>
         </Wrapper>
       </Container>
