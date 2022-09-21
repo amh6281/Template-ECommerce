@@ -1,16 +1,13 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Announcement from "../components/Announcement";
 import Products from "../components/Products";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import TopNav from "../components/TopNav";
+import MidNav from "../components/MidNav";
+import CatNav from "../components/CatNav";
 
 const Container = styled.div``;
-
-const Title = styled.h1`
-  margin: 20px;
-`;
 
 const FilterContainer = styled.div`
   display: flex;
@@ -49,10 +46,9 @@ const ProductList = () => {
 
   return (
     <Container>
-      <Navbar />
-      <Announcement />
-      {/*영어 카테고리로*/}
-      <Title>{cat}</Title>
+      <TopNav />
+      <MidNav />
+      <CatNav />
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>

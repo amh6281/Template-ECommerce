@@ -1,12 +1,13 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import { Add, Remove } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProducts } from "../redux/aipCalls";
 import { deleteProduct, emptyCart } from "../redux/cartRedux";
+import TopNav from "../components/TopNav";
+import MidNav from "../components/MidNav";
+import CatNav from "../components/CatNav";
 
 const Container = styled.div``;
 
@@ -157,8 +158,9 @@ const Cart = () => {
 
   return (
     <Container>
-      <Navbar />
-      <Announcement />
+      <TopNav />
+      <MidNav />
+      <CatNav />
       <Wrapper>
         <Title>장바구니</Title>
         <Hr />

@@ -29,7 +29,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 600px;
-  height: 600px;
+  height: 800px;
   background-color: #ffffffe4;
   color: black;
   padding: 20px;
@@ -89,12 +89,27 @@ const Build = ({ setOpen }) => {
   const [logo, setLogo] = useState(undefined);
   const [imgPerc, setImgPerc] = useState(0);
   const [inputs, setInputs] = useState({});
+  const [banner, setBanner] = useState([]);
+  const [cat, setCat] = useState([]);
+
+  const handleCat = (e) => {
+    setCat((prev) => {
+      return {
+        ...prev,
+        [e.target.name.split(",")]: e.target.value.split(","),
+      };
+    });
+  };
+  console.log(cat);
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInputs((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
     });
   };
 
@@ -127,12 +142,18 @@ const Build = ({ setOpen }) => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setInputs((prev) => {
-            return { ...prev, [urlType]: downloadURL };
+            return {
+              ...prev,
+              [urlType]: downloadURL,
+              bannerImg: banner,
+              categoryItem: cat,
+            };
           });
         });
       }
     );
   };
+  console.log(inputs);
 
   useEffect(() => {
     logo && uploadFile(logo, "logo");
@@ -158,6 +179,31 @@ const Build = ({ setOpen }) => {
           name="shopname"
           onChange={handleChange}
         />
+        <Desc
+          type="text"
+          placeholder="쇼핑몰 설명"
+          name="desc"
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="catImg"
+          placeholder="카테고리 src(DESIGN1일경우만)"
+          onChange={handleCat}
+        />
+        <Input
+          type="text"
+          name="catValue"
+          placeholder="카테고리"
+          onChange={handleCat}
+        />
+
+        <Label>배너 이미지</Label>
+        <Input
+          type="text"
+          placeholder="img1,img2"
+          onChange={(e) => setBanner(e.target.value.split(","))}
+        />
         <Label>쇼핑몰 ICON</Label>
         {imgPerc > 0 ? (
           "업로딩:" + imgPerc + "%"
@@ -168,7 +214,6 @@ const Build = ({ setOpen }) => {
             onChange={(e) => setLogo(e.target.files[0])}
           />
         )}
-        <Desc placeholder="쇼핑몰 설명" name="desc" onChange={handleChange} />
         <Label>카테고리 선택</Label>
         <select name="category" onChange={handleChange}>
           {categories.map((item) => (
