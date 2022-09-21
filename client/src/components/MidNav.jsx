@@ -84,8 +84,6 @@ const MidNav = () => {
   const path = useLocation().pathname.split("/")[1];
   const main = useLocation().pathname;
 
-  const dispatch = useDispatch();
-  console.log(useLocation().pathname);
   return (
     <>
       <Container>

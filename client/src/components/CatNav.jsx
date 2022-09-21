@@ -44,28 +44,44 @@ const CatNav = ({ cat }) => {
   const shop = useSelector((state) => state.shop);
   const dispatch = useDispatch();
   const path = useLocation().pathname.split("/")[1];
+  const category = useLocation().pathname.split("/")[2];
+
   const handleClick = (e) => {
     dispatch(emptyShop());
   };
-  console.log(path);
 
   return (
     <>
       <Container>
         <Wrapper>
           <Left>
-            <Link to="/">
+            <Link to="/" style={{ color: "inherit" }}>
               <MenuItem style={{ fontWeight: 500 }} onClick={handleClick}>
                 홈
               </MenuItem>
             </Link>
             <div style={{ fontSize: "12px" }}>{">"}</div>
             {shop.currentShop && path !== ("shops" && "cart") ? (
-              <Link to={`/shop/${shop.currentShop._id}`}>
-                <MenuItem style={{ fontWeight: 500 }}>
-                  {shop.currentShop.shopname}
-                </MenuItem>
-              </Link>
+              <>
+                <Link
+                  to={`/shop/${shop.currentShop._id}`}
+                  style={{ color: "inherit" }}
+                >
+                  <MenuItem style={{ fontWeight: 500 }}>
+                    {shop.currentShop.shopname}
+                  </MenuItem>
+                </Link>
+                {path === "products" ? (
+                  <>
+                    <div style={{ fontSize: "12px" }}>{">"}</div>
+                    <MenuItem style={{ fontWeight: 500 }}>
+                      {decodeURI(category)}
+                    </MenuItem>
+                  </>
+                ) : (
+                  ""
+                )}
+              </>
             ) : path === "cart" ? (
               <MenuItem style={{ fontWeight: 500 }}>장바구니</MenuItem>
             ) : (

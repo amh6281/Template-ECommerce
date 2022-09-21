@@ -9,10 +9,6 @@ import CatNav from "../components/CatNav";
 
 const Container = styled.div``;
 
-const Title = styled.h1`
-  margin: 20px;
-`;
-
 const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -53,7 +49,6 @@ const ProductList = () => {
       <TopNav />
       <MidNav />
       <CatNav />
-      <Title>{cat}</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
