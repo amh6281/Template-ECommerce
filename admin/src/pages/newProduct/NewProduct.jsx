@@ -18,6 +18,7 @@ export default function NewProduct() {
   const [shop, setShop] = useState({});
   const [color, setColor] = useState([]);
   const [size, setSize] = useState([]);
+  const [detailImg, setDetailImg] = useState([]);
 
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
@@ -37,7 +38,6 @@ export default function NewProduct() {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
-    console.log(inputs);
   };
 
   const handleCat = (e) => {
@@ -50,6 +50,10 @@ export default function NewProduct() {
 
   const handleSize = (e) => {
     setSize(e.target.value.split(","));
+  };
+
+  const handleImg = (e) => {
+    setDetailImg(e.target.value.split(","));
   };
 
   const handleClick = (e) => {
@@ -92,9 +96,10 @@ export default function NewProduct() {
             ...inputs,
             img: downloadURL,
             categories: cat,
-            shopId: shop[0]._id,
+            shopId: shop[0]?._id,
             color: color,
             size: size,
+            detailImg: detailImg,
           };
           addProduct(product, dispatch);
         });
@@ -131,6 +136,10 @@ export default function NewProduct() {
             placeholder="description..."
             onChange={handleChange}
           />
+        </div>
+        <div className="addProductItem">
+          <label>Detail Img</label>
+          <input type="text" placeholder="img1,img2" onChange={handleImg} />
         </div>
         <div className="addProductItem">
           <label>Color</label>
