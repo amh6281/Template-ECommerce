@@ -67,10 +67,10 @@ const SliderCategories = () => {
   const shop = useSelector((state) => state.shop);
   const categoryItem = shop.currentShop.categoryItem;
 
-  let Arr1 = categoryItem[0].catImg;
-  let Arr2 = categoryItem[0].catValue;
+  let Arr1 = categoryItem[0]?.catImg;
+  let Arr2 = categoryItem[0]?.catValue;
   let Arr3 = [];
-  for (let i = 0; i < Arr1.length; i++) {
+  for (let i = 0; i < Arr1?.length; i++) {
     const temp = [Arr1[i], Arr2[i]];
     Arr3.push(temp);
   }

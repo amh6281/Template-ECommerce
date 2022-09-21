@@ -12,6 +12,9 @@ import { fetchStart, fetchSuccess } from "../redux/shopRedux";
 import Tmp2Slider from "../components/Tmp2/Tmp2Slider";
 import DropCategory from "../components/Tmp2/DropCategory";
 import Tmp2Products from "../components/Tmp2/Tmp2Products";
+import TopNav from "../components/TopNav";
+import MidNav from "../components/MidNav";
+import CatNav from "../components/CatNav";
 
 const Shop = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -34,8 +37,9 @@ const Shop = () => {
 
   return (
     <div>
-      <Navbar />
-      <Announcement />
+      <TopNav />
+      <MidNav />
+      <CatNav />
       {shop.currentShop?.design === 1 ? (
         <>
           <Tmp1Slider />
