@@ -61,7 +61,7 @@ const CatNav = ({ cat, itemCat }) => {
               </MenuItem>
             </Link>
             <div style={{ fontSize: "12px" }}>{">"}</div>
-            {shop.currentShop && path !== ("shops" && "cart") ? (
+            {shop.currentShop && path !== "shops" && path !== "cart" ? (
               <>
                 <Link
                   to={`/shop/${shop.currentShop._id}`}
