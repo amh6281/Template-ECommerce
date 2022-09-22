@@ -40,7 +40,7 @@ const MenuItem = styled.div`
   }
 `;
 
-const CatNav = ({ cat }) => {
+const CatNav = ({ cat, itemCat }) => {
   const shop = useSelector((state) => state.shop);
   const dispatch = useDispatch();
   const path = useLocation().pathname.split("/")[1];
@@ -77,6 +77,11 @@ const CatNav = ({ cat }) => {
                     <MenuItem style={{ fontWeight: 500 }}>
                       {decodeURI(category)}
                     </MenuItem>
+                  </>
+                ) : path === "product" ? (
+                  <>
+                    <div style={{ fontSize: "12px" }}>{">"}</div>
+                    <MenuItem style={{ fontWeight: 500 }}>{itemCat}</MenuItem>
                   </>
                 ) : (
                   ""
