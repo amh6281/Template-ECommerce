@@ -57,7 +57,7 @@ const ShopId = styled.h3`
 const Title = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 15px;
 `;
 
 const TitleName = styled.h1`
@@ -77,14 +77,11 @@ const TitleButton = styled.button`
   background-color: white;
 `;
 
-const Desc = styled.p`
-  margin: 20px 0px;
-`;
-
 const PriceWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-top: 10px;
 `;
 
 const Price = styled.span`
@@ -162,6 +159,7 @@ const ImageWrapper = styled.div`
   flex-direction: column;
   width: 50%;
   margin: 0 auto;
+  padding: 35px 0px;
 `;
 
 const DetailImg = styled.img`
@@ -183,15 +181,12 @@ const Button = styled.button`
 `;
 
 const Hr = styled.hr`
-  background-color: #eee;
-  border: none;
-  height: 3px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  border-top: 1px solid #ededed;
+  margin: 15px 0px;
 `;
 
 const EventContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 15px;
   border: 1px solid #989aa5;
   padding: 13px 16px;
 `;
@@ -342,19 +337,11 @@ const Product = () => {
             <ShopName>{shop.currentShop?.shopname}</ShopName>
             <ShopId>상품ID : {product._id}</ShopId>
           </TopWrapper>
-          <hr
-            style={{
-              margin: "10px 0px",
-              backgroundColor: "#bcbbbb",
-              border: "none",
-              height: "2px",
-            }}
-          />
+          <Hr />
           <Title>
             <TitleName>{product.title}</TitleName>
             <TitleButton>오늘출발</TitleButton>
           </Title>
-          <Desc>{product.desc}</Desc>
           <PriceWrapper>
             <Price>{price}</Price>
             <Price type="price">원</Price>
@@ -368,7 +355,7 @@ const Product = () => {
               <EventBorderWrapper>
                 <EventDesc type="tip">TIP.</EventDesc>
                 <EventDesc>포인트 더 받는 방법</EventDesc>
-                <EventDesc style={{ marginLeft: "120px" }}>
+                <EventDesc style={{ marginLeft: "95px" }}>
                   + 최대 2,000원
                 </EventDesc>
               </EventBorderWrapper>
@@ -377,7 +364,7 @@ const Product = () => {
                 <EventDesc
                   type="title"
                   style={{
-                    marginLeft: "180px",
+                    marginLeft: "155px",
                   }}
                 >
                   1,000원
@@ -388,7 +375,7 @@ const Product = () => {
                 <EventDesc
                   type="title"
                   style={{
-                    marginLeft: "168px",
+                    marginLeft: "143px",
                   }}
                 >
                   1,000원
@@ -396,7 +383,7 @@ const Product = () => {
               </EventBorderWrapper>
             </EventBorder>
           </EventContainer>
-          <hr style={{ marginTop: "15px", borderTop: "1px solid #ededed" }} />
+          <Hr />
           <DeliveryContainer>
             <DeliveryWrapper type="icon">
               <DeliveryIcon>
@@ -410,7 +397,7 @@ const Product = () => {
               </DeliveryText>
             </DeliveryWrapper>
           </DeliveryContainer>
-          <hr style={{ marginTop: "15px", borderTop: "1px solid #ededed" }} />
+          <Hr />
           <DeliveryContainer type="price">
             <DeliveryWrapper type="price">
               <DeliveryText
@@ -454,9 +441,7 @@ const Product = () => {
               </DeliveryText>
             </DeliveryWrapper>
           </DeliveryContainer>
-          <hr
-            style={{ borderTop: "1px solid #ededed", marginBottom: "15px" }}
-          />
+          <Hr />
           <FilterContainer>
             <Filter>
               <FilterTitle onChange={(e) => setSize(e.target.value)}>
@@ -479,7 +464,7 @@ const Product = () => {
               </FilterTitle>
             </Filter>
           </FilterContainer>
-          <hr style={{ borderTop: "1px solid #ededed", margin: "15px 0px" }} />
+          <Hr />
           <SelectItem>
             <SelectItemWrapper>
               <SelectItemDetail style={{ color: "#6B90DC" }}>
@@ -523,9 +508,7 @@ const Product = () => {
                 <Amount>원</Amount>
               </Amount>
             </AmountContainer>
-            <hr
-              style={{ borderTop: "1px solid #ededed", margin: "15px 0px" }}
-            />
+            <Hr />
             <Total>
               <TotalText type="price">총 상품 금액</TotalText>
               <TotalText type="quantity" style={{ marginLeft: "174px" }}>
@@ -536,9 +519,7 @@ const Product = () => {
               </TotalText>
               <TotalText style={{ fontSize: "18px" }}>원</TotalText>
             </Total>
-            <hr
-              style={{ borderTop: "1px solid #ededed", margin: "15px 0px" }}
-            />
+            <Hr />
             {currentUser ? (
               <Button onClick={handleClick}>장바구니</Button>
             ) : (
