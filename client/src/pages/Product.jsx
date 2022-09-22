@@ -22,12 +22,14 @@ const Wrapper = styled.div`
 
 const ImgContainer = styled.div`
   flex: 1;
+  width: 100%;
+  height: 100%;
+  padding-right: 50px;
 `;
 
 const Image = styled.img`
-  width: 80%;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
 `;
 
 const InfoContainer = styled.div`
@@ -52,11 +54,27 @@ const ShopId = styled.h3`
   color: gray;
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+const TitleName = styled.h1`
   font-weight: bold;
   font-size: 20px;
   color: #222222;
-  margin-top: 20px;
+  margin: 0px 8px 0px 0px;
+`;
+
+const TitleButton = styled.button`
+  padding: 2px 6px;
+  margin: 1px 0px 0px;
+  color: #03c75a;
+  border: 1px solid #03c75a;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: white;
 `;
 
 const Desc = styled.p`
@@ -64,74 +82,79 @@ const Desc = styled.p`
 `;
 
 const PriceWrapper = styled.div`
-  border: 1px solid gray;
-  padding: 5px 5px;
-  background-color: #fafafa;
-  border: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 const Price = styled.span`
-  font-weight: ${(props) => (props.type === "price" ? "500" : "600")};
-  font-size: ${(props) => (props.type === "price" ? "20px" : "40px")};
-  color: ${(props) => (props.type === "price" ? "gray" : "")};
-  margin-left: ${(props) => (props.type === "price" ? "5px" : "")};
+  font-weight: 600;
+  font-size: ${(props) => (props.type === "price" ? "18px" : "24px")};
 `;
 
 const FilterContainer = styled.div`
-  width: 50%;
-  margin: 30px 0px;
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  margin: 15px 0px;
 `;
 
 const Filter = styled.div`
-  display: flex;
-  align-items: center;
+  margin-bottom: 8px;
 `;
 
-const FilterTitle = styled.span`
-  font-size: 20px;
-  font-weight: 200;
+const FilterTitle = styled.select`
+  width: 100%;
+  font-size: 13px;
+  padding: 10px 35px 10px 15px;
+  color: #666666;
 `;
 
-const FilterColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-  margin: 0px 5px;
-  cursor: pointer;
-`;
-
-const FilterSize = styled.select`
-  margin-left: 10px;
-  padding: 5px;
-`;
-
-const FilterSizeOption = styled.option``;
+const FilterTitleOption = styled.option``;
 
 const AddContainer = styled.div`
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
 `;
 
 const AmountContainer = styled.div`
   display: flex;
   align-items: center;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
+  justify-content: space-between;
+`;
+
+const AmountWrapper = styled.div`
+  min-width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #dde0e3;
 `;
 
 const Amount = styled.span`
   width: 30px;
   height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0px 5px;
+  font-size: ${(props) => (props.type === "total" ? "15px" : "")};
+  color: ${(props) => (props.type === "total" ? "#222222" : "24px")};
+  margin: ${(props) => (props.type === "total" ? "0px 16px 0px 0px" : "")};
+`;
+
+const Total = styled.div`
+  margin: 26px 0px 0px;
+  display: flex;
+  align-items: center;
+`;
+
+const TotalText = styled.h3`
+  font-size: ${(props) => (props.type === "total" ? "24px" : "13px")};
+  color: ${(props) =>
+    props.type === "price"
+      ? "#00000"
+      : props.type === "quantity"
+      ? "#999999"
+      : "#6B90DC"};
 `;
 
 const ImageWrapper = styled.div`
@@ -146,11 +169,13 @@ const DetailImg = styled.img`
 `;
 
 const Button = styled.button`
+  width: 100%;
   padding: 15px;
-  border: 2px solid teal;
+  border: 2px solid #6b90dc;
   background-color: white;
   cursor: pointer;
   font-weight: 500;
+  font-size: 14px;
 
   &:hover {
     background-color: #f8f4f4;
@@ -166,7 +191,7 @@ const Hr = styled.hr`
 `;
 
 const EventContainer = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   border: 1px solid #989aa5;
   padding: 13px 16px;
 `;
@@ -217,9 +242,10 @@ const EventDesc = styled.h3`
 `;
 
 const DeliveryContainer = styled.div`
-  border: 1px solid #ededed;
+  border: ${(props) => (props.type === "price" ? "" : "1px solid #ededed;")};
   margin: 15px 0px 0px;
-  padding: 14px 16px;
+  padding: ${(props) =>
+    props.type === "price" ? "0px 0px 16px" : "14px 16px"};
   display: flex;
   align-items: center;
   position: relative;
@@ -228,7 +254,8 @@ const DeliveryContainer = styled.div`
 const DeliveryWrapper = styled.div`
   background-color: ${(props) => (props.type === "icon" ? "#934ADA" : "")};
   border-radius: ${(props) => (props.type === "icon" ? "50%" : "")};
-  margin-left: ${(props) => (props.type === "icon" ? "" : "20px")};
+  margin-left: ${(props) =>
+    props.type === "icon" ? "" : props.type === "price" ? "" : "20px"};
   width: ${(props) => (props.type === "icon" ? "40px" : "")};
   height: ${(props) => (props.type === "icon" ? "40px" : "")};
   position: ${(props) => (props.type === "icon" ? "relative" : "")};
@@ -244,6 +271,22 @@ const DeliveryText = styled.h3`
   color: ${(props) => (props.type === "small" ? "#934ADA" : "#333333")};
   font-size: ${(props) => (props.type === "small" ? "11px" : "12px")};
   margin: 0px 0px 2px;
+  padding: ${(props) => (props.type === "price" ? "0px 0px 0px 1px" : "")};
+`;
+
+const SelectItem = styled.div`
+  margin: 8px 119px 12px 0px;
+`;
+
+const SelectItemWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
+
+const SelectItemDetail = styled.div`
+  color: #333333;
+  font-size: 13px;
 `;
 
 const Product = () => {
@@ -258,6 +301,10 @@ const Product = () => {
   const itemCat = product.categories;
   const dispatch = useDispatch();
   const price = product.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const totalPrice = (quantity * product.price)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -303,12 +350,14 @@ const Product = () => {
               height: "2px",
             }}
           />
-          <Title>{product.title}</Title>
+          <Title>
+            <TitleName>{product.title}</TitleName>
+            <TitleButton>오늘출발</TitleButton>
+          </Title>
           <Desc>{product.desc}</Desc>
           <PriceWrapper>
             <Price>{price}</Price>
             <Price type="price">원</Price>
-            <div>{color}</div>
           </PriceWrapper>
           <EventContainer>
             <EventWrapper>
@@ -347,7 +396,7 @@ const Product = () => {
               </EventBorderWrapper>
             </EventBorder>
           </EventContainer>
-          <hr style={{ marginTop: "15px", borderTop: "0.5px solid #ededed" }} />
+          <hr style={{ marginTop: "15px", borderTop: "1px solid #ededed" }} />
           <DeliveryContainer>
             <DeliveryWrapper type="icon">
               <DeliveryIcon>
@@ -361,33 +410,140 @@ const Product = () => {
               </DeliveryText>
             </DeliveryWrapper>
           </DeliveryContainer>
+          <hr style={{ marginTop: "15px", borderTop: "1px solid #ededed" }} />
+          <DeliveryContainer type="price">
+            <DeliveryWrapper type="price">
+              <DeliveryText
+                style={{
+                  fontSize: "13px",
+                  color: "#333333",
+                  display: "flex",
+                  fontWeight: "500",
+                }}
+              >
+                택배 배송
+                <DeliveryText
+                  style={{
+                    fontSize: "13px",
+                    color: "#E9E9E9",
+                    display: "flex",
+                    margin: "0px 9px",
+                  }}
+                >
+                  |
+                  <DeliveryText
+                    style={{
+                      fontSize: "13px",
+                      color: "#333333",
+                      margin: "0px 9px",
+                    }}
+                  >
+                    무료배송
+                  </DeliveryText>
+                </DeliveryText>
+              </DeliveryText>
+              <DeliveryText
+                style={{
+                  margin: "3px 0px 0px",
+                  color: "#999999",
+                  fontSize: "13px",
+                  fontWeight: "500",
+                }}
+              >
+                제주 추가 12,000원, 제주 외 도서지역 추가 15,000원
+              </DeliveryText>
+            </DeliveryWrapper>
+          </DeliveryContainer>
+          <hr
+            style={{ borderTop: "1px solid #ededed", marginBottom: "15px" }}
+          />
           <FilterContainer>
             <Filter>
-              <FilterTitle>Color</FilterTitle>
-              {product.color?.map((c) => (
-                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
-              ))}
+              <FilterTitle onChange={(e) => setSize(e.target.value)}>
+                <FilterTitleOption selected disabled>
+                  크기
+                </FilterTitleOption>
+                {product.size?.map((s) => (
+                  <FilterTitleOption key={s}>{s}</FilterTitleOption>
+                ))}
+              </FilterTitle>
             </Filter>
             <Filter>
-              <FilterTitle>size</FilterTitle>
-              <FilterSize onChange={(e) => setSize(e.target.value)}>
-                {product.size?.map((s) => (
-                  <FilterSizeOption key={s}>{s}</FilterSizeOption>
+              <FilterTitle onChange={(e) => setColor(e.target.value)}>
+                <FilterTitleOption selected disabled>
+                  색상
+                </FilterTitleOption>
+                {product.color?.map((c) => (
+                  <FilterTitleOption key={c}>{c}</FilterTitleOption>
                 ))}
-              </FilterSize>
+              </FilterTitle>
             </Filter>
           </FilterContainer>
+          <hr style={{ borderTop: "1px solid #ededed", margin: "15px 0px" }} />
+          <SelectItem>
+            <SelectItemWrapper>
+              <SelectItemDetail style={{ color: "#6B90DC" }}>
+                [오늘출발]
+              </SelectItemDetail>
+              <SelectItemDetail>{product.title}</SelectItemDetail>
+              <SelectItemDetail>/</SelectItemDetail>
+              <SelectItemDetail>{size}</SelectItemDetail>
+              <SelectItemDetail>/</SelectItemDetail>
+              <SelectItemDetail>{color}</SelectItemDetail>
+            </SelectItemWrapper>
+          </SelectItem>
           <AddContainer>
             <AmountContainer>
-              <Remove onClick={() => handleQuantity("dec")} />
-              <Amount>{quantity}</Amount>
-              <Add onClick={() => handleQuantity("inc")} />
+              <AmountWrapper>
+                <Remove
+                  style={{
+                    backgroundColor: "#F1F2F4",
+                    color: "#000000",
+                    margin: "-1px 0px 0px 0px",
+                    opacity: "0.2",
+                    width: "30px",
+                    height: "100%",
+                  }}
+                  onClick={() => handleQuantity("dec")}
+                />
+                <Amount>{quantity}</Amount>
+                <Add
+                  style={{
+                    backgroundColor: "#F1F2F4",
+                    color: "#000000",
+                    margin: "-1px 0px 0px 0px",
+                    width: "30px",
+                    height: "100%",
+                  }}
+                  onClick={() => handleQuantity("inc")}
+                />
+              </AmountWrapper>
+              <Amount type="total">
+                {totalPrice}
+                <Amount>원</Amount>
+              </Amount>
             </AmountContainer>
+            <hr
+              style={{ borderTop: "1px solid #ededed", margin: "15px 0px" }}
+            />
+            <Total>
+              <TotalText type="price">총 상품 금액</TotalText>
+              <TotalText type="quantity" style={{ marginLeft: "174px" }}>
+                총 수량 {quantity}개 |
+              </TotalText>
+              <TotalText type="total" style={{ marginLeft: "6px" }}>
+                {totalPrice}
+              </TotalText>
+              <TotalText style={{ fontSize: "18px" }}>원</TotalText>
+            </Total>
+            <hr
+              style={{ borderTop: "1px solid #ededed", margin: "15px 0px" }}
+            />
             {currentUser ? (
-              <Button onClick={handleClick}>ADD TO CART</Button>
+              <Button onClick={handleClick}>장바구니</Button>
             ) : (
               <Button onClick={() => alert("로그인이 필요합니다.")}>
-                ADD TO CART
+                장바구니
               </Button>
             )}
           </AddContainer>
