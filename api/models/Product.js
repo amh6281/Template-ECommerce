@@ -4,6 +4,7 @@ const ProductSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true },
     shopId: { type: String },
+    shopname: { type: String },
     title: { type: String, required: true, unique: true },
     desc: { type: String, required: true },
     img: { type: String, required: true },

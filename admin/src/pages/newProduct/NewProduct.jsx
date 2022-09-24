@@ -22,7 +22,7 @@ export default function NewProduct() {
 
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
-  const userId = currentUser._id;
+  const userId = currentUser?._id;
 
   useEffect(() => {
     const getShop = async () => {
@@ -100,6 +100,7 @@ export default function NewProduct() {
             color: color,
             size: size,
             detailImg: detailImg,
+            shopname: shop[0]?.shopname,
           };
           addProduct(product, dispatch);
         });
