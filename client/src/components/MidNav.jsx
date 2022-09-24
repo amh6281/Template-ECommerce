@@ -89,7 +89,10 @@ const MidNav = () => {
       <Container>
         <Wrapper>
           <Left>
-            {shop.currentShop && path !== "shops" && main !== "/" ? (
+            {shop.currentShop &&
+            path !== "shops" &&
+            path !== "cart" &&
+            main !== "/" ? (
               <Logo>{shop.currentShop?.shopname}</Logo>
             ) : (
               <Image src="https://user-images.githubusercontent.com/83646986/190376063-17549320-72a4-472b-a0d9-516073fcfca3.png" />
