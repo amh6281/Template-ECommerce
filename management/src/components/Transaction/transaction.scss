@@ -1,0 +1,33 @@
+.table {
+  .tableCell {
+    font-weight: 500;
+  }
+
+  .cellWrapper {
+    display: flex;
+    align-items: center;
+
+    .image {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+  }
+
+  .status {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+
+    &.결제완료 {
+      color: green;
+      background-color: rgba(0, 128, 0, 0.151);
+    }
+    &.상품준비중 {
+      color: goldenrod;
+      background-color: rgba(189, 189, 3, 0.103);
+    }
+  }
+}

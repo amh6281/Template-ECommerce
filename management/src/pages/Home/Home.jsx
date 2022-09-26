@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Widget from "../../components/Widget/Widget";
 import Featured from "../../components/Featured/Featured";
 import Chart from "../../components/Chart/Chart";
+import Transaction from "../../components/Transaction/Transaction";
 import "./home.scss";
 
 const Home = () => {
@@ -21,6 +22,10 @@ const Home = () => {
         <div className="charts">
           <Featured />
           <Chart />
+        </div>
+        <div className="listContainer">
+          <div className="listTitle">최근 거래내역</div>
+          <Transaction />
         </div>
       </div>
     </div>
