@@ -21,7 +21,7 @@ const Home = () => {
         </div>
         <div className="charts">
           <Featured />
-          <Chart />
+          <Chart title="6개월간 수익" aspect={2 / 1} />
         </div>
         <div className="listContainer">
           <div className="listTitle">최근 거래내역</div>
