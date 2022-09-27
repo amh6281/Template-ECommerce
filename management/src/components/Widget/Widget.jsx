@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./widget.scss";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import { publicRequest } from "../../requestMethods";
 
-const Widget = ({ type }) => {
+const Widget = ({ type, amount }) => {
   let data;
-
   //temporary
-  const amount = 100;
   const diff = 20;
 
   switch (type) {
@@ -19,6 +18,7 @@ const Widget = ({ type }) => {
         title: "USERS",
         isMoney: false,
         link: "See all users",
+        amount: { amount },
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -35,6 +35,7 @@ const Widget = ({ type }) => {
         title: "ORDERS",
         isMoney: false,
         link: "View all orders",
+        amount: { amount },
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -51,6 +52,7 @@ const Widget = ({ type }) => {
         title: "EARNINGS",
         isMoney: true,
         link: "View net earnings",
+        amount: { amount },
         icon: (
           <MonetizationOnOutlinedIcon
             className="icon"
