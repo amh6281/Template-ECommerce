@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "./chart.scss";
 import {
   AreaChart,
@@ -8,6 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { publicRequest } from "../../requestMethods";
 
 const data = [
   { name: "1월", Total: 1200 },
@@ -18,7 +19,7 @@ const data = [
   { name: "6월", Total: 1700 },
 ];
 
-const Chart = ({ aspect, title }) => {
+const Chart = ({ aspect, title, data }) => {
   return (
     <div className="chart">
       <div className="title">{title}</div>
