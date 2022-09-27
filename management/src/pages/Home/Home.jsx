@@ -58,6 +58,12 @@ const Home = () => {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
+  // 이번달 총 판매액
+  const thisMonth = incomes[incomes.length - 1]?.Total.toString().replace(
+    /\B(?=(\d{3})+(?!\d))/g,
+    ","
+  );
+
   useEffect(() => {
     const getOrders = async () => {
       try {
@@ -79,11 +85,11 @@ const Home = () => {
   }, []);
 
   // 모든 주문 총액
-  const orderAmount = orders
-    .map((item) => item.amount)
-    .reduce((prev, curr) => prev + curr, 0)
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // const orderAmount = orders
+  //   .map((item) => item.amount)
+  //   .reduce((prev, curr) => prev + curr, 0)
+  //   .toString()
+  //   .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
     <div className="home">
@@ -93,11 +99,11 @@ const Home = () => {
         <div className="widgets">
           <Widget type="user" amount={users.length} />
           <Widget type="order" amount={orders.length} />
-          <Widget type="earning" amount={orderAmount} />
-          <Widget type="balance" />
+          <Widget type="earning" amount={totalIncome} />
+          <Widget type="balance" amount="999,999,999" />
         </div>
         <div className="charts">
-          <Featured total={totalIncome} />
+          <Featured total={thisMonth} />
           <Chart title="6개월간 수익" aspect={2 / 1} data={incomes} />
         </div>
         <div className="listContainer">
