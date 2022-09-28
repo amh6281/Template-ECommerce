@@ -10,20 +10,16 @@ const {
 const router = require("express").Router();
 
 //CREATE
-router.post(
-  "/",
-  verifyTokenAndEntrepreneur || verifyTokenAndAdmin,
-  async (req, res) => {
-    const newOrder = new Order(req.body);
+router.post("/", async (req, res) => {
+  const newOrder = new Order(req.body);
 
-    try {
-      const savedOrder = await newOrder.save();
-      res.status(200).json(savedOrder);
-    } catch (err) {
-      res.status(500).json(err);
-    }
+  try {
+    const savedOrder = await newOrder.save();
+    res.status(200).json(savedOrder);
+  } catch (err) {
+    res.status(500).json(err);
   }
-);
+});
 
 //UPDATE
 router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
@@ -61,8 +57,8 @@ router.get("/find/:userId", verifyTokenAndEntrepreneur, async (req, res) => {
   }
 });
 
-// //GET ALL
-router.get("/", verifyTokenAndEntrepreneur, async (req, res) => {
+// //GET ALL (management Login 추가하면 verifyTokenAndAdmin 넣기)
+router.get("/", async (req, res) => {
   try {
     const orders = await Order.find();
     res.status(200).json(orders);
