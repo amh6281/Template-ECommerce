@@ -1,76 +1,65 @@
-import React, { useEffect, useState } from "react";
-import StripeCheckout from "react-stripe-checkout";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
 
-const KEY =
-  "pk_test_51KJApEKkJzndeVHhpsc68VbHFcUd4cL65tITICk1mBC8DSmjhAOJW35cIdSWYojYXFvdWk2OKITGxTRYB8jfrURc000F5K7XBV";
+const Pay = (effect, deps) => {
+  useEffect(() => {
+    const jquery = document.createElement("script");
+    jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
+    const iamport = document.createElement("script");
+    iamport.src = "https://cdn.iamport.kr/js/iamport.payment-1.1.7.js";
+    document.head.appendChild(jquery);
+    document.head.appendChild(iamport);
+    return () => {
+      document.head.removeChild(jquery);
+      document.head.removeChild(iamport);
+    };
+  }, []);
 
-const Pay = () => {
-  const [stripeToken, setStripeToken] = useState(null);
+  const onClickPayment = () => {
+    const { IMP } = window;
+    IMP.init("imp15812853");
 
-  const onToken = (token) => {
-    setStripeToken(token);
+    const data = {
+      pg: "html5_inicis",
+      pay_method: "card",
+      merchant_uid: `mid_${new Date().getTime()}`,
+      name: "결제 테스트",
+      amount: "1000",
+      custom_data: {
+        name: "부가정보",
+        desc: "세부 부가정보",
+      },
+      buyer_name: "홍길동",
+      buyer_tel: "01012345678",
+      buyer_email: "14279625@gmail.com",
+      buyer_addr: "구천면로 000-00",
+      buyer_postalcode: "01234",
+    };
+
+    IMP.request_pay(data, callback);
   };
 
-  useEffect(() => {
-    const makeRequest = async () => {
-      try {
-        const res = await axios.post(
-          "http://localhost:5000/api/checkout/payment",
-          {
-            tokenId: stripeToken.id,
-            amount: 80000,
-          }
-        );
-        console.log(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    stripeToken && makeRequest();
-  }, [stripeToken]);
+  const callback = (response) => {
+    const {
+      success,
+      error_msg,
+      imp_uid,
+      merchant_uid,
+      pay_method,
+      paid_amount,
+      status,
+    } = response;
+
+    if (success) {
+      alert("결제 성공");
+    } else {
+      alert(`결제 실패: ${error_msg}`);
+    }
+  };
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {stripeToken ? (
-        <span>Processing. Please wait...</span>
-      ) : (
-        <StripeCheckout
-          name="STYLEGO!"
-          image="https://cdn-icons.flaticon.com/png/128/2981/premium/2981297.png?token=exp=1645685222~hmac=0151d84faed61160a8f9f1ab2b3cff3d"
-          billingAddress
-          shippingAddress
-          description="Your total is 90000"
-          amount={90000}
-          token={onToken}
-          stripeKey={KEY}
-        >
-          <button
-            style={{
-              border: "none",
-              width: 120,
-              borderRadius: 5,
-              padding: "20px",
-              backgroundColor: "black",
-              color: "white",
-              fontWeight: "600",
-              cursor: "pointer",
-            }}
-          >
-            Pay Now
-          </button>
-        </StripeCheckout>
-      )}
-    </div>
+    <>
+      <button onClick={onClickPayment}>결제</button>
+    </>
   );
 };
-
 export default Pay;
