@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const OrderSchema = new mongoose.Schema(
   {
-    userId: { type: String, required: true },
-    shopId: { type: String, required: true },
+    userId: { type: String },
+    shopId: { type: String },
     products: [
       {
         productId: {
@@ -15,8 +15,8 @@ const OrderSchema = new mongoose.Schema(
         },
       },
     ],
-    amount: { type: Number, required: true },
-    address: { type: Object, required: true },
+    paid_amount: { type: Number },
+    buyer_addr: { type: String },
     status: { type: String, default: "상품준비중" },
   },
   { timestamps: true }
