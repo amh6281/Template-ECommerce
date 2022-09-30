@@ -265,7 +265,6 @@ const Cart = () => {
                         <ProductName>
                           {product.title}
                           <ProductPrice>
-                            {" "}
                             {product.price
                               ?.toString()
                               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -282,7 +281,6 @@ const Cart = () => {
                         </ProductOption>
                       </Details>
                     </ProductInfo>
-
                     <ProductInfo size="s">
                       <Details>
                         <ProductOption type="price">
