@@ -7,7 +7,6 @@ import Register from "./pages/Register";
 import Product from "./pages/Product";
 import BusinessRegister from "./pages/BusinessRegister";
 import BuildingShop from "./pages/BuildingShop";
-import Payment from "./pages/Payment";
 import ShopList from "./pages/ShopList";
 import { useSelector } from "react-redux";
 import Shop from "./pages/Shop";
@@ -37,7 +36,6 @@ function App() {
         <Route path="order" element={<Order />} />
       </Routes>
     </BrowserRouter>
-    // <Payment />
   );
 }
 
