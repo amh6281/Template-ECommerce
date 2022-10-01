@@ -57,8 +57,8 @@ router.get("/find/:userId", verifyTokenAndEntrepreneur, async (req, res) => {
   }
 });
 
-// //GET ALL
-router.get("/", verifyTokenAndEntrepreneur, async (req, res) => {
+// //GET ALL (management Login 추가하면 verifyTokenAndAdmin 넣기)
+router.get("/", async (req, res) => {
   try {
     const orders = await Order.find();
     res.status(200).json(orders);
@@ -87,7 +87,7 @@ router.get("/income", async (req, res) => {
       {
         $project: {
           month: { $month: "$createdAt" },
-          sales: "$amount",
+          sales: "$paid_amount",
         },
       },
       {

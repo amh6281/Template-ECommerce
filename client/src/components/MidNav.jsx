@@ -92,6 +92,7 @@ const MidNav = () => {
             {shop.currentShop &&
             path !== "shops" &&
             path !== "cart" &&
+            path !== "order" &&
             main !== "/" ? (
               <Logo>{shop.currentShop?.shopname}</Logo>
             ) : (
