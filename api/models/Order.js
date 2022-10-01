@@ -4,18 +4,10 @@ const OrderSchema = new mongoose.Schema(
   {
     userId: { type: String },
     shopId: { type: String },
-    products: [
-      {
-        productId: {
-          type: String,
-        },
-        quantity: {
-          type: Number,
-          default: 1,
-        },
-      },
-    ],
+    name: { type: String },
     paid_amount: { type: Number },
+    buyer_name: { type: String },
+    buyer_tel: { type: String },
     buyer_addr: { type: String },
     status: { type: String, default: "상품준비중" },
   },

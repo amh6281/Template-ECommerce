@@ -1,10 +1,12 @@
 import { LocalShippingOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { publicRequest } from "../requestMethods";
 import DaumPostcode from "react-daum-postcode";
 import styled from "styled-components";
 import MidNav from "../components/MidNav";
 import TopNav from "../components/TopNav";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -272,6 +274,11 @@ const Order = () => {
   const [openPostcode, setOpenPostcode] = useState(false);
   const [zoneCode, setZoneCode] = useState("");
   const [address, setAddress] = useState("");
+  const [receiver, setReceiver] = useState("");
+  const [shippingName, setShippingName] = useState("");
+  const [phonenumber, setPhonenumber] = useState("");
+  const [detailAddr, setDetailAddr] = useState("");
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
 
@@ -296,6 +303,43 @@ const Order = () => {
     zIndex: "100",
     border: "1px solid #000000",
     overflow: "hidden",
+  };
+
+  function onClickPayment() {
+    /* 1. 가맹점 식별하기 */
+    const { IMP } = window;
+    IMP.init("imp15812853");
+
+    /* 2. 결제 데이터 정의하기 */
+    const data = {
+      pg: "html5_inicis", // PG사
+      pay_method: "card", // 결제수단
+      merchant_uid: `mid_${new Date().getTime()}`, // 주문번호
+      amount: 100, // 결제금액
+      name: `${cart.products[0].title} 외 ${cart.products.length - 1}개`, // 주문명
+      buyer_name: `${receiver}`, // 구매자 이름
+      buyer_tel: `${phonenumber}`, // 구매자 전화번호
+      buyer_email: `${currentUser.email}`, // 구매자 이메일
+      buyer_addr: `${address} ${detailAddr}`, // 구매자 주소
+      buyer_postcode: `${zoneCode}`, // 구매자 우편번호
+      status: "paid",
+    };
+
+    /* 4. 결제 창 호출하기 */
+    IMP.request_pay(data, callback);
+  }
+
+  /* 3. 콜백 함수 정의하기 */
+  const callback = async (response) => {
+    const { success, merchant_uid, error_msg } = response;
+    if (success) {
+      await publicRequest.post("/orders", { ...response });
+      console.log(response);
+      alert("결제 성공");
+      navigate("/"); // 나중에 주문완료페이지로 변경
+    } else {
+      alert(`결제 실패: ${error_msg}`);
+    }
   };
 
   return (
@@ -363,7 +407,14 @@ const Order = () => {
               <OrderTitle>배송지정보</OrderTitle>
               <ReceiverInfo>
                 <ReceiveTitle>수령인</ReceiveTitle>
-                <Input type="text" placeholder="50자 이내로 입력하세요" />
+                <Input
+                  type="text"
+                  placeholder="50자 이내로 입력하세요"
+                  onChange={(e) => {
+                    setReceiver(e.target.value);
+                  }}
+                  value={receiver}
+                />
               </ReceiverInfo>
               <ReceiverInfo>
                 <ReceiveTitle>배송지명</ReceiveTitle>
@@ -371,11 +422,22 @@ const Order = () => {
                   title="delivery"
                   type="text"
                   placeholder="50자 이내로 입력하세요"
+                  onChange={(e) => {
+                    setShippingName(e.target.value);
+                  }}
+                  value={shippingName}
                 />
               </ReceiverInfo>
               <ReceiverInfo>
                 <ReceiveTitle>연락처</ReceiveTitle>
-                <Input type="text" placeholder="50자 이내로 입력하세요" />
+                <Input
+                  type="text"
+                  placeholder="50자 이내로 입력하세요"
+                  onChange={(e) => {
+                    setPhonenumber(e.target.value);
+                  }}
+                  value={phonenumber}
+                />
               </ReceiverInfo>
               <ReceiverInfo>
                 <ReceiveTitle>배송지 주소</ReceiveTitle>
@@ -392,7 +454,14 @@ const Order = () => {
               <ReceiverInfo>
                 <DetailAddr>
                   <Input type="text" placeholder="" readOnly value={address} />
-                  <Input type="text" placeholder="" />
+                  <Input
+                    type="text"
+                    placeholder=""
+                    onChange={(e) => {
+                      setDetailAddr(e.target.value);
+                    }}
+                    value={detailAddr}
+                  />
                 </DetailAddr>
               </ReceiverInfo>
               <Hr style={{ margin: "30px 0px 40px" }} />
@@ -430,7 +499,7 @@ const Order = () => {
           </OrderContainer>
           <Hr />
           <PaymentWrapper>
-            <PayBtn>결제하기</PayBtn>
+            <PayBtn onClick={onClickPayment}>결제하기</PayBtn>
           </PaymentWrapper>
         </Wrapper>
       </Container>
