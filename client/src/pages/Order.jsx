@@ -1,9 +1,9 @@
 import { LocalShippingOutlined } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import DaumPostcode from "react-daum-postcode";
 import styled from "styled-components";
 import MidNav from "../components/MidNav";
-import Postcode from "../components/Postcode";
 import TopNav from "../components/TopNav";
 
 const Container = styled.div`
@@ -44,7 +44,7 @@ const Hr = styled.hr`
     props.type === "bottom" || "order"
       ? "1px solid #ededed"
       : "1px solid #383d4a"};
-  margin-top: ${(props) => (props.type === "order" ? "20px" : "")};
+  margin-top: ${(props) => (props.type === "order" ? "38px" : "")};
 `;
 
 const ProductInfo = styled.div`
@@ -161,7 +161,7 @@ const OrderLeft = styled.div`
   background-image: url("https://order.pstatic.net/202209/21_145624_1663739784/order_customer/static/img/service/front/order/img_ordersheet/bg_order_leftpannel.png?20200903");
   padding: 31px 50px 0px 49px;
   width: 70%;
-  height: 100vh;
+  height: 67.7vh;
 `;
 
 const OrderTitle = styled.h4`
@@ -186,9 +186,28 @@ const Input = styled.input`
   margin: 6px 1px 0px 0px;
   padding: 0px 10px;
   font-size: 14px;
-  margin-left: ${(props) => (props.title === "delivery" ? "" : "12px")};
-  width: 250px;
+  margin-left: ${(props) =>
+    props.title === "delivery"
+      ? ""
+      : props.title === "address"
+      ? "-16px"
+      : "12px"};
+  width: ${(props) => (props.title === "address" ? "100px" : "250px")};
   height: 30px;
+`;
+
+const DetailAddr = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 103px;
+`;
+
+const OrderContent = styled.h3`
+  color: #1e1e23;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  padding: 0px 0px 40px;
 `;
 
 const OrderRight = styled.div`
@@ -199,18 +218,85 @@ const OrderRight = styled.div`
 `;
 
 const OrderInfo = styled.h3`
-  font-size: 12px;
+  font-size: ${(props) => (props.type === "detail" ? "18px" : "12px")};
   margin-bottom: 17px;
+  padding: ${(props) => (props.type === "detail" ? "38px 0px 0px" : "")};
+  color: ${(props) => (props.type === "option" ? "#888888" : "#222222")};
 `;
 
 const OrderInfoItem = styled.h4`
   font-size: 12px;
   margin: 6px 0px 0px;
+  font-weight: 500;
+`;
+
+const PayDetail = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const PostBtn = styled.button`
+  padding: 0 7px;
+  height: 26px;
+  border: 1px solid #dcdee0;
+  color: #303038;
+  cursor: pointer;
+  background-color: white;
+  margin: 6px 1px 0px -40px;
+`;
+
+const PaymentWrapper = styled.div`
+  background-image: url("https://order.pstatic.net/202209/21_145624_1663739784/order_customer/static/img/service/front/order/img_ordersheet/bg_payment_agree.png?20200903");
+  padding: 26px 0px 35px;
+  color: #7d7d7d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.7);
+`;
+
+const PayBtn = styled.button`
+  color: #ffffff;
+  background-color: #09aa5c;
+  margin: 0px 6px;
+  font-size: 18px;
+  width: 198px;
+  height: 56px;
+  font-weight: bold;
+  border: none;
 `;
 
 const Order = () => {
+  const [openPostcode, setOpenPostcode] = useState(false);
+  const [zoneCode, setZoneCode] = useState("");
+  const [address, setAddress] = useState("");
   const cart = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
+
+  const handle = {
+    // 버튼 클릭 이벤트
+    clickButton: () => {
+      setOpenPostcode((current) => !current);
+    },
+    // 주소 선택 이벤트
+    selectAddress: (data) => {
+      setZoneCode(data.zonecode);
+      setAddress(data.address);
+      setOpenPostcode(false);
+    },
+  };
+
+  const modalStyle = {
+    width: "30%",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    zIndex: "100",
+    border: "1px solid #000000",
+    overflow: "hidden",
+  };
 
   return (
     <>
@@ -289,17 +375,63 @@ const Order = () => {
               </ReceiverInfo>
               <ReceiverInfo>
                 <ReceiveTitle>연락처</ReceiveTitle>
-                <Input type="number" placeholder="50자 이내로 입력하세요" />
+                <Input type="text" placeholder="50자 이내로 입력하세요" />
               </ReceiverInfo>
-              <Postcode />
+              <ReceiverInfo>
+                <ReceiveTitle>배송지 주소</ReceiveTitle>
+                <Input title="address" readOnly value={zoneCode} />
+                <PostBtn onClick={handle.clickButton}>우편번호</PostBtn>
+                {openPostcode && (
+                  <DaumPostcode
+                    onComplete={handle.selectAddress} // 값을 선택할 경우 실행되는 이벤트
+                    autoClose={false} // 값을 선택할 경우 사용되는 DOM을 제거하여 자동 닫힘 설정
+                    style={modalStyle}
+                  />
+                )}
+              </ReceiverInfo>
+              <ReceiverInfo>
+                <DetailAddr>
+                  <Input type="text" placeholder="" readOnly value={address} />
+                  <Input type="text" placeholder="" />
+                </DetailAddr>
+              </ReceiverInfo>
+              <Hr style={{ margin: "30px 0px 40px" }} />
+              <OrderContent>
+                주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.
+              </OrderContent>
             </OrderLeft>
             <OrderRight>
               <OrderInfo>주문자 정보</OrderInfo>
-              <OrderInfoItem>{currentUser.username}</OrderInfoItem>
-              <OrderInfoItem>{currentUser.email}</OrderInfoItem>
+              <OrderInfoItem weight="normal">
+                {currentUser.username}
+              </OrderInfoItem>
+              <OrderInfoItem weight="normal">{currentUser.email}</OrderInfoItem>
               <Hr type="order" />
+              <OrderInfo type="detail">결제상세</OrderInfo>
+              <PayDetail>
+                <OrderInfo>주문금액</OrderInfo>
+                <OrderInfo>
+                  {cart.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  원
+                </OrderInfo>
+              </PayDetail>
+              <PayDetail>
+                <OrderInfo type="option">ㄴ상품금액</OrderInfo>
+                <OrderInfo type="option">
+                  {cart.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  원
+                </OrderInfo>
+              </PayDetail>
+              <PayDetail>
+                <OrderInfo type="option">ㄴ배송비</OrderInfo>
+                <OrderInfo type="option">0원</OrderInfo>
+              </PayDetail>
             </OrderRight>
           </OrderContainer>
+          <Hr />
+          <PaymentWrapper>
+            <PayBtn>결제하기</PayBtn>
+          </PaymentWrapper>
         </Wrapper>
       </Container>
     </>
