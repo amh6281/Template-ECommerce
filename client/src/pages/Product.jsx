@@ -348,7 +348,7 @@ const Product = () => {
           </PriceWrapper>
           <EventContainer>
             <EventWrapper>
-              <EventTitle>{currentUser.username}님만을 위한 혜택</EventTitle>
+              <EventTitle>{currentUser?.username}님만을 위한 혜택</EventTitle>
               <EventButton>쿠폰받기</EventButton>
             </EventWrapper>
             <EventBorder>

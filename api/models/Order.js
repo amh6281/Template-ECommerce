@@ -10,6 +10,13 @@ const OrderSchema = new mongoose.Schema(
     buyer_tel: { type: String },
     buyer_addr: { type: String },
     status: { type: String, default: "상품준비중" },
+    custom_data: [
+      {
+        shopname: { type: String },
+        price: { type: Number },
+        title: { type: String },
+      },
+    ],
   },
   { timestamps: true }
 );

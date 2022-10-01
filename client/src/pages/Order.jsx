@@ -323,6 +323,11 @@ const Order = () => {
       buyer_addr: `${address} ${detailAddr}`, // 구매자 주소
       buyer_postcode: `${zoneCode}`, // 구매자 우편번호
       status: "paid",
+      custom_data: cart.products.map((product) => ({
+        shopname: `${product.title}`, //쇼핑몰 이름으로 변경(상품추가시 쇼핑몰이름도 추가해서).
+        price: `${product.price}`,
+        title: `${product.title}`,
+      })),
     };
 
     /* 4. 결제 창 호출하기 */
@@ -336,7 +341,7 @@ const Order = () => {
       await publicRequest.post("/orders", { ...response });
       console.log(response);
       alert("결제 성공");
-      navigate("/"); // 나중에 주문완료페이지로 변경
+      // navigate("/"); // 나중에 주문완료페이지로 변경
     } else {
       alert(`결제 실패: ${error_msg}`);
     }
@@ -390,7 +395,7 @@ const Order = () => {
                   />
                   무료
                 </Delivery>
-                <Quantity type="detail">{cart.quantity}개</Quantity>
+                <Quantity type="detail">{product.quantity}개</Quantity>
                 <Sale type="detail">(-) 3,500원</Sale>
                 <Price type="detail">
                   {product.price
