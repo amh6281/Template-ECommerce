@@ -138,7 +138,9 @@ const ProductWrapper = styled.div`
 
 const Title = styled.h3`
   font-size: 13px;
-  display: flex;
+  display: inline-block;
+  width: 260px;
+  white-space: normal;
 `;
 
 const Option = styled.div`
@@ -399,7 +401,7 @@ const Order = () => {
                     </Option>
                   </ProductWrapper>
                 </Info>
-                <Seller type="detail">남자쇼핑몰</Seller>
+                <Seller type="detail">{product.shopname}</Seller>
                 <Delivery type="detail">
                   <LocalShippingOutlined
                     style={{ opacity: "0.5", fontSize: "18px" }}

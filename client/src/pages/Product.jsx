@@ -65,6 +65,9 @@ const TitleName = styled.h1`
   font-size: 20px;
   color: #222222;
   margin: 0px 8px 0px 0px;
+  display: inline-block;
+  width: 330px;
+  white-space: normal;
 `;
 
 const TitleButton = styled.button`
@@ -75,6 +78,9 @@ const TitleButton = styled.button`
   font-size: 12px;
   font-weight: bold;
   background-color: white;
+  position: relative;
+  top: 0;
+  left: 24px;
 `;
 
 const PriceWrapper = styled.div`
