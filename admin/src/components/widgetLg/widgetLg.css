@@ -16,13 +16,16 @@
 }
 
 .widgetLgTh {
-  text-align: left;
+  text-align: center;
 }
 
 .widgetLgUser {
   display: flex;
   align-items: center;
   font-weight: 600;
+  position: relative;
+  left: 22px;
+  top: 22px;
 }
 
 .widgetLgImg {
@@ -30,18 +33,25 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 10px;
+  position: relative;
+  left: 130px;
+  top: -10px;
 }
 
 .widgetLgDate,
+.widgetLgPname,
 .widgetLgAmount {
   font-weight: 300;
+  text-align: center;
 }
 
 .widgetLgButton {
   padding: 5px 7px;
   border: none;
   border-radius: 10px;
+  position: relative;
+  left: 33px;
+  top: -10px;
 }
 
 .widgetLgButton.approved {

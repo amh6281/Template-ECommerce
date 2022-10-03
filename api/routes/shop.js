@@ -10,7 +10,7 @@ const router = require("express").Router();
 
 //CREATE
 router.post("/", verifyTokenAndEntrepreneur, async (req, res) => {
-  const newShop = new Shop({ userId: req.user.id, ...req.body });
+  const newShop = new Shop({ ...req.body, userId: req.user.id });
 
   try {
     const savedShop = await newShop.save();

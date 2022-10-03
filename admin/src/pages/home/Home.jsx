@@ -4,11 +4,34 @@ import Featuredinfo from "../../components/featuredinfo/Featuredinfo";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import "./home.css";
-import { userData } from "../../dummyData";
 import { userRequest } from "../../requestMethods";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../redux/productRedux";
 
 const Home = () => {
   const [userStats, setUserStats] = useState([]);
+  const [orders, setOrders] = useState([]);
+
+  const products = useSelector((state) => state.product.products);
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const res = await userRequest.get("/orders");
+        setOrders(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getOrders();
+  }, []);
+
+  const customData = orders.map((item) => item.custom_data);
+  const filterShopId = customData.flat().filter((order) => {
+    return order.shopId === products[0].shopId;
+  });
 
   const MONTHS = useMemo(
     () => [
@@ -28,6 +51,12 @@ const Home = () => {
     []
   );
 
+  //매출 더하기
+  const incomesArr = filterShopId.map((income) => income.price);
+  const sum = incomesArr.reduce((a, b) => {
+    return a + b;
+  }, 0);
+
   useEffect(() => {
     const getStats = async () => {
       try {
@@ -45,9 +74,19 @@ const Home = () => {
     getStats();
   }, [MONTHS]);
 
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await userRequest.get(`/products/${currentUser._id}`);
+        dispatch(getProducts(res.data));
+      } catch (err) {}
+    };
+    getProduct();
+  }, []);
+
   return (
     <div className="home">
-      <Featuredinfo />
+      <Featuredinfo sum={sum} />
       <Chart
         data={userStats}
         title="사용자 통계 분석"
@@ -55,8 +94,7 @@ const Home = () => {
         grid
       />
       <div className="homeWidgets">
-        <WidgetSm />
-        <WidgetLg />
+        <WidgetLg transaction={filterShopId} />
       </div>
     </div>
   );

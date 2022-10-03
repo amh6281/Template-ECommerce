@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import { Add, Remove } from "@material-ui/icons";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
@@ -10,7 +9,6 @@ import { deleteProduct, emptyCart } from "../redux/cartRedux";
 import TopNav from "../components/TopNav";
 import MidNav from "../components/MidNav";
 import CatNav from "../components/CatNav";
-import axios from "axios";
 
 const Empty = styled.div`
   width: 65%;
@@ -214,7 +212,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
-
   const handleDelete = useCallback((product) => {
     dispatch(
       deleteProduct({
@@ -286,7 +283,7 @@ const Cart = () => {
                         <ProductOption type="price">
                           <Price>상품금액</Price>
                           <Price type="number">
-                            {product.price
+                            {(product.price * product.quantity)
                               ?.toString()
                               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                             원

@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { userRequest } from "../requestMethods";
 import { categories } from "../data";
 import { HighlightOffOutlined } from "@material-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
 
 const Container = styled.div`
   width: 100%;
@@ -91,6 +92,9 @@ const Build = ({ setOpen }) => {
   const [inputs, setInputs] = useState({});
   const [banner, setBanner] = useState([]);
   const [cat, setCat] = useState([]);
+
+  const { currentUser } = useSelector((state) => state.user);
+  const userId = currentUser?._id;
 
   const handleCat = (e) => {
     setCat((prev) => {
