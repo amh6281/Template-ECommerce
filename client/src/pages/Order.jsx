@@ -282,6 +282,12 @@ const Order = () => {
   const cart = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
 
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = ("0" + (today.getMonth() + 1)).slice(-2);
+  var day = ("0" + today.getDate()).slice(-2);
+  var dateString = year + "-" + month + "-" + day;
+
   const handle = {
     // 버튼 클릭 이벤트
     clickButton: () => {
@@ -324,9 +330,14 @@ const Order = () => {
       buyer_postcode: `${zoneCode}`, // 구매자 우편번호
       status: "paid",
       custom_data: cart.products.map((product) => ({
-        shopname: `${product.title}`, //쇼핑몰 이름으로 변경(상품추가시 쇼핑몰이름도 추가해서).
+        shopId: `${product.shopId}`, //쇼핑몰 이름으로 변경(상품추가시 쇼핑몰이름도 추가해서).
         price: `${product.price}`,
         title: `${product.title}`,
+        img: `${product.img}`,
+        buyer_name: `${receiver}`,
+        buyer_addr: `${address} ${detailAddr}`,
+        date: `${dateString}`,
+        status: "상품준비중",
       })),
     };
 

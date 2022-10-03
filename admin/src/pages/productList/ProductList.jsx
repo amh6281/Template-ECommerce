@@ -13,16 +13,6 @@ export default function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
 
-  useEffect(() => {
-    const getProduct = async () => {
-      try {
-        const res = await userRequest.get(`/products/${currentUser._id}`);
-        dispatch(getProducts(res.data));
-      } catch (err) {}
-    };
-    getProduct();
-  }, []);
-
   const handleDelete = (id) => {
     deleteProduct(id, dispatch);
   };
