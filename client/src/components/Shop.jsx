@@ -7,95 +7,103 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
-const Info = styled.div`
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
+const Container = styled.div`
+  margin-left: 20px;
+`;
+
+const Ul = styled.ul`
+  margin-top: -6px;
+  list-style: none;
+  margin: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease;
+`;
+
+const List = styled.li`
+  width: 25%;
+  display: inline-block;
+  padding: 6px;
+  vertical-align: top;
+  box-sizing: border-box;
   cursor: pointer;
 `;
 
-const Container = styled.div`
-  flex: 1;
-  margin: 5px;
-  min-width: 280px;
-  height: 340px;
+const ImgContainer = styled.div`
   display: flex;
-  align-items: center;
+  padding: 18px 320px 18px 0px;
+  background-color: #fff;
+  border-radius: 7px;
+`;
+
+const Imagebox = styled.div`
+  display: flex;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100px;
+  height: 82px;
+  -ms-flex-pack: center;
   justify-content: center;
-  position: relative;
-  &:hover ${Info} {
-    opacity: 1;
-  }
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 38px 20px 38px 8px;
+`;
+
+const Descbox = styled.div`
+  flex: 1 1;
+  min-width: 0;
+  padding-left: 14px;
+`;
+
+const Shopname = styled.div`
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 19px;
+  letter-spacing: -0.3px;
+  color: #222;
+`;
+
+const Detail = styled.div`
+  display: flex;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #999;
 `;
 
 const Image = styled.img`
-  width: 280px;
-  height: 100%;
-  z-index: 2;
-  object-fit: contain;
+  max-width: 72px;
+  max-height: 72px;
+  vertical-align: top;
 `;
 
-const Icon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  transition: all 0.5s ease;
-  &:hover {
-    background-color: #e9f5f5;
-    transform: scale(1.1);
-  }
-`;
-
-const Name = styled.h3`
-  width: 280px;
-  display: flex;
-  align-items: center;
-  padding-left: 5px;
-  justify-content: center;
-  margin-bottom: 10px;
-`;
-
-const Desc = styled.h5`
-  width: 280px;
-  display: flex;
-  align-items: center;
-  padding-left: 7px;
-  padding-bottom: 50px;
-  justify-content: center;
+const Desc = styled.div`
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 20px;
+  color: #666;
 `;
 
 const Shop = ({ shop }) => {
   return (
     <div key={shop._id}>
       <Container>
-        <Image src={shop.logo} />
-        <Info>
-          <Icon>
-            <Link to={`/shop/${shop._id}`} style={{ color: "inherit" }}>
-              <SearchOutlined />
-            </Link>
-          </Icon>
-          <Icon>
-            <FavoriteBorderOutlined />
-          </Icon>
-        </Info>
+        <ImgContainer>
+          <Ul>
+            <Imagebox>
+              <Link to={`/shop/${shop._id}`} style={{ color: "inherit" }}>
+                <Image src={shop.logo} />
+              </Link>
+            </Imagebox>
+            <Descbox>
+              <Shopname>{shop.shopname}</Shopname>
+              <Desc>{shop.desc}</Desc>
+              <Detail>인테리어 | 상품개수: 개</Detail>
+            </Descbox>
+          </Ul>
+        </ImgContainer>
       </Container>
-      <Name>{shop.shopname}</Name>
-      <Desc>{shop.desc}</Desc>
       <br />
     </div>
   );

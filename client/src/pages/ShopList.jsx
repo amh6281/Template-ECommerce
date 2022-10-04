@@ -11,9 +11,37 @@ import CatNav from "../components/CatNav";
 
 const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 16px;
+  background-color: #e9ecef;
+  font-family: ë‚˜ëˆ”ê³ ë”•, NanumGothic, ë§‘ì€ê³ ë”•, MalgunGothic, ë‹ì›€,
+    Dotum, Helvetica, Apple SD Gothic Neo, sans-serif;
+`;
+
+const Shops = styled.div`
+  padding: 14px 43px;
+  border-top: 1px solid #e2e5e9;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: -0.3px;
+  background-color: #e9ecef;
+`;
+
+const Ul = styled.ul`
+  margin-top: -6px;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  list-style-type: disc;
+`;
+
+const List = styled.li`
+  width: 25%;
+  display: inline-block;
+  padding: 6px;
+  vertical-align: top;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
 `;
 
 const ShopList = () => {
@@ -61,10 +89,17 @@ const ShopList = () => {
       <MidNav />
       <CatNav cat={(cat && cats[cat]) || "전체카테고리"} />
       <Banner />
+
+      <Shops>
+        <strong>506,290</strong>개 쇼핑몰
+      </Shops>
+
       <Container>
-        {shops?.map((shop) => (
-          <Shop key={shop._id} shop={shop} />
-        ))}
+        <List>
+          {shops?.map((shop) => (
+            <Shop key={shop._id} shop={shop} />
+          ))}
+        </List>
       </Container>
       <Footer />
     </>
