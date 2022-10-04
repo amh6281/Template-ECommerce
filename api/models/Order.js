@@ -2,22 +2,25 @@ const mongoose = require("mongoose");
 
 const OrderSchema = new mongoose.Schema(
   {
-    userId: { type: String, required: true },
-    shopId: { type: String, required: true },
-    products: [
+    userId: { type: String },
+    name: { type: String },
+    paid_amount: { type: Number },
+    buyer_name: { type: String },
+    buyer_tel: { type: String },
+    buyer_addr: { type: String },
+    status: { type: String, default: "상품준비중" },
+    custom_data: [
       {
-        productId: {
-          type: String,
-        },
-        quantity: {
-          type: Number,
-          default: 1,
-        },
+        shopId: { type: String },
+        price: { type: Number },
+        title: { type: String },
+        img: { type: String },
+        buyer_name: { type: String },
+        buyer_addr: { type: String },
+        status: { type: String, default: "상품준비중" },
+        date: { type: String },
       },
     ],
-    amount: { type: Number, required: true },
-    address: { type: Object, required: true },
-    status: { type: String, default: "상품준비중" },
   },
   { timestamps: true }
 );

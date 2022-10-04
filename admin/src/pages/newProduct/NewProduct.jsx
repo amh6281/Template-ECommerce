@@ -33,7 +33,7 @@ export default function NewProduct() {
     };
     getShop();
   }, [userId]);
-
+  console.log(shop);
   const handleChange = (e) => {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };

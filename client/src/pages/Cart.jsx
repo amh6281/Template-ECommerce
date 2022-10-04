@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import { Add, Remove } from "@material-ui/icons";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
@@ -10,12 +10,26 @@ import { deleteProduct, emptyCart } from "../redux/cartRedux";
 import TopNav from "../components/TopNav";
 import MidNav from "../components/MidNav";
 import CatNav from "../components/CatNav";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
-const Empty = styled.div`
+const NavContainer = styled.div`
   width: 65%;
   margin: 0 auto;
-  padding: 10px 0px;
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const NavWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const NavItem = styled.h3`
+  font-size: 12px;
+  font-weight: bold;
+  color: ${(props) => (props.type === "current" ? "black" : "#7d7d7d")};
 `;
 
 const EmptyBtn = styled.button`
@@ -24,7 +38,6 @@ const EmptyBtn = styled.button`
   border: none;
   background-color: white;
   font-weight: 600;
-  margin-left: 10px;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -35,44 +48,52 @@ const EmptyBtn = styled.button`
 `;
 
 const Container = styled.div`
-  background-color: #f4f4f4;
-  padding: 30px 0px 44px;
+  width: 100%;
   height: 100vh;
+  background-color: #f4f4f4;
 `;
 
 const Wrapper = styled.div`
   width: 65%;
   margin: 0 auto;
-  padding: 30px 0px 44px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  margin-bottom: 30px;
+  padding: 30px 0px 0px;
 `;
 
-const ProductWrapper = styled.div`
+const CartContainer = styled.div`
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 5px;
+`;
+
+const CartWrapper = styled.div`
+  padding: ${(props) => (props.type === "top" ? "25px 40px 18px" : "")};
   display: flex;
   align-items: center;
+  gap: 5px;
 `;
 
-const ProductInfo = styled.div`
-  padding: ${(props) =>
-    props.type === "first" ? "0px 0px 20px 80px" : "0px 0px 20px 20px"};
-  border-right: ${(props) =>
-    props.type === "delivery" ? "" : "1px solid #ededed"};
-  width: ${(props) =>
-    props.size === "s" ? "18%" : props.size === "m" ? "25%" : "40%"};
+const CartTitle = styled.h3`
+  font-size: 20px;
 `;
 
 const Hr = styled.hr`
-  width: 92%;
+  width: 95%;
   margin: 0 auto;
   border: ${(props) =>
-    props.type === "bottom" ? "1px solid #ededed" : "1px solid #383d4a"};
+    props.color === "gray"
+      ? "1px solid #ededed"
+      : props.type === "bottom"
+      ? "1px solid #ededed"
+      : "1px solid #383d4a"};
+  margin-top: ${(props) => (props.color === "gray" ? "14px" : "")};
 `;
 
 const Delivery = styled.div`
   display: flex;
   align-items: center;
+  padding: 14px 0px 0px;
+  width: 95%;
+  margin: 0 auto;
 `;
 
 const DeliveryText = styled.h3`
@@ -85,57 +106,106 @@ const DeliveryText = styled.h3`
   font-weight: 500;
 `;
 
-const Details = styled.div`
+const Product = styled.div`
   display: flex;
-  margin: 10px 0px 0px 0px;
-  gap: 12px;
 `;
 
-const Image = styled.img`
+const ProductContainer = styled.div`
+  padding: ${(props) =>
+    props.type === "option"
+      ? "20px 10px"
+      : (props.type = "price" ? "20px 15px" : "20px 30px")};
+  display: flex;
+  border-right: 1px solid #ededed;
+`;
+
+const ProductWrapper = styled.div`
+  display: flex;
+`;
+
+const ProductBtn = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0px 5px 0px 16px;
+`;
+
+const DeleteBtn = styled.button`
+  font-size: 14px;
+  color: #222222;
+  border: none;
+  background-color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #d5dade;
+  border-radius: 2px;
+`;
+
+const ProductInfo = styled.div`
+  display: flex;
+`;
+
+const ProductImg = styled.img`
   width: 100px;
-  height: 105px;
+  height: 100px;
   border-radius: 4px;
+  object-fit: cover;
 `;
 
-const ProductName = styled.h3`
-  width: 296px;
-  height: 103px;
+const ProductItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${(props) =>
+    props.type === "delivery" ? "6px" : props.type === "price" ? "6px" : "4px"};
+  padding-left: ${(props) =>
+    props.type === "price" ? "" : props.type === "delivery" ? "" : "10px"};
+  align-items: ${(props) =>
+    props.type === "price"
+      ? "center"
+      : props.type === "delivery"
+      ? "center"
+      : ""};
+  justify-content: ${(props) =>
+    props.type === "price"
+      ? "center"
+      : props.type === "delivery"
+      ? "center"
+      : ""};
+  width: ${(props) =>
+    props.type === "price"
+      ? "168px"
+      : props.type === "delivery"
+      ? "152px"
+      : ""};
+`;
+
+const ProductTitle = styled.h3`
   font-size: 14px;
 `;
 
 const ProductPrice = styled.h3`
-  width: 100px;
-  height: 100px;
-  font-size: 14px;
-  margin: 6px 0px 0px 0px;
+  font-size: ${(props) =>
+    props.type === "price"
+      ? "15px"
+      : props.type === "product"
+      ? "14px"
+      : "12px"};
 `;
 
-const ProductOption = styled.div`
-  display: flex;
-  flex-direction: ${(props) => (props.type === "price" ? "column" : "")};
-  width: 280px;
-  height: 143px;
-  gap: 5px;
-`;
-
-const ProductColor = styled.div`
+const ProductShop = styled.h3`
   font-size: 12px;
-  color: #222222;
-  padding: 12px 0px 0px 0px;
+  color: #959595;
 `;
 
-const ProductSize = styled.span`
+const ProductOption = styled.h3`
   font-size: 12px;
-  color: #222222;
-  padding: 12px 0px 0px 0px;
+  font-weight: 500;
 `;
 
-const Price = styled.h3`
-  font-size: ${(props) => (props.type === "number" ? "15px" : "12px")};
-  color: #000000;
-  position: relative;
-  top: 30px;
-  left: ${(props) => (props.type === "number" ? "61px" : "64px")};
+const DeliveryPrice = styled.h3`
+  font-size: ${(props) => (props.type === "price" ? "15px" : "12px")};
+  font-weight: 600;
 `;
 
 const OrderBtn = styled.button`
@@ -144,77 +214,99 @@ const OrderBtn = styled.button`
   font-weight: bold;
   color: #03c75a;
   background-color: white;
-  width: ${(props) => (props.type === "total" ? "220px" : "80px")};
-  padding: ${(props) => (props.type === "total" ? "10px 0px" : "3px 12px")};
+  padding: 6px 12px;
   border-radius: 4px;
-  position: ${(props) => (props.type === "total" ? "" : "relative")};
-  top: ${(props) => (props.type === "total" ? "" : "35px")};
-  left: ${(props) => (props.type === "total" ? "" : "50px")};
+  margin-left: ${(props) => (props.type === "total" ? "15px" : "")};
 `;
 
-const DeliberyPrice = styled.h3`
-  color: ${(props) => (props.type === "price" ? "#444444" : "#000000")};
-  font-size: ${(props) => (props.type === "price" ? "12px" : "15px")};
-  position: relative;
-  top: 30px;
-  left: ${(props) => (props.position === "center" ? "55px" : "58px")};
+const SelectAmountContainer = styled.div`
+  padding: 24px 0px 30px;
 `;
 
-const DeleteBtn = styled.button`
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  border: 1px solid #03c75a;
-  position: relative;
-  top: 57.5px;
-  left: -30px;
-`;
-
-const Order = styled.div`
+const SelectAmountWrapper = styled.div`
+  margin: 0px 200px;
   display: flex;
-  align-items: flex-end;
-  gap: 50px;
-  justify-content: center;
-  padding-top: 30px;
+  justify-content: space-around;
 `;
 
-const OrderWrapper = styled.div`
+const SelectPrice = styled.span`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 5px;
 `;
 
-const OrderText = styled.h3`
-  display: ${(props) => (props.display === "flex" ? "flex" : "")};
-  align-items: ${(props) => (props.display === "flex" ? "center" : "")};
+const SelectAmount = styled.span`
+  font-size: ${(props) =>
+    props.type === "select" ? "14px" : props.type === "m" ? "18px" : "16px"};
+  font-weight: 600;
   color: ${(props) =>
     props.color === "red"
-      ? "#F85151"
+      ? "red"
       : props.color === "green"
       ? "#00C63A"
       : "#222222"};
-  font-size: ${(props) =>
-    props.size === "m" ? "16px" : props.size === "x" ? "18px" : "14px"};
 `;
 
 const Icon = styled.div`
+  color: #d5dade;
   display: flex;
   align-items: center;
-  position: relative;
-  top: -10px;
-  color: #d5dade;
+  padding: 0px 15px;
 `;
 
-const Line = styled.hr`
-  border-left: 1px solid #d1d4d7;
-  height: 45px;
+const OrderAmount = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const Hrr = styled.hr`
+  border-right: 1px solid black;
+  margin: 0px 30px;
+`;
+
+const PayBarContainer = styled.div`
+  width: 100%;
+  height: 75px;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  top: 92vh;
+  z-index: 999;
+  background-color: #03c75a;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const PayBarWrapper = styled.div`
+  padding: 14px 0px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: end;
+  margin: 0px 150px;
+`;
+
+const PayBarPrice = styled.span`
+  font-size: ${(props) =>
+    props.type === "price" ? "24px" : props.type === "last" ? "20px" : "18px"};
+  color: #ffffff;
+  font-weight: bold;
+`;
+
+const TotalOrder = styled.span`
+  font-size: 16px;
+  margin: 0px 0px 0px 26px;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  padding: 13px 55px;
 `;
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
-
   const handleDelete = useCallback((product) => {
     dispatch(
       deleteProduct({
@@ -228,31 +320,60 @@ const Cart = () => {
     dispatch(emptyCart());
   };
 
+  //cart.products의 모든 quantity 개수
+  const quantityArr = cart.products.map((item) => item.quantity);
+  const TotalQuantity = quantityArr.reduce((a, b) => {
+    return a + b;
+  }, 0);
+
   return (
     <>
+      <PayBarContainer>
+        <PayBarWrapper>
+          <PayBarPrice>총 주문금액</PayBarPrice>
+          <PayBarPrice type="price">
+            {cart.total?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            <PayBarPrice type="last">원</PayBarPrice>
+          </PayBarPrice>
+          <Link to="/order" style={{ color: "inherit" }}>
+            <TotalOrder>{TotalQuantity}건 주문하기</TotalOrder>
+          </Link>
+        </PayBarWrapper>
+      </PayBarContainer>
       <TopNav />
       <MidNav />
       <CatNav />
-      <Empty>
-        <EmptyBtn onClick={handleReset}>
-          <ClearOutlinedIcon
-            style={{ color: "#d5dade", margin: "0px 3px 0 -3px" }}
-          />
-          전체 삭제
-        </EmptyBtn>
-      </Empty>
-
+      <NavContainer>
+        <NavWrapper>
+          <EmptyBtn onClick={handleReset}>
+            <ClearOutlinedIcon
+              style={{ color: "#d5dade", margin: "0px 3px 0 -3px" }}
+            />
+            전체 삭제
+          </EmptyBtn>
+        </NavWrapper>
+        <NavWrapper>
+          <NavItem type="current">장바구니</NavItem>
+          <NavItem>{">"}</NavItem>
+          <NavItem>주문/결제</NavItem>
+          <NavItem>{">"}</NavItem>
+          <NavItem>완료</NavItem>
+        </NavWrapper>
+      </NavContainer>
       <Container>
-        <Wrapper>
-          <Hr />
-          {currentUser
-            ? cart.products.map((product) => (
-                <>
-                  <ProductWrapper>
-                    <ProductInfo type="first">
-                      <DeleteBtn onClick={() => handleDelete(product)}>
-                        X
-                      </DeleteBtn>
+        {currentUser
+          ? cart.products.map((product) => (
+              <>
+                <Wrapper>
+                  <CartContainer>
+                    <CartWrapper type="top">
+                      <CartTitle>{product.shopname}</CartTitle>
+                      <HomeOutlinedIcon
+                        style={{ width: "27px", height: "27px" }}
+                      />
+                    </CartWrapper>
+                    <Hr />
+                    <CartWrapper>
                       <Delivery>
                         <DeliveryText type="delivery">오늘출발</DeliveryText>
                         <DeliveryText type="time">
@@ -260,102 +381,139 @@ const Cart = () => {
                         </DeliveryText>
                         <DeliveryText>오늘 바로 발송</DeliveryText>
                       </Delivery>
-                      <Details>
-                        <Image src={product.img} />
-                        <ProductName>
-                          {product.title}
-                          <ProductPrice>
-                            {" "}
-                            {product.price
+                    </CartWrapper>
+                    <Hr color="gray" />
+                    <Product>
+                      <ProductContainer style={{ flex: 4.5 }}>
+                        <ProductWrapper>
+                          <ProductBtn>
+                            <DeleteBtn onClick={() => handleDelete(product)}>
+                              <ClearOutlinedIcon
+                                style={{
+                                  width: "20px",
+                                  height: "20px",
+                                  color: "#d5dade",
+                                }}
+                              />
+                            </DeleteBtn>
+                          </ProductBtn>
+                          <ProductInfo>
+                            <ProductImg src={product.img} />
+                            <ProductItem>
+                              <ProductTitle>{product.title}</ProductTitle>
+                              <ProductPrice type="product">
+                                {product.price
+                                  ?.toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                                원
+                              </ProductPrice>
+                              <ProductShop>{product.shopname}</ProductShop>
+                            </ProductItem>
+                          </ProductInfo>
+                        </ProductWrapper>
+                      </ProductContainer>
+                      <ProductContainer type="option" style={{ flex: 2.5 }}>
+                        <ProductWrapper>
+                          <ProductInfo>
+                            <ProductItem>
+                              <ProductOption>
+                                사이즈 : {product.size} / 컬러 : {product.color}{" "}
+                                / {product.quantity}개
+                              </ProductOption>
+                            </ProductItem>
+                          </ProductInfo>
+                        </ProductWrapper>
+                      </ProductContainer>
+                      <ProductContainer type="price" style={{ flex: 1.5 }}>
+                        <ProductWrapper>
+                          <ProductInfo>
+                            <ProductItem type="price">
+                              <ProductPrice>상품금액</ProductPrice>
+                              <ProductPrice
+                                type="price"
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                {(product.price * product.quantity)
+                                  ?.toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                                <ProductPrice>원</ProductPrice>
+                              </ProductPrice>
+                              <OrderBtn>주문하기</OrderBtn>
+                            </ProductItem>
+                          </ProductInfo>
+                        </ProductWrapper>
+                      </ProductContainer>
+                      <ProductContainer style={{ flex: 1.5 }}>
+                        <ProductWrapper>
+                          <ProductInfo>
+                            <ProductItem type="delivery">
+                              <DeliveryPrice>배송비</DeliveryPrice>
+                              <DeliveryPrice type="price">무료</DeliveryPrice>
+                            </ProductItem>
+                          </ProductInfo>
+                        </ProductWrapper>
+                      </ProductContainer>
+                    </Product>
+                    <Hr type="bottom" />
+                    <SelectAmountContainer>
+                      <SelectAmountWrapper>
+                        <SelectPrice>
+                          <SelectAmount type="select">
+                            선택상품금액
+                          </SelectAmount>
+                          <SelectAmount>
+                            {(product.price * product.quantity)
                               ?.toString()
                               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                            원
-                          </ProductPrice>
-                        </ProductName>
-                      </Details>
-                    </ProductInfo>
-                    <ProductInfo size="m">
-                      <Details>
-                        <ProductOption>
-                          <ProductColor>컬러 : {product.color} / </ProductColor>
-                          <ProductSize>사이즈 : {product.size}</ProductSize>
-                        </ProductOption>
-                      </Details>
-                    </ProductInfo>
-
-                    <ProductInfo size="s">
-                      <Details>
-                        <ProductOption type="price">
-                          <Price>상품금액</Price>
-                          <Price type="number">
-                            {product.price
+                            <SelectAmount type="select">원</SelectAmount>
+                          </SelectAmount>
+                        </SelectPrice>
+                        <Icon>
+                          <AddOutlinedIcon />
+                        </Icon>
+                        <SelectPrice>
+                          <SelectAmount type="select">총 배송비</SelectAmount>
+                          <SelectAmount>
+                            3,500<SelectAmount type="select">원</SelectAmount>
+                          </SelectAmount>
+                        </SelectPrice>
+                        <Icon>
+                          <RemoveOutlinedIcon />
+                        </Icon>
+                        <SelectPrice>
+                          <SelectAmount type="select">
+                            할인예상금액
+                          </SelectAmount>
+                          <SelectAmount color="red">
+                            3,500
+                            <SelectAmount color="red" type="select">
+                              원
+                            </SelectAmount>
+                          </SelectAmount>
+                        </SelectPrice>
+                        <Hrr />
+                        <OrderAmount>
+                          <SelectAmount>주문금액</SelectAmount>
+                          <SelectAmount color="green" type="m">
+                            {(product.price * product.quantity)
                               ?.toString()
                               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                            원
-                          </Price>
-                          <OrderBtn>주문하기</OrderBtn>
-                        </ProductOption>
-                      </Details>
-                    </ProductInfo>
-                    <ProductInfo type="delivery" size="s">
-                      <Details>
-                        <ProductOption type="price">
-                          <DeliberyPrice type="price" position="center">
-                            배송비
-                          </DeliberyPrice>
-                          <DeliberyPrice>무료</DeliberyPrice>
-                        </ProductOption>
-                      </Details>
-                    </ProductInfo>
-                  </ProductWrapper>
-                  <Hr type="bottom" />
-                </>
-              ))
-            : ""}
-          <Order>
-            <OrderWrapper>
-              <OrderText>선택상품금액</OrderText>
-              <OrderText display="flex" size="m">
-                {cart.total?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                <OrderText>원</OrderText>
-              </OrderText>
-            </OrderWrapper>
-            <Icon>
-              <AddOutlinedIcon />
-            </Icon>
-            <OrderWrapper>
-              <OrderText>총 배송비</OrderText>
-              <OrderText display="flex" size="m">
-                3,500 <OrderText>원</OrderText>
-              </OrderText>
-            </OrderWrapper>
-            <Icon>
-              <RemoveOutlinedIcon />
-            </Icon>
-            <OrderWrapper>
-              <OrderText>할인예상금액</OrderText>
-              <OrderText type="sale" display="flex" size="m" color="red">
-                3,500 <OrderText color="red">원</OrderText>
-              </OrderText>
-            </OrderWrapper>
-            <Line />
-            <OrderWrapper>
-              <OrderText size="m">주문금액</OrderText>
-              <OrderText
-                size="x"
-                type="totalPrice"
-                display="flex"
-                color="green"
-              >
-                {cart.total?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                <OrderText size="m" color="green">
-                  원
-                </OrderText>
-              </OrderText>
-            </OrderWrapper>
-            <OrderBtn type="total">총 {cart.quantity}건 주문하기</OrderBtn>
-          </Order>
-        </Wrapper>
+                            <SelectAmount color="green">원</SelectAmount>
+                          </SelectAmount>
+                        </OrderAmount>
+                        <OrderBtn type="total">
+                          {product.shopname} {product.quantity}건 주문하기
+                        </OrderBtn>
+                      </SelectAmountWrapper>
+                    </SelectAmountContainer>
+                  </CartContainer>
+                </Wrapper>
+              </>
+            ))
+          : ""}
       </Container>
       <Footer />
     </>
