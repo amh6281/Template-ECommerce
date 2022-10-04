@@ -9,6 +9,8 @@ export default function Featuredinfo({ sum }) {
   const [perc, setPerc] = useState(0);
   const { currentUser } = useSelector((state) => state.user);
   const id = currentUser._id;
+  const shopIncome = (sum / 100) * 40;
+  const cost = (sum / 100) * 60;
 
   return (
     <div className="featured">
@@ -16,7 +18,7 @@ export default function Featuredinfo({ sum }) {
         <span className="featuredTitle">수익</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">
-            {sum?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            {shopIncome?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </span>
           <span className="featuredMoneyRate">
             % {Math.floor(perc)}{" "}
@@ -44,7 +46,9 @@ export default function Featuredinfo({ sum }) {
       <div className="featuredItem">
         <span className="featuredTitle">원가</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">₩ 926,850</span>
+          <span className="featuredMoney">
+            {cost?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </span>
           <span className="featuredMoneyRate">
             +2.4 <ArrowUpward className="featuredIcon" />
           </span>
