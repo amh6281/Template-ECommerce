@@ -5,8 +5,6 @@ import ProductList from "./pages/ProductList";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Product from "./pages/Product";
-import BusinessRegister from "./pages/BusinessRegister";
-import BuildingShop from "./pages/BuildingShop";
 import ShopList from "./pages/ShopList";
 import { useSelector } from "react-redux";
 import Shop from "./pages/Shop";
@@ -33,7 +31,7 @@ function App() {
         <Route path="/shop">
           <Route path=":id" element={<Shop />} />
         </Route>
-        <Route path="order" element={<Order />} />
+        <Route path="/order" element={<Order />} />
       </Routes>
     </BrowserRouter>
   );
