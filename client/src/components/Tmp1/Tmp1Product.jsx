@@ -147,7 +147,6 @@ const Tmp1Product = ({ product }) => {
               <Size>{i + " "}</Size>
             ))}
           </SizeWrapper>
-
           <Price>
             {product.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
           </Price>

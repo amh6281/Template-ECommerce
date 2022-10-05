@@ -61,8 +61,8 @@ const Tmp1Slider = () => {
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
-        {banner.map((item) => (
-          <Image src={item} />
+        {banner.map((item, index) => (
+          <Image src={item} key={index} />
         ))}
       </Wrapper>
       <Arrow direction="right" onClick={() => handleClick("right")}>

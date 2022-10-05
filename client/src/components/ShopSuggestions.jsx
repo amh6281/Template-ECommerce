@@ -78,11 +78,15 @@ const ShopSuggestions = () => {
   return (
     <div>
       {suggestionProducts.options.map((item) => (
-        <div>
-          <Title> {item.title}</Title>
+        <div key={item.id}>
+          <Title>{item.title}</Title>
           <Hr />
           <Container>
-            <Arrow direction="left" onClick={() => handleClick("left")}>
+            <Arrow
+              key={item.id}
+              direction="left"
+              onClick={() => handleClick("left")}
+            >
               <ArrowLeftOutlined />
             </Arrow>
             <Wrapper slideIndex={slideIndex}>
@@ -92,7 +96,11 @@ const ShopSuggestions = () => {
                 </Slide>
               ))}
             </Wrapper>
-            <Arrow direction="right" onClick={() => handleClick("right")}>
+            <Arrow
+              key={item.id}
+              direction="right"
+              onClick={() => handleClick("right")}
+            >
               <ArrowRightOutlined />
             </Arrow>
           </Container>

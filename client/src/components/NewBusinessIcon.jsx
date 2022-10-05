@@ -43,6 +43,7 @@ const NewBusinessIcon = () => {
       console.log(err);
     }
   }, []);
+  console.log(shopIcons);
 
   const settings = {
     dots: true,
@@ -68,7 +69,7 @@ const NewBusinessIcon = () => {
       <Hr />
       <Slider {...settings}>
         {shopIcons.map((shop) => (
-          <Image src={shop.logo} />
+          <Image key={shop._id} src={shop.logo} />
         ))}
       </Slider>
     </Container>

@@ -6,8 +6,6 @@ import "./Category.css";
 export default function DropCategory() {
   const shop = useSelector((state) => state.shop);
   const category = shop.currentShop?.categoryItem[0].catValue;
-  console.log(category);
-  console.log(["1", "2"]);
   return (
     <div>
       <div class="wrapper">
@@ -19,8 +17,8 @@ export default function DropCategory() {
           </label>
           <div class="content">
             <ul class="links">
-              {category?.map((item) => (
-                <li>
+              {category?.map((item, index) => (
+                <li key={index}>
                   <Link to={`/products/${item}`}>{item}</Link>
                 </li>
               ))}
