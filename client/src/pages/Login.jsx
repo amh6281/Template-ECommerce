@@ -8,17 +8,21 @@ import { login } from "../redux/aipCalls";
 const TopContainer = styled.div`
   padding: 0px 0px 48px;
 `;
+
 const TopWrapper = styled.div`
   margin: 0px 580px;
   display: flex;
   justify-content: center;
 `;
+
 const Logo = styled.img`
   margin: 108px 0px 0px;
   width: 200px;
   height: 50px;
 `;
+
 const MidContainer = styled.div``;
+
 const MidWrapper = styled.div`
   margin: 0px 722.5px;
 `;
@@ -32,9 +36,11 @@ const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 const InputBox = styled.div`
   padding: 20px 28px;
 `;
+
 const Inputs = styled.div`
   display: flex;
   width: 100%;
@@ -44,6 +50,7 @@ const Inputs = styled.div`
   align-items: center;
   gap: 4px;
 `;
+
 const Input = styled.input`
   font-size: 14px;
   font-weight: bold;
@@ -51,6 +58,7 @@ const Input = styled.input`
   width: 100%;
   outline: none;
 `;
+
 const RegisterBtn = styled.button`
   padding: 13px 0px;
   font-size: 14px;
@@ -66,6 +74,7 @@ const Division = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+
 const Title = styled.h4`
   border-bottom: ${({ isBusiness }) => (isBusiness ? "" : "1px solid #d1d1d1")};
   width: 100%;
@@ -77,6 +86,7 @@ const Title = styled.h4`
   cursor: pointer;
   background-color: ${({ isBusiness }) => (isBusiness ? "" : "#F8F9FA")};
 `;
+
 const OptionWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -90,6 +100,7 @@ const Option = styled.h4`
   font-size: ${(props) => (props.type === "desc" ? "12px" : "14px")};
   font-weight: 500;
 `;
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

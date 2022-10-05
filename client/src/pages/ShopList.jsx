@@ -14,6 +14,23 @@ const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  background-color: #f4f4f4;
+  margin: -6px 0px 0px;
+  padding: 0px 46px 18px;
+`;
+
+const ShopNav = styled.div`
+  padding: 14px 52px;
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  margin-top: 1px;
+`;
+
+const ShopCount = styled.span`
+  font-size: 13px;
+  font-weight: ${(props) => (props.type === "number" ? "600" : "500")};
+  color: #222222;
 `;
 
 const ShopList = () => {
@@ -61,6 +78,10 @@ const ShopList = () => {
       <MidNav />
       <CatNav cat={(cat && cats[cat]) || "전체카테고리"} />
       <Banner />
+      <ShopNav>
+        <ShopCount type="number">{shops.length}</ShopCount>
+        <ShopCount>개 쇼핑몰</ShopCount>
+      </ShopNav>
       <Container>
         {shops?.map((shop) => (
           <Shop key={shop._id} shop={shop} />

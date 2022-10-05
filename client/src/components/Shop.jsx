@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   FavoriteBorderOutlined,
@@ -6,97 +6,124 @@ import {
   ShoppingCartOutlined,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-
-const Info = styled.div`
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease;
-  cursor: pointer;
-`;
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div`
-  flex: 1;
-  margin: 5px;
-  min-width: 280px;
-  height: 340px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  &:hover ${Info} {
-    opacity: 1;
-  }
+  padding: 6px;
 `;
 
-const Image = styled.img`
-  width: 280px;
-  height: 100%;
-  z-index: 2;
-  object-fit: contain;
-`;
-
-const Icon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
+const Wrapper = styled.div`
+  padding: 38px 20px 38px 8px;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 10px;
-  transition: all 0.5s ease;
-  &:hover {
-    background-color: #e9f5f5;
-    transform: scale(1.1);
-  }
+  border-radius: 4px;
 `;
 
-const Name = styled.h3`
-  width: 280px;
-  display: flex;
-  align-items: center;
-  padding-left: 5px;
-  justify-content: center;
-  margin-bottom: 10px;
+const Logo = styled.img`
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  margin: 5px 14px;
 `;
 
-const Desc = styled.h5`
-  width: 280px;
+const Info = styled.div`
+  padding: 0px 0px 0px 14px;
+  width: 312px;
+`;
+
+const ShopName = styled.h4`
+  font-size: 15px;
+  font-weight: 600;
+  color: #222222;
+`;
+
+const ShopDesc = styled.h4`
+  font-size: 13px;
+  font-weight: 500;
+  color: #666666;
+`;
+
+const ShopInfo = styled.div`
   display: flex;
   align-items: center;
-  padding-left: 7px;
-  padding-bottom: 50px;
-  justify-content: center;
+  gap: 6px;
+`;
+
+const ShopCat = styled.h4`
+  font-size: ${(props) => (props.type === "icon" ? "10px" : "12px")};
+  font-weight: 400;
+  color: ${(props) => (props.type === "icon" ? "#E6E6E6" : "#999999")};
+  margin: 8px 0px 0px;
 `;
 
 const Shop = ({ shop }) => {
+  const [productCount, setProductCount] = useState([]);
+
+  const cats = [
+    "",
+    "남성패션",
+    "여성패션",
+    "가구/인테리어",
+    "화장품/미용",
+    "식품",
+    "출산/유아동",
+    "반려동물용품",
+    "생활/주방용품",
+    "가전",
+    "디지털",
+    "컴퓨터",
+    "스포츠/레저",
+    "건강/의료용품",
+    "자동차/공구",
+    "취미/문구/악세",
+    "도서",
+  ];
+
+  useEffect(() => {
+    const getProductCount = async () => {
+      try {
+        const res = await publicRequest.get("/products");
+        setProductCount(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getProductCount();
+  }, []);
+
+  // Shop.shopname과 Product.shopname이 같은 상품 개수 구하기
+  const countByArray = (arr) => {
+    return arr?.reduce((prev, curr) => {
+      prev[curr] = ++prev[curr] || 1;
+      return prev;
+    }, {});
+  };
+
+  const count = productCount.map((item) => item.shopname);
+
+  const result = countByArray(count);
+
   return (
     <div key={shop._id}>
       <Container>
-        <Image src={shop.logo} />
-        <Info>
-          <Icon>
-            <Link to={`/shop/${shop._id}`} style={{ color: "inherit" }}>
-              <SearchOutlined />
-            </Link>
-          </Icon>
-          <Icon>
-            <FavoriteBorderOutlined />
-          </Icon>
-        </Info>
+        <Link to={`/shop/${shop._id}`} style={{ color: "inherit" }}>
+          <Wrapper>
+            <Logo src={shop.logo} />
+            <Info>
+              <ShopName>{shop.shopname}</ShopName>
+              <ShopDesc>{shop.desc}</ShopDesc>
+              <ShopInfo>
+                <ShopCat>{cats[shop.category]}</ShopCat>
+                <ShopCat type="icon">|</ShopCat>
+                <ShopCat>
+                  상품개수 {result[shop.shopname] ? result[shop.shopname] : 0}
+                </ShopCat>
+              </ShopInfo>
+            </Info>
+          </Wrapper>
+        </Link>
       </Container>
-      <Name>{shop.shopname}</Name>
-      <Desc>{shop.desc}</Desc>
-      <br />
     </div>
   );
 };
