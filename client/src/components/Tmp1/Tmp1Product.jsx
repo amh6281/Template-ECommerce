@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
-  width: 100%;
+  width: 280px;
   height: 100%;
   position: absolute;
   top: 0;
@@ -23,14 +23,17 @@ const Info = styled.div`
   cursor: pointer;
 `;
 
-const Container = styled.div`
+const Container = styled.div``;
+
+const Wrapper = styled.div`
   flex: 1;
   margin: 5px;
-  min-width: 280px;
+  width: 280px;
   height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   position: relative;
   &:hover ${Info} {
     opacity: 1;
@@ -41,7 +44,7 @@ const Image = styled.img`
   width: 280px;
   height: 100%;
   z-index: 2;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 const Icon = styled.div`
@@ -60,68 +63,96 @@ const Icon = styled.div`
   }
 `;
 
+const Detail = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 280px;
+  height: 50px;
+  margin-bottom: 100px;
+`;
+
 const Title = styled.h5`
   display: flex;
   align-items: center;
+  font-size: 14px;
   padding-left: 5px;
+`;
+
+const SizeWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const Size = styled.h6`
   display: flex;
   align-items: center;
-  padding-left: 7px;
-  padding-bottom: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  padding-left: 5px;
+  color: #666666;
 `;
 
 const Colors = styled.div`
   display: flex;
   align-items: center;
+  padding-left: 5px;
+  gap: 5px;
 `;
 
 const ColorItem = styled.div`
   display: flex;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
+  width: 10px;
+  height: 10px;
   background-color: ${(props) => props.color};
-  margin: 0px 5px;
 `;
 
 const Price = styled.h5`
   display: flex;
   align-items: center;
-  padding-left: 7px;
-  padding-bottom: 50px;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: 14px;
 `;
 
 const Tmp1Product = ({ product }) => {
   return (
     <div style={{ alignItems: "center" }}>
       <Container>
-        <Image src={product.img} />
-        <Info>
-          <Icon>
-            <ShoppingCartOutlined />
-          </Icon>
-          <Icon>
-            <Link to={`/product/${product._id}`} style={{ color: "inherit" }}>
-              <SearchOutlined />
-            </Link>
-          </Icon>
-          <Icon>
-            <FavoriteBorderOutlined />
-          </Icon>
-        </Info>
+        <Wrapper>
+          <Image src={product.img} />
+          <Info>
+            <Icon>
+              <ShoppingCartOutlined />
+            </Icon>
+            <Icon>
+              <Link to={`/product/${product._id}`} style={{ color: "inherit" }}>
+                <SearchOutlined />
+              </Link>
+            </Icon>
+            <Icon>
+              <FavoriteBorderOutlined />
+            </Icon>
+          </Info>
+        </Wrapper>
+        <Detail>
+          <Title>{product.title}</Title>
+          <Colors>
+            {product.color?.map((c) => (
+              <ColorItem color={c} />
+            ))}
+          </Colors>
+          <SizeWrapper>
+            {product.size.map((i) => (
+              <Size>{i + " "}</Size>
+            ))}
+          </SizeWrapper>
+
+          <Price>
+            {product.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
+          </Price>
+        </Detail>
       </Container>
-      <Title>{product.title}</Title>
-      <Size>{product.size}</Size>
-      <Colors>
-        {product.color?.map((c) => (
-          <ColorItem color={c} />
-        ))}
-      </Colors>
-      <Price>{product.price}원</Price>
-      <br />
     </div>
   );
 };
