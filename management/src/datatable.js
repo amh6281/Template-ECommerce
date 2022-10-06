@@ -1,3 +1,17 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getUsers } from "./redux/apiCalls";
+import { UseEffect, UseState } from "react";
+
+export default function datatable() {
+  const [data, setData] = UseState(userRows);
+  const dispatch = useDispatch();
+
+  UseEffect(() => {
+    getUsers(dispatch);
+  }, [dispatch]);
+}
+
 export const userColumns = [
   { field: "id", headerName: "ID", width: 70 },
   {
