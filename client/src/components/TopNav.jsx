@@ -6,8 +6,8 @@ import { logout } from "../redux/userRedux";
 import Build from "./Build";
 
 const Container = styled.div`
-  background: #f0f0f0;
   height: 32px;
+  border-bottom: 1px solid #ededed;
 `;
 
 const Wrapper = styled.div`

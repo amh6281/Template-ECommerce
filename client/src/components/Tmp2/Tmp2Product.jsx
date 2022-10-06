@@ -1,37 +1,155 @@
+import React from "react";
 import styled from "styled-components";
+import {
+  FavoriteBorderOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
-const Container = styled.div`
-  flex: 1;
-  margin: 5px;
-  width: 225px;
-  height: 350px;
+const Info = styled.div`
+  opacity: 0;
+  width: 380px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+`;
+
+const Container = styled.div``;
+
+const Wrapper = styled.div`
+  flex: 1;
+  margin: 5px;
+  width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  &:hover ${Info} {
+    opacity: 1;
+  }
 `;
 
 const Image = styled.img`
-  height: 65%;
+  width: 380px;
+  height: 510px;
+  z-index: 2;
+  object-fit: cover;
 `;
 
-const Title = styled.h1`
-  font-size: 12px;
-  font-weight: initial;
-  margin-left: 10px;
+const Icon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: all 0.5s ease;
+  &:hover {
+    background-color: #e9f5f5;
+    transform: scale(1.1);
+  }
 `;
 
-const Price = styled.h1`
+const Detail = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 280px;
+  height: 50px;
+  margin-bottom: 100px;
+`;
+
+const Title = styled.h5`
+  display: flex;
+  align-items: center;
   font-size: 14px;
-  margin-left: 10px;
+  padding-left: 5px;
+`;
+
+const SizeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Size = styled.h6`
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  padding-left: 5px;
+  color: #666666;
+`;
+
+const Colors = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  gap: 5px;
+`;
+
+const ColorItem = styled.div`
+  display: flex;
+  width: 10px;
+  height: 10px;
+  background-color: ${(props) => props.color};
+`;
+
+const Price = styled.h5`
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: 14px;
 `;
 
 const Tmp2Product = ({ product }) => {
   return (
-    <div>
+    <div style={{ alignItems: "center" }}>
       <Container>
-        <Image src={product.img} />
-        <Title>{product.title}</Title>
-        <Price>{product.price}원</Price>
+        <Wrapper>
+          <Image src={product.img} />
+          <Info>
+            <Icon>
+              <ShoppingCartOutlined />
+            </Icon>
+            <Icon>
+              <Link to={`/product/${product._id}`} style={{ color: "inherit" }}>
+                <SearchOutlined />
+              </Link>
+            </Icon>
+            <Icon>
+              <FavoriteBorderOutlined />
+            </Icon>
+          </Info>
+        </Wrapper>
+        <Detail>
+          <Title>{product.title}</Title>
+          <Colors>
+            {product.color?.map((c, index) => (
+              <ColorItem color={c} key={index} />
+            ))}
+          </Colors>
+          <SizeWrapper>
+            {product.size.map((i, index) => (
+              <Size key={index}>{i + " "}</Size>
+            ))}
+          </SizeWrapper>
+          <Price>
+            {product.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
+          </Price>
+        </Detail>
       </Container>
     </div>
   );

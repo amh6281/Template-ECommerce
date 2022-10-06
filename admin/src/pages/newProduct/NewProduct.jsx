@@ -33,7 +33,7 @@ export default function NewProduct() {
     };
     getShop();
   }, [userId]);
-
+  console.log(shop);
   const handleChange = (e) => {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
@@ -118,15 +118,6 @@ export default function NewProduct() {
             type="file"
             id="file"
             onChange={(e) => setFile(e.target.files[0])}
-          />
-        </div>
-        <div className="addProductItem">
-          <label>Shop</label>
-          <input
-            name="shop"
-            type="text"
-            placeholder="홈데코"
-            onChange={handleChange}
           />
         </div>
         <div className="addProductItem">

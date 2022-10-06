@@ -28,8 +28,8 @@ const Tmp2Slider = () => {
   return (
     <Container>
       <Slider {...settings}>
-        {banner?.map((item) => (
-          <img src={item} />
+        {banner?.map((item, index) => (
+          <img src={item} key={index} />
         ))}
       </Slider>
     </Container>

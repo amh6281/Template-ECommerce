@@ -1,70 +1,104 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import HttpsOutlinedIcon from "@mui/icons-material/HttpsOutlined";
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import { login } from "../redux/aipCalls";
 
-const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-      center;
-  background-size: cover;
+const TopContainer = styled.div`
+  padding: 0px 0px 48px;
+`;
+
+const TopWrapper = styled.div`
+  margin: 0px 580px;
   display: flex;
-  align-items: center;
   justify-content: center;
 `;
 
-const Wrapper = styled.div`
-  width: 25%;
-  padding: 20px;
-  background-color: white;
+const Logo = styled.img`
+  margin: 108px 0px 0px;
+  width: 200px;
+  height: 50px;
 `;
 
-const Title = styled.h1`
-  font-size: 24px;
-  font-weight: 300;
+const MidContainer = styled.div``;
+
+const MidWrapper = styled.div`
+  margin: 0px 722.5px;
 `;
 
-const Form = styled.form`
+const InputWrapper = styled.div`
+  border-left: 1px solid #ededed;
+  border-right: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  border-radius: 4px;
+  height: 50%;
   display: flex;
   flex-direction: column;
 `;
 
+const InputBox = styled.div`
+  padding: 20px 28px;
+`;
+
+const Inputs = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 14px 17px 13px;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+  align-items: center;
+  gap: 4px;
+`;
+
 const Input = styled.input`
-  flex: 1;
-  min-width: 40%;
-  margin: 10px 0;
-  padding: 10px;
-`;
-
-const Button = styled.button`
-  width: 40%;
+  font-size: 14px;
+  font-weight: bold;
   border: none;
-  padding: 15px 20px;
-  background-color: teal;
-  color: white;
-  cursor: pointer;
-  margin-bottom: 10px;
-  &:disabled {
-    color: green;
-    cursor: not-allowed;
-  }
+  width: 100%;
+  outline: none;
 `;
 
-const Link = styled.a`
-  margin: 5px 0px;
-  font-size: 12px;
-  text-decoration: underline;
+const RegisterBtn = styled.button`
+  padding: 13px 0px;
+  font-size: 14px;
+  border: 1px solid #03c75a;
+  color: #03c75a;
+  background-color: white;
+  width: 100%;
+  margin-top: 50px;
   cursor: pointer;
 `;
 
-const Error = styled.span`
-  color: red;
-  font-size: 13px;
+const Division = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+const Title = styled.h4`
+  border-bottom: ${({ isBusiness }) => (isBusiness ? "" : "1px solid #d1d1d1")};
+  width: 100%;
+  border-radius: 4px;
+  padding: 17px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: ${({ isBusiness }) => (isBusiness ? "" : "#F8F9FA")};
+`;
+
+const OptionWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0px 35px;
+`;
+
+const Option = styled.h4`
+  color: #888;
+  font-size: ${(props) => (props.type === "desc" ? "12px" : "14px")};
+  font-weight: 500;
 `;
 
 const Login = () => {
@@ -77,36 +111,47 @@ const Login = () => {
     e.preventDefault();
     login(dispatch, { username, password });
   };
-
   return (
-    <Container>
-      <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input
-            placeholder="username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <Input
-            placeholder="password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button onClick={handleClick} disabled={isFetching}>
-            로그인
-          </Button>
-          {error && (
-            <Error>
-              아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다.
-              <br />
-              입력하신 내용을 다시 확인해주세요.
-            </Error>
-          )}
-          <Link>비밀번호 찾기</Link>
-          <Link>회원가입</Link>
-        </Form>
-      </Wrapper>
-    </Container>
+    <>
+      <TopContainer>
+        <TopWrapper>
+          <Logo src="https://user-images.githubusercontent.com/83646986/190376063-17549320-72a4-472b-a0d9-516073fcfca3.png" />
+        </TopWrapper>
+      </TopContainer>
+      <MidContainer>
+        <MidWrapper>
+          <Division>
+            <Title>로그인</Title>
+          </Division>
+          <InputWrapper>
+            <InputBox>
+              <Inputs>
+                <PermIdentityOutlinedIcon />
+                <Input
+                  type="text"
+                  placeholder="아이디"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </Inputs>
+              <Inputs>
+                <HttpsOutlinedIcon />
+                <Input
+                  type="password"
+                  placeholder="비밀번호"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Inputs>
+              <RegisterBtn onClick={handleClick}>로그인</RegisterBtn>
+            </InputBox>
+          </InputWrapper>
+          <OptionWrapper>
+            <Option>비밀번호 찾기</Option>
+            <Option>|</Option>
+            <Option>아이디 찾기</Option>
+          </OptionWrapper>
+        </MidWrapper>
+      </MidContainer>
+    </>
   );
 };
 

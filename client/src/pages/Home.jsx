@@ -17,7 +17,6 @@ const Home = () => {
   return (
     <div>
       <TopNav />
-      {/* <Navbar /> */}
       <MidNav />
       <Banner />
       <NewBusinessIcon />

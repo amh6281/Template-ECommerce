@@ -4,12 +4,12 @@ import styled from "styled-components";
 import Product from "./Product";
 
 const Container = styled.div`
-  padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  margin: -15px 150px 0px 150px;
-  align-items: center;
   justify-content: center;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
 `;
 
 const Products = ({ cat, filters, sort }) => {
