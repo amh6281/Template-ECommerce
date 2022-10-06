@@ -8,6 +8,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import CatNav from "../components/CatNav";
+import ShopsNav from "../components/ShopsNav";
 
 const Container = styled.div`
   display: flex;
@@ -76,8 +77,8 @@ const ShopList = () => {
     <>
       <TopNav />
       <MidNav />
-      <CatNav cat={(cat && cats[cat]) || "전체카테고리"} />
       <Banner />
+      <ShopsNav />
       <ShopNav>
         <ShopCount type="number">{shops.length}</ShopCount>
         <ShopCount>개 쇼핑몰</ShopCount>

@@ -1,3 +1,87 @@
+//ShopNav에서 사용
+export const shopCat = [
+  {
+    id: 1,
+    title: "남성패션",
+    img: "https://post-phinf.pstatic.net/MjAyMDA1MDdfMzgg/MDAxNTg4ODM0MzQyMzQ4.FnYLTAHUGkpLRO6qnLopHCn_aYCxALWwWNxsuUHur1gg.79FeKBK5ZQnxYD1rS-ckkap6lmpSv4okxqo5m1MpP3Ig.JPEG/14.jpg?type=w1200",
+  },
+  {
+    id: 2,
+    title: "여성패션",
+    img: "https://i.pinimg.com/originals/a5/29/f3/a529f3031ebdcba1e145fc5a44596bf6.jpg",
+  },
+  {
+    id: 3,
+    title: "가구/인테리어",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJO-xtPE4D_7-A9QM3T37MZGzzB5N0ziO8Bs5QSodcPFHYOaGN-sW9_5gYE6CYJGNCk&usqp=CAU",
+  },
+  {
+    id: 4,
+    title: "화장품/미용",
+    img: "https://img.danawa.com/prod_img/500000/505/935/img/1935505_1.jpg?shrink=330:330&_v=20200716075907",
+  },
+  {
+    id: 5,
+    title: "식품",
+    img: "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201502/04/htm_20150204185442c010c011.jpg",
+  },
+  {
+    id: 6,
+    title: "출산/유아동",
+    img: "https://malanghoney.com/web/product/big/202201/d3d4d83dc5753cb3b2ab3bef8628a531.jpg",
+  },
+  {
+    id: 7,
+    title: "반려동물",
+    img: "https://blog.kakaocdn.net/dn/bTEhUV/btqECug9iOs/mxgZUk4MLJVCK3xtcNe6NK/img.jpg",
+  },
+  {
+    id: 8,
+    title: "생활/주방",
+    img: "http://img2.tmon.kr/cdn4/deals/2022/08/03/12649559898/front_58577_mavio.jpg",
+  },
+  {
+    id: 9,
+    title: "가전",
+    img: "https://image.newdaily.co.kr/site/data/img/2022/03/25/2022032500097_0.jpg",
+  },
+  {
+    id: 10,
+    title: "디지털",
+    img: "https://upload.wikimedia.org/wikipedia/ko/a/a6/Ql17.jpg",
+  },
+  {
+    id: 11,
+    title: "컴퓨터",
+    img: "https://blog.kakaocdn.net/dn/b3PEa8/btqY8GvYCdk/67GrB8htKKvSHDdCSPPNkK/img.jpg",
+  },
+  {
+    id: 12,
+    title: "스포츠/레저",
+    img: "https://cdn.mkhealth.co.kr/news/photo/202110/55353_57760_339.jpg",
+  },
+  {
+    id: 13,
+    title: "건강/의료",
+    img: "https://www.kuksiwon.or.kr/images/sub/img_job20_m.jpg",
+  },
+  {
+    id: 14,
+    title: "자동차/공구",
+    img: "https://dimg.donga.com/wps/NEWS/IMAGE/2021/01/02/104738338.3.jpg",
+  },
+  {
+    id: 15,
+    title: "취미/문구",
+    img: "https://cgeimage.commutil.kr/phpwas/restmb_allidxmake.php?idx=3&simg=20201217191243042375796a9480c11847181129.jpg",
+  },
+  {
+    id: 16,
+    title: "도서",
+    img: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/54Hg/image/-ImQk3wT-c1mulOvK7zBJd2vDWE.jpg",
+  },
+];
+
 // Main Home에서 사용되는 쇼핑 제안
 export const suggestionProducts = {
   options: [
