@@ -6,6 +6,7 @@ import { register } from "../redux/aipCalls";
 import HttpsOutlinedIcon from "@mui/icons-material/HttpsOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 
 const TopContainer = styled.div`
   padding: 0px 0px 48px;
@@ -215,7 +216,7 @@ const Register = () => {
                     />
                   </Inputs>
                   <Inputs>
-                    <EmailOutlinedIcon />
+                    <StorefrontOutlinedIcon />
                     <Input
                       type="text"
                       placeholder="이메일"

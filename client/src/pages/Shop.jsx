@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import Announcement from "../components/Announcement";
-import Navbar from "../components/Navbar";
 import Tmp1Slider from "../components/Tmp1/Tmp1Slider";
 import SliderCategories from "../components/Tmp1/SliderCategories";
 import Tmp1Products from "../components/Tmp1/Tmp1Products";
