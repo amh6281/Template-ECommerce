@@ -6,6 +6,7 @@ import TopNav from "../components/TopNav";
 import Menu from "../components/Menu";
 import { publicRequest } from "../requestMethods";
 import { LocalShippingOutlined } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -25,6 +26,10 @@ const Wrapper = styled.div`
   margin: 0 auto;
   justify-content: space-between;
   border-top: 1px solid #ececec;
+
+  &:hover {
+    background-color: #fafcff;
+  }
 `;
 
 const InfoLeft = styled.div`
@@ -55,6 +60,11 @@ const Image = styled.img`
   height: 140px;
   object-fit: cover;
   border: 1px solid #ececec;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid lightblue;
+  }
 `;
 
 const Info = styled.div`
@@ -67,6 +77,7 @@ const Title = styled.h4`
   color: #000000;
   font-size: 12px;
   margin: 0px 0px 5px;
+  cursor: pointer;
 `;
 
 const PriceWrapper = styled.div`
@@ -118,6 +129,7 @@ const ShopInfo = styled.div`
 const Shopname = styled.h4`
   color: #222222;
   font-size: 12px;
+  cursor: pointer;
 `;
 
 const ShopBtn = styled.h4`
@@ -127,13 +139,13 @@ const ShopBtn = styled.h4`
   padding: 0px 5px 0px 4px;
   background-color: #ffffff;
   border: 1px solid #dfdfdf;
+  cursor: pointer;
 `;
 
 const AllProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
-
-  var myFish = ["angel", "clown", "mandarin", "surgeon"];
-  console.log(myFish.splice(1, "a"));
+  const [shops, setShops] = useState([]);
+  const [category, setCategory] = useState(0);
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -146,7 +158,19 @@ const AllProducts = () => {
     };
     getAllProducts();
   }, []);
-  console.log(allProducts);
+
+  useEffect(() => {
+    const getShops = async () => {
+      try {
+        const res = await publicRequest.get("/shops");
+        setShops(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getShops();
+  }, []);
+  console.log(category);
   return (
     <>
       <TopNav />
@@ -154,17 +178,27 @@ const AllProducts = () => {
       {/* catNav */}
       <Banner />
       <Container>
-        <Menu />
+        <Menu category={(e) => setCategory(e)} />
         <ProductsWrapper>
           {allProducts.map((item) => (
             <Wrapper>
               <InfoLeft>
                 <Left>
                   <ImgWrapper>
-                    <Image src={item.img} />
+                    <Link
+                      to={`/product/${item._id}`}
+                      style={{ color: "inherit" }}
+                    >
+                      <Image src={item.img} />
+                    </Link>
                   </ImgWrapper>
                   <Info>
-                    <Title>{item.title}</Title>
+                    <Link
+                      to={`/product/${item._id}`}
+                      style={{ color: "inherit" }}
+                    >
+                      <Title>{item.title}</Title>
+                    </Link>
                     <PriceWrapper>
                       <Price>
                         {item.price
@@ -192,10 +226,12 @@ const AllProducts = () => {
                 </Left>
               </InfoLeft>
               <InfoRight>
-                <ShopInfo>
-                  <Shopname>{item.shopname}</Shopname>
-                  <ShopBtn>정보</ShopBtn>
-                </ShopInfo>
+                <Link to={`/shop/${item.shopId}`}>
+                  <ShopInfo>
+                    <Shopname>{item.shopname}</Shopname>
+                    <ShopBtn>정보</ShopBtn>
+                  </ShopInfo>
+                </Link>
               </InfoRight>
             </Wrapper>
           ))}

@@ -20,7 +20,7 @@ const Shop = () => {
   const dispatch = useDispatch();
 
   const path = useLocation().pathname.split("/")[2];
-
+  console.log(path === shop.currentShop.shopname);
   useEffect(() => {
     const fetchData = async () => {
       try {

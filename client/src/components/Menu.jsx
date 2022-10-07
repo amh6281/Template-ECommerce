@@ -49,112 +49,78 @@ const Item = styled.div`
   }
 `;
 
-const Menu = () => {
+const Menu = ({ category }) => {
   return (
     <Container>
       <Wrapper>
-        <Link to="/shops" style={{ color: "inherit" }}>
-          <Item>
-            <HomeIcon />
-            전체카테고리
-          </Item>
-        </Link>
-        <Link to={`/shops/${1}`} style={{ color: "inherit" }}>
-          <Item>
-            <Man2OutlinedIcon />
-            남성패션
-          </Item>
-        </Link>
-        <Link to={`/shops/${2}`} style={{ color: "inherit" }}>
-          <Item>
-            <Woman2OutlinedIcon />
-            여성패션
-          </Item>
-        </Link>
-        <Link to={`/shops/${3}`} style={{ color: "inherit" }}>
-          <Item>
-            <BedOutlinedIcon />
-            가구/인테리어
-          </Item>
-        </Link>
-        <Link to={`/shops/${4}`} style={{ color: "inherit" }}>
-          <Item>
-            <ContentCutOutlinedIcon />
-            화장품/미용
-          </Item>
-        </Link>
-        <Link to={`/shops/${5}`} style={{ color: "inherit" }}>
-          <Item>
-            <RestaurantMenuOutlinedIcon />
-            식품
-          </Item>
-        </Link>
-        <Link to={`/shops/${6}`} style={{ color: "inherit" }}>
-          <Item>
-            <ChildFriendlyOutlinedIcon />
-            출산/유아동
-          </Item>
-        </Link>
-        <Link to={`/shops/${7}`} style={{ color: "inherit" }}>
-          <Item>
-            <PetsOutlinedIcon />
-            반려동물용품
-          </Item>
-        </Link>
-        <Link to={`/shops/${8}`} style={{ color: "inherit" }}>
-          <Item>
-            <BlenderOutlinedIcon />
-            생활/주방용품
-          </Item>
-        </Link>
-        <Link to={`/shops/${9}`} style={{ color: "inherit" }}>
-          <Item>
-            <KitchenOutlinedIcon />
-            가전
-          </Item>
-        </Link>
-        <Link to={`/shops/${10}`} style={{ color: "inherit" }}>
-          <Item>
-            <CameraAltOutlinedIcon />
-            디지털
-          </Item>
-        </Link>
-        <Link to={`/shops/${11}`} style={{ color: "inherit" }}>
-          <Item>
-            <ComputerOutlinedIcon />
-            컴퓨터
-          </Item>
-        </Link>
-        <Link to={`/shops/${12}`} style={{ color: "inherit" }}>
-          <Item>
-            <PedalBikeOutlinedIcon />
-            스포츠/레저
-          </Item>
-        </Link>
-        <Link to={`/shops/${13}`} style={{ color: "inherit" }}>
-          <Item>
-            <MedicalServicesOutlinedIcon />
-            건강/의료용품
-          </Item>
-        </Link>
-        <Link to={`/shops/${14}`} style={{ color: "inherit" }}>
-          <Item>
-            <DirectionsCarFilledOutlinedIcon />
-            자동차/공구
-          </Item>
-        </Link>
-        <Link to={`/shops/${15}`} style={{ color: "inherit" }}>
-          <Item>
-            <SportsEsportsOutlinedIcon />
-            취미/문구/악세
-          </Item>
-        </Link>
-        <Link to={`/shops/${16}`} style={{ color: "inherit" }}>
-          <Item>
-            <AutoStoriesOutlinedIcon />
-            도서
-          </Item>
-        </Link>
+        <Item onClick={() => category(0)}>
+          <HomeIcon />
+          전체카테고리
+        </Item>
+        <Item onClick={() => category(1)}>
+          <Man2OutlinedIcon />
+          남성패션
+        </Item>
+        <Item onClick={() => category(2)}>
+          <Woman2OutlinedIcon />
+          여성패션
+        </Item>
+        <Item onClick={() => category(3)}>
+          <BedOutlinedIcon />
+          가구/인테리어
+        </Item>
+        <Item onClick={() => category(4)}>
+          <ContentCutOutlinedIcon />
+          화장품/미용
+        </Item>
+        <Item onClick={() => category(5)}>
+          <RestaurantMenuOutlinedIcon />
+          식품
+        </Item>
+        <Item onClick={() => category(6)}>
+          <ChildFriendlyOutlinedIcon />
+          출산/유아동
+        </Item>
+        <Item onClick={() => category(7)}>
+          <PetsOutlinedIcon />
+          반려동물용품
+        </Item>
+        <Item onClick={() => category(8)}>
+          <BlenderOutlinedIcon />
+          생활/주방용품
+        </Item>
+        <Item onClick={() => category(9)}>
+          <KitchenOutlinedIcon />
+          가전
+        </Item>
+        <Item onClick={() => category(10)}>
+          <CameraAltOutlinedIcon />
+          디지털
+        </Item>
+        <Item onClick={() => category(11)}>
+          <ComputerOutlinedIcon />
+          컴퓨터
+        </Item>
+        <Item onClick={() => category(12)}>
+          <PedalBikeOutlinedIcon />
+          스포츠/레저
+        </Item>
+        <Item onClick={() => category(13)}>
+          <MedicalServicesOutlinedIcon />
+          건강/의료용품
+        </Item>
+        <Item onClick={() => category(14)}>
+          <DirectionsCarFilledOutlinedIcon />
+          자동차/공구
+        </Item>
+        <Item onClick={() => category(15)}>
+          <SportsEsportsOutlinedIcon />
+          취미/문구/악세
+        </Item>
+        <Item onClick={() => category(16)}>
+          <AutoStoriesOutlinedIcon />
+          도서
+        </Item>
       </Wrapper>
     </Container>
   );
