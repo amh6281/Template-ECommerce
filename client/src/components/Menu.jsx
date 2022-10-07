@@ -26,12 +26,11 @@ const Container = styled.div`
   color: white;
   font-size: 14px;
   z-index: 999;
+  margin-left: 50px;
 `;
 
 const Wrapper = styled.div`
   padding: 18px 26px;
-  position: relative;
-  left: 1380px;
   background-color: black;
   opacity: 0.7;
 `;

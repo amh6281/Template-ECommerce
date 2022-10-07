@@ -81,6 +81,7 @@ const MidNav = () => {
           path !== "shops" &&
           path !== "cart" &&
           path !== "order" &&
+          path !== "allproducts" &&
           main !== "/" ? (
             <Link
               to={`/shop/${shop.currentShop._id}`}
@@ -106,7 +107,9 @@ const MidNav = () => {
             <Menu>몰 전체보기</Menu>
           </Link>
           <Menu type="icon">|</Menu>
-          <Menu>상품 바로가기</Menu>
+          <Link to="/allproducts" style={{ color: "inherit" }}>
+            <Menu>상품 바로가기</Menu>
+          </Link>
         </Right>
       </Wrapper>
     </Container>
