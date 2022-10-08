@@ -47,14 +47,13 @@ const ShopList = () => {
     };
     fetchShops();
   }, []);
-  console.log(shopCat);
 
   return (
     <>
       <TopNav />
       <MidNav />
       <Banner />
-      <ShopsNav shopCat={(e) => setShopCat(e)} />
+      <ShopsNav color={shopCat} shopCat={(e) => setShopCat(e)} />
       <ShopNav>
         <ShopCount type="number">{shops.length}</ShopCount>
         <ShopCount>개 쇼핑몰</ShopCount>

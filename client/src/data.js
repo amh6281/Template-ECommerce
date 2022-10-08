@@ -1,3 +1,21 @@
+import HomeIcon from "@mui/icons-material/Home";
+import Man2OutlinedIcon from "@mui/icons-material/Man2Outlined";
+import Woman2OutlinedIcon from "@mui/icons-material/Woman2Outlined";
+import BedOutlinedIcon from "@mui/icons-material/BedOutlined";
+import ContentCutOutlinedIcon from "@mui/icons-material/ContentCutOutlined";
+import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
+import ChildFriendlyOutlinedIcon from "@mui/icons-material/ChildFriendlyOutlined";
+import PetsOutlinedIcon from "@mui/icons-material/PetsOutlined";
+import BlenderOutlinedIcon from "@mui/icons-material/BlenderOutlined";
+import KitchenOutlinedIcon from "@mui/icons-material/KitchenOutlined";
+import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
+import ComputerOutlinedIcon from "@mui/icons-material/ComputerOutlined";
+import PedalBikeOutlinedIcon from "@mui/icons-material/PedalBikeOutlined";
+import MedicalServicesOutlinedIcon from "@mui/icons-material/MedicalServicesOutlined";
+import DirectionsCarFilledOutlinedIcon from "@mui/icons-material/DirectionsCarFilledOutlined";
+import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
+import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
+
 //ShopNav에서 사용
 export const shopCats = [
   {
@@ -84,6 +102,94 @@ export const shopCats = [
     id: 16,
     title: "도서",
     img: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/54Hg/image/-ImQk3wT-c1mulOvK7zBJd2vDWE.jpg",
+  },
+];
+
+export const menu = [
+  {
+    id: 0,
+    title: "전체카테고리",
+    icon: <HomeIcon />,
+  },
+  {
+    id: 1,
+    title: "남성패션",
+    icon: <Man2OutlinedIcon />,
+  },
+  {
+    id: 2,
+    title: "여성패션",
+    icon: <Woman2OutlinedIcon />,
+  },
+  {
+    id: 3,
+    title: "가구/인테리어",
+    icon: <BedOutlinedIcon />,
+  },
+  {
+    id: 4,
+    title: "화장품/미용",
+    icon: <ContentCutOutlinedIcon />,
+  },
+  {
+    id: 5,
+    title: "식품",
+    icon: <RestaurantMenuOutlinedIcon />,
+  },
+  {
+    id: 6,
+    title: "출산/유아동",
+    icon: <ChildFriendlyOutlinedIcon />,
+  },
+  {
+    id: 7,
+    title: "반려동물",
+    icon: <PetsOutlinedIcon />,
+  },
+  {
+    id: 8,
+    title: "생활/주방",
+    icon: <BlenderOutlinedIcon />,
+  },
+  {
+    id: 9,
+    title: "가전",
+    icon: <KitchenOutlinedIcon />,
+  },
+  {
+    id: 10,
+    title: "디지털",
+    icon: <CameraAltOutlinedIcon />,
+  },
+  {
+    id: 11,
+    title: "컴퓨터",
+    icon: <ComputerOutlinedIcon />,
+  },
+  {
+    id: 12,
+    title: "스포츠/레저",
+    icon: <PedalBikeOutlinedIcon />,
+  },
+  {
+    id: 13,
+    title: "건강/의료",
+    icon: <MedicalServicesOutlinedIcon />,
+  },
+  {
+    id: 14,
+    title: "자동차/공구",
+    icon: <DirectionsCarFilledOutlinedIcon />,
+  },
+  {
+    id: 15,
+    title: "취미/문구",
+    icon: <SportsEsportsOutlinedIcon />,
+  },
+  {
+    id: 16,
+    title: "도서",
+    icon: <AutoStoriesOutlinedIcon />,
   },
 ];
 
