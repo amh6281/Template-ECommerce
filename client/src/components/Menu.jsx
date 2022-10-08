@@ -17,7 +17,6 @@ import MedicalServicesOutlinedIcon from "@mui/icons-material/MedicalServicesOutl
 import DirectionsCarFilledOutlinedIcon from "@mui/icons-material/DirectionsCarFilledOutlined";
 import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
 import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
-import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 11%;

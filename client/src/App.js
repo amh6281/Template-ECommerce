@@ -29,7 +29,6 @@ function App() {
           element={user ? <Navigate to="/" /> : <Register />}
         />
         <Route path="/shops" element={<ShopList />} />
-        <Route path="/shops/:category" element={<ShopList />} />
         <Route path="/shop">
           <Route path=":id" element={<Shop />} />
         </Route>

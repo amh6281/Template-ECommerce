@@ -1,5 +1,10 @@
 //ShopNav에서 사용
-export const shopCat = [
+export const shopCats = [
+  {
+    id: 0,
+    title: "전체",
+    img: "https://t1.daumcdn.net/cfile/tistory/99A7B7365A9F7BA61B",
+  },
   {
     id: 1,
     title: "남성패션",

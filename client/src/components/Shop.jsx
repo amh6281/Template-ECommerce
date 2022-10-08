@@ -30,6 +30,7 @@ const Logo = styled.img`
 const Info = styled.div`
   padding: 0px 0px 0px 14px;
   width: 312px;
+  height: 82px;
 `;
 
 const ShopName = styled.h4`
@@ -57,7 +58,7 @@ const ShopCat = styled.h4`
   margin: 8px 0px 0px;
 `;
 
-const Shop = ({ shop }) => {
+const Shop = ({ shops, shopCat }) => {
   const [productCount, setProductCount] = useState([]);
 
   const cats = [
@@ -105,25 +106,52 @@ const Shop = ({ shop }) => {
   const result = countByArray(count);
 
   return (
-    <div key={shop._id}>
-      <Container>
-        <Link to={`/shop/${shop._id}`} style={{ color: "inherit" }}>
-          <Wrapper>
-            <Logo src={shop.logo} />
-            <Info>
-              <ShopName>{shop.shopname}</ShopName>
-              <ShopDesc>{shop.desc}</ShopDesc>
-              <ShopInfo>
-                <ShopCat>{cats[shop.category]}</ShopCat>
-                <ShopCat type="icon">|</ShopCat>
-                <ShopCat>
-                  상품개수 {result[shop.shopname] ? result[shop.shopname] : 0}
-                </ShopCat>
-              </ShopInfo>
-            </Info>
-          </Wrapper>
-        </Link>
-      </Container>
+    <div style={{ display: "flex" }}>
+      {shopCat !== 0
+        ? shops
+            ?.filter((shop) => shop.category === shopCat)
+            ?.map((item) => (
+              <Link to={`/shop/${item._id}`}>
+                <Container>
+                  <Wrapper>
+                    <Logo src={item.logo} />
+                    <Info>
+                      <ShopName>{item.shopname}</ShopName>
+                      <ShopDesc>{item.desc}</ShopDesc>
+                      <ShopInfo>
+                        <ShopCat>{cats[item.category]}</ShopCat>
+                        <ShopCat type="icon">|</ShopCat>
+                        <ShopCat>
+                          상품개수{" "}
+                          {result[item.shopname] ? result[item.shopname] : 0}
+                        </ShopCat>
+                      </ShopInfo>
+                    </Info>
+                  </Wrapper>
+                </Container>
+              </Link>
+            ))
+        : shops?.map((item) => (
+            <Link to={`/shop/${item._id}`}>
+              <Container>
+                <Wrapper>
+                  <Logo src={item.logo} />
+                  <Info>
+                    <ShopName>{item.shopname}</ShopName>
+                    <ShopDesc>{item.desc}</ShopDesc>
+                    <ShopInfo>
+                      <ShopCat>{cats[item.category]}</ShopCat>
+                      <ShopCat type="icon">|</ShopCat>
+                      <ShopCat>
+                        상품개수{" "}
+                        {result[item.shopname] ? result[item.shopname] : 0}
+                      </ShopCat>
+                    </ShopInfo>
+                  </Info>
+                </Wrapper>
+              </Container>
+            </Link>
+          ))}
     </div>
   );
 };
