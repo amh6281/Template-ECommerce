@@ -30,7 +30,7 @@ const Home = () => {
 
   const customData = orders.map((item) => item.custom_data);
   const filterShopId = customData.flat().filter((order) => {
-    return order.shopId === products[0].shopId;
+    return order?.shopId === products[0]?.shopId;
   });
 
   const MONTHS = useMemo(

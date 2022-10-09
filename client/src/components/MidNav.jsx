@@ -1,137 +1,118 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import { Badge } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import Build from "./Build.jsx";
-import Menu from "./Menu";
+import { Search } from "@material-ui/icons";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
-  height: 106px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
 `;
 
 const Wrapper = styled.div`
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
-  padding: 28px 0px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 `;
 
 const Left = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 `;
 
-const Center = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const Logo = styled.img`
+  height: 30px;
+  width: 150px;
+  margin: 0px 20px 0px 0px;
 `;
 
-const SearchContainer = styled.div`
-  width: 25%;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  margin: auto;
+const Shopname = styled.h4`
+  height: 30px;
+  width: 150px;
+  margin: 0px 20px 0px 0px;
+  font-size: 22px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
-  border-bottom: 2.5px solid black;
-  border-radius: 3px;
 `;
 
 const Input = styled.input`
-  width: 100%;
-  height: 30px;
-  border: none;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+  width: 300px;
+  height: 35px;
 `;
 
-const Image = styled.img`
-  width: 50%;
+const Icon = styled.div`
+  color: white;
+  padding: 18px 10px;
+  background-color: gray;
+  height: 35px;
+  display: flex;
+  align-items: center;
 `;
 
 const Right = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+  gap: 6px;
 `;
 
-const MenuItem = styled.div`
-  font-size: 14px;
-  cursor: pointer;
-  left: 50px;
-`;
-
-const Logo = styled.h1`
-  font-weight: 600;
+const Menu = styled.h4`
+  font-size: 13px;
+  font-weight: bold;
+  color: ${(props) => (props.type === "icon" ? "#ededed" : "#343434")};
 `;
 
 const MidNav = () => {
-  const [open, setOpen] = useState(false);
-  const [catOpen, setCatOpen] = useState(false);
-
-  const quantity = useSelector((state) => state.cart.quantity);
-  const { currentUser } = useSelector((state) => state.user);
   const shop = useSelector((state) => state.shop);
-
   const path = useLocation().pathname.split("/")[1];
   const main = useLocation().pathname;
 
   return (
-    <>
-      <Container>
-        <Wrapper>
-          <Left>
-            {shop.currentShop &&
-            path !== "shops" &&
-            path !== "cart" &&
-            path !== "order" &&
-            main !== "/" ? (
-              <Logo>{shop.currentShop?.shopname}</Logo>
-            ) : (
-              <Image src="https://user-images.githubusercontent.com/83646986/190376063-17549320-72a4-472b-a0d9-516073fcfca3.png" />
-            )}
-          </Left>
-          <Center>
-            <SearchContainer>
-              <Input />
-              <Search style={{ fontSize: 22 }} />
-            </SearchContainer>
-          </Center>
-          <Right>
-            <Link to={`/cart/${currentUser?._id}`} style={{ color: "inherit" }}>
-              <MenuItem>
-                {currentUser ? (
-                  <>
-                    <Badge badgeContent={quantity} color="primary">
-                      <ShoppingCartOutlined style={{ fontSize: 50 }} />
-                    </Badge>
-                  </>
-                ) : (
-                  <Badge badgeContent={0} color="primary">
-                    <ShoppingCartOutlined />
-                  </Badge>
-                )}
-              </MenuItem>
+    <Container>
+      <Wrapper>
+        <Left>
+          {shop.currentShop &&
+          path !== "shops" &&
+          path !== "cart" &&
+          path !== "order" &&
+          path !== "allproducts" &&
+          main !== "/" ? (
+            <Link
+              to={`/shop/${shop.currentShop._id}`}
+              style={{ color: "inherit" }}
+            >
+              <Shopname>{shop.currentShop?.shopname}</Shopname>
             </Link>
-            <Image
-              src="https://user-images.githubusercontent.com/83646986/190380972-555dab6d-f3b1-4d24-a386-e9dfc4bd620b.png"
-              style={{ width: "50px", height: "50px", cursor: "pointer" }}
-              onClick={(e) => setCatOpen((prev) => (prev ? false : true))}
-            />
-          </Right>
-        </Wrapper>
-      </Container>
-      {open && <Build setOpen={setOpen} />}
-      {catOpen && <Menu setOpen={setCatOpen} />}
-    </>
+          ) : (
+            <Link to="/" style={{ color: "inherit" }}>
+              <Logo
+                src="https://user-images.githubusercontent.com/83646986/194276006-b72d9b05-a894-46cc-8ef1-09a15c173667.png"
+                alt=""
+              />
+            </Link>
+          )}
+          <Input type="text" />
+          <Icon>
+            <Search />
+          </Icon>
+        </Left>
+        <Right>
+          <Link to="/shops" style={{ color: "inherit" }}>
+            <Menu>몰 전체보기</Menu>
+          </Link>
+          <Menu type="icon">|</Menu>
+          <Link to="/allproducts" style={{ color: "inherit" }}>
+            <Menu>상품 바로가기</Menu>
+          </Link>
+        </Right>
+      </Wrapper>
+    </Container>
   );
 };
 

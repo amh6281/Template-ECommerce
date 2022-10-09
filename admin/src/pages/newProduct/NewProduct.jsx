@@ -97,6 +97,7 @@ export default function NewProduct() {
             img: downloadURL,
             categories: cat,
             shopId: shop[0]?._id,
+            shopCat: shop[0]?.category,
             color: color,
             size: size,
             detailImg: detailImg,

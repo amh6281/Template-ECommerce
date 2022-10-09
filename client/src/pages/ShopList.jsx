@@ -36,57 +36,30 @@ const ShopCount = styled.span`
 
 const ShopList = () => {
   const [shops, setShops] = useState([]);
-  const location = useLocation();
-  const cat = location.pathname.split("/")[2];
+  const [shopCat, setShopCat] = useState(0);
 
   useEffect(() => {
     const fetchShops = async () => {
       try {
-        const res = await axios.get(
-          cat
-            ? `http://localhost:5000/api/shops?category=${cat}`
-            : "http://localhost:5000/api/shops"
-        );
+        const res = await axios.get("http://localhost:5000/api/shops");
         setShops(res.data);
       } catch (err) {}
     };
     fetchShops();
-  }, [cat]);
-
-  const cats = [
-    "",
-    "남성패션",
-    "여성패션",
-    "가구/인테리어",
-    "화장품/미용",
-    "식품",
-    "출산/유아동",
-    "반려동물용품",
-    "생활/주방용품",
-    "가전",
-    "디지털",
-    "컴퓨터",
-    "스포츠/레저",
-    "건강/의료용품",
-    "자동차/공구",
-    "취미/문구/악세",
-    "도서",
-  ];
+  }, []);
 
   return (
     <>
       <TopNav />
       <MidNav />
       <Banner />
-      <ShopsNav />
+      <ShopsNav color={shopCat} shopCat={(e) => setShopCat(e)} />
       <ShopNav>
         <ShopCount type="number">{shops.length}</ShopCount>
         <ShopCount>개 쇼핑몰</ShopCount>
       </ShopNav>
       <Container>
-        {shops?.map((shop) => (
-          <Shop key={shop._id} shop={shop} />
-        ))}
+        <Shop shops={shops} shopCat={shopCat} />
       </Container>
       <Footer />
     </>
