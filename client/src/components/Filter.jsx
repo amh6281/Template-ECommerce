@@ -38,6 +38,7 @@ const Item = styled.span`
   color: #202022;
   font-size: 12px;
   padding: 2px 120px 3px 11px;
+  cursor: pointer;
 `;
 
 const ColorWrapper = styled.div`
@@ -58,34 +59,27 @@ const Color = styled.div`
   height: 23px;
   background-color: ${(props) => props.color};
   border-radius: 50%;
+  cursor: pointer;
 `;
 
-const Filter = () => {
+const Filter = ({ filterColor, filterCat, filter }) => {
   return (
     <Container>
       <Wrapper>
         <CatWrapper>
           <Category>카테고리</Category>
           <ItemWrapper>
-            <Item>가죽소파</Item>
-            <Item>가죽소파</Item>
-            <Item>가죽소파</Item>
-            <Item>가죽소파</Item>
-            <Item>가죽소파</Item>
-            <Item>가죽소파</Item>
-            <Item>가죽소파</Item>
-            <Item>가죽소파</Item>
+            {filterCat?.map((item) => (
+              <Item onClick={() => filter(item)}>{item}</Item>
+            ))}
           </ItemWrapper>
         </CatWrapper>
         <CatWrapper>
           <Category>색상</Category>
           <ColorWrapper>
-            <Color color="green" />
-            <Color color="red" />
-            <Color color="black" />
-            <Color color="yellow" />
-            <Color color="gray" />
-            <Color color="blue" />
+            {filterColor?.map((item) => (
+              <Color color={item} onClick={() => filter(item)} />
+            ))}
           </ColorWrapper>
         </CatWrapper>
       </Wrapper>

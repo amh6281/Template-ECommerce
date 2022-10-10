@@ -17,6 +17,17 @@ const Container = styled.div`
 const AllProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [category, setCategory] = useState(0);
+  const [filter, setFilter] = useState("");
+
+  //color 다중배열 합치기
+  const colors = allProducts.map((item) => item.color).flat();
+  const colorsArr = [...new Set(colors.map(JSON.stringify))].map(JSON.parse);
+
+  //product Categories 합치기
+  const categories = allProducts.map((item) => item.categories).flat();
+  const catArr = [...new Set(categories.map(JSON.stringify))].map(JSON.parse);
+  console.log(colorsArr);
+  console.log(catArr);
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -29,7 +40,7 @@ const AllProducts = () => {
     };
     getAllProducts();
   }, []);
-
+  console.log(filter);
   return (
     <>
       <TopNav />
@@ -38,7 +49,11 @@ const AllProducts = () => {
       <Banner />
       <Container>
         <Menu color={category} category={(e) => setCategory(e)} />
-        <Filter />
+        <Filter
+          filterColor={colorsArr}
+          filterCat={catArr}
+          filter={(e) => setFilter(e)}
+        />
         <ProductList products={allProducts} category={category} />
       </Container>
     </>
