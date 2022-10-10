@@ -8,6 +8,7 @@ import { publicRequest } from "../requestMethods";
 import { LocalShippingOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import ProductList from "../components/ProductList";
+import Filter from "../components/Filter";
 
 const Container = styled.div`
   margin-top: 10px;
@@ -37,6 +38,7 @@ const AllProducts = () => {
       <Banner />
       <Container>
         <Menu color={category} category={(e) => setCategory(e)} />
+        <Filter />
         <ProductList products={allProducts} category={category} />
       </Container>
     </>
