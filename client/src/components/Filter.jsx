@@ -62,24 +62,57 @@ const Color = styled.div`
   cursor: pointer;
 `;
 
-const Filter = ({ filterColor, filterCat, filter }) => {
+const Filter = ({ filter, category, products }) => {
+  //products의 카테고리 필터링
+  const catFilter = products.filter((product) => product.shopCat === category);
+
+  //필터링 후 color 다중배열 합치기 / 중복제거
+  const colors = catFilter.map((item) => item.color).flat();
+  const colorsArr = [...new Set(colors.map(JSON.stringify))].map(JSON.parse);
+
+  //필터링 후 Categories 다중배열 합치기 / 중복제거
+  const categories = catFilter.map((item) => item.categories).flat();
+  const categoriesArr = [...new Set(categories.map(JSON.stringify))].map(
+    JSON.parse
+  );
+
+  //필터링 없이 color 다중배열 합치기 + 중복제거
+  const colorArr = products.map((item) => item.color).flat();
+  const deduplicationColor = [...new Set(colorArr.map(JSON.stringify))].map(
+    JSON.parse
+  );
+
+  //필터링 없이 color 다중배열 합치기 + 중복제거
+  const catArr = products.map((item) => item.categories).flat();
+  const deduplicationCat = [...new Set(catArr.map(JSON.stringify))].map(
+    JSON.parse
+  );
+
   return (
     <Container>
       <Wrapper>
         <CatWrapper>
           <Category>카테고리</Category>
           <ItemWrapper>
-            {filterCat?.map((item) => (
-              <Item onClick={() => filter(item)}>{item}</Item>
-            ))}
+            {category !== 0
+              ? categoriesArr?.map((item) => (
+                  <Item onClick={() => filter(item)}>{item}</Item>
+                ))
+              : deduplicationCat.map((item) => (
+                  <Item onClick={() => filter(item)}>{item}</Item>
+                ))}
           </ItemWrapper>
         </CatWrapper>
         <CatWrapper>
           <Category>색상</Category>
           <ColorWrapper>
-            {filterColor?.map((item) => (
-              <Color color={item} onClick={() => filter(item)} />
-            ))}
+            {category !== 0
+              ? colorsArr?.map((item) => (
+                  <Color color={item} onClick={() => filter(item)} />
+                ))
+              : deduplicationColor.map((item) => (
+                  <Color color={item} onClick={() => filter(item)} />
+                ))}
           </ColorWrapper>
         </CatWrapper>
       </Wrapper>
