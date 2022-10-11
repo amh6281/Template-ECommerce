@@ -44,7 +44,11 @@ const AllProducts = () => {
           category={category}
           products={allProducts}
         />
-        <ProductList products={allProducts} category={category} />
+        <ProductList
+          products={allProducts}
+          category={category}
+          filter={filter}
+        />
       </Container>
     </>
   );

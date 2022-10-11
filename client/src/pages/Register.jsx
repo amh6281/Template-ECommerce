@@ -175,7 +175,7 @@ const Register = () => {
                     />
                   </Inputs>
                   <Inputs>
-                    <EmailOutlinedIcon />
+                    <StorefrontOutlinedIcon />
                     <Input
                       type="text"
                       placeholder="사업자번호"
@@ -216,7 +216,7 @@ const Register = () => {
                     />
                   </Inputs>
                   <Inputs>
-                    <StorefrontOutlinedIcon />
+                    <EmailOutlinedIcon />
                     <Input
                       type="text"
                       placeholder="이메일"
