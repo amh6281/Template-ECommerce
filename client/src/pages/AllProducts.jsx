@@ -8,6 +8,7 @@ import { publicRequest } from "../requestMethods";
 import { LocalShippingOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import ProductList from "../components/ProductList";
+import Filter from "../components/Filter";
 
 const Container = styled.div`
   margin-top: 10px;
@@ -16,6 +17,7 @@ const Container = styled.div`
 const AllProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [category, setCategory] = useState(0);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -37,6 +39,11 @@ const AllProducts = () => {
       <Banner />
       <Container>
         <Menu color={category} category={(e) => setCategory(e)} />
+        <Filter
+          filter={(e) => setFilter(e)}
+          category={category}
+          products={allProducts}
+        />
         <ProductList products={allProducts} category={category} />
       </Container>
     </>
