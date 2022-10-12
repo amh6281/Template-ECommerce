@@ -82,6 +82,7 @@ const MidNav = () => {
           path !== "cart" &&
           path !== "order" &&
           path !== "allproducts" &&
+          path !== "success" &&
           main !== "/" ? (
             <Link
               to={`/shop/${shop.currentShop._id}`}

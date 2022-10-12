@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import Shop from "./pages/Shop";
 import Order from "./pages/Order";
 import AllProducts from "./pages/AllProducts";
+import Success from "./pages/Success";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -33,6 +34,7 @@ function App() {
           <Route path=":id" element={<Shop />} />
         </Route>
         <Route path="/order" element={<Order />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </BrowserRouter>
   );

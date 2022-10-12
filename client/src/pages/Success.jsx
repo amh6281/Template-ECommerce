@@ -1,5 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { useLocation } from "react-router";
+import { LocalShippingOutlined } from "@material-ui/icons";
+import TopNav from "../components/TopNav";
+import MidNav from "../components/MidNav";
 
 const Container = styled.div`
   width: 100%;
@@ -96,48 +100,162 @@ const DetailInfo = styled.h4`
   font-weight: 400;
 `;
 
+const ProductInfo = styled.div`
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #f4f4f4;
+`;
+
+const Detail = styled.h3`
+  font-size: 12px;
+  color: #000000;
+  padding: 24px 0px 20px;
+  display: flex;
+  flex: 3;
+  align-items: center;
+  font-weight: 500;
+`;
+
+const Image = styled.img`
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  object-fit: cover;
+`;
+
+const ProductWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 50px;
+`;
+
+const Seller = styled.h3`
+  font-size: 12px;
+  color: #7d7d7d;
+  font-weight: 500;
+  padding: 24px 0px 20px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+`;
+
+const Shopping = styled.h3`
+  font-size: 12px;
+  color: #7d7d7d;
+  font-weight: 500;
+  padding: 24px 0px 20px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+`;
+
+const Sale = styled.h3`
+  font-size: 12px;
+  color: #7d7d7d;
+  font-weight: 500;
+  padding: 24px 0px 20px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+`;
+
+const Price = styled.h3`
+  font-size: 14px;
+  color: black;
+  font-weight: 600;
+  padding: 24px 0px 20px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+`;
+
+const ProductName = styled.h3`
+  font-size: 13px;
+  display: inline-block;
+  width: 260px;
+  white-space: normal;
+`;
+
 const Success = () => {
+  const location = useLocation();
   return (
-    <Container>
-      <Wrapper>
-        <PayNav>
-          <Pay>
-            <PayTitle>주문/결제</PayTitle>
-          </Pay>
-          <Pay>
-            <PayItem>장바구니</PayItem>
-            <PayItem>{">"}</PayItem>
-            <PayItem>주문/결제</PayItem>
-            <PayItem>{">"}</PayItem>
-            <PayItem type="current">완료</PayItem>
-          </Pay>
-        </PayNav>
-        <OrderNav>
-          <TopContainer>
-            <TopWrapper>
-              <Title>주문이 정상적으로 완료되었습니다.</Title>
-            </TopWrapper>
-          </TopContainer>
-          <Hr />
-          <BottomContainer>
-            <Info>
-              <OrderNumber style={{ flex: 1 }}>주문번호</OrderNumber>
-              <OrderNumber type="number" style={{ flex: 4 }}>
-                3213213123123
-              </OrderNumber>
-            </Info>
-            <Info type="delivery">
-              <Delivery style={{ flex: 1 }}>배송지정보</Delivery>
-              <DeliveryInfo style={{ flex: 4 }}>
-                <DetailInfo>홍길동</DetailInfo>
-                <DetailInfo>010-1234-1234</DetailInfo>
-                <DetailInfo>(31172) 충청남도 천안시 서북구 </DetailInfo>
-              </DeliveryInfo>
-            </Info>
-          </BottomContainer>
-        </OrderNav>
-      </Wrapper>
-    </Container>
+    <>
+      <TopNav />
+      <MidNav />
+      <Container>
+        <Wrapper>
+          <PayNav>
+            <Pay>
+              <PayTitle>주문/결제</PayTitle>
+            </Pay>
+            <Pay>
+              <PayItem>장바구니</PayItem>
+              <PayItem>{">"}</PayItem>
+              <PayItem>주문/결제</PayItem>
+              <PayItem>{">"}</PayItem>
+              <PayItem type="current">완료</PayItem>
+            </Pay>
+          </PayNav>
+          <OrderNav>
+            <TopContainer>
+              <TopWrapper>
+                <Title>주문이 정상적으로 완료되었습니다.</Title>
+              </TopWrapper>
+            </TopContainer>
+            <Hr />
+            <BottomContainer>
+              <Info>
+                <OrderNumber style={{ flex: 1 }}>주문번호</OrderNumber>
+                <OrderNumber type="number" style={{ flex: 4 }}>
+                  {location.state.merchant_uid}
+                </OrderNumber>
+              </Info>
+              <Info type="delivery">
+                <Delivery style={{ flex: 1 }}>배송지정보</Delivery>
+                <DeliveryInfo style={{ flex: 4 }}>
+                  <DetailInfo>{location.state.buyer_name}</DetailInfo>
+                  <DetailInfo>{location.state.buyer_tel}</DetailInfo>
+                  <DetailInfo>
+                    ({location.state.buyer_postcode}){" "}
+                    {location.state.buyer_addr}
+                  </DetailInfo>
+                </DeliveryInfo>
+              </Info>
+              {location.state.custom_data.map((item) => (
+                <>
+                  <ProductInfo>
+                    <Detail>
+                      <Image src={item.img} />
+                      <ProductWrapper>
+                        <ProductName>{item.title}</ProductName>
+                      </ProductWrapper>
+                    </Detail>
+                    <Seller>{item.shopname}</Seller>
+                    <Shopping>
+                      <LocalShippingOutlined
+                        style={{ opacity: "0.5", fontSize: "18px" }}
+                      />
+                      무료
+                    </Shopping>
+                    <Sale>(-) 3,500원</Sale>
+                    <Price>
+                      {item.price
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                      원
+                    </Price>
+                  </ProductInfo>
+                </>
+              ))}
+            </BottomContainer>
+          </OrderNav>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 
