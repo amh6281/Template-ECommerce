@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TodayDiscoverys from "../components/TodayDiscoverys";
 import Banner from "../components/Banner";
@@ -17,7 +16,6 @@ const Home = () => {
   return (
     <div>
       <TopNav />
-      {/* <Navbar /> */}
       <MidNav />
       <Banner />
       <NewBusinessIcon />

@@ -277,12 +277,12 @@ const DeliveryText = styled.h3`
 
 const SelectItem = styled.div`
   margin: 8px 119px 12px 0px;
+  width: 100%;
 `;
 
 const SelectItemWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
 `;
 
 const SelectItemDetail = styled.div`
@@ -473,14 +473,12 @@ const Product = () => {
           <Hr />
           <SelectItem>
             <SelectItemWrapper>
-              <SelectItemDetail style={{ color: "#6B90DC" }}>
+              <SelectItemDetail style={{ color: "#6B90DC", flex: 1.5 }}>
                 [오늘출발]
               </SelectItemDetail>
-              <SelectItemDetail>{product.title}</SelectItemDetail>
-              <SelectItemDetail>/</SelectItemDetail>
-              <SelectItemDetail>{size}</SelectItemDetail>
-              <SelectItemDetail>/</SelectItemDetail>
-              <SelectItemDetail>{color}</SelectItemDetail>
+              <SelectItemDetail style={{ flex: 7 }}>
+                {product.title} / {size} / {color}
+              </SelectItemDetail>
             </SelectItemWrapper>
           </SelectItem>
           <AddContainer>

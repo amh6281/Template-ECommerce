@@ -9,6 +9,8 @@ import ShopList from "./pages/ShopList";
 import { useSelector } from "react-redux";
 import Shop from "./pages/Shop";
 import Order from "./pages/Order";
+import AllProducts from "./pages/AllProducts";
+import Success from "./pages/Success";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -20,6 +22,7 @@ function App() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/allproducts" element={<AllProducts />} />
         <Route path="/cart/:id" element={<Cart />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route
@@ -27,11 +30,11 @@ function App() {
           element={user ? <Navigate to="/" /> : <Register />}
         />
         <Route path="/shops" element={<ShopList />} />
-        <Route path="/shops/:category" element={<ShopList />} />
         <Route path="/shop">
           <Route path=":id" element={<Shop />} />
         </Route>
         <Route path="/order" element={<Order />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </BrowserRouter>
   );

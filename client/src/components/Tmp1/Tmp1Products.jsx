@@ -6,8 +6,10 @@ import Tmp1Product from "./Tmp1Product";
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
 `;
 const Title = styled.h1`
   display: flex;

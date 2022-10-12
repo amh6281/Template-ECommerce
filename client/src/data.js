@@ -1,3 +1,198 @@
+import HomeIcon from "@mui/icons-material/Home";
+import Man2OutlinedIcon from "@mui/icons-material/Man2Outlined";
+import Woman2OutlinedIcon from "@mui/icons-material/Woman2Outlined";
+import BedOutlinedIcon from "@mui/icons-material/BedOutlined";
+import ContentCutOutlinedIcon from "@mui/icons-material/ContentCutOutlined";
+import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
+import ChildFriendlyOutlinedIcon from "@mui/icons-material/ChildFriendlyOutlined";
+import PetsOutlinedIcon from "@mui/icons-material/PetsOutlined";
+import BlenderOutlinedIcon from "@mui/icons-material/BlenderOutlined";
+import KitchenOutlinedIcon from "@mui/icons-material/KitchenOutlined";
+import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
+import ComputerOutlinedIcon from "@mui/icons-material/ComputerOutlined";
+import PedalBikeOutlinedIcon from "@mui/icons-material/PedalBikeOutlined";
+import MedicalServicesOutlinedIcon from "@mui/icons-material/MedicalServicesOutlined";
+import DirectionsCarFilledOutlinedIcon from "@mui/icons-material/DirectionsCarFilledOutlined";
+import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
+import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
+
+//ShopNav에서 사용
+export const shopCats = [
+  {
+    id: 0,
+    title: "전체",
+    img: "https://t1.daumcdn.net/cfile/tistory/99A7B7365A9F7BA61B",
+  },
+  {
+    id: 1,
+    title: "남성패션",
+    img: "https://post-phinf.pstatic.net/MjAyMDA1MDdfMzgg/MDAxNTg4ODM0MzQyMzQ4.FnYLTAHUGkpLRO6qnLopHCn_aYCxALWwWNxsuUHur1gg.79FeKBK5ZQnxYD1rS-ckkap6lmpSv4okxqo5m1MpP3Ig.JPEG/14.jpg?type=w1200",
+  },
+  {
+    id: 2,
+    title: "여성패션",
+    img: "https://i.pinimg.com/originals/a5/29/f3/a529f3031ebdcba1e145fc5a44596bf6.jpg",
+  },
+  {
+    id: 3,
+    title: "가구/인테리어",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJO-xtPE4D_7-A9QM3T37MZGzzB5N0ziO8Bs5QSodcPFHYOaGN-sW9_5gYE6CYJGNCk&usqp=CAU",
+  },
+  {
+    id: 4,
+    title: "화장품/미용",
+    img: "https://img.danawa.com/prod_img/500000/505/935/img/1935505_1.jpg?shrink=330:330&_v=20200716075907",
+  },
+  {
+    id: 5,
+    title: "식품",
+    img: "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201502/04/htm_20150204185442c010c011.jpg",
+  },
+  {
+    id: 6,
+    title: "출산/유아동",
+    img: "https://malanghoney.com/web/product/big/202201/d3d4d83dc5753cb3b2ab3bef8628a531.jpg",
+  },
+  {
+    id: 7,
+    title: "반려동물",
+    img: "https://blog.kakaocdn.net/dn/bTEhUV/btqECug9iOs/mxgZUk4MLJVCK3xtcNe6NK/img.jpg",
+  },
+  {
+    id: 8,
+    title: "생활/주방",
+    img: "http://img2.tmon.kr/cdn4/deals/2022/08/03/12649559898/front_58577_mavio.jpg",
+  },
+  {
+    id: 9,
+    title: "가전",
+    img: "https://image.newdaily.co.kr/site/data/img/2022/03/25/2022032500097_0.jpg",
+  },
+  {
+    id: 10,
+    title: "디지털",
+    img: "https://upload.wikimedia.org/wikipedia/ko/a/a6/Ql17.jpg",
+  },
+  {
+    id: 11,
+    title: "컴퓨터",
+    img: "https://blog.kakaocdn.net/dn/b3PEa8/btqY8GvYCdk/67GrB8htKKvSHDdCSPPNkK/img.jpg",
+  },
+  {
+    id: 12,
+    title: "스포츠/레저",
+    img: "https://cdn.mkhealth.co.kr/news/photo/202110/55353_57760_339.jpg",
+  },
+  {
+    id: 13,
+    title: "건강/의료",
+    img: "https://www.kuksiwon.or.kr/images/sub/img_job20_m.jpg",
+  },
+  {
+    id: 14,
+    title: "자동차/공구",
+    img: "https://dimg.donga.com/wps/NEWS/IMAGE/2021/01/02/104738338.3.jpg",
+  },
+  {
+    id: 15,
+    title: "취미/문구",
+    img: "https://cgeimage.commutil.kr/phpwas/restmb_allidxmake.php?idx=3&simg=20201217191243042375796a9480c11847181129.jpg",
+  },
+  {
+    id: 16,
+    title: "도서",
+    img: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/54Hg/image/-ImQk3wT-c1mulOvK7zBJd2vDWE.jpg",
+  },
+];
+
+export const menu = [
+  {
+    id: 0,
+    title: "전체카테고리",
+    icon: <HomeIcon />,
+  },
+  {
+    id: 1,
+    title: "남성패션",
+    icon: <Man2OutlinedIcon />,
+  },
+  {
+    id: 2,
+    title: "여성패션",
+    icon: <Woman2OutlinedIcon />,
+  },
+  {
+    id: 3,
+    title: "가구/인테리어",
+    icon: <BedOutlinedIcon />,
+  },
+  {
+    id: 4,
+    title: "화장품/미용",
+    icon: <ContentCutOutlinedIcon />,
+  },
+  {
+    id: 5,
+    title: "식품",
+    icon: <RestaurantMenuOutlinedIcon />,
+  },
+  {
+    id: 6,
+    title: "출산/유아동",
+    icon: <ChildFriendlyOutlinedIcon />,
+  },
+  {
+    id: 7,
+    title: "반려동물",
+    icon: <PetsOutlinedIcon />,
+  },
+  {
+    id: 8,
+    title: "생활/주방",
+    icon: <BlenderOutlinedIcon />,
+  },
+  {
+    id: 9,
+    title: "가전",
+    icon: <KitchenOutlinedIcon />,
+  },
+  {
+    id: 10,
+    title: "디지털",
+    icon: <CameraAltOutlinedIcon />,
+  },
+  {
+    id: 11,
+    title: "컴퓨터",
+    icon: <ComputerOutlinedIcon />,
+  },
+  {
+    id: 12,
+    title: "스포츠/레저",
+    icon: <PedalBikeOutlinedIcon />,
+  },
+  {
+    id: 13,
+    title: "건강/의료",
+    icon: <MedicalServicesOutlinedIcon />,
+  },
+  {
+    id: 14,
+    title: "자동차/공구",
+    icon: <DirectionsCarFilledOutlinedIcon />,
+  },
+  {
+    id: 15,
+    title: "취미/문구",
+    icon: <SportsEsportsOutlinedIcon />,
+  },
+  {
+    id: 16,
+    title: "도서",
+    icon: <AutoStoriesOutlinedIcon />,
+  },
+];
+
 // Main Home에서 사용되는 쇼핑 제안
 export const suggestionProducts = {
   options: [
@@ -201,10 +396,12 @@ export const ProductsList = [
 
 export const itemData = [
   {
+    id: 1,
     img: "https://static.coupangcdn.com/xa/cmg_paperboy/image/1652155730521/C2_01.jpg",
     title: "비엔나 소세지",
   },
   {
+    id: 2,
     img: "https://static.coupangcdn.com/ea/cmg_paperboy/image/1652155812428/C2_02.jpg",
     title: "이라이프",
   },
@@ -212,19 +409,22 @@ export const itemData = [
 
 export const itemData2 = [
   {
+    id: 1,
     img: "https://static.coupangcdn.com/wa/cmg_paperboy/image/1652156146468/C2_03.jpg",
     title: "휴지",
   },
   {
+    id: 2,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/x/image/displayitem/displayitem_914ce4a5-08fd-4ec4-92ab-98e3dfaf5d53.jpg",
     title: "접이식 헤어드라이어",
   },
   {
+    id: 3,
     img: "https://static.coupangcdn.com/ka/cmg_paperboy/image/1652156168218/C2_05.jpg",
     title: "브랜드위크 SALE",
   },
-
   {
+    id: 4,
     img: "https://static.coupangcdn.com/ea/cmg_paperboy/image/1652155779824/C2_08.jpg",
     title: "라면",
   },
@@ -232,16 +432,19 @@ export const itemData2 = [
 
 export const advertisingItem1 = [
   {
+    id: 1,
     img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/10396458877608342-e4c845a0-997a-405c-986d-c657d6f6f467.jpg",
     title: "퍼펙토 프리미엄 초유 단백질 분말 스틱, 3q, 60개",
     price: "28,660",
   },
   {
+    id: 2,
     img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/4856719527146195-033a9091-26e7-4d15-a250-132c1f4c3563.jpg",
     title: "비비랩 더 콜라겐 파우더S, 2q, 50개",
     price: "34,900",
   },
   {
+    id: 3,
     img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/3667346702707568-afeed46d-a5b7-4564-8aec-de1c75ba8107.jpg",
     title: "크린식이섬유 프리바이오틱스 영양제, 10q, 30포",
     price: "44,000",
@@ -250,16 +453,19 @@ export const advertisingItem1 = [
 
 export const advertisingItem2 = [
   {
+    id: 1,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/gmxjvpan/89e28aacc7a04a438c5b4f8adc013822.jpg",
     title: "비타민마을 아르기닌 8000, 8q, 60개",
     price: "21,500",
   },
   {
+    id: 2,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/4b8d/34bd3915a6d06707effb925e3025a8917c90858a6959b34a767240f49a34.jpg",
     title: "레모나 생유산균 20 C, 2g, 300개",
     price: "39,900",
   },
   {
+    id: 3,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2021/01/21/19/5/650574f1-4a8d-404f-9d9f-26fcd3a28b8b.jpg",
     title: "스윗밸런스 멕시칸 치킨 샐러드, 210g, 2개",
     price: "8,800",
@@ -269,16 +475,19 @@ export const advertisingItem2 = [
 // advertising 컴포넌트2 (나중에 Map으로 바꿔야됨)
 export const advertisingItem3 = [
   {
+    id: 1,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/375444287216621-379d3817-c495-4ae3-9ff2-46939d373019.jpg",
     title: "에이플비 글루타치온 히알루론산 미백 크림, 70ml, 2개",
     price: "44,800",
   },
   {
+    id: 2,
     img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/3010346664433158-127f6b45-7c8d-456b-af2e-13ee6b20d2b8.jpg",
     title: "미프 비타맥스 남성용 올인원 로션 본품 200ml + 리필",
     price: "27,400",
   },
   {
+    id: 3,
     img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2016/04/19/14/6/2f81eeed-b468-4b74-b2f5-b014386d9095.jpg",
     title: "나인포인트 페로몬향수 리미티드 P&B 실버 2개, 50ml",
     price: "24,500",
@@ -287,16 +496,19 @@ export const advertisingItem3 = [
 
 export const advertisingItem4 = [
   {
+    id: 1,
     img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/2m2hiuka/235ceea763bb49f085a5e987042f83ac.jpg",
     title: "스킨빌더스 브이 - 콜라겐크림 50ml, 1개",
     price: "27,800",
   },
   {
+    id: 2,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2017/11/06/18/2/1fb99195-8e81-4889-bd18-924b488a7ceb.jpg",
     title: "에스엔피 아이스베어 시카 마스크, 10개입, 1개",
     price: "11,400",
   },
   {
+    id: 3,
     img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/450467979710578-1356f9e4-2e62-4e30-bda6-aab3e3b61640.jpg",
     title: "탐니크 바르는향수 고체향수 승무원향수 솔리드퍼퓸 맨",
     price: "24,560",
@@ -306,16 +518,19 @@ export const advertisingItem4 = [
 // advertising 컴포넌트3 (나중에 Map으로 바꿔야됨)
 export const advertisingItem5 = [
   {
+    id: 1,
     img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/446252669010523-7c4714cd-90da-470e-a659-4f465772001a.jpg",
     title: "홀리데이즈 잔티센600, 30정, 4개",
     price: "62,910",
   },
   {
+    id: 2,
     img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/cd4fld7h/a1ddd690cefa40719820f36fa3d05a52.jpg",
     title: "바른제품연구소 유기농 새싹 보리분말 80q 2병",
     price: "21,000",
   },
   {
+    id: 3,
     img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/2d2d/314415cfb8dade992271c5b0a8dec17512f43d6cb7cbbdbb6f771820b570.jpg",
     title: "청정원 안주야 논현동 포차스타일 직화무뼈닭발 160q X 4개",
     price: "17,910",
@@ -324,16 +539,19 @@ export const advertisingItem5 = [
 
 export const advertisingItem6 = [
   {
+    id: 1,
     img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/0a4c/8d4c70d3312cea1ccd82b2602439b7c3fa01517c414780965cea81c361fd.jpg",
     title: "비비고 된장찌개, 460g, 6개",
     price: "16,560",
   },
   {
+    id: 2,
     img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/93414568626531-1c20d921-38ab-44c3-96b1-975f6c05a0f6.jpg",
     title: "청정원 카레여왕 구운마늘&양파, 108q, 1개",
     price: "2,450",
   },
   {
+    id: 3,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/1133071972510406-78c69e84-02b4-4cc1-9aae-af8cfced3a67.jpg",
     title: "백설 중력밀가루, 2.5kg, 1개",
     price: "2,900",
@@ -343,17 +561,20 @@ export const advertisingItem6 = [
 // advertising 컴포넌트4 (나중에 Map으로 바꿔야됨)
 export const advertisingItem7 = [
   {
+    id: 1,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/vgp6f0t9/6ea131f17e8a4761ba741783db7fff21.jpg",
     title:
       "HP 데스크탑 VICTUS 15L TG02-0043KR (라이젠7-5700G WIN11 Home 16GB 512GB RTX3060Ti)",
     price: "1,649,000",
   },
   {
+    id: 2,
     img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/e912/ff772789a663a63982955ba03e273611574382ba3b72ce4911a574bfb561.jpg",
     title: "알펜 에어 서큘레이터 ALF-1578CB",
     price: "45,000",
   },
   {
+    id: 3,
     img: "https://thumbnail8.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/e236/709799b50ba702041037a1c40a4679053f66130c88df3d45aedba142be92.jpg",
     title: "라떼판다 7인치 IPS 디스플레이",
     price: "19,500",
@@ -362,16 +583,19 @@ export const advertisingItem7 = [
 
 export const advertisingItem8 = [
   {
+    id: 1,
     img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/zhb4gm6r/73894dd0d57a427bbeadfaf7cfca762e.jpg",
     title: "베어스어스 20W CTO 8핀 레전드 엘보우 케이블",
     price: "12,900",
   },
   {
+    id: 2,
     img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2017/04/11/12/5/e1ce432c-774a-4203-ac03-fc3d43165854.jpg",
     title: "테팔 클래식 건식다리미 FS2920KO, 블랙",
     price: "20,160",
   },
   {
+    id: 3,
     img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/2020/07/24/10/9/58623d60-3c43-41d7-af77-73b861a38412.jpg",
     title: "쿠쿠 전기보온 에그밥솥 6인용, CR-0675FW",
     price: "61,200",
@@ -381,17 +605,20 @@ export const advertisingItem8 = [
 // advertising 컴포넌트5 (나중에 Map으로 바꿔야됨)
 export const advertisingItem9 = [
   {
+    id: 1,
     img: "https://thumbnail7.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/5f3f/0716e283992b1b03faebae329b7cc8b631bd515cf95439e0f0059c7f55bd.jpg",
     title:
       "남성 여름 MTB 라이딩 자전거 7부 반바지 싸이클 사이클 통기성 패드 사이클 팬츠 쫄바지 산악",
     price: "36,900",
   },
   {
+    id: 2,
     img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/rs_quotation_api/oho6ab6u/2f43e2a3291c4460bb152253bd7e3830.JPG",
     title: "테이키 자전거 방수커버 L, 블랙, 1개",
     price: "25,500",
   },
   {
+    id: 3,
     img: "https://thumbnail9.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/cbe0/b6d736b7f47722f703be5a043863a8abb1d2cca3e47706d10a9b94715587.jpg",
     title: "나이키 남성용 RV6 NN 쿠셔닝 런닝화 운동화",
     price: "79,800",
@@ -400,16 +627,19 @@ export const advertisingItem9 = [
 
 export const advertisingItem10 = [
   {
+    id: 1,
     img: "https://thumbnail10.coupangcdn.com/thumbnails/remote/160x160ex/image/retail/images/142520259675465-dba770ed-fe46-4c0f-9bed-d1efaced3e8a.jpg",
     title: "발렌시아골프 남성용 냉감 터틀넥 베이스레이어 티셔츠",
     price: "17,900",
   },
   {
+    id: 2,
     img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/03/14/4222442773/a50f4d55-06b6-40e3-855b-cfdfb6c97ac1.jpg",
     title: "Apple 애플워치3, 실버 알루미늄 케이스, 화이트 스포츠",
     price: "268,690",
   },
   {
+    id: 3,
     img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/e00d/b4945bd4868956d016d82ccec7125d5f3ad36b057d88396557c6ae16d9e0.jpg",
     title: "아디다스 어깨 로고 스쿼드라21 저지 반팔티셔츠",
     price: "25,800",
