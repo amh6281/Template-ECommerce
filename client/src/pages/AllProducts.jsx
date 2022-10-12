@@ -43,6 +43,7 @@ const AllProducts = () => {
           filter={(e) => setFilter(e)}
           category={category}
           products={allProducts}
+          currentFilter={filter}
         />
         <ProductList
           products={allProducts}
