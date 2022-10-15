@@ -21,3 +21,19 @@
   color: goldenrod;
   background-color: rgba(189, 189, 3, 0.103);
 }
+
+.widgetLgImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  left: 20px;
+  top: 7px;
+}
+
+.widgetLgTitle {
+  margin: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}

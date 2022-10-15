@@ -19,8 +19,10 @@ export default function WidgetLg({ transaction }) {
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
+          <h3 className="widgetLgTitle">최근 거래내역</h3>
           <TableRow>
             <TableCell className="tableCell">고객명</TableCell>
+            <TableCell />
             <TableCell className="tableCell">상품명</TableCell>
             <TableCell className="tableCell">거래날짜</TableCell>
             <TableCell className="tableCell">상품금액</TableCell>
@@ -32,6 +34,7 @@ export default function WidgetLg({ transaction }) {
           {transaction.map((order) => (
             <TableRow key={order.id}>
               <TableCell className="tableCell">{order.buyer_name}</TableCell>
+              <img src={order.img} className="widgetLgImg" />
               <TableCell className="tableCell">{order.title}</TableCell>
               <TableCell className="tableCell">{order.date}</TableCell>
               <TableCell className="tableCell">
