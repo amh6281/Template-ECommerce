@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./topbar.css";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 export default function Topbar() {
   return (
@@ -11,6 +13,9 @@ export default function Topbar() {
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
+            <Link to="/NewProduct" style={{ color: "inherit" }}>
+              <AddCircleIcon />
+            </Link>
             <NotificationsNone />
             <span className="topIconBadge">2</span>
           </div>
