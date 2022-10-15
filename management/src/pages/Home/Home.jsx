@@ -103,7 +103,7 @@ const Home = () => {
           <Widget type="balance" amount="999,999,999" />
         </div>
         <div className="charts">
-          <Featured total={thisMonth} />
+          <Featured total={incomes[incomes.length - 1]?.Total} />
           <Chart title="6개월간 수익" aspect={2 / 1} data={incomes} />
         </div>
         <div className="listContainer">

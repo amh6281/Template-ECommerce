@@ -50,6 +50,14 @@ const Title = styled.h1`
   text-align: center;
 `;
 
+const Inputs = styled.div`
+  border: 1px solid #f9f9f9;
+  color: black;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: transparent;
+`;
+
 const Input = styled.input`
   border: 1px solid #f9f9f9;
   color: black;
@@ -70,6 +78,7 @@ const Tmp = styled.div`
   display: flex;
   gap: 50px;
   justify-content: center;
+  margin: 20px 0px 20px 0px;
 `;
 
 const Button = styled.button`
@@ -82,8 +91,26 @@ const Button = styled.button`
   color: #606060;
 `;
 
-const Label = styled.label`
-  font-size: 12px;
+const UploadLB = styled.label`
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  color: #999;
+  font-size: 14px;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: 0.25em;
+  margin-left: -5px;
+`;
+const Select = styled.select`
+  border: 1px solid #f9f9f9;
+  color: black;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: transparent;
 `;
 
 const Build = ({ setOpen }) => {
@@ -176,7 +203,7 @@ const Build = ({ setOpen }) => {
         <Close onClick={() => setOpen(false)}>
           <HighlightOffOutlined />
         </Close>
-        <Title>입점하기</Title>
+        <Title>개설하기</Title>
         <Input
           type="text"
           placeholder="쇼핑몰 이름"
@@ -201,39 +228,41 @@ const Build = ({ setOpen }) => {
           placeholder="카테고리"
           onChange={handleCat}
         />
-
-        <Label>배너 이미지</Label>
         <Input
           type="text"
-          placeholder="img1,img2"
+          placeholder="배너 이미지 img1,img2"
           onChange={(e) => setBanner(e.target.value.split(","))}
         />
-        <Label>쇼핑몰 ICON</Label>
         {imgPerc > 0 ? (
-          "업로딩:" + imgPerc + "%"
+          <Inputs>{"업로딩:" + imgPerc + "%"}</Inputs>
         ) : (
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setLogo(e.target.files[0])}
-          />
+          <Inputs>
+            <UploadLB for="input-file">쇼핑몰 LOGO</UploadLB>
+            <Input
+              type="file"
+              id="input-file"
+              style={{ display: "none" }}
+              accept="image/*"
+              onChange={(e) => setLogo(e.target.files[0])}
+            />
+          </Inputs>
         )}
-        <Label>카테고리 선택</Label>
-        <select name="category" onChange={handleChange}>
+        <Select name="category" onChange={handleChange}>
+          <option value="0">카테고리 선택</option>
           {categories.map((item) => (
             <option value={item.value}>{item.cat}</option>
           ))}
-        </select>
-        <Label>디자인 선택</Label>
-        <select name="design" onChange={handleChange}>
+        </Select>
+        <Select name="design" onChange={handleChange}>
+          <option value="0">디자인 선택</option>
           <option value="1">1</option>
           <option value="2">2</option>
-        </select>
+        </Select>
         <Tmp>
           <Tmp1Preview />
           <Tmp2Preview />
         </Tmp>
-        <Button onClick={handleBuild}>생성</Button>
+        <Button onClick={handleBuild}>생성</Button>{" "}
       </Wrapper>
     </Container>
   );
