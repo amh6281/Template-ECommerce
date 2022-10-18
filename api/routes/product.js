@@ -60,6 +60,32 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 
+//GET BY CATEGORIES
+router.get("/categories", async (req, res, next) => {
+  const categories = req.query.categories.split(",");
+  try {
+    const products = await Product.find({
+      categories: { $in: categories },
+    }).limit(20);
+    res.status(200).json(products);
+  } catch (err) {
+    next(err);
+  }
+});
+
+//SEARCH
+router.get("/search", async (req, res) => {
+  const query = req.query.q;
+  try {
+    const products = await Product.find({
+      title: { $regex: query, $options: "i" },
+    }).limit(40);
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //GET PRODUCTS BY USERID
 router.get("/:userId", async (req, res) => {
   try {
