@@ -8,6 +8,19 @@ const {
 
 const router = require("express").Router();
 
+//SEARCH
+router.get("/search", async (req, res) => {
+  const query = req.query.q;
+  try {
+    const shops = await Shop.find({
+      shopname: { $regex: query, $options: "i" },
+    }).limit(40);
+    res.status(200).json(shops);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //CREATE
 router.post("/", verifyTokenAndEntrepreneur, async (req, res) => {
   const newShop = new Shop({ ...req.body, userId: req.user.id });
@@ -95,19 +108,6 @@ router.get("/", async (req, res) => {
     } else {
       shops = await Shop.find();
     }
-    res.status(200).json(shops);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//SEARCH
-router.get("/search", async (req, res) => {
-  const query = req.query.q;
-  try {
-    const shops = await Shop.find({
-      shopname: { $regex: query, $options: "i" },
-    }).limit(40);
     res.status(200).json(shops);
   } catch (err) {
     res.status(500).json(err);
