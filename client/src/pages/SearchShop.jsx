@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Search } from "@material-ui/icons";
 import { publicRequest } from "../requestMethods";
-import FilterShops from "../components/FilterShops";
+import FilterShop from "../components/FilterShop";
 import TopNav from "../components/TopNav";
 import MidNav from "../components/MidNav";
 import Banner from "../components/Banner";
@@ -74,7 +74,7 @@ const SearchShop = () => {
 
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
-      navigate(`/search?q=${q}`);
+      navigate(`/shops/search?q=${q}`);
     }
   };
 
@@ -97,13 +97,13 @@ const SearchShop = () => {
           />
           <Search
             style={{ cursor: "pointer" }}
-            onClick={() => navigate(`/search?q=${q}`)}
+            onClick={() => navigate(`/shops/search?q=${q}`)}
           />
         </Right>
       </ShopNav>
       <Container>
         {shops.map((shop) => (
-          <FilterShops key={shop._id} shops={shop} />
+          <FilterShop key={shop._id} shop={shop} />
         ))}
       </Container>
       <Footer />

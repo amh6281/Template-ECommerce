@@ -12,6 +12,7 @@ import Order from "./pages/Order";
 import AllProducts from "./pages/AllProducts";
 import Success from "./pages/Success";
 import SearchShop from "./pages/SearchShop";
+import SearchProduct from "./pages/SearchProduct";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -31,7 +32,8 @@ function App() {
           element={user ? <Navigate to="/" /> : <Register />}
         />
         <Route path="/shops" element={<ShopList />} />
-        <Route path="/search" element={<SearchShop />} />
+        <Route path="/shops/search" element={<SearchShop />} />
+        <Route path="/products/search" element={<SearchProduct />} />
         <Route path="/shop">
           <Route path=":id" element={<Shop />} />
         </Route>

@@ -74,6 +74,7 @@ const MidNav = () => {
   const shop = useSelector((state) => state.shop);
   const path = useLocation().pathname.split("/")[1];
   const main = useLocation().pathname;
+  const search = useLocation().pathname.split("/")[2];
 
   return (
     <Container>
@@ -85,7 +86,7 @@ const MidNav = () => {
           path !== "order" &&
           path !== "allproducts" &&
           path !== "success" &&
-          path !== "search" &&
+          search !== "search" &&
           main !== "/" ? (
             <Link
               to={`/shop/${shop.currentShop._id}`}

@@ -78,7 +78,7 @@ const ShopList = () => {
 
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
-      navigate(`/search?q=${q}`);
+      navigate(`/shops/search?q=${q}`);
     }
   };
 
@@ -102,7 +102,7 @@ const ShopList = () => {
           />
           <Search
             style={{ cursor: "pointer" }}
-            onClick={() => navigate(`/search?q=${q}`)}
+            onClick={() => navigate(`/shops/search?q=${q}`)}
           />
         </Right>
       </ShopNav>

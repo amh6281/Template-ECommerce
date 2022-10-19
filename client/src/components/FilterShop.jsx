@@ -52,7 +52,7 @@ const ShopCat = styled.h4`
   margin: 8px 0px 0px;
 `;
 
-const FilterShops = ({ shops }) => {
+const FilterShop = ({ shop }) => {
   const cats = [
     "",
     "남성패션",
@@ -74,15 +74,15 @@ const FilterShops = ({ shops }) => {
   ];
 
   return (
-    <Link to={`/shop/${shops._id}`}>
+    <Link to={`/shop/${shop._id}`}>
       <Container>
         <Wrapper>
-          <Logo src={shops.logo} />
+          <Logo src={shop.logo} />
           <Info>
-            <ShopName>{shops.shopname}</ShopName>
-            <ShopDesc>{shops.desc}</ShopDesc>
+            <ShopName>{shop.shopname}</ShopName>
+            <ShopDesc>{shop.desc}</ShopDesc>
             <ShopInfo>
-              <ShopCat>{cats[shops.category]}</ShopCat>
+              <ShopCat>{cats[shop.category]}</ShopCat>
             </ShopInfo>
           </Info>
         </Wrapper>
@@ -91,4 +91,4 @@ const FilterShops = ({ shops }) => {
   );
 };
 
-export default FilterShops;
+export default FilterShop;

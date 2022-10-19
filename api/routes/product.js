@@ -9,6 +9,32 @@ const {
 
 const router = require("express").Router();
 
+//GET BY CATEGORIES
+router.get("/categories", async (req, res, next) => {
+  const categories = req.query.categories.split(",");
+  try {
+    const products = await Product.find({
+      categories: { $in: categories },
+    }).limit(20);
+    res.status(200).json(products);
+  } catch (err) {
+    next(err);
+  }
+});
+
+//SEARCH
+router.get("/search", async (req, res) => {
+  const query = req.query.q;
+  try {
+    const products = await Product.find({
+      title: { $regex: query, $options: "i" },
+    }).limit(40);
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //CREATE
 router.post("/", verifyTokenAndEntrepreneur, async (req, res) => {
   const newProduct = new Product({ ...req.body, userId: req.user.id });
@@ -55,32 +81,6 @@ router.get("/find/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     res.status(200).json(product);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//GET BY CATEGORIES
-router.get("/categories", async (req, res, next) => {
-  const categories = req.query.categories.split(",");
-  try {
-    const products = await Product.find({
-      categories: { $in: categories },
-    }).limit(20);
-    res.status(200).json(products);
-  } catch (err) {
-    next(err);
-  }
-});
-
-//SEARCH
-router.get("/search", async (req, res) => {
-  const query = req.query.q;
-  try {
-    const products = await Product.find({
-      title: { $regex: query, $options: "i" },
-    }).limit(40);
-    res.status(200).json(products);
   } catch (err) {
     res.status(500).json(err);
   }
