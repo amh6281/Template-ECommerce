@@ -7,6 +7,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 
 const Featured = ({ total }) => {
+  console.log(total * 100);
   return (
     <div className="featured">
       <div className="top">
@@ -22,7 +23,9 @@ const Featured = ({ total }) => {
           />
         </div>
         <p className="title">이번달 총 판매액</p>
-        <p className="amount">{total}</p>
+        <p className="amount">
+          {total?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </p>
         <p className="desc">
           Previous transactions processing. Last payments may not be included.
         </p>

@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { Search } from "@material-ui/icons";
+import { publicRequest } from "../requestMethods";
+import FilterShop from "../components/FilterShop";
 import TopNav from "../components/TopNav";
 import MidNav from "../components/MidNav";
 import Banner from "../components/Banner";
-import Shop from "../components/Shop";
 import Footer from "../components/Footer";
-import axios from "axios";
-import styled from "styled-components";
-import { useLocation, useNavigate } from "react-router-dom";
-import CatNav from "../components/CatNav";
-import ShopsNav from "../components/ShopsNav";
-import { Search } from "@material-ui/icons";
 
 const Container = styled.div`
   display: flex;
@@ -30,16 +28,16 @@ const ShopNav = styled.div`
   padding: 10px 0px;
 `;
 
-const ShopCount = styled.span`
-  font-size: 13px;
-  font-weight: ${(props) => (props.type === "number" ? "600" : "500")};
-  color: #222222;
-`;
-
 const Left = styled.div`
   padding: 14px 52px;
   display: flex;
   align-items: center;
+`;
+
+const ShopCount = styled.span`
+  font-size: 13px;
+  font-weight: ${(props) => (props.type === "number" ? "600" : "500")};
+  color: #222222;
 `;
 
 const Right = styled.div`
@@ -60,21 +58,19 @@ const Input = styled.input`
   font-size: 12px;
 `;
 
-const ShopList = () => {
+const SearchShop = () => {
   const [shops, setShops] = useState([]);
-  const [shopCat, setShopCat] = useState(0);
+  const query = useLocation().search;
   const navigate = useNavigate();
   const [q, setQ] = useState("");
 
   useEffect(() => {
     const fetchShops = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/shops");
-        setShops(res.data);
-      } catch (err) {}
+      const res = await publicRequest.get(`/shops/search${query}`);
+      setShops(res.data);
     };
     fetchShops();
-  }, []);
+  }, [query]);
 
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
@@ -87,7 +83,6 @@ const ShopList = () => {
       <TopNav />
       <MidNav />
       <Banner />
-      <ShopsNav color={shopCat} shopCat={(e) => setShopCat(e)} />
       <ShopNav>
         <Left>
           <ShopCount type="number">{shops.length}</ShopCount>
@@ -107,11 +102,13 @@ const ShopList = () => {
         </Right>
       </ShopNav>
       <Container>
-        <Shop shops={shops} shopCat={shopCat} />
+        {shops.map((shop) => (
+          <FilterShop key={shop._id} shop={shop} />
+        ))}
       </Container>
       <Footer />
     </>
   );
 };
 
-export default ShopList;
+export default SearchShop;

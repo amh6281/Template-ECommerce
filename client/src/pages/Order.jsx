@@ -270,6 +270,7 @@ const PayBtn = styled.button`
   height: 56px;
   font-weight: bold;
   border: none;
+  cursor: pointer;
 `;
 
 const Order = () => {
@@ -322,8 +323,8 @@ const Order = () => {
     const data = {
       pg: "html5_inicis", // PG사
       pay_method: "card", // 결제수단
-      merchant_uid: `mid_${new Date().getTime()}`, // 주문번호
-      amount: 100, // 결제금액
+      merchant_uid: `${new Date().getTime()}`, // 주문번호
+      amount: `${cart.total}`, // 결제금액
       name: `${cart.products[0].title} 외 ${cart.products.length - 1}개`, // 주문명
       buyer_name: `${receiver}`, // 구매자 이름
       buyer_tel: `${phonenumber}`, // 구매자 전화번호
@@ -332,7 +333,7 @@ const Order = () => {
       buyer_postcode: `${zoneCode}`, // 구매자 우편번호
       status: "paid",
       custom_data: cart.products.map((product) => ({
-        shopId: `${product.shopId}`, //쇼핑몰 이름으로 변경(상품추가시 쇼핑몰이름도 추가해서).
+        shopname: `${product.shopname}`, //쇼핑몰 이름으로 변경(상품추가시 쇼핑몰이름도 추가해서).
         price: `${product.price}`,
         title: `${product.title}`,
         img: `${product.img}`,
@@ -352,8 +353,8 @@ const Order = () => {
     const { success, merchant_uid, error_msg } = response;
     if (success) {
       await publicRequest.post("/orders", { ...response });
-      console.log(response);
       alert("결제 성공");
+      navigate("/success", { state: response });
       // navigate("/"); // 나중에 주문완료페이지로 변경
     } else {
       alert(`결제 실패: ${error_msg}`);

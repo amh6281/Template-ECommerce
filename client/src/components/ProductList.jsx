@@ -138,13 +138,18 @@ const ShopBtn = styled.h4`
   cursor: pointer;
 `;
 
-const ProductList = ({ products, category }) => {
+const ProductList = ({ products, category, filter }) => {
+  console.log(filter);
   return (
     <Container>
       <ProductsWrapper>
         {category !== 0
           ? products
-              .filter((product) => product.shopCat === category)
+              .filter((product) =>
+                product.shopCat === category && !filter
+                  ? product.shopCat === category
+                  : product.categories.includes(filter)
+              )
               .map((item) => (
                 <Wrapper key={item._id}>
                   <InfoLeft>
@@ -200,61 +205,65 @@ const ProductList = ({ products, category }) => {
                   </InfoRight>
                 </Wrapper>
               ))
-          : products.map((item) => (
-              <Wrapper>
-                <InfoLeft>
-                  <Left>
-                    <ImgWrapper>
-                      <Link
-                        to={`/product/${item._id}`}
-                        style={{ color: "inherit" }}
-                      >
-                        <Image src={item.img} />
-                      </Link>
-                    </ImgWrapper>
-                    <Info>
-                      <Link
-                        to={`/product/${item._id}`}
-                        style={{ color: "inherit" }}
-                      >
-                        <Title>{item.title}</Title>
-                      </Link>
-                      <PriceWrapper>
-                        <Price>
-                          {item.price
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                          원
-                        </Price>
-                        <LocalShippingOutlined
-                          style={{
-                            color: "#959595",
-                            fontSize: "14px",
-                            margin: "0px 3px 1px 2px",
-                          }}
-                        />
-                        <Price type="delivery">무료배송</Price>
-                      </PriceWrapper>
-                      <CatWrapper>
-                        {item.categories.map((i) => (
-                          <Category>{i}</Category>
-                        ))}
-                      </CatWrapper>
-                      <Desc>{item.desc}</Desc>
-                      <Date>등록일 {item.createdAt.substr(0, 10)}</Date>
-                    </Info>
-                  </Left>
-                </InfoLeft>
-                <InfoRight>
-                  <Link to={`/shop/${item.shopId}`}>
-                    <ShopInfo>
-                      <Shopname>{item.shopname}</Shopname>
-                      <ShopBtn>정보</ShopBtn>
-                    </ShopInfo>
-                  </Link>
-                </InfoRight>
-              </Wrapper>
-            ))}
+          : products
+              .filter((product) =>
+                !filter ? product : product.categories.includes(filter)
+              )
+              .map((item) => (
+                <Wrapper>
+                  <InfoLeft>
+                    <Left>
+                      <ImgWrapper>
+                        <Link
+                          to={`/product/${item._id}`}
+                          style={{ color: "inherit" }}
+                        >
+                          <Image src={item.img} />
+                        </Link>
+                      </ImgWrapper>
+                      <Info>
+                        <Link
+                          to={`/product/${item._id}`}
+                          style={{ color: "inherit" }}
+                        >
+                          <Title>{item.title}</Title>
+                        </Link>
+                        <PriceWrapper>
+                          <Price>
+                            {item.price
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            원
+                          </Price>
+                          <LocalShippingOutlined
+                            style={{
+                              color: "#959595",
+                              fontSize: "14px",
+                              margin: "0px 3px 1px 2px",
+                            }}
+                          />
+                          <Price type="delivery">무료배송</Price>
+                        </PriceWrapper>
+                        <CatWrapper>
+                          {item.categories.map((i) => (
+                            <Category>{i}</Category>
+                          ))}
+                        </CatWrapper>
+                        <Desc>{item.desc}</Desc>
+                        <Date>등록일 {item.createdAt.substr(0, 10)}</Date>
+                      </Info>
+                    </Left>
+                  </InfoLeft>
+                  <InfoRight>
+                    <Link to={`/shop/${item.shopId}`}>
+                      <ShopInfo>
+                        <Shopname>{item.shopname}</Shopname>
+                        <ShopBtn>정보</ShopBtn>
+                      </ShopInfo>
+                    </Link>
+                  </InfoRight>
+                </Wrapper>
+              ))}
       </ProductsWrapper>
     </Container>
   );

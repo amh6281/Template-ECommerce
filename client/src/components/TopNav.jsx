@@ -106,7 +106,7 @@ const TopNav = () => {
               }
               style={{ fontWeight: 500 }}
             >
-              입점하기
+              개설하기
             </LeftMenu>
           </Left>
           <Right>

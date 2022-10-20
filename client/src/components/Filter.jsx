@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 
 const Container = styled.div`
   width: 100%;
@@ -41,34 +42,23 @@ const Item = styled.span`
   cursor: pointer;
 `;
 
-const ColorWrapper = styled.div`
-  padding: 7px 0px 7px 5px;
-  flex: 6;
+const FilterWrapper = styled.div`
   background-color: #f9f9f9;
-  display: flex;
-  border-left: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  padding: 10px 0px 9px;
 `;
 
-const Color = styled.div`
-  width: 23px;
-  height: 23px;
-  background-color: ${(props) => props.color};
-  border-radius: 50%;
+const FilterTitle = styled.h4`
+  color: #00a832;
+  margin: 0px 0px 0px 15px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 `;
 
-const Filter = ({ filter, category, products }) => {
+const Filter = ({ filter, category, products, currentFilter }) => {
   //products의 카테고리 필터링
   const catFilter = products.filter((product) => product.shopCat === category);
-
-  //필터링 후 color 다중배열 합치기 / 중복제거
-  const colors = catFilter.map((item) => item.color).flat();
-  const colorsArr = [...new Set(colors.map(JSON.stringify))].map(JSON.parse);
 
   //필터링 후 Categories 다중배열 합치기 / 중복제거
   const categories = catFilter.map((item) => item.categories).flat();
@@ -76,13 +66,7 @@ const Filter = ({ filter, category, products }) => {
     JSON.parse
   );
 
-  //필터링 없이 color 다중배열 합치기 + 중복제거
-  const colorArr = products.map((item) => item.color).flat();
-  const deduplicationColor = [...new Set(colorArr.map(JSON.stringify))].map(
-    JSON.parse
-  );
-
-  //필터링 없이 color 다중배열 합치기 + 중복제거
+  //필터링 없이 categories 다중배열 합치기 + 중복제거
   const catArr = products.map((item) => item.categories).flat();
   const deduplicationCat = [...new Set(catArr.map(JSON.stringify))].map(
     JSON.parse
@@ -103,18 +87,22 @@ const Filter = ({ filter, category, products }) => {
                 ))}
           </ItemWrapper>
         </CatWrapper>
-        <CatWrapper>
-          <Category>색상</Category>
-          <ColorWrapper>
-            {category !== 0
-              ? colorsArr?.map((item) => (
-                  <Color color={item} onClick={() => filter(item)} />
-                ))
-              : deduplicationColor.map((item) => (
-                  <Color color={item} onClick={() => filter(item)} />
-                ))}
-          </ColorWrapper>
-        </CatWrapper>
+        {currentFilter ? (
+          <FilterWrapper>
+            <FilterTitle onClick={() => filter("")}>
+              {currentFilter}
+              <ClearOutlinedIcon
+                style={{
+                  color: "#d5dade",
+                  fontSize: "18px",
+                  cursor: "pointer",
+                }}
+              />
+            </FilterTitle>
+          </FilterWrapper>
+        ) : (
+          ""
+        )}
       </Wrapper>
     </Container>
   );

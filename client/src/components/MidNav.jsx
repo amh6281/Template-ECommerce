@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Search } from "@material-ui/icons";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Container = styled.div`
@@ -69,9 +69,12 @@ const Menu = styled.h4`
 `;
 
 const MidNav = () => {
+  const navigate = useNavigate();
+  const [q, setQ] = useState("");
   const shop = useSelector((state) => state.shop);
   const path = useLocation().pathname.split("/")[1];
   const main = useLocation().pathname;
+  const search = useLocation().pathname.split("/")[2];
 
   return (
     <Container>
@@ -82,6 +85,8 @@ const MidNav = () => {
           path !== "cart" &&
           path !== "order" &&
           path !== "allproducts" &&
+          path !== "success" &&
+          search !== "search" &&
           main !== "/" ? (
             <Link
               to={`/shop/${shop.currentShop._id}`}
@@ -97,9 +102,9 @@ const MidNav = () => {
               />
             </Link>
           )}
-          <Input type="text" />
+          <Input type="text" onChange={(e) => setQ(e.target.value)} />
           <Icon>
-            <Search />
+            <Search onClick={() => navigate(`/search?q=${q}`)} />
           </Icon>
         </Left>
         <Right>
