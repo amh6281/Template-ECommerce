@@ -7,6 +7,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 
 const Featured = ({ total }) => {
+  console.log(total * 100);
   return (
     <div className="featured">
       <div className="top">
@@ -22,9 +23,11 @@ const Featured = ({ total }) => {
           />
         </div>
         <p className="title">이번달 총 판매액</p>
-        <p className="amount">{total}</p>
+        <p className="amount">
+          {total?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </p>
         <p className="desc">
-          Previous transactions processing. Last payments may not be included.
+          이전 트랜잭션을 처리했습니다. 마지막 지불은 포함되지 않을 수 있습니다.{" "}
         </p>
         <div className="summary">
           <div className="item">
@@ -35,14 +38,14 @@ const Featured = ({ total }) => {
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">Last Week</div>
+            <div className="itemTitle">저번 주</div>
             <div className="itemResult positive">
               <KeyboardArrowUpOutlinedIcon fontSize="small" />
               <div className="resultAmount">12.4K</div>
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">Last Month</div>
+            <div className="itemTitle">저번 달</div>
             <div className="itemResult positive">
               <KeyboardArrowUpOutlinedIcon fontSize="small" />
               <div className="resultAmount">12.4K</div>

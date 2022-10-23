@@ -21,7 +21,7 @@ export default function ProductList() {
     { field: "_id", headerName: "ID", width: 300 },
     {
       field: "product",
-      headerName: "Product",
+      headerName: "상품",
       width: 450,
       renderCell: (params) => {
         return (
@@ -32,21 +32,21 @@ export default function ProductList() {
         );
       },
     },
-    { field: "inStock", headerName: "Stock", width: 200 },
+    { field: "inStock", headerName: "재고", width: 200 },
     {
       field: "price",
-      headerName: "Price",
+      headerName: "가격",
       width: 200,
     },
     {
       field: "action",
-      headerName: "Action",
+      headerName: "기타",
       width: 200,
       renderCell: (params) => {
         return (
           <>
             <Link to={"/product/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
+              <button className="productListEdit">편집하기</button>
             </Link>
             <DeleteOutline
               className="productListDelete"

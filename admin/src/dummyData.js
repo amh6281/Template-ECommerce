@@ -71,7 +71,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -80,7 +80,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -89,7 +89,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -98,7 +98,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -107,7 +107,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -116,7 +116,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -125,7 +125,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -134,7 +134,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -143,7 +143,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
   {
@@ -152,7 +152,7 @@ export const userRows = [
     avatar:
       "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "xodnr1566@naver.com",
-    status: "active",
+    status: "활성화",
     transaction: "120,000 원",
   },
 ];
@@ -163,7 +163,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -171,7 +171,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -179,7 +179,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -187,7 +187,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -195,7 +195,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -203,7 +203,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -211,7 +211,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -219,7 +219,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -227,7 +227,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
   {
@@ -235,7 +235,7 @@ export const productRows = [
     name: "Apple Airpods",
     img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     stock: 123,
-    status: "active",
+    status: "출품가능",
     price: "120,000 원",
   },
 ];

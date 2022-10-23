@@ -112,7 +112,7 @@ export default function NewProduct() {
 
   return (
     <div className="newProduct">
-      <h1 className="addProductTitle">New Product</h1>
+      <h1 className="addProductTitle">상품 추가</h1>
       <div className="bottom">
         <div className="left">
           <img
@@ -129,7 +129,7 @@ export default function NewProduct() {
           <form className="addProductForm">
             <div className="addProductItem">
               <label htmlFor="file">
-                Image :
+                이미지
                 <DriveFolderUploadOutlinedIcon className="icon" />
               </label>
               <input
@@ -140,7 +140,7 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>Title</label>
+              <label>상품명</label>
               <input
                 name="title"
                 type="text"
@@ -149,7 +149,7 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>Desc</label>
+              <label>상품 설명</label>
               <input
                 name="desc"
                 type="text"
@@ -158,11 +158,11 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>Detail Img</label>
+              <label>세부 이미지</label>
               <input type="text" placeholder="img1,img2" onChange={handleImg} />
             </div>
             <div className="addProductItem">
-              <label>Color</label>
+              <label>색상</label>
               <input
                 type="text"
                 placeholder="red,black,yellow"
@@ -170,7 +170,7 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>Size</label>
+              <label>사이즈</label>
               <input
                 type="text"
                 placeholder="50ml,100ml or S,XL"
@@ -178,7 +178,7 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>Price</label>
+              <label>상품 가격</label>
               <input
                 name="price"
                 type="number"
@@ -187,7 +187,7 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>Categories</label>
+              <label>카테고리</label>
               <input
                 type="text"
                 placeholder="man,shirts"
@@ -195,15 +195,15 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>Stock</label>
+              <label>재고</label>
               <select name="inStock" onChange={handleChange}>
-                <option value="true">YES</option>
-                <option value="false">NO</option>
+                <option value="true">있음</option>
+                <option value="false">없음</option>
               </select>
             </div>
 
             <button onClick={handleClick} className="addProductButton">
-              Create
+              생성하기
             </button>
           </form>
         </div>

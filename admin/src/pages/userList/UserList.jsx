@@ -16,7 +16,7 @@ export default function UserList() {
     { field: "id", headerName: "ID", width: 100 },
     {
       field: "user",
-      headerName: "User",
+      headerName: "유저",
       width: 200,
       renderCell: (params) => {
         return (
@@ -27,26 +27,26 @@ export default function UserList() {
         );
       },
     },
-    { field: "email", headerName: "Email", width: 200 },
+    { field: "email", headerName: "이메일", width: 200 },
     {
       field: "status",
-      headerName: "Status",
+      headerName: "상태",
       width: 120,
     },
     {
       field: "transaction",
-      headerName: "Transaction Volume",
+      headerName: "거래액",
       width: 160,
     },
     {
       field: "action",
-      headerName: "Action",
+      headerName: "편집하기",
       width: 150,
       renderCell: (params) => {
         return (
           <>
             <Link to={"/user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+              <button className="userListEdit">편집</button>
             </Link>
             <DeleteOutline
               className="userListDelete"

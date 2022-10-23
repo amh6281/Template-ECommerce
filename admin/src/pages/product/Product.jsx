@@ -59,7 +59,7 @@ export default function Product() {
   return (
     <div className="product">
       <div className="productTitleContainer">
-        <h1 className="productTitle">Product</h1>
+        <h1 className="productTitle">상품</h1>
       </div>
       <div className="productTop">
         <div className="productTopLeft">
@@ -76,11 +76,11 @@ export default function Product() {
               <span className="productInfoValue">{product?._id}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">sales:</span>
+              <span className="productInfoKey">가격:</span>
               <span className="productInfoValue">5123</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">in stock:</span>
+              <span className="productInfoKey">재고:</span>
               <span className="productInfoValue">{product?.inStock}</span>
             </div>
           </div>
@@ -89,18 +89,18 @@ export default function Product() {
       <div className="productBottom">
         <form className="productForm">
           <div className="productFormLeft">
-            <label>Product Name</label>
+            <label>상품명</label>
             <input type="text" placeholder={product?.title} />
-            <label>Product Desc</label>
+            <label>상품 설명</label>
             <input type="text" placeholder={product?.desc} />
-            <label>Product Price</label>
+            <label>상품 가격</label>
             <input type="text" placeholder={product?.price} />
-            <label>Product Categories</label>
+            <label>상품 카테고리</label>
             <input type="text" placeholder={product?.categories} />
-            <label>In Stock</label>
+            <label>재고</label>
             <select name="inStock" id="idStock">
-              <option value="true">Yes</option>
-              <option value="false">No</option>
+              <option value="true">있음</option>
+              <option value="false">없음</option>
             </select>
           </div>
           <div className="productFormRight">
@@ -111,7 +111,7 @@ export default function Product() {
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="productButton">Update</button>
+            <button className="productButton">업데이트</button>
           </div>
         </form>
       </div>
