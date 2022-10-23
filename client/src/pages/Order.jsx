@@ -324,7 +324,7 @@ const Order = () => {
       pg: "html5_inicis", // PG사
       pay_method: "card", // 결제수단
       merchant_uid: `${new Date().getTime()}`, // 주문번호
-      amount: `${cart.total}`, // 결제금액
+      amount: 100, // 결제금액
       name: `${cart.products[0].title} 외 ${cart.products.length - 1}개`, // 주문명
       buyer_name: `${receiver}`, // 구매자 이름
       buyer_tel: `${phonenumber}`, // 구매자 전화번호

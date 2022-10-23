@@ -10,6 +10,7 @@ import app from "../../firebase";
 import { addProduct } from "../../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import { publicRequest } from "../../requestMethods";
+import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
@@ -111,78 +112,101 @@ export default function NewProduct() {
 
   return (
     <div className="newProduct">
-      <h1 className="addProductTitle">New Product</h1>
-      <form className="addProductForm">
-        <div className="addProductItem">
-          <label>Image (266x325)</label>
-          <input
-            type="file"
-            id="file"
-            onChange={(e) => setFile(e.target.files[0])}
+      <h1 className="addProductTitle">상품 추가</h1>
+      <div className="bottom">
+        <div className="left">
+          <img
+            className="img"
+            src={
+              file
+                ? URL.createObjectURL(file)
+                : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+            }
+            alt=""
           />
         </div>
-        <div className="addProductItem">
-          <label>Title</label>
-          <input
-            name="title"
-            type="text"
-            placeholder="Apple Airpods"
-            onChange={handleChange}
-          />
+        <div className="right">
+          <form className="addProductForm">
+            <div className="addProductItem">
+              <label htmlFor="file">
+                이미지
+                <DriveFolderUploadOutlinedIcon className="icon" />
+              </label>
+              <input
+                type="file"
+                id="file"
+                onChange={(e) => setFile(e.target.files[0])}
+                style={{ display: "none" }}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>상품명</label>
+              <input
+                name="title"
+                type="text"
+                placeholder="Apple Airpods"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>상품 설명</label>
+              <input
+                name="desc"
+                type="text"
+                placeholder="description..."
+                onChange={handleChange}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>세부 이미지</label>
+              <input type="text" placeholder="img1,img2" onChange={handleImg} />
+            </div>
+            <div className="addProductItem">
+              <label>색상</label>
+              <input
+                type="text"
+                placeholder="red,black,yellow"
+                onChange={handleColor}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>사이즈</label>
+              <input
+                type="text"
+                placeholder="50ml,100ml or S,XL"
+                onChange={handleSize}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>상품 가격</label>
+              <input
+                name="price"
+                type="number"
+                placeholder="14000"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>카테고리</label>
+              <input
+                type="text"
+                placeholder="man,shirts"
+                onChange={handleCat}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>재고</label>
+              <select name="inStock" onChange={handleChange}>
+                <option value="true">있음</option>
+                <option value="false">없음</option>
+              </select>
+            </div>
+            <button onClick={handleClick} className="addProductButton">
+              생성하기
+            </button>
+          </form>
         </div>
-        <div className="addProductItem">
-          <label>Desc</label>
-          <input
-            name="desc"
-            type="text"
-            placeholder="description..."
-            onChange={handleChange}
-          />
-        </div>
-        <div className="addProductItem">
-          <label>Detail Img</label>
-          <input type="text" placeholder="img1,img2" onChange={handleImg} />
-        </div>
-        <div className="addProductItem">
-          <label>Color</label>
-          <input
-            type="text"
-            placeholder="red,black,yellow"
-            onChange={handleColor}
-          />
-        </div>
-        <div className="addProductItem">
-          <label>Size</label>
-          <input
-            type="text"
-            placeholder="50ml,100ml or S,XL"
-            onChange={handleSize}
-          />
-        </div>
-        <div className="addProductItem">
-          <label>Price</label>
-          <input
-            name="price"
-            type="number"
-            placeholder="14000"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="addProductItem">
-          <label>Categories</label>
-          <input type="text" placeholder="man,shirts" onChange={handleCat} />
-        </div>
-        <div className="addProductItem">
-          <label>Stock</label>
-          <select name="inStock" onChange={handleChange}>
-            <option value="true">YES</option>
-            <option value="false">NO</option>
-          </select>
-        </div>
-        <button onClick={handleClick} className="addProductButton">
-          Create
-        </button>
-      </form>
+      </div>
     </div>
   );
 }

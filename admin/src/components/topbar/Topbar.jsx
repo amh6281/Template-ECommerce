@@ -1,16 +1,23 @@
 import React from "react";
 import "./topbar.css";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">E-Commerce Admin</span>
+          <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+            <span className="logo">E-Commerce Admin</span>
+          </Link>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
+            <Link to="/NewProduct" style={{ color: "inherit" }}>
+              <AddCircleIcon />
+            </Link>
             <NotificationsNone />
             <span className="topIconBadge">2</span>
           </div>
@@ -22,7 +29,7 @@ export default function Topbar() {
             <Settings />
           </div>
           <img
-            src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            src="https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"
             alt=""
             className="topAvatar"
           />
