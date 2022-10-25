@@ -5,7 +5,6 @@
 .cellWrapper {
   display: flex;
   align-items: center;
-<<<<<<< HEAD
 }
 
 .status {
@@ -21,37 +20,4 @@
 .상품준비중 {
   color: goldenrod;
   background-color: rgba(189, 189, 3, 0.103);
-}
-
-.widgetLgImg {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: relative;
-  left: 20px;
-  top: 7px;
-}
-
-.widgetLgTitle {
-  margin: 20px;
-  font-size: 22px;
-  font-weight: 600;
-=======
-}
-
-.status {
-  padding: 5px;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.paid {
-  color: green;
-  background-color: rgba(0, 128, 0, 0.151);
-}
-.상품준비중 {
-  color: goldenrod;
-  background-color: rgba(189, 189, 3, 0.103);
->>>>>>> dev
 }
