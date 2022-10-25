@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useLocation, useNavigate } from "react-router-dom";
 import Banner from "../components/Banner";
+import FilterProduct from "../components/FilterProduct";
 import MidNav from "../components/MidNav";
 import TopNav from "../components/TopNav";
-import Menu from "../components/Menu";
 import { publicRequest } from "../requestMethods";
-import { LocalShippingOutlined } from "@material-ui/icons";
-import { Link, useNavigate } from "react-router-dom";
-import ProductList from "../components/ProductList";
-import Filter from "../components/Filter";
 import { Search } from "@material-ui/icons";
 
 const Container = styled.div`
@@ -56,25 +53,19 @@ const Input = styled.input`
   font-size: 12px;
 `;
 
-const AllProducts = () => {
-  const [allProducts, setAllProducts] = useState([]);
-  const [category, setCategory] = useState(0);
-  const [filter, setFilter] = useState("");
-
+const SearchProduct = () => {
+  const [products, setProducts] = useState([]);
+  const query = useLocation().search;
   const [q, setQ] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getAllProducts = async () => {
-      try {
-        const res = await publicRequest.get("/products");
-        setAllProducts(res.data);
-      } catch (err) {
-        console.log(err);
-      }
+    const fetchProducts = async () => {
+      const res = await publicRequest.get(`/products/search${query}`);
+      setProducts(res.data);
     };
-    getAllProducts();
-  }, []);
+    fetchProducts();
+  }, [query]);
 
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
@@ -86,12 +77,11 @@ const AllProducts = () => {
     <>
       <TopNav />
       <MidNav />
-      {/* catNav */}
       <Banner />
       <ProductNav>
         <ProductNavWrapper>
           <Left>
-            <ProductCount type="number">{allProducts.length}</ProductCount>
+            <ProductCount type="number">{products.length}</ProductCount>
             <ProductCount>개 상품</ProductCount>
           </Left>
           <Right>
@@ -109,21 +99,12 @@ const AllProducts = () => {
         </ProductNavWrapper>
       </ProductNav>
       <Container>
-        <Menu color={category} category={(e) => setCategory(e)} />
-        <Filter
-          filter={(e) => setFilter(e)}
-          category={category}
-          products={allProducts}
-          currentFilter={filter}
-        />
-        <ProductList
-          products={allProducts}
-          category={category}
-          filter={filter}
-        />
+        {products.map((product) => (
+          <FilterProduct key={product._id} product={product} />
+        ))}
       </Container>
     </>
   );
 };
 
-export default AllProducts;
+export default SearchProduct;

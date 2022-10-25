@@ -5,6 +5,7 @@
 .cellWrapper {
   display: flex;
   align-items: center;
+<<<<<<< HEAD
 }
 
 .status {
@@ -36,4 +37,21 @@
   margin: 20px;
   font-size: 22px;
   font-weight: 600;
+=======
+}
+
+.status {
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.paid {
+  color: green;
+  background-color: rgba(0, 128, 0, 0.151);
+}
+.상품준비중 {
+  color: goldenrod;
+  background-color: rgba(189, 189, 3, 0.103);
+>>>>>>> dev
 }
