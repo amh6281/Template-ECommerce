@@ -28,62 +28,58 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
+          <p className="title">메인</p>
           <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <DashboardIcon className="icon" />
-              <span>Dashboard</span>
+              <span>홈</span>
             </li>
           </Link>
-          <p className="title">LIST</p>
+          <p className="title">리스트</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>User</span>
+              <span>사용자</span>
             </li>
           </Link>
           <li>
             <StoreIcon className="icon" />
-            <span>Product</span>
+            <span>상품</span>
           </li>
           <li>
             <CreditCardIcon className="icon" />
-            <span>Order</span>
+            <span>주문</span>
           </li>
           <li>
             <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
+            <span>배송</span>
           </li>
-          <p className="title">USEFUL</p>
+          <p className="title">편의</p>
           <li>
             <InsertChartIcon className="icon" />
-            <span>Stat</span>
+            <span>통계</span>
           </li>
           <li>
             <NotificationsNoneIcon className="icon" />
-            <span>Notification</span>
+            <span>알림</span>
           </li>
-          <p className="title">SERVICE</p>
-          <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li>
+          <p className="title">서비스</p>
           <li>
             <PsychologyOutlinedIcon className="icon" />
-            <span>Log</span>
+            <span>로그분석</span>
           </li>
           <li>
             <SettingsApplicationsIcon className="icon" />
-            <span>Setting</span>
+            <span>환경설정</span>
           </li>
-          <p className="title">USER</p>
+          <p className="title">사용자</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
+            <span>프로필</span>
           </li>
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span>로그아웃</span>
           </li>
         </ul>
       </div>

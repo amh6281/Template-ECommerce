@@ -24,76 +24,75 @@ const Sidebar = () => {
           <ul className="sidebarList">
             <Link to="/" className="link">
               <li className="sidebarListItem active">
-                <LineStyle className="sidebarIcon" />
-                Home
+                <LineStyle className="sidebarIcon" />홈
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Quick Menu</h3>
-          <ul className="sidebarList">
-            <Link to="/users" className="link">
+            <Link to="/login" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Users
+                로그인
               </li>
             </Link>
             <Link to="/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                상품
               </li>
             </Link>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">빠른 메뉴</h3>
+          <ul className="sidebarList">
+            <li className="sidebarListItem">
+              <Timeline className="sidebarIcon" />
+              분석
+            </li>
+            <li className="sidebarListItem">
+              <TrendingUp className="sidebarIcon" />
+              판매
+            </li>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
-              Transactions
+              거래
             </li>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
-              Reports
+              리포트
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
+          <h3 className="sidebarTitle">알림</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <MailOutline className="sidebarIcon" />
-              Mail
+              메일
             </li>
             <li className="sidebarListItem">
               <DynamicFeed className="sidebarIcon" />
-              Feedback
+              피드백
             </li>
             <li className="sidebarListItem">
               <ChatBubbleOutline className="sidebarIcon" />
-              Messages
+              메세지
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Staff</h3>
+          <h3 className="sidebarTitle">직원전용</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <WorkOutline className="sidebarIcon" />
-              Manage
+              관리
             </li>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Analytics
+              분석
             </li>
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
-              Reports
+              리포트
             </li>
           </ul>
         </div>
