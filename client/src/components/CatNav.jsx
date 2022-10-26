@@ -5,8 +5,8 @@ import styled from "styled-components";
 import { emptyShop } from "../redux/shopRedux";
 
 const Container = styled.div`
-  background: #f0f0f0;
   height: 32px;
+  border-bottom: 1px solid #ededed;
 `;
 
 const Wrapper = styled.div`
