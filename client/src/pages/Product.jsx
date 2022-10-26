@@ -10,6 +10,7 @@ import TopNav from "../components/TopNav";
 import MidNav from "../components/MidNav";
 import CatNav from "../components/CatNav";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import Reviews from "../components/Reviews";
 
 const Container = styled.div``;
 
@@ -541,6 +542,7 @@ const Product = () => {
         ))}
       </ImageWrapper>
       <Hr />
+      <Reviews productId={id} />
       <Footer />
     </Container>
   );

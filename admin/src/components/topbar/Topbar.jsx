@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import "./topbar.css";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">E-Commerce Admin</span>
+          <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+            <span className="logo">E-Commerce Admin</span>
+          </Link>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">

@@ -1,8 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
-import TodayDiscoverys from "../components/TodayDiscoverys";
 import Banner from "../components/Banner";
-import ShopSuggestions from "../components/ShopSuggestions";
 import NewBusinessIcon from "../components/NewBusinessIcon";
 import AdvertisingPd from "../components/Advertising/AdvertisingPd";
 import AdvertisingPd2 from "../components/Advertising2/AdvertisingPd2";
@@ -19,13 +17,11 @@ const Home = () => {
       <MidNav />
       <Banner />
       <NewBusinessIcon />
-      <TodayDiscoverys />
       <AdvertisingPd />
       <AdvertisingPd2 />
       <AdvertisingPd3 />
       <AdvertisingPd4 />
       <AdvertisingPd5 />
-      <ShopSuggestions />
       <Footer />
     </div>
   );

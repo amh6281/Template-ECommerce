@@ -26,26 +26,24 @@ const Featured = ({ total }) => {
         <p className="amount">
           {total?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </p>
-        <p className="desc">
-          이전 트랜잭션을 처리했습니다. 마지막 지불은 포함되지 않을 수 있습니다.{" "}
-        </p>
+        <p className="desc">마지막 결제금액은 포함되지 않을 수 있습니다.</p>
         <div className="summary">
           <div className="item">
-            <div className="itemTitle">Target</div>
+            <div className="itemTitle">목표금액</div>
             <div className="itemResult negative">
               <KeyboardArrowDownIcon fontSize="small" />
               <div className="resultAmount">12.4K</div>
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">저번 주</div>
+            <div className="itemTitle">지난 주</div>
             <div className="itemResult positive">
               <KeyboardArrowUpOutlinedIcon fontSize="small" />
               <div className="resultAmount">12.4K</div>
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">저번 달</div>
+            <div className="itemTitle">지난 달</div>
             <div className="itemResult positive">
               <KeyboardArrowUpOutlinedIcon fontSize="small" />
               <div className="resultAmount">12.4K</div>

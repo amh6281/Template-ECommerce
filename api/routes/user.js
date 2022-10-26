@@ -42,7 +42,7 @@ router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 //GET USER - 토큰이 있는 사업자
-router.get("/find/:id", verifyTokenAndEntrepreneur, async (req, res) => {
+router.get("/find/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     const { password, ...others } = user._doc;

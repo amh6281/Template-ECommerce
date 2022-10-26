@@ -9,7 +9,7 @@ const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const shopRoute = require("./routes/shop");
-const stripeRoute = require("./routes/stripe");
+const reviewRoute = require("./routes/review");
 const cors = require("cors");
 
 mongoose
@@ -27,7 +27,7 @@ app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/shops", shopRoute);
-app.use("/api/checkout", stripeRoute);
+app.use("/api/reviews", reviewRoute);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");

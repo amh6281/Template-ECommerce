@@ -32,14 +32,16 @@ const Sidebar = () => {
           <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <DashboardIcon className="icon" />
-              <span>대시 보드</span>
+
+              <span>홈</span>
             </li>
           </Link>
           <p className="title">리스트</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>유저</span>
+
+              <span>사용자</span>
             </li>
           </Link>
           <li>
@@ -52,12 +54,14 @@ const Sidebar = () => {
           </li>
           <li>
             <LocalShippingIcon className="icon" />
-            <span>배달</span>
+
+            <span>배송</span>
           </li>
-          <p className="title">USEFUL</p>
+          <p className="title">편의</p>
           <li>
             <InsertChartIcon className="icon" />
-            <span>시작하기</span>
+
+            <span>통계</span>
           </li>
           <li>
             <NotificationsNoneIcon className="icon" />
@@ -65,18 +69,16 @@ const Sidebar = () => {
           </li>
           <p className="title">서비스</p>
           <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>운동 시스템</span>
-          </li>
-          <li>
             <PsychologyOutlinedIcon className="icon" />
-            <span>로그</span>
+
+            <span>로그분석</span>
           </li>
           <li>
             <SettingsApplicationsIcon className="icon" />
-            <span>설정</span>
+            <span>환경설정</span>
           </li>
-          <p className="title">유저</p>
+          <p className="title">사용자</p>
+
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>프로필</span>

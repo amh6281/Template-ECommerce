@@ -27,23 +27,10 @@ const Sidebar = () => {
                 <LineStyle className="sidebarIcon" />홈
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              분석
-            </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              판매
-            </li>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">빠른 메뉴</h3>
-          <ul className="sidebarList">
-            <Link to="/users" className="link">
+            <Link to="/login" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                유저
+                로그인
               </li>
             </Link>
             <Link to="/products" className="link">
@@ -52,6 +39,19 @@ const Sidebar = () => {
                 상품
               </li>
             </Link>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">빠른 메뉴</h3>
+          <ul className="sidebarList">
+            <li className="sidebarListItem">
+              <Timeline className="sidebarIcon" />
+              분석
+            </li>
+            <li className="sidebarListItem">
+              <TrendingUp className="sidebarIcon" />
+              판매
+            </li>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               거래

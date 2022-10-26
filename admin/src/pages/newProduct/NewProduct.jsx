@@ -201,7 +201,6 @@ export default function NewProduct() {
                 <option value="false">없음</option>
               </select>
             </div>
-
             <button onClick={handleClick} className="addProductButton">
               생성하기
             </button>

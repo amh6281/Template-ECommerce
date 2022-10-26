@@ -46,7 +46,7 @@ export default function ProductList() {
         return (
           <>
             <Link to={"/product/" + params.row._id}>
-              <button className="productListEdit">편집하기</button>
+              <button className="productListEdit">편집</button>
             </Link>
             <DeleteOutline
               className="productListDelete"

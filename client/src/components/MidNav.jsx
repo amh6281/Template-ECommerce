@@ -76,6 +76,12 @@ const MidNav = () => {
   const main = useLocation().pathname;
   const search = useLocation().pathname.split("/")[2];
 
+  const onKeyPress = (e) => {
+    if (e.key == "Enter") {
+      navigate(`/shops/search?q=${q}`);
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -102,9 +108,13 @@ const MidNav = () => {
               />
             </Link>
           )}
-          <Input type="text" onChange={(e) => setQ(e.target.value)} />
+          <Input
+            type="text"
+            onChange={(e) => setQ(e.target.value)}
+            onKeyPress={onKeyPress}
+          />
           <Icon>
-            <Search onClick={() => navigate(`/search?q=${q}`)} />
+            <Search onClick={() => navigate(`/shops/search?q=${q}`)} />
           </Icon>
         </Left>
         <Right>

@@ -15,9 +15,9 @@ const Widget = ({ type, amount }) => {
   switch (type) {
     case "user":
       data = {
-        title: "유저",
+        title: "사용자",
         isMoney: false,
-        link: "유저 전체 보기",
+        link: "사용자 전체 보기",
         amount: { amount },
         icon: (
           <PersonOutlinedIcon
@@ -51,7 +51,7 @@ const Widget = ({ type, amount }) => {
       data = {
         title: "수익",
         isMoney: true,
-        link: "수익 전체 보기",
+        link: "수익 상세 보기",
         amount: { amount },
         icon: (
           <MonetizationOnOutlinedIcon
@@ -63,9 +63,9 @@ const Widget = ({ type, amount }) => {
       break;
     case "balance":
       data = {
-        title: "평균",
+        title: "순이익",
         isMoney: true,
-        link: "자세히 보기",
+        link: "상세 보기",
         amount: { amount },
         icon: (
           <AccountBalanceWalletOutlinedIcon
