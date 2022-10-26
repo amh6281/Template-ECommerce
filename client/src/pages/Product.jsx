@@ -329,12 +329,12 @@ const Product = () => {
     dispatch(addProduct({ ...product, quantity, color, size }));
     //color, size 안넣으면 배열 형태로 나옴. 하나 선택하기 위해 넣는거.
   };
-
+  console.log(product);
   return (
     <Container>
       <TopNav />
       <MidNav />
-      <CatNav itemCat={itemCat?.join("/")} />
+      <CatNav itemCat={itemCat?.join("/")} shopname={product.shopname} />
       <Wrapper>
         <ImgContainer>
           <Image src={product.img} />

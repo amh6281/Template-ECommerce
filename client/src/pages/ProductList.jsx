@@ -9,27 +9,6 @@ import CatNav from "../components/CatNav";
 
 const Container = styled.div``;
 
-const FilterContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Filter = styled.div`
-  margin: 20px;
-`;
-
-const FilterText = styled.span`
-  font-size: 20px;
-  font-weight: 600;
-  margin-right: 20px;
-`;
-
-const Select = styled.select`
-  padding: 10px;
-  margin-right: 20px;
-`;
-const Option = styled.option``;
-
 const ProductList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[2];
@@ -41,16 +20,6 @@ const ProductList = () => {
       <TopNav />
       <MidNav />
       <CatNav />
-      <FilterContainer>
-        <Filter>
-          <FilterText>Sort Products:</FilterText>
-          <Select onChange={(e) => setSort(e.target.value)}>
-            <Option value="newest">기본</Option>
-            <Option value="asc">Price (asc)</Option>
-            <Option value="desc">Price (desc)</Option>
-          </Select>
-        </Filter>
-      </FilterContainer>
       <Products cat={cat} filters={filters} sort={sort} />
       <Footer />
     </Container>
