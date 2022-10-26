@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Review from "../components/Review";
 import { publicRequest } from "../requestMethods";

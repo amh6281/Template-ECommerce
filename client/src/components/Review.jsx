@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div`
   display: flex;
@@ -37,12 +38,22 @@ const Text = styled.span`
 `;
 
 const Review = ({ review }) => {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await publicRequest.get(`/users/find/${review.userId}`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, [review.userId]);
+
   return (
     <Container>
       <Avatar src="https://img1a.coupangcdn.com/image/productreview/web/pdp/profile/img-profile-empty.png" />
       <Details>
         <Name>
-          MyoungHoe <Date>{review.createdAt.slice(0, 10)}</Date>
+          {user.username} <Date>{review.createdAt.slice(0, 10)}</Date>
         </Name>
         <Text>{review.desc}</Text>
       </Details>
