@@ -11,6 +11,7 @@ const Container = styled.div`
   height: 100%;
   margin: 0 auto;
 `;
+
 const Title = styled.h1`
   display: flex;
   margin-top: 110px;
