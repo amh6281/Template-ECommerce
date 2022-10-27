@@ -38,6 +38,7 @@ const Wrapper = styled.div`
 
 const Image = styled.img`
   height: 92%;
+  object-fit: cover;
 `;
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
