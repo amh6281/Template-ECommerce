@@ -168,6 +168,9 @@ const TopNav = () => {
               )}
             </Link>
             <MenuItem style={{ fontWeight: 500 }}>고객센터</MenuItem>
+            <Link to="/mypage" style={{ color: "inherit" }}>
+              <MenuItem style={{ fontWeight: 500 }}>마이페이지</MenuItem>
+            </Link>
           </Right>
         </Wrapper>
       </Container>

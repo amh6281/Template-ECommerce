@@ -341,6 +341,7 @@ const Order = () => {
         buyer_addr: `${address} ${detailAddr}`,
         date: `${dateString}`,
         status: "상품준비중",
+        userId: `${currentUser._id}`,
       })),
     };
 

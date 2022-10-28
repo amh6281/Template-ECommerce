@@ -159,6 +159,8 @@ const TotalText = styled.h3`
       : props.type === "quantity"
       ? "#999999"
       : "#6B90DC"};
+  width: ${(props) =>
+    props.type === "price" ? "80px" : props.type === "quantity" ? "80px" : ""};
 `;
 
 const ImageWrapper = styled.div`
