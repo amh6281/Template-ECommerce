@@ -124,6 +124,18 @@ const ProductStatus = styled.span`
   font-size: 13px;
 `;
 
+const ReviewBtn = styled.button`
+  color: #424242;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  width: 110px;
+  height: 29px;
+  padding: 5px 20px;
+  background-color: #fff;
+  position: relative;
+  left: 82px;
+`;
+
 const CancelBtn = styled.button`
   color: #424242;
   font-size: 13px;
@@ -133,7 +145,7 @@ const CancelBtn = styled.button`
   padding: 5px 20px;
   background-color: #fff;
   position: relative;
-  left: 139px;
+  left: 82px;
 `;
 
 const MyPage = () => {
@@ -216,7 +228,10 @@ const MyPage = () => {
                   </DetailWrapper>
                   <ProductStatus>{order.status}</ProductStatus>
                 </ProductInfo>
-                <ProductInfo type="payment">
+                <ProductInfo>
+                  <ReviewBtn>리뷰작성</ReviewBtn>
+                </ProductInfo>
+                <ProductInfo>
                   <CancelBtn>결제취소</CancelBtn>
                 </ProductInfo>
               </ProductWrapper>
