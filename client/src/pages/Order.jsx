@@ -345,22 +345,22 @@ const Order = () => {
       })),
     };
 
+    /* 3. 콜백 함수 정의하기 */
+    const callback = async (response) => {
+      const { success, merchant_uid, error_msg } = response;
+      if (success) {
+        await publicRequest.post("/orders", { ...response });
+        alert("결제 성공");
+        navigate("/success", { state: response });
+        // navigate("/"); // 나중에 주문완료페이지로 변경
+      } else {
+        alert(`결제 실패: ${error_msg}`);
+      }
+    };
+
     /* 4. 결제 창 호출하기 */
     IMP.request_pay(data, callback);
   }
-
-  /* 3. 콜백 함수 정의하기 */
-  const callback = async (response) => {
-    const { success, merchant_uid, error_msg } = response;
-    if (success) {
-      await publicRequest.post("/orders", { ...response });
-      alert("결제 성공");
-      navigate("/success", { state: response });
-      // navigate("/"); // 나중에 주문완료페이지로 변경
-    } else {
-      alert(`결제 실패: ${error_msg}`);
-    }
-  };
 
   return (
     <>
