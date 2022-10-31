@@ -22,14 +22,15 @@ router.post("/", async (req, res) => {
 });
 
 //UPDATE
-router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
-    const updatedOrder = await Order.findByIdAndUpdate(
-      req.params.id,
+    const updatedOrder = await Order.updateOne(
+      { "custom_data._id": req.params.id },
       {
-        $set: req.body,
-      },
-      { new: true }
+        $set: {
+          "custom_data.$.status": req.body.status,
+        },
+      }
     );
     res.status(200).json(updatedOrder);
   } catch (err) {
