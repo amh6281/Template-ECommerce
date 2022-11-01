@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -18,14 +17,12 @@ const CatItem = styled.span`
   color: #222222;
 `;
 
-const Tmp3CategoryItem = ({ item }) => {
+const Tmp3Cat = ({ item }) => {
   return (
     <Container>
-      <Link to={`/products/${item}`}>
-        <CatItem>{item}</CatItem>
-      </Link>
+      <CatItem>{item.title}</CatItem>
     </Container>
   );
 };
 
-export default Tmp3CategoryItem;
+export default Tmp3Cat;

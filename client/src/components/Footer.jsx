@@ -8,8 +8,6 @@ import {
 } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const Container = styled.div`
   display: flex;
@@ -100,31 +98,10 @@ const Logo = styled.img`
 `;
 
 const Footer = () => {
-  const shop = useSelector((state) => state.shop);
-  const path = useLocation().pathname.split("/")[1];
   return (
     <Container>
       <Left>
-        {shop.currentShop &&
-        path !== "shops" &&
-        path !== "cart" &&
-        path !== "order" &&
-        path !== "allproducts" &&
-        path !== "success" ? (
-          <Link
-            to={`/shop/${shop.currentShop._id}`}
-            style={{ color: "inherit" }}
-          >
-            <Shopname>{shop.currentShop?.shopname}</Shopname>
-          </Link>
-        ) : (
-          <Link to="/" style={{ color: "inherit" }}>
-            <Logo
-              src="https://user-images.githubusercontent.com/83646986/194276006-b72d9b05-a894-46cc-8ef1-09a15c173667.png"
-              alt=""
-            />
-          </Link>
-        )}
+        <Logo>STYLE GO!</Logo>
         <Desc>copyright © all rights reserved</Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">

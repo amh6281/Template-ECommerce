@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import ZoomInOutlinedIcon from "@mui/icons-material/ZoomInOutlined";
-import { Link } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -34,7 +33,7 @@ const Bottom = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 17px 5px 0px;
+  margin: 17px 5px;
   padding: 0px 0px 5px;
 `;
 
@@ -52,20 +51,16 @@ const Icon = styled.div`
   color: #1c1c1c;
 `;
 
-const Tmp3Product = ({ product }) => {
+const Tmp3Pdt = ({ item }) => {
   return (
     <Container>
       <Wrapper>
-        <Link to={`/product/${product._id}`} style={{ color: "inherit" }}>
-          <Image src={product.img} />
-        </Link>
+        <Image src={item.img} />
         <Top>
-          <Title>{product.title}</Title>
+          <Title>{item.title}</Title>
         </Top>
         <Bottom>
-          <Price>
-            {product.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
-          </Price>
+          <Price>{item.price}</Price>
           <Icon>
             <ShoppingCartOutlinedIcon style={{ fontSize: "17px" }} />
             <ZoomInOutlinedIcon style={{ fontSize: "17px" }} />
@@ -76,4 +71,4 @@ const Tmp3Product = ({ product }) => {
   );
 };
 
-export default Tmp3Product;
+export default Tmp3Pdt;

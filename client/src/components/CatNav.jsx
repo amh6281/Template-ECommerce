@@ -5,12 +5,13 @@ import styled from "styled-components";
 import { emptyShop } from "../redux/shopRedux";
 
 const Container = styled.div`
+  border-bottom: 1px solid #ededed;
   height: 32px;
   border-bottom: 1px solid #ededed;
 `;
 
 const Wrapper = styled.div`
-  width: 50%;
+  width: 70%;
   height: 32px;
   top: 0;
   right: 0;
@@ -40,7 +41,7 @@ const MenuItem = styled.div`
   }
 `;
 
-const CatNav = ({ cat, itemCat }) => {
+const CatNav = ({ cat, itemCat, shopname }) => {
   const shop = useSelector((state) => state.shop);
   const dispatch = useDispatch();
   const path = useLocation().pathname.split("/")[1];
@@ -61,7 +62,7 @@ const CatNav = ({ cat, itemCat }) => {
               </MenuItem>
             </Link>
             <div style={{ fontSize: "12px" }}>{">"}</div>
-            {shop.currentShop && path !== "shops" && path !== "cart" ? (
+            {shop.currentShop && path !== "shops" ? (
               <>
                 <Link
                   to={`/shop/${shop.currentShop._id}`}
@@ -74,9 +75,14 @@ const CatNav = ({ cat, itemCat }) => {
                 {path === "products" ? (
                   <>
                     <div style={{ fontSize: "12px" }}>{">"}</div>
-                    <MenuItem style={{ fontWeight: 500 }}>
-                      {decodeURI(category)}
-                    </MenuItem>
+                    <Link
+                      to={`/products/${decodeURI(category)}`}
+                      style={{ color: "inherit" }}
+                    >
+                      <MenuItem style={{ fontWeight: 500 }}>
+                        {decodeURI(category)}
+                      </MenuItem>
+                    </Link>
                   </>
                 ) : path === "product" ? (
                   <>
@@ -87,10 +93,8 @@ const CatNav = ({ cat, itemCat }) => {
                   ""
                 )}
               </>
-            ) : path === "cart" ? (
-              <MenuItem style={{ fontWeight: 500 }}>장바구니</MenuItem>
             ) : (
-              <MenuItem style={{ fontWeight: 500 }}>{cat}</MenuItem>
+              <MenuItem style={{ fontWeight: 500 }}>{shopname}</MenuItem>
             )}
           </Left>
         </Wrapper>

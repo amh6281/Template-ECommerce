@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Tmp1Preview from "./Tmp1/Tmp1Preview";
 import Tmp2Preview from "./Tmp2/Tmp2Preview";
+import Tmp3Preview from "./Tmp3/Tmp3Preview";
 import {
   getStorage,
   ref,
@@ -275,6 +276,7 @@ const Build = ({ setOpen }) => {
         <Tmp>
           <Tmp1Preview />
           <Tmp2Preview />
+          <Tmp3Preview />
         </Tmp>
         <Button onClick={handleBuild}>생성</Button>{" "}
       </Wrapper>

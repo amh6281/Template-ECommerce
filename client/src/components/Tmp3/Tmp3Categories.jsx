@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Tmp3CategoryItem from "./Tmp3CategoryItem";
 
@@ -8,15 +9,18 @@ const Container = styled.div`
   width: 1290px;
   height: 100%;
   margin: 0 auto;
+  margin-top: -6px;
 `;
 
 const Tmp3Categories = () => {
+  const shop = useSelector((state) => state.shop);
+  const category = shop.currentShop?.categoryItem[0].catValue;
+
   return (
     <Container>
-      <Tmp3CategoryItem />
-      <Tmp3CategoryItem />
-      <Tmp3CategoryItem />
-      <Tmp3CategoryItem />
+      {category?.map((item, index) => (
+        <Tmp3CategoryItem key={index} item={item} />
+      ))}
     </Container>
   );
 };

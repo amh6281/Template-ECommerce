@@ -9,13 +9,11 @@ import AdvertisingPd4 from "../components/Advertising4/AdvertisingPd4";
 import AdvertisingPd5 from "../components/Advertising5/AdvertisingPd5";
 import TopNav from "../components/TopNav";
 import MidNav from "../components/MidNav";
-import Tmp3Products from "../components/Tmp3/Tmp3Products";
-import Tmp3Categories from "../components/Tmp3/Tmp3Categories";
 
 const Home = () => {
   return (
     <div>
-      {/* <TopNav />
+      <TopNav />
       <MidNav />
       <Banner />
       <NewBusinessIcon />
@@ -24,9 +22,7 @@ const Home = () => {
       <AdvertisingPd3 />
       <AdvertisingPd4 />
       <AdvertisingPd5 />
-      <Footer /> */}
-      <Tmp3Categories />
-      <Tmp3Products />
+      <Footer />
     </div>
   );
 };
