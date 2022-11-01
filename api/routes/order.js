@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
 //UPDATE
 router.put("/:id", async (req, res) => {
   try {
-    const updatedOrder = await Order.updateOne(
+    const updatedOrder = await Order.findOneAndUpdate(
       { "custom_data._id": req.params.id },
       {
         $set: {
