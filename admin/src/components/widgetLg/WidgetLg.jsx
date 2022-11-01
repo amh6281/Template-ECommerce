@@ -12,21 +12,20 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 export default function WidgetLg({ transaction }) {
-  const [orderList, setOrderList] = useState({});
+  const [orderStatus, setOrderStatus] = useState({});
 
   const handleUpdate = async (id, order) => {
-    console.log(order._id);
-    const orderList = order;
+    const orderStatus = order;
     try {
       const res = await publicRequest.put("/orders/" + id, {
         status:
-          orderList.status === "상품준비중"
+          orderStatus.status === "상품준비중"
             ? "배송중"
-            : orderList.status === "배송중"
+            : orderStatus.status === "배송중"
             ? "배송완료"
             : alert("배송완료입니다."),
       });
-      setOrderList(res.data);
+      setOrderStatus(res.data);
     } catch (err) {
       console.log(err);
     }

@@ -174,6 +174,14 @@ const MyPage = () => {
     return order.status == "상품준비중";
   });
 
+  const shopping = filterOrders.filter((order) => {
+    return order.status == "배송중";
+  });
+
+  const completed = filterOrders.filter((order) => {
+    return order.status == "배송완료";
+  });
+
   return (
     <>
       <TopNav />
@@ -197,7 +205,7 @@ const MyPage = () => {
                   style={{ color: "white", fontSize: "30px" }}
                 />
               </StatusIcon>
-              <Count>0</Count>
+              <Count>{shopping.length}</Count>
             </Status>
             <Status>
               <StatusTitle>배송완료</StatusTitle>
@@ -206,7 +214,7 @@ const MyPage = () => {
                   style={{ color: "white", fontSize: "30px" }}
                 />
               </StatusIcon>
-              <Count>0</Count>
+              <Count>{completed.length}</Count>
             </Status>
           </StatusWrapper>
           {filterOrders.map((order) => (

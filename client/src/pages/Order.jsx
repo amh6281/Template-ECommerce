@@ -333,7 +333,7 @@ const Order = () => {
       buyer_postcode: `${zoneCode}`, // 구매자 우편번호
       status: "paid",
       custom_data: cart.products.map((product) => ({
-        shopname: `${product.shopname}`, //쇼핑몰 이름으로 변경(상품추가시 쇼핑몰이름도 추가해서).
+        shopId: `${product.shopId}`, //쇼핑몰 이름으로 변경(상품추가시 쇼핑몰이름도 추가해서).
         price: `${product.price}`,
         title: `${product.title}`,
         img: `${product.img}`,
