@@ -72,7 +72,12 @@ export default function WidgetLg({ transaction }) {
                 <span className={`status ${order.status}`}>{order.status}</span>
               </TableCell>
               <TableCell className="tableCell">
-                <button onClick={() => handleUpdated(order._id)}>Next</button>
+                <button
+                  className="button"
+                  onClick={() => handleUpdated(order._id)}
+                >
+                  Next
+                </button>
               </TableCell>
             </TableRow>
           ))}

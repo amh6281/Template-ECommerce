@@ -18,6 +18,21 @@
   background-color: rgba(0, 128, 0, 0.151);
 }
 .상품준비중 {
+  color: red;
+  background-color: rgba(189, 189, 3, 0.103);
+}
+.배송중 {
+  color: green;
+  background-color: rgba(189, 189, 3, 0.103);
+}
+.배송완료 {
   color: goldenrod;
   background-color: rgba(189, 189, 3, 0.103);
+}
+
+.button {
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(189, 189, 3, 0.103);
+  cursor: pointer;
 }
