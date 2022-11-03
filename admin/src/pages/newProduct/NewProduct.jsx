@@ -54,10 +54,16 @@ export default function NewProduct() {
     setSize(e.target.value.split(","));
   };
 
-  const handleImg = (e) => {
-    setDetailImg(e.target.value.split(","));
+  const handleDetailImg = (e) => {
+    const nowSelectImgList = e.target.files;
+    const nowImgUrlList = [...detailImg];
+    for (let i = 0; i < nowSelectImgList.length; i++) {
+      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
+      nowImgUrlList.push(nowImgUrl);
+    }
+    setDetailImg(nowImgUrlList);
   };
-
+  console.log(detailImg);
   const handleClick = (e) => {
     e.preventDefault();
     const product = {
@@ -126,7 +132,12 @@ export default function NewProduct() {
             </div>
             <div className="addProductItem">
               <label>세부 이미지</label>
-              <input type="text" placeholder="img1,img2" onChange={handleImg} />
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={handleDetailImg}
+              />
             </div>
             <div className="addProductItem">
               <label>색상</label>
