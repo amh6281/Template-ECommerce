@@ -235,9 +235,29 @@ const Build = ({ setOpen }) => {
           name="desc"
           onChange={handleChange}
         />
-        <Input type="file" accept="image/*" multiple onChange={handleCatImg} />
+        <Inputs>
+          <UploadLB for="input-file">카테고리 이미지</UploadLB>
+          <Input
+            type="file"
+            id="input-file"
+            style={{ display: "none" }}
+            accept="image/*"
+            multiple
+            onChange={handleCatImg}
+          />
+        </Inputs>
         <Input type="text" placeholder="카테고리" onChange={handleCat} />
-        <Input type="file" accept="image/*" multiple onChange={handleBanner} />
+        <Inputs>
+          <UploadLB for="input-file">배너 이미지</UploadLB>
+          <Input
+            type="file"
+            id="input-file"
+            style={{ display: "none" }}
+            accept="image/*"
+            multiple
+            onChange={handleBanner}
+          />
+        </Inputs>
         {imgPerc > 0 ? (
           <Inputs>{"업로딩:" + imgPerc + "%"}</Inputs>
         ) : (
@@ -262,6 +282,7 @@ const Build = ({ setOpen }) => {
           <option value="0">디자인 선택</option>
           <option value="1">1</option>
           <option value="2">2</option>
+          <option value="3">3</option>
         </Select>
         <Tmp>
           <Tmp1Preview />

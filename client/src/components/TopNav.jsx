@@ -96,7 +96,11 @@ const TopNav = () => {
       <Container>
         <Wrapper>
           <Left>
-            <Link to="/" style={{ color: "inherit" }}>
+            <Link
+              to="/"
+              style={{ color: "inherit" }}
+              onClick={() => dispatch(emptyShop())}
+            >
               <LeftMenu>#SHOP</LeftMenu>
             </Link>
             <LeftMenu
@@ -168,12 +172,7 @@ const TopNav = () => {
                 <MenuItem>SIGN IN</MenuItem>
               )}
             </Link>
-            <MenuItem
-              style={{ fontWeight: 500 }}
-              onClick={() => dispatch(emptyShop())}
-            >
-              고객센터
-            </MenuItem>
+            <MenuItem style={{ fontWeight: 500 }}>고객센터</MenuItem>
             <Link to="/mypage" style={{ color: "inherit" }}>
               <MenuItem style={{ fontWeight: 500 }}>마이페이지</MenuItem>
             </Link>
