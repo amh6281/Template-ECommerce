@@ -106,7 +106,7 @@ const Shop = ({ shops, shopCat }) => {
   const result = countByArray(count);
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
       {shopCat !== 0
         ? shops
             ?.filter((shop) => shop.category === shopCat)
