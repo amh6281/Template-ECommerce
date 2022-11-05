@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Tmp1Preview from "./Tmp1/Tmp1Preview";
 import Tmp2Preview from "./Tmp2/Tmp2Preview";
+import Tmp3Preview from "./Tmp3/Tmp3Preview";
 import {
   getStorage,
   ref,
@@ -105,6 +106,7 @@ const UploadLB = styled.label`
   border-radius: 0.25em;
   margin-left: -5px;
 `;
+
 const Select = styled.select`
   border: 1px solid #f9f9f9;
   color: black;
@@ -119,20 +121,18 @@ const Build = ({ setOpen }) => {
   const [inputs, setInputs] = useState({});
   const [banner, setBanner] = useState([]);
   const [cat, setCat] = useState([]);
+  const [catImg, setCatImg] = useState([]);
 
   const { currentUser } = useSelector((state) => state.user);
   const userId = currentUser?._id;
 
   const handleCat = (e) => {
-    setCat((prev) => {
-      return {
-        ...prev,
-        [e.target.name.split(",")]: e.target.value.split(","),
-      };
-    });
+    setCat(e.target.value.split(","));
   };
   console.log(cat);
-
+  console.log(inputs);
+  console.log(banner);
+  console.log(catImg);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -177,14 +177,33 @@ const Build = ({ setOpen }) => {
               ...prev,
               [urlType]: downloadURL,
               bannerImg: banner,
-              categoryItem: cat,
+              categoryItem: { catValue: cat, catImg: catImg },
             };
           });
         });
       }
     );
   };
-  console.log(inputs);
+
+  const handleBanner = (e) => {
+    const nowSelectImgList = e.target.files;
+    const nowImgUrlList = [...banner];
+    for (let i = 0; i < nowSelectImgList.length; i++) {
+      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
+      nowImgUrlList.push(nowImgUrl);
+    }
+    setBanner(nowImgUrlList);
+  };
+
+  const handleCatImg = (e) => {
+    const nowSelectImgList = e.target.files;
+    const nowImgUrlList = [...catImg];
+    for (let i = 0; i < nowSelectImgList.length; i++) {
+      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
+      nowImgUrlList.push(nowImgUrl);
+    }
+    setCatImg(nowImgUrlList);
+  };
 
   useEffect(() => {
     logo && uploadFile(logo, "logo");
@@ -216,23 +235,29 @@ const Build = ({ setOpen }) => {
           name="desc"
           onChange={handleChange}
         />
-        <Input
-          type="text"
-          name="catImg"
-          placeholder="카테고리 src(DESIGN1일경우만)"
-          onChange={handleCat}
-        />
-        <Input
-          type="text"
-          name="catValue"
-          placeholder="카테고리"
-          onChange={handleCat}
-        />
-        <Input
-          type="text"
-          placeholder="배너 이미지 img1,img2"
-          onChange={(e) => setBanner(e.target.value.split(","))}
-        />
+        <Inputs>
+          <UploadLB for="input-file">카테고리 이미지</UploadLB>
+          <Input
+            type="file"
+            id="input-file"
+            style={{ display: "none" }}
+            accept="image/*"
+            multiple
+            onChange={handleCatImg}
+          />
+        </Inputs>
+        <Input type="text" placeholder="카테고리" onChange={handleCat} />
+        <Inputs>
+          <UploadLB for="input-file">배너 이미지</UploadLB>
+          <Input
+            type="file"
+            id="input-file"
+            style={{ display: "none" }}
+            accept="image/*"
+            multiple
+            onChange={handleBanner}
+          />
+        </Inputs>
         {imgPerc > 0 ? (
           <Inputs>{"업로딩:" + imgPerc + "%"}</Inputs>
         ) : (
@@ -257,10 +282,12 @@ const Build = ({ setOpen }) => {
           <option value="0">디자인 선택</option>
           <option value="1">1</option>
           <option value="2">2</option>
+          <option value="3">3</option>
         </Select>
         <Tmp>
           <Tmp1Preview />
           <Tmp2Preview />
+          <Tmp3Preview />
         </Tmp>
         <Button onClick={handleBuild}>생성</Button>{" "}
       </Wrapper>

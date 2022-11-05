@@ -13,6 +13,8 @@ import Tmp2Products from "../components/Tmp2/Tmp2Products";
 import TopNav from "../components/TopNav";
 import MidNav from "../components/MidNav";
 import CatNav from "../components/CatNav";
+import Tmp3Categories from "../components/Tmp3/Tmp3Categories";
+import Tmp3Products from "../components/Tmp3/Tmp3Products";
 
 const Shop = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -43,11 +45,17 @@ const Shop = () => {
           <SliderCategories />
           <Tmp1Products shopId={shop.currentShop?._id} />
         </>
-      ) : (
+      ) : shop.currentShop?.design === 2 ? (
         <>
           <DropCategory />
           <Tmp2Slider />
           <Tmp2Products shopId={shop.currentShop?._id} />
+        </>
+      ) : (
+        <>
+          <Tmp2Slider />
+          <Tmp3Categories />
+          <Tmp3Products shopId={shop.currentShop?._id} />
         </>
       )}
       <Footer />

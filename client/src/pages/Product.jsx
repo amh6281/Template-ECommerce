@@ -1,5 +1,5 @@
 import { Add, Remove } from "@material-ui/icons";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../components/Footer";
@@ -159,6 +159,8 @@ const TotalText = styled.h3`
       : props.type === "quantity"
       ? "#999999"
       : "#6B90DC"};
+  width: ${(props) =>
+    props.type === "price" ? "80px" : props.type === "quantity" ? "80px" : ""};
 `;
 
 const ImageWrapper = styled.div`
@@ -291,6 +293,23 @@ const SelectItemDetail = styled.div`
   font-size: 13px;
 `;
 
+const RefBtnWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const RefBtn = styled.button`
+  font-size: 13px;
+  background-color: #f3f5f7;
+  color: #333333;
+  padding: 10px 50px;
+  width: 255px;
+  border: 1px solid #dbdddf;
+  cursor: pointer;
+`;
+
 const Product = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -330,11 +349,24 @@ const Product = () => {
     //color, size 안넣으면 배열 형태로 나옴. 하나 선택하기 위해 넣는거.
   };
 
+  const detailImgRef = useRef(null);
+  const reviewRef = useRef(null);
+
+  const onImgClick = () => {
+    detailImgRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  const onReviewClick = () => {
+    reviewRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Container>
       <TopNav />
       <MidNav />
-      <CatNav itemCat={itemCat?.join("/")} />
+      <CatNav itemCat={itemCat?.join("/")} shopname={product.shopname} />
       <Wrapper>
         <ImgContainer>
           <Image src={product.img} />
@@ -535,14 +567,24 @@ const Product = () => {
           </AddContainer>
         </InfoContainer>
       </Wrapper>
-      <ImageWrapper>
+      <ImageWrapper ref={detailImgRef}>
         <Hr />
+        <RefBtnWrapper>
+          <RefBtn onClick={onImgClick}>상세정보</RefBtn>
+          <RefBtn onClick={onReviewClick}>리뷰</RefBtn>
+          <RefBtn>Q&A</RefBtn>
+        </RefBtnWrapper>
         {product.detailImg?.map((img) => (
           <DetailImg key={img} src={img} />
         ))}
       </ImageWrapper>
       <Hr />
-      <Reviews productId={id} />
+      <RefBtnWrapper>
+        <RefBtn onClick={onImgClick}>상세정보</RefBtn>
+        <RefBtn onClick={onReviewClick}>리뷰</RefBtn>
+        <RefBtn>Q&A</RefBtn>
+      </RefBtnWrapper>
+      <Reviews productId={id} ref={reviewRef} />
       <Footer />
     </Container>
   );

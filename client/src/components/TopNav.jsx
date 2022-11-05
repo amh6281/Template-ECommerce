@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userRedux";
+import { emptyShop } from "../redux/shopRedux";
 import Build from "./Build";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
@@ -95,7 +96,11 @@ const TopNav = () => {
       <Container>
         <Wrapper>
           <Left>
-            <Link to="/" style={{ color: "inherit" }}>
+            <Link
+              to="/"
+              style={{ color: "inherit" }}
+              onClick={() => dispatch(emptyShop())}
+            >
               <LeftMenu>#SHOP</LeftMenu>
             </Link>
             <LeftMenu
@@ -168,6 +173,9 @@ const TopNav = () => {
               )}
             </Link>
             <MenuItem style={{ fontWeight: 500 }}>고객센터</MenuItem>
+            <Link to="/mypage" style={{ color: "inherit" }}>
+              <MenuItem style={{ fontWeight: 500 }}>마이페이지</MenuItem>
+            </Link>
           </Right>
         </Wrapper>
       </Container>

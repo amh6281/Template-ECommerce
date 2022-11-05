@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Review from "../components/Review";
@@ -30,7 +30,7 @@ const Input = styled.input`
   width: 100%;
 `;
 
-const Reviews = ({ productId }) => {
+const Reviews = forwardRef(({ productId }, ref) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Reviews = ({ productId }) => {
   }, [productId]);
 
   return (
-    <Container>
+    <Container ref={ref}>
       <NewReview>
         <Avatar src="https://img1a.coupangcdn.com/image/productreview/web/pdp/profile/img-profile-empty.png" />
         <Input placeholder="리뷰 추가..." />
@@ -56,6 +56,6 @@ const Reviews = ({ productId }) => {
       ))}
     </Container>
   );
-};
+});
 
 export default Reviews;

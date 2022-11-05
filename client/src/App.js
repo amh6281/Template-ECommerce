@@ -13,6 +13,7 @@ import AllProducts from "./pages/AllProducts";
 import Success from "./pages/Success";
 import SearchShop from "./pages/SearchShop";
 import SearchProduct from "./pages/SearchProduct";
+import MyPage from "./pages/MyPage";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -39,6 +40,7 @@ function App() {
         </Route>
         <Route path="/order" element={<Order />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -342,7 +342,6 @@ const Cart = () => {
       </PayBarContainer>
       <TopNav />
       <MidNav />
-      <CatNav />
       <NavContainer>
         <NavWrapper>
           <EmptyBtn onClick={handleReset}>
