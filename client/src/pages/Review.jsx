@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MidNav from "../components/MidNav";
 import TopNav from "../components/TopNav";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div``;
 
@@ -98,7 +99,19 @@ const CancelBtn = styled.button`
 const Review = () => {
   const [review, setReview] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
 
+  const handleClick = async () => {
+    const res = await publicRequest.post("/reviews", {
+      desc: review,
+      userId: location.state[0].userId,
+      productId: location.state[0].productId,
+    });
+    res.status === 200 && navigate(`/product/${location.state[0].productId}`);
+  };
+
+  console.log(location.state);
+  console.log(review);
   return (
     <>
       <TopNav />
@@ -121,6 +134,7 @@ const Review = () => {
               <Input
                 type="text"
                 placeholder="다른 고객님에게 도움이 되도록 상품에 대한 솔직한 평가를 남겨주세요."
+                onChange={(e) => setReview(e.target.value)}
               />
               <Desc>
                 주민등록번호, 연락처, 주소 등의 정보는 타인에게 노출될 경우
@@ -129,7 +143,7 @@ const Review = () => {
             </InputWrapper>
           </ReviewWrapper>
           <BtnWrapper>
-            <ReviewBtn>등록하기</ReviewBtn>
+            <ReviewBtn onClick={handleClick}>등록하기</ReviewBtn>
             <CancelBtn>취소하기</CancelBtn>
           </BtnWrapper>
         </Wrapper>

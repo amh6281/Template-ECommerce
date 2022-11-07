@@ -5,8 +5,8 @@ const { verifyToken } = require("./verifyToken");
 const router = require("express").Router();
 
 //CREATE
-router.post("/", verifyToken, async (req, res) => {
-  const newReview = new Review({ ...req.body, userId: req.user.id });
+router.post("/", async (req, res) => {
+  const newReview = new Review({ ...req.body });
   try {
     const savedReview = await newReview.save();
     res.status(200).send(savedReview);
