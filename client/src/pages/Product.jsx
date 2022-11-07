@@ -308,6 +308,9 @@ const RefBtn = styled.button`
   width: 255px;
   border: 1px solid #dbdddf;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Product = () => {
@@ -317,6 +320,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const [reviewCount, setReviewCount] = useState(0);
   const { currentUser } = useSelector((state) => state.user);
   const shop = useSelector((state) => state.shop);
   const itemCat = product.categories;
@@ -360,6 +364,10 @@ const Product = () => {
 
   const onReviewClick = () => {
     reviewRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const getData = (reviewCount) => {
+    setReviewCount(reviewCount);
   };
 
   return (
@@ -571,7 +579,7 @@ const Product = () => {
         <Hr />
         <RefBtnWrapper>
           <RefBtn onClick={onImgClick}>상세정보</RefBtn>
-          <RefBtn onClick={onReviewClick}>리뷰</RefBtn>
+          <RefBtn onClick={onReviewClick}>리뷰{reviewCount}</RefBtn>
           <RefBtn>Q&A</RefBtn>
         </RefBtnWrapper>
         {product.detailImg?.map((img) => (
@@ -581,10 +589,10 @@ const Product = () => {
       <Hr />
       <RefBtnWrapper>
         <RefBtn onClick={onImgClick}>상세정보</RefBtn>
-        <RefBtn onClick={onReviewClick}>리뷰</RefBtn>
+        <RefBtn onClick={onReviewClick}>리뷰{reviewCount}</RefBtn>
         <RefBtn>Q&A</RefBtn>
       </RefBtnWrapper>
-      <Reviews productId={id} ref={reviewRef} />
+      <Reviews productId={id} ref={reviewRef} getData={getData} />
       <Footer />
     </Container>
   );
