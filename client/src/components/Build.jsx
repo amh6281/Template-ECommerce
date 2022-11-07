@@ -129,10 +129,7 @@ const Build = ({ setOpen }) => {
   const handleCat = (e) => {
     setCat(e.target.value.split(","));
   };
-  console.log(cat);
-  console.log(inputs);
-  console.log(banner);
-  console.log(catImg);
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {

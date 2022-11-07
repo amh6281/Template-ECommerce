@@ -47,10 +47,6 @@ const Reviews = forwardRef(({ productId }, ref) => {
 
   return (
     <Container ref={ref}>
-      <NewReview>
-        <Avatar src="https://img1a.coupangcdn.com/image/productreview/web/pdp/profile/img-profile-empty.png" />
-        <Input placeholder="리뷰 추가..." />
-      </NewReview>
       {reviews.map((review) => (
         <Review key={review._id} review={review} />
       ))}
