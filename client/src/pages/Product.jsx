@@ -313,6 +313,41 @@ const RefBtn = styled.button`
   justify-content: center;
 `;
 
+const SuggestionWrapper = styled.div`
+  margin: 10px 0px 40px;
+  padding: 30px 0px 0px;
+`;
+
+const SuggestionTitle = styled.h1`
+  color: #222222;
+  font-size: 16px;
+  margin: 0px 0px 14px;
+`;
+
+const SuggestionPdtWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const SuggestionPdt = styled.div``;
+
+const SuggestionPdtImg = styled.img`
+  width: 190px;
+  height: 190px;
+`;
+
+const SuggestionPdtTitle = styled.h1`
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 500;
+`;
+
+const SuggestionPdtPrice = styled.h1`
+  font-size: 13px;
+  margin-top: 5px;
+`;
+
 const Product = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -321,6 +356,7 @@ const Product = () => {
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
   const [reviewCount, setReviewCount] = useState(0);
+  const [productList, setProductList] = useState([]);
   const { currentUser } = useSelector((state) => state.user);
   const shop = useSelector((state) => state.shop);
   const itemCat = product.categories;
@@ -369,6 +405,20 @@ const Product = () => {
   const getData = (reviewCount) => {
     setReviewCount(reviewCount);
   };
+
+  useEffect(() => {
+    const getProductList = async () => {
+      try {
+        const res = await publicRequest.get("/products");
+        setProductList(res.data);
+      } catch {}
+    };
+    getProductList();
+  }, []);
+
+  const filterProductList = productList.filter(
+    (product) => product.shopId === shop.currentShop._id
+  );
 
   return (
     <Container>
@@ -577,6 +627,23 @@ const Product = () => {
       </Wrapper>
       <ImageWrapper ref={detailImgRef}>
         <Hr />
+        <SuggestionWrapper>
+          <SuggestionTitle>
+            {shop.currentShop.shopname} 상품 더보기
+          </SuggestionTitle>
+          <SuggestionPdtWrapper>
+            {filterProductList.map((item) => (
+              <SuggestionPdt>
+                <SuggestionPdtImg src={item.img} />
+                <SuggestionPdtTitle>{item.title}</SuggestionPdtTitle>
+                <SuggestionPdtPrice>
+                  {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  원
+                </SuggestionPdtPrice>
+              </SuggestionPdt>
+            ))}
+          </SuggestionPdtWrapper>
+        </SuggestionWrapper>
         <RefBtnWrapper>
           <RefBtn onClick={onImgClick}>상세정보</RefBtn>
           <RefBtn onClick={onReviewClick}>리뷰{reviewCount}</RefBtn>
