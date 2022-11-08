@@ -333,14 +333,16 @@ const SuggestionPdtWrapper = styled.div`
 const SuggestionPdt = styled.div``;
 
 const SuggestionPdtImg = styled.img`
-  width: 190px;
-  height: 190px;
+  width: 180px;
+  height: 180px;
 `;
 
 const SuggestionPdtTitle = styled.h1`
   font-size: 13px;
   margin-top: 5px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
 `;
 
 const SuggestionPdtPrice = styled.h1`
