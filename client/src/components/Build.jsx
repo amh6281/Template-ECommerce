@@ -30,16 +30,14 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 500px;
-  height: 750px;
-  background-color: white;
+  width: 1400px;
+  height: 850px;
+  background-color: #ffffffe4;
   color: black;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
+
   gap: 20px;
   position: relative;
-  border-radius: 4px;
 `;
 
 const Close = styled.div`
@@ -61,32 +59,19 @@ const Inputs = styled.div`
 `;
 
 const Input = styled.input`
-  font-size: 14px;
-  border: none;
-  width: 340px;
-  height: 30px;
-  margin-bottom: -10px;
-  outline: none;
-
-  input[type="file"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
+  border: 1px solid #f9f9f9;
+  color: black;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: transparent;
 `;
 
 const Desc = styled.textarea`
-  font-size: 14px;
-  border: none;
-  width: 340px;
-  height: 30px;
-  margin-bottom: -10px;
-  outline: none;
+  border: 1px solid #f9f9f9;
+  color: black;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: transparent;
 `;
 
 const Tmp = styled.div`
@@ -127,6 +112,49 @@ const Select = styled.select`
   border-radius: 3px;
   padding: 10px;
   background-color: transparent;
+`;
+
+const Left = styled.div`
+  flex: 1;
+  width: 700px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-right: 1px solid black;
+`;
+
+const Right = styled.div`
+  flex: 1;
+  width: 700px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Imgs = styled.div``;
+
+const Img = styled.img`
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 40px;
+`;
+
+const Label = styled.label`
+  display: flex;
+  padding: 0.5em 0.75em;
+  color: #999;
+  font-size: 14px;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: 0.25em;
+  margin-left: -5px;
+  justify-content: center;
 `;
 
 const Build = ({ setOpen }) => {
@@ -230,80 +258,119 @@ const Build = ({ setOpen }) => {
     res.status === 200 && navigate(`/shop/${res.data._id}`);
   };
 
+  const [file, setFile] = useState(null);
+
   return (
     <Container>
       <Wrapper>
         <Close onClick={() => setOpen(false)}>
           <HighlightOffOutlined />
         </Close>
-        <Title>개설하기</Title>
-        <Input
-          type="text"
-          placeholder="쇼핑몰 이름"
-          name="shopname"
-          onChange={handleChange}
-        />
-        <Desc
-          type="text"
-          placeholder="쇼핑몰 설명"
-          name="desc"
-          onChange={handleChange}
-        />
-        <Inputs>
-          <UploadLB for="input-file">카테고리 이미지</UploadLB>
+        <Left>
+          <Title>개설하기</Title>
           <Input
-            type="file"
-            id="input-file"
-            style={{ display: "none" }}
-            accept="image/*"
-            multiple
-            onChange={handleCatImg}
+            type="text"
+            placeholder="쇼핑몰 이름"
+            name="shopname"
+            onChange={handleChange}
           />
-        </Inputs>
-        <Input type="text" placeholder="카테고리" onChange={handleCat} />
-        <Inputs>
-          <UploadLB for="input-file">배너 이미지</UploadLB>
-          <Input
-            type="file"
-            id="input-file"
-            style={{ display: "none" }}
-            accept="image/*"
-            multiple
-            onChange={handleBanner}
+          <Desc
+            type="text"
+            placeholder="쇼핑몰 설명"
+            name="desc"
+            onChange={handleChange}
           />
-        </Inputs>
-        {imgPerc > 0 ? (
-          <Inputs>{"업로딩:" + imgPerc + "%"}</Inputs>
-        ) : (
           <Inputs>
-            <UploadLB for="input-file">쇼핑몰 LOGO</UploadLB>
+            <UploadLB for="input-file">카테고리 이미지</UploadLB>
             <Input
               type="file"
               id="input-file"
               style={{ display: "none" }}
               accept="image/*"
-              onChange={(e) => setLogo(e.target.files[0])}
+              multiple
+              onChange={handleCatImg}
             />
           </Inputs>
-        )}
-        <Select name="category" onChange={handleChange}>
-          <option value="0">카테고리 선택</option>
-          {categories.map((item) => (
-            <option value={item.value}>{item.cat}</option>
-          ))}
-        </Select>
-        <Select name="design" onChange={handleChange}>
-          <option value="0">디자인 선택</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </Select>
-        <Tmp>
-          <Tmp1Preview />
-          <Tmp2Preview />
-          <Tmp3Preview />
-        </Tmp>
-        <Button onClick={handleBuild}>생성</Button>{" "}
+          <Input type="text" placeholder="카테고리" onChange={handleCat} />
+          <Inputs>
+            <UploadLB for="input-file">배너 이미지</UploadLB>
+            <Input
+              type="file"
+              id="input-file"
+              style={{ display: "none" }}
+              accept="image/*"
+              multiple
+              onChange={handleBanner}
+            />
+          </Inputs>
+          {imgPerc > 0 ? (
+            <Inputs>{"업로딩:" + imgPerc + "%"}</Inputs>
+          ) : (
+            <Inputs>
+              <UploadLB for="input-file">쇼핑몰 LOGO</UploadLB>
+              <Input
+                type="file"
+                id="input-file"
+                style={{ display: "none" }}
+                accept="image/*"
+                onChange={(e) => setLogo(e.target.files[0])}
+              />
+            </Inputs>
+          )}
+          <Select name="category" onChange={handleChange}>
+            <option value="0">카테고리 선택</option>
+            {categories.map((item) => (
+              <option value={item.value}>{item.cat}</option>
+            ))}
+          </Select>
+          <Select name="design" onChange={handleChange}>
+            <option value="0">디자인 선택</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </Select>
+          <Tmp>
+            <Tmp1Preview />
+            <Tmp2Preview />
+            <Tmp3Preview />
+          </Tmp>
+          <Button onClick={handleBuild}>생성</Button>{" "}
+        </Left>
+        <Right>
+          <Imgs>
+            <Label>카테고리 이미지</Label>
+            <Img
+              src={
+                catImg
+                  ? catImg
+                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+              }
+              alt=""
+            />
+          </Imgs>
+          <Imgs>
+            <Label>배너 이미지</Label>
+            <Img
+              src={
+                banner
+                  ? banner
+                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+              }
+              alt=""
+            />
+          </Imgs>
+          <Imgs>
+            <Label>로고 이미지</Label>
+            <Img
+              src={
+                file
+                  ? file
+                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+              }
+              alt=""
+            />
+          </Imgs>
+        </Right>
       </Wrapper>
     </Container>
   );
