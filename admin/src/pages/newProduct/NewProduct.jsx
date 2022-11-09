@@ -19,7 +19,10 @@ export default function NewProduct() {
   const [shop, setShop] = useState({});
   const [color, setColor] = useState([]);
   const [size, setSize] = useState([]);
+
   const [detailImg, setDetailImg] = useState([]);
+  const [urls, setUrls] = useState([]);
+  const [progress, setProgress] = useState(0);
 
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
@@ -54,15 +57,47 @@ export default function NewProduct() {
   };
 
   const handleDetailImg = (e) => {
-    const nowSelectImgList = e.target.files;
-    const nowImgUrlList = [...detailImg];
-    for (let i = 0; i < nowSelectImgList.length; i++) {
-      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
-      nowImgUrlList.push(nowImgUrl);
+    for (let i = 0; i < e.target.files.length; i++) {
+      const newDetailImg = e.target.files[i];
+      setDetailImg((prev) => [...prev, newDetailImg]);
     }
-    setDetailImg(nowImgUrlList);
   };
+
+  const handleUpload = (e) => {
+    e.preventDefault();
+
+    const promises = [];
+    detailImg.map((img) => {
+      const storage = getStorage(app);
+      const fileName = new Date().getTime() + img.name;
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, img);
+      promises.push(uploadTask);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setUrls((prev) => [...prev, downloadURL]);
+          });
+        }
+      );
+    });
+    Promise.all(promises)
+      .then(() => alert("상세 이미지가 적용되었습니다."))
+      .catch((err) => console.log(err));
+  };
+
   console.log(detailImg);
+  console.log(urls);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -108,7 +143,7 @@ export default function NewProduct() {
             shopCat: shop[0]?.category,
             color: color,
             size: size,
-            detailImg: detailImg,
+            detailImg: urls,
             shopname: shop[0]?.shopname,
           };
           addProduct(product, dispatch);
@@ -116,7 +151,7 @@ export default function NewProduct() {
       }
     );
   };
-
+  console.log(file);
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">상품 추가</h1>
@@ -140,6 +175,7 @@ export default function NewProduct() {
                 <DriveFolderUploadOutlinedIcon className="icon" />
               </label>
               <input
+                multiple
                 type="file"
                 id="file"
                 onChange={(e) => setFile(e.target.files[0])}
@@ -172,6 +208,7 @@ export default function NewProduct() {
                 multiple
                 onChange={handleDetailImg}
               />
+              <button onClick={handleUpload}>Upload</button>
             </div>
             <div className="addProductItem">
               <label>색상</label>
