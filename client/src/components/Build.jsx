@@ -119,9 +119,15 @@ const Build = ({ setOpen }) => {
   const [logo, setLogo] = useState(undefined);
   const [imgPerc, setImgPerc] = useState(0);
   const [inputs, setInputs] = useState({});
-  const [banner, setBanner] = useState([]);
   const [cat, setCat] = useState([]);
+
   const [catImg, setCatImg] = useState([]);
+  const [catUrls, setCatUrls] = useState([]);
+  const [catProgress, setCatProgress] = useState(0);
+
+  const [banner, setBanner] = useState([]);
+  const [bannerUrls, setBannerUrls] = useState([]);
+  const [bannerProgress, setBannerProgress] = useState(0);
 
   const { currentUser } = useSelector((state) => state.user);
   const userId = currentUser?._id;
@@ -140,6 +146,88 @@ const Build = ({ setOpen }) => {
       };
     });
   };
+
+  const handleCatImg = (e) => {
+    for (let i = 0; i < e.target.files.length; i++) {
+      const newCatImg = e.target.files[i];
+      setCatImg((prev) => [...prev, newCatImg]);
+    }
+  };
+
+  const catHandleUpload = (e) => {
+    e.preventDefault();
+    const promises = [];
+
+    catImg.map((img) => {
+      const storage = getStorage(app);
+      const fileName = new Date().getTime() + img.name;
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, img);
+      promises.push(uploadTask);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setCatProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setCatUrls((prev) => [...prev, downloadURL]);
+          });
+        }
+      );
+    });
+    Promise.all(promises)
+      .then(() => alert("카테고리 이미지가 적용되었습니다."))
+      .catch((err) => console.log(err));
+  };
+  console.log(catUrls);
+
+  const handleBanner = (e) => {
+    for (let i = 0; i < e.target.files.length; i++) {
+      const newBanner = e.target.files[i];
+      setBanner((prev) => [...prev, newBanner]);
+    }
+  };
+
+  const bannerHandleUpload = (e) => {
+    e.preventDefault();
+    const promises = [];
+
+    banner.map((img) => {
+      const storage = getStorage(app);
+      const fileName = new Date().getTime() + img.name;
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, img);
+      promises.push(uploadTask);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setBannerProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setBannerUrls((prev) => [...prev, downloadURL]);
+          });
+        }
+      );
+    });
+    Promise.all(promises)
+      .then(() => alert("배너 이미지가 적용되었습니다."))
+      .catch((err) => console.log(err));
+  };
+  console.log(bannerUrls);
 
   const uploadFile = (file, urlType) => {
     const storage = getStorage(app);
@@ -173,33 +261,13 @@ const Build = ({ setOpen }) => {
             return {
               ...prev,
               [urlType]: downloadURL,
-              bannerImg: banner,
-              categoryItem: { catValue: cat, catImg: catImg },
+              bannerImg: bannerUrls,
+              categoryItem: { catValue: cat, catImg: catUrls },
             };
           });
         });
       }
     );
-  };
-
-  const handleBanner = (e) => {
-    const nowSelectImgList = e.target.files;
-    const nowImgUrlList = [...banner];
-    for (let i = 0; i < nowSelectImgList.length; i++) {
-      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
-      nowImgUrlList.push(nowImgUrl);
-    }
-    setBanner(nowImgUrlList);
-  };
-
-  const handleCatImg = (e) => {
-    const nowSelectImgList = e.target.files;
-    const nowImgUrlList = [...catImg];
-    for (let i = 0; i < nowSelectImgList.length; i++) {
-      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
-      nowImgUrlList.push(nowImgUrl);
-    }
-    setCatImg(nowImgUrlList);
   };
 
   useEffect(() => {
@@ -233,27 +301,23 @@ const Build = ({ setOpen }) => {
           onChange={handleChange}
         />
         <Inputs>
-          <UploadLB for="input-file">카테고리 이미지</UploadLB>
           <Input
             type="file"
-            id="input-file"
-            style={{ display: "none" }}
             accept="image/*"
             multiple
             onChange={handleCatImg}
           />
+          <button onClick={catHandleUpload}>upload</button>
         </Inputs>
         <Input type="text" placeholder="카테고리" onChange={handleCat} />
         <Inputs>
-          <UploadLB for="input-file">배너 이미지</UploadLB>
           <Input
             type="file"
-            id="input-file"
-            style={{ display: "none" }}
             accept="image/*"
             multiple
             onChange={handleBanner}
           />
+          <button onClick={bannerHandleUpload}>upload</button>
         </Inputs>
         {imgPerc > 0 ? (
           <Inputs>{"업로딩:" + imgPerc + "%"}</Inputs>

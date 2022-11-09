@@ -419,7 +419,7 @@ const Product = () => {
   }, []);
 
   const filterProductList = productList.filter(
-    (product) => product.shopId === shop.currentShop._id
+    (product) => product.shopId === shop.currentShop?._id
   );
 
   return (
@@ -629,23 +629,30 @@ const Product = () => {
       </Wrapper>
       <ImageWrapper ref={detailImgRef}>
         <Hr />
-        <SuggestionWrapper>
-          <SuggestionTitle>
-            {shop.currentShop.shopname} 상품 더보기
-          </SuggestionTitle>
-          <SuggestionPdtWrapper>
-            {filterProductList.map((item) => (
-              <SuggestionPdt>
-                <SuggestionPdtImg src={item.img} />
-                <SuggestionPdtTitle>{item.title}</SuggestionPdtTitle>
-                <SuggestionPdtPrice>
-                  {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                  원
-                </SuggestionPdtPrice>
-              </SuggestionPdt>
-            ))}
-          </SuggestionPdtWrapper>
-        </SuggestionWrapper>
+        {shop.currentShop ? (
+          <SuggestionWrapper>
+            <SuggestionTitle>
+              {shop.currentShop.shopname} 상품 더보기
+            </SuggestionTitle>
+            <SuggestionPdtWrapper>
+              {filterProductList.map((item) => (
+                <SuggestionPdt>
+                  <SuggestionPdtImg src={item.img} />
+                  <SuggestionPdtTitle>{item.title}</SuggestionPdtTitle>
+                  <SuggestionPdtPrice>
+                    {item.price
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    원
+                  </SuggestionPdtPrice>
+                </SuggestionPdt>
+              ))}
+            </SuggestionPdtWrapper>
+          </SuggestionWrapper>
+        ) : (
+          ""
+        )}
+
         <RefBtnWrapper>
           <RefBtn onClick={onImgClick}>상세정보</RefBtn>
           <RefBtn onClick={onReviewClick}>리뷰{reviewCount}</RefBtn>
