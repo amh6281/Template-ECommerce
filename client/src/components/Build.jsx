@@ -171,14 +171,16 @@ const ImgTitle = styled.h1`
 const ImgList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex: ${(props) => (props.type === "banner" ? "3" : "1")};
+  flex: ${(props) => (props.type === "banner" ? "5" : "2.2")};
   border: 1px solid #d5dade;
   gap: 5px;
 `;
 
 const Img = styled.img`
   width: ${(props) => (props.type === "banner" ? "656px" : "160.5px")};
-  height: ${(props) => (props.type === "banner" ? "127px" : "210px")};
+  height: ${(props) => (props.type === "banner" ? "117px" : "212px")};
+  /* width: ${(props) => (props.type === "banner" ? "656px" : "160.5px")};
+  height: ${(props) => (props.type === "banner" ? "127px" : "173px")}; */
   object-fit: cover;
 `;
 
