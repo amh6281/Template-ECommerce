@@ -5,7 +5,10 @@ import { publicRequest } from "../requestMethods";
 const Container = styled.div`
   display: flex;
   gap: 10px;
-  margin: 30px 0px;
+  width: 765px;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
 `;
 
 const Avatar = styled.img`

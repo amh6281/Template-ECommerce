@@ -337,6 +337,7 @@ const Order = () => {
         price: `${product.price}`,
         title: `${product.title}`,
         img: `${product.img}`,
+        productId: `${product._id}`,
         buyer_name: `${receiver}`,
         buyer_addr: `${address} ${detailAddr}`,
         date: `${dateString}`,

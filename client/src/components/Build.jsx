@@ -15,6 +15,7 @@ import { userRequest } from "../requestMethods";
 import { categories } from "../data";
 import { HighlightOffOutlined } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
+import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 
 const Container = styled.div`
   width: 100%;
@@ -30,14 +31,12 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 600px;
-  height: 800px;
+  width: 1400px;
+  height: 850px;
   background-color: #ffffffe4;
   color: black;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: row;
   position: relative;
 `;
 
@@ -47,8 +46,32 @@ const Close = styled.div`
   right: 10px;
   cursor: pointer;
 `;
-const Title = styled.h1`
-  text-align: center;
+
+const Left = styled.div`
+  flex: 1;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  gap: 25px;
+  border-right: 1px solid #d5dade;
+`;
+
+const Right = styled.div`
+  flex: 1;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-right: 1px solid black;
+  flex: 1;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 25px;
+  border-right: 1px solid black;
 `;
 
 const Inputs = styled.div`
@@ -57,6 +80,8 @@ const Inputs = styled.div`
   border-radius: 3px;
   padding: 10px;
   background-color: transparent;
+  display: flex;
+  align-items: center;
 `;
 
 const Input = styled.input`
@@ -105,6 +130,11 @@ const UploadLB = styled.label`
   border-bottom-color: #e2e2e2;
   border-radius: 0.25em;
   margin-left: -5px;
+  display: flex;
+  align-items: center;
+  width: 154px;
+  justify-content: space-between;
+  gap: 4px;
 `;
 
 const Select = styled.select`
@@ -113,15 +143,60 @@ const Select = styled.select`
   border-radius: 3px;
   padding: 10px;
   background-color: transparent;
+  border-radius: 0.25em;
+`;
+
+const UploadBtn = styled.button`
+  padding: 0.5em 0.75em;
+  color: #999;
+  font-size: 14px;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: 0.25em;
+  margin-right: 1px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+`;
+
+const ImgTitle = styled.h1`
+  color: #606060;
+  font-size: 14px;
+`;
+
+const ImgList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex: ${(props) => (props.type === "banner" ? "5" : "2.2")};
+  border: 1px solid #d5dade;
+  gap: 5px;
+`;
+
+const Img = styled.img`
+  width: ${(props) => (props.type === "banner" ? "656px" : "160.5px")};
+  height: ${(props) => (props.type === "banner" ? "117px" : "212px")};
+  /* width: ${(props) => (props.type === "banner" ? "656px" : "160.5px")};
+  height: ${(props) => (props.type === "banner" ? "127px" : "173px")}; */
+  object-fit: cover;
 `;
 
 const Build = ({ setOpen }) => {
   const [logo, setLogo] = useState(undefined);
   const [imgPerc, setImgPerc] = useState(0);
   const [inputs, setInputs] = useState({});
-  const [banner, setBanner] = useState([]);
   const [cat, setCat] = useState([]);
+
   const [catImg, setCatImg] = useState([]);
+  const [catUrls, setCatUrls] = useState([]);
+  const [catProgress, setCatProgress] = useState(0);
+
+  const [banner, setBanner] = useState([]);
+  const [bannerUrls, setBannerUrls] = useState([]);
+  const [bannerProgress, setBannerProgress] = useState(0);
 
   const { currentUser } = useSelector((state) => state.user);
   const userId = currentUser?._id;
@@ -129,10 +204,7 @@ const Build = ({ setOpen }) => {
   const handleCat = (e) => {
     setCat(e.target.value.split(","));
   };
-  console.log(cat);
-  console.log(inputs);
-  console.log(banner);
-  console.log(catImg);
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -144,6 +216,87 @@ const Build = ({ setOpen }) => {
     });
   };
 
+  const handleCatImg = (e) => {
+    for (let i = 0; i < e.target.files.length; i++) {
+      const newCatImg = e.target.files[i];
+      setCatImg((prev) => [...prev, newCatImg]);
+    }
+  };
+
+  const catHandleUpload = (e) => {
+    e.preventDefault();
+    const promises = [];
+
+    catImg.map((img) => {
+      const storage = getStorage(app);
+      const fileName = new Date().getTime() + img.name;
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, img);
+      promises.push(uploadTask);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setCatProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setCatUrls((prev) => [...prev, downloadURL]);
+          });
+        }
+      );
+    });
+    Promise.all(promises)
+      .then(() => alert("카테고리 이미지가 적용되었습니다."))
+      .catch((err) => console.log(err));
+  };
+  console.log(catUrls);
+
+  const handleBanner = (e) => {
+    for (let i = 0; i < e.target.files.length; i++) {
+      const newBanner = e.target.files[i];
+      setBanner((prev) => [...prev, newBanner]);
+    }
+  };
+
+  const bannerHandleUpload = (e) => {
+    e.preventDefault();
+    const promises = [];
+
+    banner.map((img) => {
+      const storage = getStorage(app);
+      const fileName = new Date().getTime() + img.name;
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, img);
+      promises.push(uploadTask);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setBannerProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setBannerUrls((prev) => [...prev, downloadURL]);
+          });
+        }
+      );
+    });
+    Promise.all(promises)
+      .then(() => alert("배너 이미지가 적용되었습니다."))
+      .catch((err) => console.log(err));
+  };
+  console.log(bannerProgress);
   const uploadFile = (file, urlType) => {
     const storage = getStorage(app);
     const fileName = new Date().getTime() + file.name;
@@ -176,33 +329,13 @@ const Build = ({ setOpen }) => {
             return {
               ...prev,
               [urlType]: downloadURL,
-              bannerImg: banner,
-              categoryItem: { catValue: cat, catImg: catImg },
+              bannerImg: bannerUrls,
+              categoryItem: { catValue: cat, catImg: catUrls },
             };
           });
         });
       }
     );
-  };
-
-  const handleBanner = (e) => {
-    const nowSelectImgList = e.target.files;
-    const nowImgUrlList = [...banner];
-    for (let i = 0; i < nowSelectImgList.length; i++) {
-      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
-      nowImgUrlList.push(nowImgUrl);
-    }
-    setBanner(nowImgUrlList);
-  };
-
-  const handleCatImg = (e) => {
-    const nowSelectImgList = e.target.files;
-    const nowImgUrlList = [...catImg];
-    for (let i = 0; i < nowSelectImgList.length; i++) {
-      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
-      nowImgUrlList.push(nowImgUrl);
-    }
-    setCatImg(nowImgUrlList);
   };
 
   useEffect(() => {
@@ -222,74 +355,106 @@ const Build = ({ setOpen }) => {
         <Close onClick={() => setOpen(false)}>
           <HighlightOffOutlined />
         </Close>
-        <Title>개설하기</Title>
-        <Input
-          type="text"
-          placeholder="쇼핑몰 이름"
-          name="shopname"
-          onChange={handleChange}
-        />
-        <Desc
-          type="text"
-          placeholder="쇼핑몰 설명"
-          name="desc"
-          onChange={handleChange}
-        />
-        <Inputs>
-          <UploadLB for="input-file">카테고리 이미지</UploadLB>
+
+        <Left>
           <Input
-            type="file"
-            id="input-file"
-            style={{ display: "none" }}
-            accept="image/*"
-            multiple
-            onChange={handleCatImg}
+            type="text"
+            placeholder="쇼핑몰 이름"
+            name="shopname"
+            onChange={handleChange}
           />
-        </Inputs>
-        <Input type="text" placeholder="카테고리" onChange={handleCat} />
-        <Inputs>
-          <UploadLB for="input-file">배너 이미지</UploadLB>
-          <Input
-            type="file"
-            id="input-file"
-            style={{ display: "none" }}
-            accept="image/*"
-            multiple
-            onChange={handleBanner}
+          <Desc
+            type="text"
+            placeholder="쇼핑몰 설명"
+            name="desc"
+            onChange={handleChange}
           />
-        </Inputs>
-        {imgPerc > 0 ? (
-          <Inputs>{"업로딩:" + imgPerc + "%"}</Inputs>
-        ) : (
           <Inputs>
-            <UploadLB for="input-file">쇼핑몰 LOGO</UploadLB>
+            <UploadLB htmlFor="catImg">
+              카테고리 이미지 <DriveFolderUploadOutlinedIcon />
+            </UploadLB>
             <Input
+              id="catImg"
               type="file"
-              id="input-file"
               style={{ display: "none" }}
               accept="image/*"
-              onChange={(e) => setLogo(e.target.files[0])}
+              multiple
+              onChange={handleCatImg}
             />
+            {catProgress > 0 ? (
+              <UploadBtn onClick={catHandleUpload}>적용완료</UploadBtn>
+            ) : (
+              <UploadBtn onClick={catHandleUpload}>적용하기</UploadBtn>
+            )}
           </Inputs>
-        )}
-        <Select name="category" onChange={handleChange}>
-          <option value="0">카테고리 선택</option>
-          {categories.map((item) => (
-            <option value={item.value}>{item.cat}</option>
-          ))}
-        </Select>
-        <Select name="design" onChange={handleChange}>
-          <option value="0">디자인 선택</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </Select>
-        <Tmp>
-          <Tmp1Preview />
-          <Tmp2Preview />
-          <Tmp3Preview />
-        </Tmp>
-        <Button onClick={handleBuild}>생성</Button>{" "}
+          <Input type="text" placeholder="카테고리" onChange={handleCat} />
+          <Inputs>
+            <UploadLB htmlFor="bannerImg" type="banner">
+              배너 이미지 <DriveFolderUploadOutlinedIcon />
+            </UploadLB>
+            <Input
+              id="bannerImg"
+              type="file"
+              style={{ display: "none" }}
+              accept="image/*"
+              multiple
+              onChange={handleBanner}
+            />
+            {bannerProgress > 0 ? (
+              <UploadBtn onClick={bannerHandleUpload}>적용완료</UploadBtn>
+            ) : (
+              <UploadBtn onClick={bannerHandleUpload}>적용하기</UploadBtn>
+            )}
+          </Inputs>
+          {imgPerc > 0 ? (
+            <Inputs>{"업로딩:" + imgPerc + "%"}</Inputs>
+          ) : (
+            <Inputs>
+              <UploadLB htmlFor="input-file">
+                쇼핑몰 로고 <DriveFolderUploadOutlinedIcon />
+              </UploadLB>
+              <Input
+                type="file"
+                id="input-file"
+                style={{ display: "none" }}
+                accept="image/*"
+                onChange={(e) => setLogo(e.target.files[0])}
+              />
+            </Inputs>
+          )}
+          <Select name="category" onChange={handleChange}>
+            <option value="0">카테고리 선택</option>
+            {categories.map((item) => (
+              <option value={item.value}>{item.cat}</option>
+            ))}
+          </Select>
+          <Select name="design" onChange={handleChange}>
+            <option value="0">디자인 선택</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </Select>
+          <Tmp>
+            <Tmp1Preview />
+            <Tmp2Preview />
+            <Tmp3Preview />
+          </Tmp>
+          <Button onClick={handleBuild}>생성</Button>
+        </Left>
+        <Right>
+          <ImgTitle>카테고리 이미지</ImgTitle>
+          <ImgList>
+            {catUrls.map((url, i) => (
+              <Img key={i} src={url} alt="" />
+            ))}
+          </ImgList>
+          <ImgTitle>배너 이미지</ImgTitle>
+          <ImgList type="banner">
+            {bannerUrls.map((url, i) => (
+              <Img type="banner" key={i} src={url} alt="" />
+            ))}
+          </ImgList>
+        </Right>
       </Wrapper>
     </Container>
   );

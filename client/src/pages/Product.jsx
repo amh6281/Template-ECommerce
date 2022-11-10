@@ -308,6 +308,46 @@ const RefBtn = styled.button`
   width: 255px;
   border: 1px solid #dbdddf;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const SuggestionWrapper = styled.div`
+  margin: 10px 0px 40px;
+  padding: 30px 0px 0px;
+`;
+
+const SuggestionTitle = styled.h1`
+  color: #222222;
+  font-size: 16px;
+  margin: 0px 0px 14px;
+`;
+
+const SuggestionPdtWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const SuggestionPdt = styled.div``;
+
+const SuggestionPdtImg = styled.img`
+  width: 180px;
+  height: 180px;
+`;
+
+const SuggestionPdtTitle = styled.h1`
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+`;
+
+const SuggestionPdtPrice = styled.h1`
+  font-size: 13px;
+  margin-top: 5px;
 `;
 
 const Product = () => {
@@ -317,6 +357,8 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const [reviewCount, setReviewCount] = useState(0);
+  const [productList, setProductList] = useState([]);
   const { currentUser } = useSelector((state) => state.user);
   const shop = useSelector((state) => state.shop);
   const itemCat = product.categories;
@@ -361,6 +403,24 @@ const Product = () => {
   const onReviewClick = () => {
     reviewRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const getData = (reviewCount) => {
+    setReviewCount(reviewCount);
+  };
+
+  useEffect(() => {
+    const getProductList = async () => {
+      try {
+        const res = await publicRequest.get("/products");
+        setProductList(res.data);
+      } catch {}
+    };
+    getProductList();
+  }, []);
+
+  const filterProductList = productList.filter(
+    (product) => product.shopId === shop.currentShop?._id
+  );
 
   return (
     <Container>
@@ -569,9 +629,33 @@ const Product = () => {
       </Wrapper>
       <ImageWrapper ref={detailImgRef}>
         <Hr />
+        {shop.currentShop ? (
+          <SuggestionWrapper>
+            <SuggestionTitle>
+              {shop.currentShop.shopname} 상품 더보기
+            </SuggestionTitle>
+            <SuggestionPdtWrapper>
+              {filterProductList.map((item) => (
+                <SuggestionPdt>
+                  <SuggestionPdtImg src={item.img} />
+                  <SuggestionPdtTitle>{item.title}</SuggestionPdtTitle>
+                  <SuggestionPdtPrice>
+                    {item.price
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    원
+                  </SuggestionPdtPrice>
+                </SuggestionPdt>
+              ))}
+            </SuggestionPdtWrapper>
+          </SuggestionWrapper>
+        ) : (
+          ""
+        )}
+
         <RefBtnWrapper>
           <RefBtn onClick={onImgClick}>상세정보</RefBtn>
-          <RefBtn onClick={onReviewClick}>리뷰</RefBtn>
+          <RefBtn onClick={onReviewClick}>리뷰{reviewCount}</RefBtn>
           <RefBtn>Q&A</RefBtn>
         </RefBtnWrapper>
         {product.detailImg?.map((img) => (
@@ -581,10 +665,10 @@ const Product = () => {
       <Hr />
       <RefBtnWrapper>
         <RefBtn onClick={onImgClick}>상세정보</RefBtn>
-        <RefBtn onClick={onReviewClick}>리뷰</RefBtn>
+        <RefBtn onClick={onReviewClick}>리뷰{reviewCount}</RefBtn>
         <RefBtn>Q&A</RefBtn>
       </RefBtnWrapper>
-      <Reviews productId={id} ref={reviewRef} />
+      <Reviews productId={id} ref={reviewRef} getData={getData} />
       <Footer />
     </Container>
   );

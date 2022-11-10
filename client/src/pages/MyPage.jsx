@@ -5,6 +5,7 @@ import MidNav from "../components/MidNav";
 import TopNav from "../components/TopNav";
 import { publicRequest } from "../requestMethods";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -151,6 +152,7 @@ const CancelBtn = styled.button`
 const MyPage = () => {
   const [orders, setOrders] = useState([]);
   const { currentUser } = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getOrders = async () => {
@@ -182,6 +184,13 @@ const MyPage = () => {
     return order.status == "배송완료";
   });
 
+  const handleClick = (id) => {
+    navigate("/review", {
+      state: filterOrders.filter((order) => {
+        return order._id == id;
+      }),
+    });
+  };
   return (
     <>
       <TopNav />
@@ -236,9 +245,17 @@ const MyPage = () => {
                   </DetailWrapper>
                   <ProductStatus>{order.status}</ProductStatus>
                 </ProductInfo>
-                <ProductInfo>
-                  <ReviewBtn>리뷰작성</ReviewBtn>
-                </ProductInfo>
+                {order.status === "배송완료" ? (
+                  <ProductInfo>
+                    <ReviewBtn onClick={() => handleClick(order._id)}>
+                      리뷰작성
+                    </ReviewBtn>
+                  </ProductInfo>
+                ) : (
+                  <ProductInfo>
+                    <ReviewBtn>문의하기</ReviewBtn>
+                  </ProductInfo>
+                )}
                 <ProductInfo>
                   <CancelBtn>결제취소</CancelBtn>
                 </ProductInfo>

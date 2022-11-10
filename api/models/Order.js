@@ -20,6 +20,7 @@ const OrderSchema = new mongoose.Schema(
         status: { type: String, default: "상품준비중" },
         date: { type: String },
         userId: { type: String },
+        productId: { type: String },
       },
     ],
   },

@@ -14,6 +14,7 @@ import Success from "./pages/Success";
 import SearchShop from "./pages/SearchShop";
 import SearchProduct from "./pages/SearchProduct";
 import MyPage from "./pages/MyPage";
+import Review from "./pages/Review";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -41,6 +42,7 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/success" element={<Success />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
     </BrowserRouter>
   );
