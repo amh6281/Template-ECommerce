@@ -201,12 +201,16 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>세부 이미지</label>
+              <label htmlFor="detail">
+                세부 이미지 <DriveFolderUploadOutlinedIcon className="icon" />
+              </label>
               <input
                 type="file"
                 accept="image/*"
                 multiple
                 onChange={handleDetailImg}
+                style={{ display: "none" }}
+                id="detail"
               />
               <button onClick={handleUpload}>Upload</button>
             </div>
