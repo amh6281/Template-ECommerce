@@ -19,7 +19,10 @@ export default function NewProduct() {
   const [shop, setShop] = useState({});
   const [color, setColor] = useState([]);
   const [size, setSize] = useState([]);
+
   const [detailImg, setDetailImg] = useState([]);
+  const [urls, setUrls] = useState([]);
+  const [progress, setProgress] = useState(0);
 
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
@@ -34,7 +37,6 @@ export default function NewProduct() {
     };
     getShop();
   }, [userId]);
-  console.log(shop);
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -55,29 +57,99 @@ export default function NewProduct() {
   };
 
   const handleDetailImg = (e) => {
-    const nowSelectImgList = e.target.files;
-    const nowImgUrlList = [...detailImg];
-    for (let i = 0; i < nowSelectImgList.length; i++) {
-      const nowImgUrl = URL.createObjectURL(nowSelectImgList[i]);
-      nowImgUrlList.push(nowImgUrl);
+    for (let i = 0; i < e.target.files.length; i++) {
+      const newDetailImg = e.target.files[i];
+      setDetailImg((prev) => [...prev, newDetailImg]);
     }
-    setDetailImg(nowImgUrlList);
   };
+
+  const handleUpload = (e) => {
+    e.preventDefault();
+
+    const promises = [];
+    detailImg.map((img) => {
+      const storage = getStorage(app);
+      const fileName = new Date().getTime() + img.name;
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, img);
+      promises.push(uploadTask);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setUrls((prev) => [...prev, downloadURL]);
+          });
+        }
+      );
+    });
+    Promise.all(promises)
+      .then(() => alert("상세 이미지가 적용되었습니다."))
+      .catch((err) => console.log(err));
+  };
+
   console.log(detailImg);
+  console.log(urls);
+
   const handleClick = (e) => {
     e.preventDefault();
-    const product = {
-      ...inputs,
-      img: file,
-      categories: cat,
-      shopId: shop[0]?._id,
-      shopCat: shop[0]?.category,
-      color: color,
-      size: size,
-      detailImg: detailImg,
-      shopname: shop[0]?.shopname,
-    };
-    addProduct(product, dispatch);
+    const fileName = new Date().getTime() + file.name;
+    const storage = getStorage(app);
+    const storageRef = ref(storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+          default:
+        }
+      },
+      (error) => {
+        // Handle unsuccessful uploads
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          const product = {
+            ...inputs,
+            img: downloadURL,
+            categories: cat,
+            shopId: shop[0]?._id,
+            shopCat: shop[0]?.category,
+            color: color,
+            size: size,
+            detailImg: urls,
+            shopname: shop[0]?.shopname,
+          };
+          addProduct(product, dispatch);
+        });
+      }
+    );
   };
   console.log(file);
   return (
@@ -89,7 +161,7 @@ export default function NewProduct() {
             className="img"
             src={
               file
-                ? file
+                ? URL.createObjectURL(file)
                 : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
             }
             alt=""
@@ -103,12 +175,10 @@ export default function NewProduct() {
                 <DriveFolderUploadOutlinedIcon className="icon" />
               </label>
               <input
+                multiple
                 type="file"
                 id="file"
-                accept="image/*"
-                onChange={(e) =>
-                  setFile(URL.createObjectURL(e.target.files[0]))
-                }
+                onChange={(e) => setFile(e.target.files[0])}
                 style={{ display: "none" }}
               />
             </div>
@@ -131,13 +201,19 @@ export default function NewProduct() {
               />
             </div>
             <div className="addProductItem">
-              <label>세부 이미지</label>
-              <input
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={handleDetailImg}
-              />
+              <label htmlFor="detail">
+                세부 이미지
+                <DriveFolderUploadOutlinedIcon className="icon" />
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="detail"
+                  style={{ display: "none" }}
+                  multiple
+                  onChange={handleDetailImg}
+                />
+                <button onClick={handleUpload}>적용하기</button>
+              </label>
             </div>
             <div className="addProductItem">
               <label>색상</label>
