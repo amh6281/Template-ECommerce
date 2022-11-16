@@ -2,16 +2,14 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./app.css";
 import Home from "./pages/home/Home";
-import UserList from "./pages/userList/UserList";
-import User from "./pages/user/User";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NewUser from "./pages/NewUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 import ListList from "./pages/listList/ListList";
+import NewList from "./pages/newList/NewList";
 
 function App() {
   const isEntrepreneur = JSON.parse(
@@ -32,15 +30,6 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/users">
-                <UserList />
-              </Route>
-              <Route path="/user/:userId">
-                <User />
-              </Route>
-              <Route path="/newUser">
-                <NewUser />
-              </Route>
               <Route path="/products">
                 <ProductList />
               </Route>
@@ -52,6 +41,9 @@ function App() {
               </Route>
               <Route path="/lists">
                 <ListList />
+              </Route>
+              <Route path="/newlist">
+                <NewList />
               </Route>
             </div>
           </>

@@ -28,7 +28,7 @@ const ListList = () => {
       headerName: "제목",
       width: 450,
       renderCell: (params) => {
-        return <div className="productListItem">{params.row.title}</div>;
+        return <div className="listListItem">{params.row.title}</div>;
       },
     },
     {
@@ -38,10 +38,8 @@ const ListList = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row._id}>
-              <button className="productListEdit">편집</button>
-            </Link>
-            <DeleteOutline className="productListDelete" />
+            <button className="listListEdit">편집</button>
+            <DeleteOutline className="listListDelete" />
           </>
         );
       },
@@ -49,7 +47,7 @@ const ListList = () => {
   ];
 
   return (
-    <div className="productList">
+    <div className="listList">
       <DataGrid
         rows={lists}
         disableSelectionOnClick

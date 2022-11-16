@@ -1,21 +1,13 @@
-.productList {
+.listList {
   flex: 4;
 }
 
-.productListItem {
+.listListItem {
   display: flex;
   align-items: center;
 }
 
-.productListImg {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
-.productListEdit {
+.listListEdit {
   border: none;
   border-radius: 10px;
   padding: 5px 10px;
@@ -25,7 +17,7 @@
   margin-right: 20px;
 }
 
-.productListDelete {
+.listListDelete {
   color: red;
   cursor: pointer;
 }
