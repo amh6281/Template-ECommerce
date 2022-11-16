@@ -11,6 +11,7 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
+import ListList from "./pages/listList/ListList";
 
 function App() {
   const isEntrepreneur = JSON.parse(
@@ -48,6 +49,9 @@ function App() {
               </Route>
               <Route path="/newproduct">
                 <NewProduct />
+              </Route>
+              <Route path="/lists">
+                <ListList />
               </Route>
             </div>
           </>
