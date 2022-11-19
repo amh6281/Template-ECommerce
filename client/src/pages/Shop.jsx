@@ -15,13 +15,16 @@ import MidNav from "../components/MidNav";
 import CatNav from "../components/CatNav";
 import Tmp3Categories from "../components/Tmp3/Tmp3Categories";
 import Tmp3Products from "../components/Tmp3/Tmp3Products";
+import List from "../components/List";
 
 const Shop = () => {
+  const [lists, setLists] = useState([]);
   const { currentUser } = useSelector((state) => state.user);
   const shop = useSelector((state) => state.shop);
   const dispatch = useDispatch();
 
   const path = useLocation().pathname.split("/")[2];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -34,6 +37,18 @@ const Shop = () => {
     fetchData();
   }, [path, dispatch]);
 
+  useEffect(() => {
+    const fetchLists = async () => {
+      try {
+        const res = await publicRequest.get("/lists");
+        setLists(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchLists();
+  }, []);
+
   return (
     <div>
       <TopNav />
@@ -42,6 +57,11 @@ const Shop = () => {
       {shop.currentShop?.design === 1 ? (
         <>
           <Tmp1Slider />
+          {lists
+            .filter((data) => data.shopId === shop.currentShop._id)
+            .map((list) => (
+              <List key={list._id} list={list} />
+            ))}
           <SliderCategories />
           <Tmp1Products shopId={shop.currentShop?._id} />
         </>
@@ -49,11 +69,17 @@ const Shop = () => {
         <>
           <DropCategory />
           <Tmp2Slider />
+          {lists.map((list) => (
+            <List key={list._id} list={list} />
+          ))}
           <Tmp2Products shopId={shop.currentShop?._id} />
         </>
       ) : (
         <>
           <Tmp2Slider />
+          {lists.map((list) => (
+            <List key={list._id} list={list} />
+          ))}
           <Tmp3Categories />
           <Tmp3Products shopId={shop.currentShop?._id} />
         </>

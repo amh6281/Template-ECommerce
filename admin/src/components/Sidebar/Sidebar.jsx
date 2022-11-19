@@ -12,6 +12,7 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
+  List,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -37,6 +38,12 @@ const Sidebar = () => {
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 상품
+              </li>
+            </Link>
+            <Link to="/lists" className="link">
+              <li className="sidebarListItem">
+                <List className="sidebarIcon" />
+                리스트
               </li>
             </Link>
           </ul>

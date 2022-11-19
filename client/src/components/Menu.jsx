@@ -5,11 +5,13 @@ import { menu } from "../data";
 const Container = styled.div`
   width: 11%;
   margin: 0 auto;
-  position: absolute;
+  position: sticky;
   color: white;
   font-size: 14px;
   z-index: 999;
   margin-left: 50px;
+  top: 50px;
+  height: calc(100vh - 100vh);
 `;
 
 const Wrapper = styled.div`

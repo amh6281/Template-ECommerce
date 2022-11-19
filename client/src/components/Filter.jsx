@@ -4,7 +4,6 @@ import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 
 const Container = styled.div`
   width: 100%;
-  margin-top: 10px;
 `;
 
 const Wrapper = styled.div`

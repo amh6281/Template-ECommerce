@@ -335,6 +335,7 @@ const SuggestionPdt = styled.div``;
 const SuggestionPdtImg = styled.img`
   width: 180px;
   height: 180px;
+  object-fit: cover;
 `;
 
 const SuggestionPdtTitle = styled.h1`
