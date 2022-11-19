@@ -1,7 +1,28 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import styled from "styled-components";
 import { publicRequest } from "../requestMethods";
+
+const Container = styled.div`
+  flex: 1;
+  margin: 5px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Image = styled.img`
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+`;
+
+const Title = styled.h1`
+  font-size: 12px;
+  font-weight: initial;
+  display: flex;
+  justify-content: center;
+`;
 
 const ListItem = ({ index, item }) => {
   const [product, setProduct] = useState({});
@@ -19,10 +40,10 @@ const ListItem = ({ index, item }) => {
   }, [item]);
 
   return (
-    <div>
-      <h2>{product.title}</h2>
-      <h4>{product.price}</h4>
-    </div>
+    <Container>
+      <Image src={product.img} />
+      <Title>{product.title}</Title>
+    </Container>
   );
 };
 
