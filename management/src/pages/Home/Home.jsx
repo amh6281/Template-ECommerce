@@ -85,11 +85,9 @@ const Home = () => {
   }, []);
 
   // 모든 주문 총액
-  // const orderAmount = orders
-  //   .map((item) => item.amount)
-  //   .reduce((prev, curr) => prev + curr, 0)
-  //   .toString()
-  //   .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const orderAmount = orders
+    .map((item) => item.paid_amount)
+    .reduce((prev, curr) => prev + curr, 0);
 
   return (
     <div className="home">
@@ -103,7 +101,7 @@ const Home = () => {
           <Widget type="balance" amount="999,999,999" />
         </div>
         <div className="charts">
-          <Featured total={incomes[incomes.length - 1]?.Total} />
+          <Featured total={orderAmount} />
           <Chart title="6개월간 수익" aspect={2 / 1} data={incomes} />
         </div>
         <div className="listContainer">
