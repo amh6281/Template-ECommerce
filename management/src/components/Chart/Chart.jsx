@@ -10,15 +10,6 @@ import {
 } from "recharts";
 import { publicRequest } from "../../requestMethods";
 
-const data = [
-  { name: "1월", Total: 1200 },
-  { name: "2월", Total: 2100 },
-  { name: "3월", Total: 800 },
-  { name: "4월", Total: 1600 },
-  { name: "5월", Total: 900 },
-  { name: "6월", Total: 1700 },
-];
-
 const Chart = ({ aspect, title, data }) => {
   return (
     <div className="chart">

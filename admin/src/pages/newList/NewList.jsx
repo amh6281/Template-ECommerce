@@ -40,27 +40,27 @@ const NewList = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="formRight">
-            <div className="addListItem">
-              <label>상품</label>
-              <select
-                multiple
-                name="products"
-                style={{ height: "280px" }}
-                onChange={handleSelect}
-              >
-                {products.map((product) => (
-                  <option key={product._id} value={product._id}>
-                    {product.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
         </div>
-        <button className="addListButton" onClick={handleSubmit}>
-          Create
-        </button>
+        <div className="formRight">
+          <div className="addListItem">
+            <label>상품</label>
+            <select
+              multiple
+              name="products"
+              style={{ height: "280px" }}
+              onChange={handleSelect}
+            >
+              {products.map((product) => (
+                <option key={product._id} value={product._id}>
+                  {product.title}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button className="addListButton" onClick={handleSubmit}>
+            Create
+          </button>
+        </div>
       </form>
     </div>
   );

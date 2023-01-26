@@ -2,6 +2,14 @@
   flex: 4;
 }
 
+.formLeft {
+  flex: 1;
+}
+
+.formRight {
+  flex: 2;
+}
+
 .addListTitle {
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
@@ -13,16 +21,22 @@
 }
 
 .addListForm {
-  margin-top: 10px;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  padding: 100px;
+  margin: 20px;
+  color: lightgray;
+  font-size: 20px;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .addListItem {
   width: 400px;
+
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  margin-left: 150px;
 }
 
 .addListItem > label {
@@ -33,21 +47,32 @@
 
 .addListItem > input {
   padding: 10px;
+  border: none;
+  border-bottom: 1px solid gray;
 }
 
 .addListItem > select {
-  padding: 10px;
+  width: 200px;
+  list-style: none;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  margin-top: 9px;
+  overflow-y: hidden;
+  padding: 25px;
 }
 
 .addListButton {
-  height: 30px;
-  margin-top: 10px;
-  padding: 7px 10px;
-  border: none;
+  margin-top: 30px;
   border-radius: 10px;
-  background-color: darkblue;
-  color: white;
   font-weight: 600;
+  width: 150px;
+  padding: 10px;
+  border: none;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  align-self: center;
 }
