@@ -8,42 +8,32 @@
   <br />
   
   ## 💪 Skills
-<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=React_Query&logoColor=white"/>
-<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/> <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
-<img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"/>
+> <h3>Front-end</h3>
+> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"/> <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"/> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"/> <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white"/>
+> <h3>Back-end</h3>
+> <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/> <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/> <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
 
+  ## 프로젝트 별 기능
+###  Client [Link](https://github.com/amh6281/Template-ECommerce/tree/master/client)
+  * 쇼핑몰 개설
+  * 쇼핑몰 전체보기
+  * 상품 전체보기
+  * 쇼핑몰 검색
+  * 상품 검색
+  * 장바구니 담기
+  * 주문 및 결제
+  * 결제 확인
+  * 마이페이지를 통한 배송현황 확인
+  * 리뷰 작성 기능
   <br />
-  <h2>Home</h2>
-<div>
-  <img src="https://user-images.githubusercontent.com/83646986/210136487-5c0b326d-6ba7-4811-bcbe-919b2e4bde37.gif" />
-  <h4>게시물을 확인하고, 버튼을 통해 게시물에 좋아요를 표현할 수 있습니다.</h4>
-</div>
-<br />
-<h2>게시물 작성 기능</h2>
-<div>
-  <img src="https://user-images.githubusercontent.com/83646986/210136207-dbdb5c91-fd76-4f2e-a259-7ff087636cfd.gif" />
-  <h4>텍스트와 파일을 통해 게시물을 업로드할 수 있습니다.</h4>
-</div>
-<br />
-<h2>프로필 페이지</h2>
-<div>
-  <img src="https://user-images.githubusercontent.com/83646986/210136309-de24190d-244d-40ae-93b9-6837dc043520.gif" />
-  <h4>자신이 업로드한 게시물과 사용자 정보를 업데이트할 수 있습니다.</h4>
-</div>
-<br />
-<h2>게시물 삭제 기능</h2>
-<div>
-  <img src="https://user-images.githubusercontent.com/83646986/210136411-ab8103f6-e7b0-4a92-b22c-e789c6d7f20b.gif" />
-  <h4>현재 로그인한 사용자 id와 게시물의 id가 같을경우 자신의 게시물로 판단하여 삭제할 수 있습니다.</h4>
-</div>
-<br />
-
-
-## ✔︎ New Learning
-
-- <b>Context API를 활용한 Light, Dark 모드 구현</b>
-
-- <b>React-Query를 통한 데이터 fetching</b>
-
-
-<br/>
+  
+###  Admin [Link](https://github.com/amh6281/Template-ECommerce/tree/master/admin)
+  * 주문 확인 및 주문 상태 업데이트
+  * 상품 추가 및 관리
+  * 리스트 추가 및 관리
+  * 매출 확인
+  <br />
+  
+###  Management [Link](https://github.com/amh6281/Template-ECommerce/tree/master/management)
+  * 사이트 내 전체 매출 및 주문 현황 관리
+  * 사용자 관리
