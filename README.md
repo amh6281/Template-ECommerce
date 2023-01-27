@@ -13,11 +13,11 @@
 > <h3>Back-end</h3>
 > <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/> <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/> <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
 
-  ## 프로젝트 별 기능
+  ## 프로젝트별 기능
 ###  Client [Link](https://github.com/amh6281/Template-ECommerce/tree/master/client)
   * 쇼핑몰 개설
-  * 쇼핑몰 전체보기
-  * 상품 전체보기
+  * 쇼핑몰 전체 보기
+  * 상품 전체 보기
   * 쇼핑몰 검색
   * 상품 검색
   * 장바구니 담기
