@@ -1,70 +1,42 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div align="center">
+  <h1>Admin</h1>
+</div>
+  <br />
+  
+  ## 📝 About The Project
+> <b>사업자가 자신의 쇼핑몰에서 판매되는 상품 및 주문현황, 매출을 관리하는 Admin 페이지입니다.</b>
+  <br />
+  
+  ## 💪 Skills
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"/> <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+<img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white"/>
+  <br />
+  <br />
+<h2>Home</h2>
+<div>
+  <img src="https://user-images.githubusercontent.com/83646986/214985820-b8ad8b8a-df1b-48ac-83ee-cd5a6b8e0c8a.png" width="800px" height="388px" /><br />
+  <b>쇼핑몰의 수익, 매출, 원가와 웹사이트 사용자 수 및 주문현황을 확인할 수 있습니다.</b>
+</div>
+<br />
+<h2>배송상태 업데이트</h2>
+<div>
+  <img src="https://user-images.githubusercontent.com/83646986/214988205-d1241db4-7564-4358-a692-9b8deff4e102.gif" /><br />
+  <b>쇼핑몰 이용 고객이 주문한 상품의 배송상태를 업데이트할 수 있습니다.</b>
+</div>
+<br />
+<h2>상품 추가</h2>
+<div>
+  <img src="https://user-images.githubusercontent.com/83646986/214989677-71108738-b542-4ef5-933e-380a0f7a4b59.gif" /><br />
+  <b>쇼핑몰에 추가하고 싶은 상품의 정보를 기재하여 상품을 추가할 수 있습니다.</b>
+</div>
+<br />
+<h2>리스트 추가</h2>
+<div>
+  <img src="https://user-images.githubusercontent.com/83646986/214991405-6ecf9e34-9c00-4744-bf69-621ccc2c4e2b.gif" /><br />
+   <b>제목과 제목에 해당하는 상품을 중복 선택하여 리스트를 추가할 수 있습니다.</b>
+</div>
+<br />
+<div>
+  <img src="https://user-images.githubusercontent.com/83646986/214991147-ac898b39-734b-4b95-b5aa-33080af806e1.png" width="800px" height="388px" /><br />
+  <b>생성된 리스트</b>
+</div>
